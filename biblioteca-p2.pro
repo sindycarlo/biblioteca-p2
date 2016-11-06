@@ -12,8 +12,16 @@ TARGET = biblioteca-p2
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    MODEL/opera.cpp \
+    MODEL/contenitore.cpp \
+    MODEL/libro.cpp \
+    MODEL/rivista.cpp
 
-HEADERS  +=
+HEADERS  += \
+    MODEL/opera.h \
+    MODEL/contenitore.h \
+    MODEL/libro.h \
+    MODEL/rivista.h
 
 FORMS    += biblioteca.ui
