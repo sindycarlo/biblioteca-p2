@@ -28,7 +28,6 @@ private:
     class nodo{
     public:
         nodo(opera*, const smartp& =0);
-
         opera* op;
         smartp next;
         int riferimenti;
@@ -40,7 +39,7 @@ public:
     class iteratore{
         friend class contenitore;
     private:
-        container::smartp punt;
+        contenitore::smartp punt;
     public:
         bool operator==(const iteratore&) const;       //operatore di uguaglianza
         bool operator!=(const iteratore&) const;       //operatore di disuguaglianza
@@ -50,11 +49,11 @@ public:
 
     };
 
-    container();                                         //costruttore contenitore vuoto
+    contenitore();                                         //costruttore contenitore vuoto
 
-    container& operator=(const contenitore&);              //assegnazione con smartp
+    contenitore& operator=(const contenitore&);              //assegnazione con smartp
 
-    container(const contenitore&);                         //costruzione di copia
+    contenitore(const contenitore&);                         //costruzione di copia
 
     //metodi pubblici contenitore
     bool empty() const;                                  // 1 <=> contenitore vuoto

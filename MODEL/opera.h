@@ -20,16 +20,16 @@ public:
     string GetTitolo() const {}             //restituisce il titolo di un opera
     int GetId() const  {}                   //restituisce id idi un opera
     int GetMaxId() const {}                 //restituisce id dell'ultima opera aggiunta al database
-    //void Set_id(const int) {}             //setta id dell'opera
-    //void Set_maxid(const int) {}          //setta maxid dell'opera
-
+    void Set_id(const int) {}             //setta id dell'opera
+    void Set_maxid(const int) {}          //setta maxid dell'opera
 
     virtual ~opera() {}
     void Riscatta() {}                      //opera non è più in prestito quindi viene messa nella biblioteca
-    virtual bool ricerca_campi(const string&) const {} //ricerco un nome di opera(stringa) nel titolo o nel id
-    virtual void Scrivi_opera(/*manca*/) =0 {} //scrivo l'opera del database
+    //virtual bool ricerca_campi(const string&) const {} //ricerco un nome di opera(stringa) nel titolo o nel id
+    //virtual void Scrivi_opera(/*manca*/) const =0 {} //scrivo l'opera del database
     virtual string Get_tipo() const =0 {}   //ritorna il tipo di quell'opera
     virtual void Presta_opera() {}          //da rivedere
+    virtual bool presente() const {}        //verifica se l'opera è presente nella biblioteca
 
 
 
