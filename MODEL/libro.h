@@ -1,3 +1,4 @@
+//test prova ithub windows
 #ifndef LIBRO_H
 #define LIBRO_H
 #include"opera.h"
@@ -16,6 +17,7 @@ public:
     virtual bool disponibile() const {}
     //virtual void Scrivi_opera(/*manca*/) const {}
     virtual string Get_tipo() const {}
+
 
 };
 
