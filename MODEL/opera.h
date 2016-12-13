@@ -1,6 +1,7 @@
 #ifndef OPERA_H
 #define OPERA_H
-
+#include "info_opera.h"
+#include <QXmlStreamWriter>
 #include<string>
 #include<iostream>
 
@@ -22,14 +23,16 @@ public:
     int GetMaxId() const {}                 //restituisce id dell'ultima opera aggiunta al database
     void Set_id(const int) {}             //setta id dell'opera
     void Set_maxid(const int) {}          //setta maxid dell'opera
+    bool presente () const {}              // metodo che mi dice se l'opera è presente oppure no nella biblioteca
 
     virtual ~opera() {}
     void Riscatta() {}                      //opera non è più in prestito quindi viene messa nella biblioteca
-    //virtual bool ricerca_campi(const string&) const {} //ricerco un nome di opera(stringa) nel titolo o nel id
-    //virtual void Scrivi_opera(/*manca*/) const =0 {} //scrivo l'opera del database
+    virtual bool ricerca_campi(const string&) const {} //ricerco un nome di opera(stringa) nel titolo o nel id
+    virtual void Write_opera(QXmlStreamWriter&) const =0 {} //scrivo l'opera del database
     virtual string Get_tipo() const =0 {}   //ritorna il tipo di quell'opera
     virtual void Presta_opera() {}          //da rivedere
-    virtual bool presente() const {}        //verifica se l'opera è presente nella biblioteca
+    virtual info_opera info_tot() const =0 {} // metodo che mi restituisce un oggetto di tipo info_opera che mi da tutte le informazioni sull'opera
+    virtual bool disponibile() const {}        //verifica se l'opera è disponibile al prestito secondo certe condizioni che vengono scelte dai sottotipi.
 
 
 

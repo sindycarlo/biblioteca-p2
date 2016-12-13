@@ -16,12 +16,15 @@ SOURCES += main.cpp \
     MODEL/opera.cpp \
     MODEL/contenitore.cpp \
     MODEL/libro.cpp \
-    MODEL/rivista.cpp
+    MODEL/rivista.cpp \
+    MODEL/info_opera.cpp
 
 HEADERS  += \
     MODEL/opera.h \
     MODEL/contenitore.h \
     MODEL/libro.h \
-    MODEL/rivista.h
+    MODEL/rivista.h \
+    MODEL/info_opera.h \
+    MODEL/database.h
 
 FORMS    += biblioteca.ui
