@@ -133,6 +133,6 @@ contenitore::iteratore&  contenitore::iteratore::operator++(int){        //opera
     return prov;
 }
 
-Opera* contenitore::iteratore::operator*()const{ return punt->op; }
+opera* contenitore::iteratore::operator*()const{ return punt->op; }
 
 

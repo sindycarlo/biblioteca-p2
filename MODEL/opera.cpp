@@ -2,7 +2,7 @@
 #include<QString>
 
 //inizializzo il massimo id di opera:
-static int maxid=0;
+int opera::maxid=0;
 
 
 //costruttore di opera (verrà utilizzato per costruire i sottoggetti di libro e rivista)

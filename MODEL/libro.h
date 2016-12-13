@@ -10,13 +10,13 @@
 
 class libro : public opera {
 private:
-    string autore;
+    QString autore;
 public:
-    libro(string, string, bool =1) {}
-    string GetAutore() const;
+    libro(QString, QString, bool =1);
+    QString Getautore()const;
     virtual void Write_opera(QXmlStreamWriter& XmlWriter) const;
-    virtual string Get_tipo() const;
-    virtual bool ricerca_campi(const string &) const;
+    virtual QString Get_tipo() const;
+    virtual bool ricerca_campi(const QString &) const;
     virtual info_opera info_tot() const;
 };
 
