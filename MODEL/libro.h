@@ -13,13 +13,11 @@ private:
     string autore;
 public:
     libro(string, string, bool =1) {}
-    string GetAutore() const {}
-    virtual void Write_opera(QXmlStreamWriter&) const {}
-    virtual string Get_tipo() const {}
-    virtual bool ricerca_campi(const string &) const {}
-    virtual info_opera info_tot() const {}
-
-
+    string GetAutore() const;
+    virtual void Write_opera(QXmlStreamWriter& XmlWriter) const;
+    virtual string Get_tipo() const;
+    virtual bool ricerca_campi(const string &) const;
+    virtual info_opera info_tot() const;
 };
 
 

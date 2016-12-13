@@ -2,21 +2,26 @@
 #define RIVISTA_H
 #include"opera.h"
 #include"info_opera.h"
+#include <QXmlStreamWriter>
 #include<string>
-#include<QXmlStreamWriter>
 #include<iostream>
 
 
 class rivista : public opera {
 private:
     unsigned int annouscita;
+    static unsigned int MaxAnni;
 
 public:
-    rivista(string, unsigned int, bool =1) {}
-    unsigned int GetAnno() const {}
-    virtual bool disponibile() const {}
-    virtual void Write_opera(QXmlStreamWriter&) const {}
-    virtual string Get_tipo() const {}
+    rivista(string, unsigned int, bool =1);
+    unsigned int GetAnnouscita() const;
+    unsigned int getMaxAnni() const;
+    virtual bool disponibile() const;
+    virtual void Write_opera(QXmlStreamWriter& xmlWriter) const;
+    virtual string Get_tipo() const;
+    virtual bool ricerca_campi(const string&) const;
+    virtual info_opera info_tot()const;
+    virtual void Presta_opera();
 
 };
 
