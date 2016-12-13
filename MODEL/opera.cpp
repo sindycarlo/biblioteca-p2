@@ -28,20 +28,22 @@ void opera::Set_maxid(const int x) {maxid=x;}
 
 void opera::Riscatta() {statoPresenza=1;}
 
-virtual void  opera::Presta_opera() {statoPresenza=0;}
+void  opera::Presta_opera() {statoPresenza=0;}
 
-virtual bool opera::presente() const {
+bool opera::presente() const {
 
     if(statoPresenza==1) return true;
     else return false;
 }
 
+bool opera::ricerca_campi(const QString& text) const {
+int ID=text.toInt();
+if((QString::compare(text,GetTitolo(),Qt::CaseInsensitive))==0) return true;
+if(ID==GetId()) return true;
+return false;
+}
 
-
-
-
-
-
-
-
-
+bool opera::disponibile() const {
+    if(presente()) return true;
+    else return true;
+}

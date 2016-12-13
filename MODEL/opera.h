@@ -30,7 +30,7 @@ public:
     virtual bool ricerca_campi(const QString&) const; //ricerco un nome di opera(stringa) nel titolo o nel id
     virtual void Write_opera(QXmlStreamWriter&) const =0; //scrivo l'opera del database
     virtual QString Get_tipo() const =0;   //ritorna il tipo di quell'opera
-    virtual void Presta_opera();         //da rivedere
+    virtual void Presta_opera();         //presta un opera ossia mette lo stato a false;
     virtual info_opera info_tot() const =0; // metodo che mi restituisce un oggetto di tipo info_opera che mi da tutte le informazioni sull'opera
     virtual bool disponibile() const;     //verifica se l'opera è disponibile al prestito secondo certe condizioni che vengono scelte dai sottotipi.
 
