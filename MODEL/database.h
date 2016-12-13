@@ -17,7 +17,7 @@
 
 
 
-class DataBase{
+class database{
 private:
     //campi dati
     static String filename;
@@ -27,8 +27,8 @@ private:
     void Close();                                       //salva tutti i cambiamenti eseguiti dall'utente nel file XML
 
 public:
-    DataBase();
-    ~DataBase();
+    database();
+    ~database();
 
     bool vuoto() const;                                 //ritorna true <=> contenitore è vuoto altrimenti ritorna false
     void remove_opera(const int);                       //elimina una opera
