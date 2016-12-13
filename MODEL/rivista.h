@@ -3,7 +3,7 @@
 #include"opera.h"
 #include"info_opera.h"
 #include <QXmlStreamWriter>
-#include<string>
+#include<QString>
 #include<iostream>
 
 
@@ -18,7 +18,7 @@ public:
     unsigned int getMaxAnni() const;
     virtual bool disponibile() const;
     virtual void Write_opera(QXmlStreamWriter& xmlWriter) const;
-    virtual string Get_tipo() const;
+    virtual QString Get_tipo() const;
     virtual bool ricerca_campi(const string&) const;
     virtual info_opera info_tot()const;
     virtual void Presta_opera();

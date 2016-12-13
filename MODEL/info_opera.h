@@ -2,24 +2,24 @@
 #define INFO_OPERA_H
 
 #include <iostream>
-#include <String>
+#include <QString>
 
 
 class info_opera
 {
 private:
-    String titolo;
-    String stato;
-    String ID;
-    String dettaglio;
-    String consultabile;
+    QString titolo;
+    QString stato;
+    QString ID;
+    QString dettaglio;
+    QString consultabile;
 public:
-    info(String ="Sconosciuto", String ="Sconosciuto", String ="Sconosciuto", String ="Sconosciuto", String ="Sconosciuto"); //costruttore 0~4 parametri.
-    String get_titolo() const;
-    String get_stato() const;
-    String get_ID() const;
-    String get_dettaglio() const;
-    String is_consultabile() const;
+    info(QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto"); //costruttore 0~4 parametri.
+    QString get_titolo() const;
+    QString get_stato() const;
+    QString get_ID() const;
+    QString get_dettaglio() const;
+    QString is_consultabile() const;
 };
 
 #endif // INFO_OPERA_H

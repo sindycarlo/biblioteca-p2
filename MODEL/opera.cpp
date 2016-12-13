@@ -1,12 +1,12 @@
 #include "opera.h"
-#include<string>
+#include<QString>
 
 //inizializzo il massimo id di opera:
 static int maxid=0;
 
 
 //costruttore di opera (verrà utilizzato per costruire i sottoggetti di libro e rivista)
-opera::opera(string t,bool sp) : Titolo(t), statoPresenza(sp) {
+opera::opera(QString t,bool sp) : Titolo(t), statoPresenza(sp) {
     maxid++;
     id=maxid;
 }
@@ -16,7 +16,7 @@ opera::~opera() {}
 
 
 
-string opera::GetTitolo() const {return Titolo;}
+QString opera::GetTitolo() const {return Titolo;}
 
 int opera::GetId() const {return id;}
 

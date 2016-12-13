@@ -4,7 +4,7 @@
 #include"info_opera.h"
 
 #include <QXmlStreamWriter>
-#include<string>
+#include<QString>
 #include<iostream>
 
 
