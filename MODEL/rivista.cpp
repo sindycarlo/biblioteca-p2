@@ -51,5 +51,9 @@ return  info_opera(GetTitolo(),disp,id,anno,pres);
 }
 
 
+void rivista::Write_opera(QXmlStreamWriter &XmlWriter) const {
+   XmlWriter.writeStartElement("opera");
+   //da capire!!
+}
 
 QString rivista::Get_tipo() const {return "rivista";}

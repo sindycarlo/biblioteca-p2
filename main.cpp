@@ -14,16 +14,20 @@
 int main(int argc, char *argv[])
 {
     //QApplication a(argc, argv);
-    rivista* x=new rivista("alice nel paese delle cacche",2004,true);
-    rivista* y=new rivista("alice nel paese delle cacche",2004,true);
-    rivista* z=new rivista("alice nel paese delle cacche",2004,true);
+    rivista* x=new rivista("ESPRESSO",2004,true);
+    rivista* y=new rivista("AIRONE",2004,true);
+    rivista* z=new rivista("NATIONAL GEOGRAPHIC",2004,true);
+    rivista* k=new rivista("FOCUS",2004,true);
 
     contenitore diprova;
     diprova.add_item(x);
-    diprova.add_item(x);
+    diprova.add_item(k);
     diprova.add_item(y);
     diprova.add_item(z);
 
-
+    contenitore::iteratore it;
+    for(it=diprova.begin();it!=diprova.end();it++)
+    {
+        std::cout<<"Titolo dell'opera: "<<(*(it))->GetTitolo().toStdString()<<std::endl;}
    // return a.exec();
 }
