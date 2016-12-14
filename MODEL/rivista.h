@@ -13,13 +13,13 @@ private:
     static unsigned int MaxAnni;
 
 public:
-    rivista(string, unsigned int, bool =1);
+    rivista(QString, unsigned int, bool =1);
     unsigned int GetAnnouscita() const;
     unsigned int getMaxAnni() const;
     virtual bool disponibile() const;
     virtual void Write_opera(QXmlStreamWriter& xmlWriter) const;
     virtual QString Get_tipo() const;
-    virtual bool ricerca_campi(const string&) const;
+    virtual bool ricerca_campi(const QString&) const;
     virtual info_opera info_tot()const;
     virtual void Presta_opera();
 
