@@ -15,7 +15,7 @@ private:
     QString dettaglio;
     QString presente;
 public:
-    info_opera(QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto"); //costruttore 0~4 parametri.
+    info_opera(QString, QString, QString, QString, QString); //costruttore 0~4 parametri.
     QString get_titolo() const;
     QString get_stato() const;
     QString get_ID() const;

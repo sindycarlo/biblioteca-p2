@@ -6,7 +6,7 @@
 
 unsigned int rivista::MaxAnni=20;
 
-rivista::rivista(QString t, unsigned int au, bool d) : opera(t,d), annouscita(au) {
+rivista::rivista(QString t ="Sconosciuto", unsigned int au = 1700, bool d =1) : opera(t,d), annouscita(au) {
     if(annouscita<1700)
     {std::cout<<"Errore: anno di uscita dela rivista troppo grande";}
     annouscita=1700;
@@ -31,5 +31,25 @@ if(disponibile())
 {opera::Presta_opera();}
 else{/*solleva eccezione*/}
 }
+
+bool rivista::ricerca_campi(const QString & text) const {
+if(opera::ricerca_campi(text))return true;
+else{
+  int anniu=text.toInt();
+  if(anniu==annouscita) return true;
+  }
+return false;
+}
+
+info_opera rivista::info_tot() const {
+QString disp="disponibile", id, anno="1700", pres="si";
+if(!disponibile()) disp="non disponibile";
+if(!presente()) pres="non presente";
+id.setNum(GetId());
+anno.setNum(GetAnnouscita());
+return  info_opera(GetTitolo(),disp,id,anno,pres);
+}
+
+
 
 QString rivista::Get_tipo() const {return "rivista";}

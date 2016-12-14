@@ -13,7 +13,7 @@ private:
     static unsigned int MaxAnni;
 
 public:
-    rivista(QString, unsigned int, bool =1);
+    rivista(QString, unsigned int, bool);
     unsigned int GetAnnouscita() const;
     unsigned int getMaxAnni() const;
     virtual bool disponibile() const;

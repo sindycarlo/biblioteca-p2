@@ -15,7 +15,7 @@ private:
     static int maxid;                       //massimo id (ultimo id) che è stato assegnato ad un opera
                                             //(l'ultima opera che è stata memorizzata nel database)
 public:
-    opera(QString,bool =1);              //costruttore a 1,2 parametri (id della nuova opera sarà id=maxid+1)
+    opera(QString,bool);              //costruttore a 1,2 parametri (id della nuova opera sarà id=maxid+1)
 
 
     QString GetTitolo() const;            //restituisce il titolo di un opera

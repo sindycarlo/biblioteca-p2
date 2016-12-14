@@ -6,7 +6,7 @@ int opera::maxid=0;
 
 
 //costruttore di opera (verrà utilizzato per costruire i sottoggetti di libro e rivista)
-opera::opera(QString t,bool sp) : Titolo(t), statoPresenza(sp) {
+opera::opera(QString t ="sconosciuto",bool sp =1) : Titolo(t), statoPresenza(sp) {
     maxid++;
     id=maxid;
 }

@@ -6,7 +6,7 @@
 
 
 
-libro::libro(QString t, QString a, bool d) : opera(t,d), autore(a) {}
+libro::libro(QString t ="Sconosciuto", QString a ="sconosciuto", bool d) : opera(t,d), autore(a) {}
 
 
 QString libro::Getautore() const {return autore;}
@@ -23,11 +23,11 @@ bool libro::ricerca_campi(const QString & x) const {
 }
 
  info_opera libro::info_tot() const {
-QString disp="disponibile", id,pres="si";
+QString disp="disponibile", id, pres="si";
 if(!disponibile()) disp="non disponibile";
 if(!presente()) pres="non presente";
 id.setNum(GetId());
-return new info_opera(GetTitolo(),disp,id,Getautore(),pres);
+return  info_opera(GetTitolo(),disp,id,Getautore(),pres);
 }
 
 
