@@ -17,7 +17,8 @@ SOURCES += main.cpp \
     MODEL/contenitore.cpp \
     MODEL/libro.cpp \
     MODEL/rivista.cpp \
-    MODEL/info_opera.cpp
+    MODEL/info_opera.cpp \
+    MODEL/database.cpp
 
 HEADERS  += \
     MODEL/opera.h \
@@ -28,3 +29,6 @@ HEADERS  += \
     MODEL/database.h
 
 FORMS    += biblioteca.ui
+
+DISTFILES += \
+    database.xml

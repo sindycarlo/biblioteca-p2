@@ -5,16 +5,17 @@
 #include <QString>
 
 
+//Un oggetto di tipo info_opera mi restituisce tutte le informazioni di quell'opera d'invocazione
 class info_opera
 {
 private:
     QString titolo;
-    QString stato;
+    QString disponibile;
     QString ID;
     QString dettaglio;
-    QString consultabile;
+    QString presente;
 public:
-    info(QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto"); //costruttore 0~4 parametri.
+    info_opera(QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto"); //costruttore 0~4 parametri.
     QString get_titolo() const;
     QString get_stato() const;
     QString get_ID() const;
