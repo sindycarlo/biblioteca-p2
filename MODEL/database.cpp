@@ -7,7 +7,7 @@ QString database::filename="../biblioteca-p2/database.xml";
 
 contenitore::iteratore database::db_begin() {return db.begin();}
 
-contenitore::iteratore database::db_end() {db.end();}
+contenitore::iteratore database::db_end() {return db.end();}
 
 
 
@@ -19,7 +19,15 @@ database::database() {database::Load();}
 database::~database() {database::Close();}
 
 
+//rimuovere un opera dal database significa:
+/*1) cercare l'opera nel database con quel id;
+ * 2) rimuoverla dal mio contenitore di opere;
+ * 3) aggiornare il database;
+ * */
 
+void remove_opera(const int id) {
+
+}
 
 
 bool database::vuoto() const {return db.empty();}
@@ -34,9 +42,10 @@ libro*p=new libro(c.get_titolo(),c.get_dettaglio(),1);
 db.add_item(p);
 }
 
-//aggiunge una rivista al mio contenitorw quindi al database:
+//aggiunge una rivista al mio contenitore quindi al database:
 void database::add_Rivista(const info_opera & c1) {
-    rivista*p=new rivista(c1.get_titolo(),c1.get_dettaglio(),1);
+    unsigned int x=c1.get_dettaglio().toInt();
+    rivista*p=new rivista(c1.get_titolo(),x,1);
     db.add_item(p);
 }
 
