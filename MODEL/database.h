@@ -32,7 +32,8 @@ public:
 
     bool vuoto() const;                                 //ritorna true <=> contenitore è vuoto altrimenti ritorna false
     void remove_opera(const int);                       //elimina una opera
-    contenitore cerca_opera(const QString&) const;        //cerca una opera cercando in tutti i campi di essa (ricerca polimorfa). la ricerca è caseInsensitive
+    opera* trova_opera(unsigned int) const;
+    //contenitore cerca_opera(const QString&) const;        //cerca una opera cercando in tutti i campi di essa (ricerca polimorfa). la ricerca è caseInsensitive
     void add_Rivista(const info_opera&);                             //aggiunge una rivista
     void add_Libro(const info_opera&);                               //aggiunge una libro
 

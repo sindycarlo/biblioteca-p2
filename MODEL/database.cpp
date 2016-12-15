@@ -21,12 +21,23 @@ database::~database() {database::Close();}
 
 //rimuovere un opera dal database significa:
 /*1) cercare l'opera nel database con quel id;
+ * (utilizzare un opportuno metodo)
  * 2) rimuoverla dal mio contenitore di opere;
  * 3) aggiornare il database;
  * */
 
-void remove_opera(const int id) {
-
+opera* database::trova_opera(unsigned int id) const{
+   contenitore::iteratore it;
+   for(it=db.begin();it!=db.end();it++)
+   {
+       if((*it)->GetId()==id) return *it;
+   }
+   return 0;
+}
+void database::remove_opera(const int id) {
+opera*tmp=trova_opera(id);
+if(tmp!=0){db.remove_item(tmp);}
+else std::cout<<"Errore opera non presente nel database";
 }
 
 
