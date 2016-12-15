@@ -18,20 +18,49 @@ database::database() {database::Load();}
 //"distruggere" un database significa fare la chiusura del file database.xml:
 database::~database() {database::Close();}
 
+//apporto le modifiche riscrivendo tutto il database:
+void database::Close() {
+    QFile file(filename);
+         file.open(QIODevice::WriteOnly);
+
+         QXmlStreamWriter xmlWriter(&file);
+         xmlWriter.setAutoFormatting(true);
+         xmlWriter.writeStartDocument();
+        if(!vuoto())
+        {
+         xmlWriter.writeStartElement("database");
+         contenitore::iteratore it;
+         for(it=db.begin();it!=db.end();it++)
+         {
+             (*it)->Write_opera(xmlWriter);
+         }
+         xmlWriter.writeEndDocument();
+        }
+        file.close();
+}
 
 //rimuovere un opera dal database significa:
 /*1) cercare l'opera nel database con quel id;
  * (utilizzare un opportuno metodo)
  * 2) rimuoverla dal mio contenitore di opere;
  * 3) aggiornare il database;
+ * (metodo close aggiorna il database con le modifiche!)
  * */
 
 opera* database::trova_opera(unsigned int id) const{
+   if(vuoto()) return 0;
+
    contenitore::iteratore it;
-   for(it=db.begin();it!=db.end();it++)
+   contenitore::iteratore risultato;
+   bool trovato=false;
+   for(it=db.begin();it!=db.end() && !trovato;it++)
    {
-       if((*it)->GetId()==id) return *it;
+       if((*it)->GetId()==id) trovato=true;
+           risultato=it;
+           it++;
+
    }
+   if(trovato) return *risultato;
    return 0;
 }
 void database::remove_opera(const int id) {

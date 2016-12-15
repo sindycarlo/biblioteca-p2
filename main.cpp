@@ -19,7 +19,15 @@ int main(int argc, char *argv[])
     rivista* z=new rivista("NATIONAL GEOGRAPHIC",2004,true);
     rivista* k=new rivista("FOCUS",2004,true);
 
-    contenitore diprova;
+     rivista prova("ESPRESSO",2004,true);
+     info_opera prova2=prova.info_tot();
+    database db;
+
+
+    db.add_Rivista(prova2);
+
+
+   /* contenitore diprova;
     diprova.add_item(x);
     diprova.add_item(k);
     diprova.add_item(y);
@@ -30,4 +38,5 @@ int main(int argc, char *argv[])
     {
         std::cout<<"Titolo dell'opera: "<<(*(it))->GetTitolo().toStdString()<<std::endl;}
    // return a.exec();
+   */
 }
