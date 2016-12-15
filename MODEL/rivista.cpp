@@ -51,9 +51,30 @@ return  info_opera(GetTitolo(),disp,id,anno,pres);
 }
 
 
+
 void rivista::Write_opera(QXmlStreamWriter &XmlWriter) const {
    XmlWriter.writeStartElement("opera");
-   //da capire!!
+
+   //essendo una rivista il tipo è "2";
+   XmlWriter.writeTextElement("Tipo","2");
+   //scrivo il titolo della rivista:
+   XmlWriter.writeTextElement("Titolo",GetTitolo());
+   //scrivo ID della rivista:
+   int id=GetId();
+   QString x;
+   x.setNum(id);
+   XmlWriter.writeTextElement("Id",x);
+   //scrivo stato presenza rivista nella biblioteca:
+   bool b=presente();
+   QString y;
+   y.setNum(b);
+   XmlWriter.writeTextElement("Stato",y);
+   //scrivo il dettaglio di rivista che è annodiuscita:
+   unsigned int au=GetAnnouscita();
+   QString z;
+   z.setNum(au);
+   XmlWriter.writeTextElement("AnnoUscita",z);
+   XmlWriter.writeEndElement();
 }
 
 QString rivista::Get_tipo() const {return "rivista";}

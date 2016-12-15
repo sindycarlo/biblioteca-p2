@@ -38,7 +38,7 @@ public:
 
 
 
-    contenitore::iteratore db_iterator;
+    contenitore::iteratore db_iter;
 
     contenitore::iteratore db_begin();
     contenitore::iteratore db_end();

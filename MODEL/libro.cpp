@@ -33,6 +33,23 @@ return  info_opera(GetTitolo(),disp,id,Getautore(),pres);
 
  void libro::Write_opera(QXmlStreamWriter &XmlWriter) const {
     XmlWriter.writeStartElement("opera");
-    //da capire!!
+
+    //essendo un libro il tipo è "1";
+    XmlWriter.writeTextElement("Tipo","1");
+    //scrivo il titolo del libro:
+    XmlWriter.writeTextElement("Titolo",GetTitolo());
+    //scrivo ID del libro:
+    int id=GetId();
+    QString x;
+    x.setNum(id);
+    XmlWriter.writeTextElement("Id",x);
+    //scrivo stato presenza libro nella biblioteca:
+    bool b=presente();
+    QString y;
+    y.setNum(b);
+    XmlWriter.writeTextElement("Stato",y);
+    //scrivo il dettaglio di libro che è l'autore:
+    XmlWriter.writeTextElement("Autore",Getautore());
+    XmlWriter.writeEndElement();
 }
 
