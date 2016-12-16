@@ -8,7 +8,7 @@ unsigned int rivista::MaxAnni=20;
 
 rivista::rivista(QString t ="Sconosciuto", unsigned int au = 1700, bool d =1) : opera(t,d), annouscita(au) {
     if(annouscita<1700)
-    {std::cout<<"Errore: anno di uscita dela rivista troppo grande";}
+    {std::cout<<"Errore: anno di uscita della rivista troppo grande";}
     annouscita=1700;
 }
 

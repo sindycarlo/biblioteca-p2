@@ -26,7 +26,7 @@ void database::Load() {
     opera*tmp=NULL;
     QFile file(filename);
          file.open(QIODevice::ReadOnly);
-         if (!file.open(QFile::ReadOnly | QFile::Text))  std::cout << "Errore: Impossibile leggere il file"<< std::endl;
+           // if (!file.open(QFile::ReadOnly | QFile::Text))  std::cout << "Errore: Impossibile leggere il file"<< std::endl;
          QXmlStreamReader xmlReader(&file);
          xmlReader.readNext();
          while(!xmlReader.atEnd())

@@ -14,23 +14,26 @@
 int main(int argc, char *argv[])
 {
     //QApplication a(argc, argv);
-    rivista* x=new rivista("ESPRESSO",2004,true);
-    rivista* y=new rivista("AIRONE",2004,true);
-    rivista* z=new rivista("NATIONAL GEOGRAPHIC",2004,true);
-    rivista* k=new rivista("FOCUS",2004,true);
 
 
 
-     rivista prova("ESPRESSO",2004,true);
-     info_opera prova2=prova.info_tot();
+     rivista prova("ESPRESSO",2006,true);
+     libro prova1("NEMO","CARLO SINDICO",true);
+     rivista prova2("NATIONAL GEOGRAPHIC",2005,false);
+     //libro prova3("IL PICCOLO PRINCIPE","DAVIDE POLONIO",true);
+     info_opera p1=prova.info_tot();
+    info_opera p2=prova1.info_tot();
+     info_opera p3=prova2.info_tot();
+    // info_opera p4=prova3.info_tot();
+
      database db;
 
 
-    db.add_Rivista(prova2);
-    db.add_Rivista(prova2);
-    db.add_Rivista(prova2);
-    db.add_Rivista(prova2);
-    db.add_Rivista(prova2);
+    db.add_Rivista(p1);
+    db.add_Libro(p2);
+    db.add_Rivista(p3);
+   // db.add_Rivista(p4);
+    db.add_Rivista(p1);
 
 
    /* contenitore diprova;
