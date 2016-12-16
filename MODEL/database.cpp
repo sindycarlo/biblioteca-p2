@@ -23,9 +23,10 @@ database::~database() {database::Close();}
 void database::Load() {
     int Tipo=0, AnnoUscita=0,Stato=-1, Id=0;
     QString Titolo="Nessuno", Autore="Nessuno";
-
+    opera*tmp=NULL;
     QFile file(filename);
          file.open(QIODevice::ReadOnly);
+         if (!file.open(QFile::ReadOnly | QFile::Text))  std::cout << "Errore: Impossibile leggere il file"<< std::endl;
          QXmlStreamReader xmlReader(&file);
          xmlReader.readNext();
          while(!xmlReader.atEnd())
@@ -60,11 +61,17 @@ void database::Load() {
          {      //sono al tag </opera>
              if(xmlReader.isEndDocument() && xmlReader.name()=="opera")
              {
-
-             }
-
+               if(Tipo==1) tmp=new libro(Titolo,Autore,Stato);
+               else tmp=new rivista(Titolo,AnnoUscita,Stato);
+                tmp->Set_id(Id);
+                db.add_item(tmp);
+                xmlReader.readNext();
+              }
+             else xmlReader.readNext();
          }
          }
+
+
 }
 
 //apporto le modifiche riscrivendo tutto il database:

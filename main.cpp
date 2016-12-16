@@ -19,11 +19,17 @@ int main(int argc, char *argv[])
     rivista* z=new rivista("NATIONAL GEOGRAPHIC",2004,true);
     rivista* k=new rivista("FOCUS",2004,true);
 
+
+
      rivista prova("ESPRESSO",2004,true);
      info_opera prova2=prova.info_tot();
      database db;
 
 
+    db.add_Rivista(prova2);
+    db.add_Rivista(prova2);
+    db.add_Rivista(prova2);
+    db.add_Rivista(prova2);
     db.add_Rivista(prova2);
 
 
