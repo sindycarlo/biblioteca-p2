@@ -18,6 +18,55 @@ database::database() {database::Load();}
 //"distruggere" un database significa fare la chiusura del file database.xml:
 database::~database() {database::Close();}
 
+
+//quando carico il database scrivo tutte le opre nel mio contenitore:
+void database::Load() {
+    int Tipo=0, AnnoUscita=0,Stato=-1, Id=0;
+    QString Titolo="Nessuno", Autore="Nessuno";
+
+    QFile file(filename);
+         file.open(QIODevice::ReadOnly);
+         QXmlStreamReader xmlReader(&file);
+         xmlReader.readNext();
+         while(!xmlReader.atEnd())
+         {
+            if(xmlReader.isStartElement())
+            {
+                if(xmlReader.name()=="database" || xmlReader.name()=="opera") xmlReader.readNext();
+                else
+                    if(xmlReader.name()=="Tipo") Tipo=xmlReader.readElementText().toInt();
+                    else
+                        if(xmlReader.name()=="Id") Id=xmlReader.readElementText().toInt();
+                        else
+                            if(xmlReader.name()=="Stato") Stato=xmlReader.readElementText().toInt();
+                            else
+                    if(Tipo==1)//sto leggendo un libro:
+                    {
+                        if(xmlReader.name()=="Titolo") Titolo=xmlReader.readElementText();
+                        else
+                            if(xmlReader.name()=="Autore") Autore=xmlReader.readElementText();
+                        else std::cout<<"Errore nella lettura di un libro";
+                    }
+                    else if(Tipo==2)
+                    {
+                        if(xmlReader.name()=="Titolo") Titolo=xmlReader.readElementText();
+                        else
+                            if(xmlReader.name()=="AnnoUscita") Autore=xmlReader.readElementText();
+                        else std::cout<<"Errore nella lettura di un libro";
+                    }
+
+         }
+         else //sono alla fine del documento quindi:
+         {      //sono al tag </opera>
+             if(xmlReader.isEndDocument() && xmlReader.name()=="opera")
+             {
+
+             }
+
+         }
+         }
+}
+
 //apporto le modifiche riscrivendo tutto il database:
 void database::Close() {
     QFile file(filename);

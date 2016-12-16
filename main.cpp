@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
      rivista prova("ESPRESSO",2004,true);
      info_opera prova2=prova.info_tot();
-    database db;
+     database db;
 
 
     db.add_Rivista(prova2);
