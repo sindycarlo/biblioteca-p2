@@ -109,9 +109,10 @@ opera* database::trova_opera(unsigned int id) const{
    contenitore::iteratore it;
    contenitore::iteratore risultato;
    bool trovato=false;
-   for(it=db.begin();it!=db.end() && !trovato;it++)
+   it=db.begin();
+   while(it!=db.end() && !trovato)
    {
-       if((*it)->GetId()==id) trovato=true;
+       if((*it)->GetId()==id){ trovato=true;}
            risultato=it;
            it++;
 
