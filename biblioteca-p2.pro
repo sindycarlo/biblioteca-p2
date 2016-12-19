@@ -18,7 +18,10 @@ SOURCES += main.cpp \
     MODEL/libro.cpp \
     MODEL/rivista.cpp \
     MODEL/info_opera.cpp \
-    MODEL/database.cpp
+    MODEL/database.cpp \
+    MODEL/utente.cpp \
+    MODEL/utente_basic.cpp \
+    MODEL/utente_pro.cpp
 
 HEADERS  += \
     MODEL/opera.h \

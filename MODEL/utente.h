@@ -13,10 +13,10 @@ private:
     QString Cognome;                      //cognome dell'utente
     QString codicefiscale;                 //codice fiscale dell'utente
     QString password;                       //password per accedere alla biblioteca
-    contenitore* perutente;                  //ogni utente ha un proprio contenitore di opere che ha in prestito
+    contenitore* opereuser;                  //ogni utente ha un proprio contenitore di opere che ha in prestito
     int id;                                 //ogni utente ha un codice identificativo univoco
 
-    static int maxid;                       //massimo id (ultimo id) che è stato assegnato ad un utente
+    static unsigned int maxid;                       //massimo id (ultimo id) che è stato assegnato ad un utente
                                             //(l'ultimo utente che è stato memorizzato nel database)
 public:
     utente(QString,QString,QString,QString);              //costruttore a 0,5 parametri (id del nuovo utente sarà id=maxid+1)
