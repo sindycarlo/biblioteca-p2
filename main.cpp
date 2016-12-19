@@ -32,10 +32,14 @@ int main(int argc, char *argv[])
     db.add_Rivista(p3);
     db.add_Libro(p4);
     db.add_Rivista(p1);
+    db.add_Rivista(p1);
+    db.add_Rivista(p1);
+    db.add_Rivista(p1);
 
     db.remove_opera(6);
+    db.remove_opera(7);
     //test prova stampa dal database:
-    contenitore::iteratore it;
+    contenitore<opera>::iteratore it;
     for(it=db.db_begin();it!=db.db_end();it++)
     {
         std::cout<<"Titolo dell'opera: "<<(*(it))->GetTitolo().toStdString()<<"  "<<"Dettaglio: "<<(*(it))->Get_tipo().toStdString()<<std::endl;

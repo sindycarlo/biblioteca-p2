@@ -5,9 +5,9 @@ QString database::filename="../biblioteca-p2/database.xml";
 
 
 
-contenitore::iteratore database::db_begin() {return db.begin();}
+contenitore<opera>::iteratore database::db_begin() {return db.begin();}
 
-contenitore::iteratore database::db_end() {return db.end();}
+contenitore<opera>::iteratore database::db_end() {return db.end();}
 
 
 
@@ -85,7 +85,7 @@ void database::Close() {
         if(!vuoto())
         {
          xmlWriter.writeStartElement("database");
-         contenitore::iteratore it;
+         contenitore<opera>::iteratore it;
          for(it=db.begin();it!=db.end();it++)
          {
              (*it)->Write_opera(xmlWriter);
@@ -106,8 +106,8 @@ void database::Close() {
 opera* database::trova_opera(unsigned int id) const{
    if(vuoto()) return 0;
 
-   contenitore::iteratore it;
-   contenitore::iteratore risultato;
+   contenitore<opera>::iteratore it;
+   contenitore<opera>::iteratore risultato;
    bool trovato=false;
    it=db.begin();
    while(it!=db.end() && !trovato)
