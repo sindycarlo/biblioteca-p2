@@ -24,7 +24,6 @@ QString utente::GetCodicefiscale() const {return codicefiscale;}
 
 QString utente::GetPassword() const {return password;}
 
-//aggiungere un utente nel database degli utenti:
-virtual utente::Write_utente(QXmlStreamWriter & u) const {
+QString utente::GetID() const {return id;}
 
-}
+QString utente::Getmaxid() const {return maxid;}

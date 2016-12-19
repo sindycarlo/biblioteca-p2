@@ -27,7 +27,8 @@ public:
     QString GetCognome() const;         //restituisce il cognome di un utente
     QString GetCodicefiscale() const;   //restituisce il codice fiscale di un utente
     QString GetPassword() const;        //restituisce la password di un utente.
-
+    QString GetID() const;
+    QString Getmaxid() const;
 
 
     //metodi propri di utente:
