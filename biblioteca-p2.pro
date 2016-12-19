@@ -26,7 +26,12 @@ HEADERS  += \
     MODEL/libro.h \
     MODEL/rivista.h \
     MODEL/info_opera.h \
-    MODEL/database.h
+    MODEL/database.h \
+    MODEL/utente.h \
+    MODEL/utente_basic.h \
+    MODEL/utente_pro.h \
+    MODEL/database_utente.h \
+    MODEL/info_utente.h
 
 FORMS    += biblioteca.ui
 
