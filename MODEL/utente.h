@@ -13,13 +13,13 @@ private:
     QString Cognome;                      //cognome dell'utente
     QString codicefiscale;                 //codice fiscale dell'utente
     QString password;                       //password per accedere alla biblioteca
-    contenitore perutente;                  //ogni utente ha un proprio contenitore di opere che ha in prestito
+    contenitore* perutente;                  //ogni utente ha un proprio contenitore di opere che ha in prestito
     int id;                                 //ogni utente ha un codice identificativo univoco
 
     static int maxid;                       //massimo id (ultimo id) che è stato assegnato ad un utente
                                             //(l'ultimo utente che è stato memorizzato nel database)
 public:
-    utente(QString,QString,QString,QString,const contenitore&);              //costruttore a 0,5 parametri (id del nuovo utente sarà id=maxid+1)
+    utente(QString,QString,QString,QString);              //costruttore a 0,5 parametri (id del nuovo utente sarà id=maxid+1)
 
 
     virtual ~utente();
@@ -28,13 +28,13 @@ public:
     QString GetCodicefiscale() const;   //restituisce il codice fiscale di un utente
     QString GetPassword() const;        //restituisce la password di un utente.
 
-    //eredito tutto da opera e da contenitore:
+
 
     //metodi propri di utente:
     virtual void Write_utente(QXmlStreamWriter&) const =0; //scrivo l'utente nel database
     virtual QString Get_tipo_utente() const =0;   //ritorna il tipo di utente
     virtual info_utente infoutente() const =0;
-    virtual void  ricevi_opera(const opera&) =0; //metodo che da in prestito un opera a seconda del tipo di utente sono imposte certe condizioni
+    virtual void  ricevi_opera(QString) =0; //metodo che da in prestito un opera a seconda del tipo di utente sono imposte certe condizioni
     virtual void restituisci_opera(const opera&) =0; //metodo che restituisce un opera alla biblioteca.
 
 };

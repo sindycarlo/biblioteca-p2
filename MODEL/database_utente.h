@@ -21,7 +21,7 @@ class database{
 private:
     //campi dati
     static QString filename;
-    contenitore db;                                     //creo il contenitore leggendo il file xml
+    contenitore<utente> db;                                     //creo il contenitore leggendo il file xml
 
     void Load();
     void Close();                                       //salva tutti i cambiamenti eseguiti dall'utente nel file XML
@@ -38,10 +38,10 @@ public:
 
 
 
-    contenitore::iteratore db_iter;
+    contenitore<utente>::iteratore db_iter;
 
-    contenitore::iteratore db_begin();
-    contenitore::iteratore db_end();
+    contenitore<utente>::iteratore db_begin();
+    contenitore<utente>::iteratore db_end();
 
 };
 
