@@ -29,4 +29,12 @@ unsigned int utente::GetID() const {return id;}
 unsigned int utente::Getmaxid() const {return maxid;}
 
 
-void utente::restituisci_opera(
+void utente::restituisci_opera(unsigned int x) {
+opera* op=database::trova_opera(x);
+if(op!=0)
+{
+
+}
+
+
+}

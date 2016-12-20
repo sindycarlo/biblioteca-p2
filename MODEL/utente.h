@@ -2,6 +2,7 @@
 #define UTENTE_H
 #include "info_utente.h"
 #include "opera.h"
+#include "database.h"
 #include "contenitore.h"
 #include <QXmlStreamWriter>
 #include<QString>
