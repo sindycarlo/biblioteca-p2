@@ -39,4 +39,6 @@ HEADERS  += \
 FORMS    += biblioteca.ui
 
 DISTFILES += \
-    database.xml
+    database.xml \
+    databaseutenti.xml \
+    opereutenti.xml

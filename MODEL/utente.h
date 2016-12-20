@@ -13,8 +13,8 @@ private:
     QString Cognome;                      //cognome dell'utente
     QString codicefiscale;                 //codice fiscale dell'utente
     QString password;                       //password per accedere alla biblioteca
-    contenitore* opereuser;                  //ogni utente ha un proprio contenitore di opere che ha in prestito
-    int id;                                 //ogni utente ha un codice identificativo univoco
+    contenitore<opera>* opereuser;                  //ogni utente ha un proprio contenitore di opere che ha in prestito
+    unsigned int id;                                 //ogni utente ha un codice identificativo univoco
 
     static unsigned int maxid;                       //massimo id (ultimo id) che è stato assegnato ad un utente
                                             //(l'ultimo utente che è stato memorizzato nel database)
@@ -27,16 +27,16 @@ public:
     QString GetCognome() const;         //restituisce il cognome di un utente
     QString GetCodicefiscale() const;   //restituisce il codice fiscale di un utente
     QString GetPassword() const;        //restituisce la password di un utente.
-    QString GetID() const;
-    QString Getmaxid() const;
-
+    unsigned int GetID() const;
+    unsigned int Getmaxid() const;
 
     //metodi propri di utente:
     virtual void Write_utente(QXmlStreamWriter&) const =0; //scrivo l'utente nel database
+    virtual void Write_utenteopere(QXmlStreamWriter&) const =0;//scrivo tutte le opere appartenenti a quell'istanza di utente nel XML
     virtual QString Get_tipo_utente() const =0;   //ritorna il tipo di utente
     virtual info_utente infoutente() const =0;
     virtual void  ricevi_opera(QString) =0; //metodo che da in prestito un opera a seconda del tipo di utente sono imposte certe condizioni
-    virtual void restituisci_opera(const opera&) =0; //metodo che restituisce un opera alla biblioteca.
+    virtual void restituisci_opera(const opera&); //metodo che restituisce un opera alla biblioteca.
 
 };
 

@@ -24,6 +24,6 @@ QString utente::GetCodicefiscale() const {return codicefiscale;}
 
 QString utente::GetPassword() const {return password;}
 
-QString utente::GetID() const {return id;}
+unsigned int utente::GetID() const {return id;}
 
-QString utente::Getmaxid() const {return maxid;}
+unsigned int utente::Getmaxid() const {return maxid;}

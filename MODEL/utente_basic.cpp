@@ -1,6 +1,7 @@
 #include "utente_basic.h"
+#include "database.h"
 #include "QString"
-
+#include <QXmlStreamWriter>
 //un utente_basic può ricevere in prestito massimo 5 opere;
 
 //inizializzo la variabile statica NumOpere:
@@ -17,13 +18,57 @@ utente_basic::utente_basic(unsigned int no =0, QString n ="Sconociuto", QString 
 
 unsigned int utente_basic::Get_numopere() const {return NumOpere;}
 
-void utente_basic::Write_utente(QXmlStreamWriter & u) const {
+//scrive nel file xml un utente basic:
+void utente_basic::Write_utente(QXmlStreamWriter &XmlWriter) const {
+    XmlWriter.writeStartElement("utente");
 
+    //essendo un utente basic il tipo è "1";
+    XmlWriter.writeTextElement("Tipo","1");
+    //scrivo il nome dell'utente:
+    XmlWriter.writeTextElement("Nome",GetNome());
+    //scrivo il cognome dell'utente:
+    XmlWriter.writeTextElement("Cognome",GetCognome());
+    //scrivo codice fiscale:
+    XmlWriter.writeTextElement("CodiceFiscale",GetCodicefiscale());
+    //scrivo id dell'utente:
+    int id=GetID();
+    QString x;
+    x.setNum(id);
+    XmlWriter.writeTextElement("Id",x);
+    //scrivo password utente:
+    XmlWriter.writeTextElement("Password",GetPassword());
+    //scrivo il dettaglio di utente_basic che è Numero opere in prestito:
+    unsigned int k=Get_numopere();
+    QString z;
+    z.setNum(k);
+    XmlWriter.writeTextElement("NumeroOpere",z);
+    XmlWriter.writeEndElement();
 }
 
-
+//ottengo un oggetto info_utente che mi fornisce tutte le informazioni su un utente:
 info_utente utente_basic::infoutente() const {
-    int id;
+    QString id;
     id.setNum(GetID());
-    return info_utente(GetNome(),GetCognome(),id,Getpassword(),Getcodicefiscale(),NumOpere);
+    QString no;
+    no.setNum(Get_numopere());
+    return info_utente(GetNome(),GetCognome(),id,GetPassword(),GetCodicefiscale(),no);
 }
+
+QString utente_basic::Get_tipo_utente() const {
+    return "Utente Basic";
+}
+/*Per poter prendere in prestito un opera:
+ * 1)inanzitutto deve essere disponibile nella Biblioteca;
+ * 2)poi viene verificato se l'utente è abilitato ad ottenere il prestito
+ * 3)se è abilitato allora l'opera viene salvata e rimossa dal database della biblioteca
+ * 4)ed aggiunta al database delle opere del utente.
+ *
+*/
+void utente_basic::ricevi_opera(unsigned int x) {
+   //cerco l'opera dentro il database:
+   opera*op=database::trova_opera(x);
+   if(op->disponibile()==true && Get_numopere()<=NumOpere)
+   {opereuser->add_item(op);}
+}
+
+
