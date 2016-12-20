@@ -20,8 +20,7 @@ public:
     virtual void Write_utenteopere(QXmlStreamWriter&) const =0;
     virtual QString Get_tipo_utente() const;   //ritorna il tipo di utente
     virtual info_utente infoutente() const;
-    virtual void  ricevi_opera(QString); //metodo che da in prestito un opera a seconda del tipo di utente sono imposte certe condizioni
-    virtual void restituisci_opera(const opera&); //metodo che restituisce un opera alla biblioteca.
+    virtual void  ricevi_opera(unsigned int); //metodo che da in prestito un opera a seconda del tipo di utente sono imposte certe condizioni
 
 };
 #endif // UTENTE_BASIC_H

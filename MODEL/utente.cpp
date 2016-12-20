@@ -27,3 +27,6 @@ QString utente::GetPassword() const {return password;}
 unsigned int utente::GetID() const {return id;}
 
 unsigned int utente::Getmaxid() const {return maxid;}
+
+
+void utente::restituisci_opera(

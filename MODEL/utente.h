@@ -35,8 +35,8 @@ public:
     virtual void Write_utenteopere(QXmlStreamWriter&) const =0;//scrivo tutte le opere appartenenti a quell'istanza di utente nel XML
     virtual QString Get_tipo_utente() const =0;   //ritorna il tipo di utente
     virtual info_utente infoutente() const =0;
-    virtual void  ricevi_opera(QString) =0; //metodo che da in prestito un opera a seconda del tipo di utente sono imposte certe condizioni
-    virtual void restituisci_opera(const opera&); //metodo che restituisce un opera alla biblioteca.
+    virtual void  ricevi_opera(unsigned int) =0; //metodo che da in prestito un opera a seconda del tipo di utente sono imposte certe condizioni
+    virtual void restituisci_opera(unsigned int); //metodo che restituisce un opera alla biblioteca.
 
 };
 
