@@ -21,7 +21,8 @@ SOURCES += main.cpp \
     MODEL/database.cpp \
     MODEL/utente.cpp \
     MODEL/utente_basic.cpp \
-    MODEL/utente_pro.cpp
+    MODEL/utente_pro.cpp \
+    MODEL/info_utente.cpp
 
 HEADERS  += \
     MODEL/opera.h \

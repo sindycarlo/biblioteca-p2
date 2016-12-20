@@ -7,7 +7,7 @@ unsigned int utente::maxid=0;
 
 
 //costruttore di utente:
-utente::utente(QString n ="Sconosciuto", QString c ="Sconosciuto", QString  cf ="Sconosciuto", QString psw ="Sconosciuto"): Nome(n), Cognome(c), codicefiscale(cf), password(psw), opereuser(0) {
+utente::utente(QString n ="Sconosciuto", QString c ="Sconosciuto", QString  cf ="Sconosciuto", QString psw ="Sconosciuto", database * db =0): Nome(n), Cognome(c), codicefiscale(cf), password(psw), opereuser(0),puntdb(db) {
     maxid++;
     id=maxid;
 }
@@ -30,11 +30,10 @@ unsigned int utente::Getmaxid() const {return maxid;}
 
 
 void utente::restituisci_opera(unsigned int x) {
-opera* op=database::trova_opera(x);
+opera* op=Getpuntdb()->trova_opera(x);
 if(op!=0)
 {
-
+   Getcontainer()->add_item(op); opereuser->remove_item(op);
 }
-
-
+else {std::cout<<"nessuna opera in prestito impossibile restituirla!";}
 }

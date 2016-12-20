@@ -9,7 +9,7 @@ unsigned int utente_basic::limiteopere=5;
 
 
 //costruttore di utente_basic:
-utente_basic::utente_basic(unsigned int no =0, QString n ="Sconociuto", QString c ="Sconosciuto", QString cf ="Sconosciuto", QString psw ="Sconosciuto"): utente(n,c,cf,psw), NumOpere(no) {
+utente_basic::utente_basic(unsigned int no =0, QString n ="Sconociuto", QString c ="Sconosciuto", QString cf ="Sconosciuto", QString psw ="Sconosciuto",database* db =0): utente(n,c,cf,psw,db), NumOpere(no) {
     if(no>limiteopere)
     {std::cout<<"Errore: un utente basic non può prendere in prestito più di 5 opere";}
     NumOpere=limiteopere;
@@ -59,7 +59,7 @@ void utente_basic::Write_utenteopere(QXmlStreamWriter &XmlWriter) const {
     XmlWriter.writeTextElement("Id",x);
     //scorro il contenitore di utente basic:
     contenitore<opera>::iteratore it;
-    for(it=opereuser->begin();it!=opereuser->end();it++)
+    for(it=Getcontainer()->begin();it!=Getcontainer()->end();it++)
     {(*it)->Write_opera(XmlWriter);}
     XmlWriter.writeEndElement();
 }
@@ -85,9 +85,9 @@ QString utente_basic::Get_tipo_utente() const {
 */
 void utente_basic::ricevi_opera(unsigned int x) {
    //cerco l'opera dentro il database:
-   opera*op=database::trova_opera(x);
+   opera*op=Getpuntdb()->trova_opera(x);
    if(op->disponibile()==true && Get_numopere()<=NumOpere)
-   {opereuser->add_item(op);}
+   {Getcontainer()->add_item(op);}
    else{std::cout<<"Errore l'utente non è abilitato a ricevere l'opera";}
 }
 
