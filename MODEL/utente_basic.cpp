@@ -23,7 +23,7 @@ void utente_basic::Write_utente(QXmlStreamWriter &XmlWriter) const {
     XmlWriter.writeStartElement("utente");
 
     //essendo un utente basic il tipo è "1";
-    XmlWriter.writeTextElement("Tipo","1");
+    XmlWriter.writeTextElement("Tipoutente","1");
     //scrivo il nome dell'utente:
     XmlWriter.writeTextElement("Nome",GetNome());
     //scrivo il cognome dell'utente:
@@ -34,7 +34,7 @@ void utente_basic::Write_utente(QXmlStreamWriter &XmlWriter) const {
     int id=GetID();
     QString x;
     x.setNum(id);
-    XmlWriter.writeTextElement("Id",x);
+    XmlWriter.writeTextElement("Idutente",x);
     //scrivo password utente:
     XmlWriter.writeTextElement("Password",GetPassword());
     //scrivo il dettaglio di utente_basic che è Numero opere in prestito:
@@ -42,27 +42,16 @@ void utente_basic::Write_utente(QXmlStreamWriter &XmlWriter) const {
     QString z;
     z.setNum(k);
     XmlWriter.writeTextElement("NumeroOpere",z);
-    XmlWriter.writeEndElement();
-}
 
-
-//scrive nel file xml le opere di un utente basic:
-void utente_basic::Write_utenteopere(QXmlStreamWriter &XmlWriter) const {
-    XmlWriter.writeStartElement("utente");
-
-    //essendo un utente basic il tipo è "1";
-    XmlWriter.writeTextElement("Tipo","1");
-    int id=GetID();
-    QString x;
-    x.setNum(id);
-    //scrivo id dell'utente:
-    XmlWriter.writeTextElement("Id",x);
     //scorro il contenitore di utente basic:
     contenitore<opera>::iteratore it;
     for(it=Getcontainer()->begin();it!=Getcontainer()->end();it++)
     {(*it)->Write_opera(XmlWriter);}
+
     XmlWriter.writeEndElement();
 }
+
+
 
 //ottengo un oggetto info_utente che mi fornisce tutte le informazioni su un utente:
 info_utente utente_basic::infoutente() const {

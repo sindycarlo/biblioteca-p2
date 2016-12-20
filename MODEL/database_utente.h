@@ -32,7 +32,7 @@ public:
 
     bool vuoto() const;                                 //ritorna true <=> contenitore è vuoto altrimenti ritorna false
     void remove_utente(const int);                       //elimina un utente
-    opera* trova_utente(unsigned int) const;
+    utente* trova_utente(unsigned int) const;
     void add_utentepro(const info_utente&);                             //aggiunge un utente_pro
     void add_utentebasic(const info_utente&);                               //aggiunge un utente basic
 

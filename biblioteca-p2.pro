@@ -22,7 +22,8 @@ SOURCES += main.cpp \
     MODEL/utente.cpp \
     MODEL/utente_basic.cpp \
     MODEL/utente_pro.cpp \
-    MODEL/info_utente.cpp
+    MODEL/info_utente.cpp \
+    MODEL/database_utente.cpp
 
 HEADERS  += \
     MODEL/opera.h \
@@ -41,5 +42,4 @@ FORMS    += biblioteca.ui
 
 DISTFILES += \
     database.xml \
-    databaseutenti.xml \
-    opereutenti.xml
+    databaseutenti.xml

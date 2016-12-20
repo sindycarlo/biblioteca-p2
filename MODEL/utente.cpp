@@ -28,6 +28,7 @@ unsigned int utente::GetID() const {return id;}
 
 unsigned int utente::Getmaxid() const {return maxid;}
 
+void utente::SetID(unsigned int x) {id=x;}
 
 void utente::restituisci_opera(unsigned int x) {
 opera* op=Getpuntdb()->trova_opera(x);
