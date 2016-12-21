@@ -15,16 +15,16 @@ private:
     QString password;
     QString codicefiscale;
     QString dettaglio;
-    database* punt;
+    contenitore<opera>* punt;
 public:
-    info_utente(QString, QString, QString, QString, QString, QString, database*); //costruttore 0~5 parametri.
+    info_utente(QString, QString, QString, QString, QString, QString, contenitore<opera>*); //costruttore 0~5 parametri.
     QString get_nome() const;
     QString get_cognome() const;
     QString get_ID() const;
     QString get_password() const;
     QString get_codicefiscale() const;
     QString get_dettaglio() const;
-    database* get_database() const;
+    contenitore<opera>* get_database() const;
 };
 
 #endif // INFO_UTENTE_H

@@ -2,20 +2,29 @@
 <databaseutenti>
     <utente>
         <Tipoutente>1</Tipoutente>
-        <Nome>carlo</Nome>
-        <Cognome>sindico</Cognome>
-        <CodiceFiscale>SNDCRLO1994002768</CodiceFiscale>
+        <Nome>SILVIO</Nome>
+        <Cognome>MENEGUZZO</Cognome>
+        <CodiceFiscale>GSP1996700267</CodiceFiscale>
         <Idutente>6</Idutente>
-        <Password>sonofigo</Password>
-        <NumeroOpere>5</NumeroOpere>
+        <Password>fenoch</Password>
+        <NumeroOpere>1</NumeroOpere>
+    </utente>
+    <utente>
+        <Tipoutente>1</Tipoutente>
+        <Nome>GIUSEPPE</Nome>
+        <Cognome>MUSOTTO</Cognome>
+        <CodiceFiscale>GSP1996700267</CodiceFiscale>
+        <Idutente>5</Idutente>
+        <Password>sonobello</Password>
+        <NumeroOpere>0</NumeroOpere>
     </utente>
     <utente>
         <Tipoutente>1</Tipoutente>
         <Nome>carlo</Nome>
         <Cognome>sindico</Cognome>
         <CodiceFiscale>SNDCRLO1994002768</CodiceFiscale>
-        <Idutente>5</Idutente>
+        <Idutente>4</Idutente>
         <Password>sonofigo</Password>
-        <NumeroOpere>5</NumeroOpere>
+        <NumeroOpere>0</NumeroOpere>
     </utente>
 </databaseutenti>

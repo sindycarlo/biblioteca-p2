@@ -3,6 +3,7 @@
 #include "info_utente.h"
 #include "opera.h"
 #include "database.h"
+#include "contenitore.h"
 //#include "database_utente_opere.h"
 #include <QXmlStreamWriter>
 #include<QString>
@@ -15,13 +16,13 @@ private:
     QString codicefiscale;                 //codice fiscale dell'utente
     QString password;                       //password per accedere alla biblioteca
     contenitore<opera>* opereuser;     //ogni utente ha un proprio contenitore di opere che ha in prestito
-    database* puntdb;                               //puntatore al database della biblioteca
+    contenitore<opera>* puntdb;                               //puntatore al database della biblioteca
     unsigned int id;                                 //ogni utente ha un codice identificativo univoco
 
     static unsigned int maxid;                       //massimo id (ultimo id) che è stato assegnato ad un utente
                                             //(l'ultimo utente che è stato memorizzato nel database)
 public:
-    utente(QString,QString,QString,QString,database*);              //costruttore a 0,5 parametri (id del nuovo utente sarà id=maxid+1)
+    utente(QString,QString,QString,QString,contenitore<opera>*);              //costruttore a 0,5 parametri (id del nuovo utente sarà id=maxid+1)
 
 
     virtual ~utente();
@@ -30,7 +31,7 @@ public:
     QString GetCodicefiscale() const;   //restituisce il codice fiscale di un utente
     QString GetPassword() const;        //restituisce la password di un utente.
     contenitore<opera>* Getcontainer() const {return opereuser;}
-    database* Getpuntdb() const {return puntdb;}
+    contenitore<opera>* Getpuntdb() const {return puntdb;}
     unsigned int GetID() const;
     unsigned int Getmaxid() const;
 

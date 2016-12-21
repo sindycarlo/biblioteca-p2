@@ -2,23 +2,16 @@
 <database>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>ESPRESSO</Titolo>
-        <Id>6</Id>
-        <Stato>1</Stato>
-        <AnnoUscita>1700</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>ESPRESSO</Titolo>
-        <Id>5</Id>
+        <Titolo>NATIONAL GEOGRAPHIC</Titolo>
+        <Id>3</Id>
         <Stato>1</Stato>
         <AnnoUscita>1700</AnnoUscita>
     </opera>
     <opera>
         <Tipo>1</Tipo>
-        <Titolo>IL PICCOLO PRINCIPE</Titolo>
-        <Id>4</Id>
+        <Titolo>NEMO</Titolo>
+        <Id>5</Id>
         <Stato>1</Stato>
-        <Autore>DAVIDE POLONIO</Autore>
+        <Autore>CARLO SINDICO</Autore>
     </opera>
 </database>

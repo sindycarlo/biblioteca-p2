@@ -7,10 +7,10 @@
 unsigned int utente_pro::limitetempo=30;
 
 //costruttore di utente_pro:
-utente_pro::utente_pro(unsigned int tp =0, QString n ="Sconociuto", QString c ="Sconosciuto", QString cf ="Sconosciuto", QString psw ="Sconosciuto",database* db =0): utente(n,c,cf,psw,db), tempoprestito(tp) {
-    if(tp>limitetempo)
-    {std::cout<<"Errore: un utente pro non può prendere in prestito un opera per più di 30 giorni";}
-    tempoprestito=limitetempo;
+utente_pro::utente_pro(unsigned int tp =0, QString n ="Sconociuto", QString c ="Sconosciuto", QString cf ="Sconosciuto", QString psw ="Sconosciuto",contenitore<opera>* db =0): utente(n,c,cf,psw,db), tempoprestito(tp) {
+    if(tempoprestito>limitetempo)
+    {std::cout<<"Errore: un utente pro non può prendere in prestito un opera per più di 30 giorni";tempoprestito=limitetempo;}
+
 }
 
 
@@ -68,7 +68,7 @@ info_utente utente_pro::infoutente() const {
     id.setNum(GetID());
     QString tp;
     tp.setNum(Get_tempoprestito());
-    return info_utente(GetNome(),GetCognome(),id,GetPassword(),GetCodicefiscale(),no,Getpuntdb());
+    return info_utente(GetNome(),GetCognome(),id,GetPassword(),GetCodicefiscale(),tp,Getpuntdb());
 }
 
 QString utente_pro::Get_tipo_utente() const {
@@ -84,13 +84,23 @@ QString utente_pro::Get_tipo_utente() const {
 */
 void utente_pro::ricevi_opera(unsigned int x) {
    //cerco l'opera dentro il database:
-   opera*op=Getpuntdb()->trova_opera(x);
-   if(op->disponibile()==true && Get_numopere()<=NumOpere)
+    contenitore<opera>::iteratore it;
+    contenitore<opera>::iteratore risultato;
+    bool trovata=true;
+    it=Getcontainer()->begin();
+    while(it!=Getcontainer()->end() && !trovata)
+    {
+
+        if((*it)->GetId()==x) trovata=true;
+        risultato=it;
+        it++;
+    }
+
+   if((*risultato)->disponibile()==true && Get_tempoprestito()<=limitetempo)
    {
-        op->Presta_opera();
-        Getcontainer()->add_item(op);
-        int id=op->GetId();
-        Getpuntdb()->remove_opera(id);
+        (*risultato)->Presta_opera();
+        Getcontainer()->add_item(*risultato);
+        Getpuntdb()->remove_item(*risultato);
    }
    else{std::cout<<"Errore l'utente non è abilitato a ricevere l'opera";}
 }

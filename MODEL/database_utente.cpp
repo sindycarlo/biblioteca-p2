@@ -150,8 +150,9 @@ void database_utente::add_utentebasic(const info_utente& c) {
 
 //aggiunge un utente pro al mio contenitore quindi al database:
 void database_utente::add_utentepro(const info_utente & c1) {
-   // utente_pro*p=new utente_pro(c.get_nome(),c.get_cognome(),c.get_ID(),c.get_password(),c.get_codicefiscale(),c.get_dettaglio());
-   // db.add_item(p);
+    unsigned int dettaglio=c1.get_dettaglio().toInt();
+    utente_pro*p=new utente_pro(dettaglio,c1.get_nome(),c1.get_cognome(),c1.get_codicefiscale(),c1.get_password(),c1.get_database());
+    db.add_item(p);
 }
 
 

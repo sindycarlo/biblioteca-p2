@@ -17,57 +17,52 @@ int main(int argc, char *argv[])
 
 
 
-     rivista prova("ESPRESSO",2006,true);
-     //libro prova1("NEMO","CARLO SINDICO",true);
-     rivista prova2("NATIONAL GEOGRAPHIC",2005,true);
-     libro prova3("IL PICCOLO PRINCIPE","DAVIDE POLONIO",true);
-     info_opera p1=prova.info_tot();
-     //info_opera p2=prova1.info_tot();
-     info_opera p3=prova2.info_tot();
-     info_opera p4=prova3.info_tot();
+     rivista prova("NATIONAL GEOGRAPHIC",2006,true);
+     libro prova1("NEMO","CARLO SINDICO",true);
+     info_opera t=prova.info_tot();
+     info_opera p=prova1.info_tot();
 
-     database db;
-     database*x=&db;
+     database biblioteca;
 
-  /*  db.add_Rivista(p1);
-    //db.add_Libro(p2);
-    db.add_Rivista(p3);
-   */   db.add_Libro(p4);
-    db.add_Rivista(p1);
-    db.add_Rivista(p1);
-    db.add_Rivista(p1);
-    db.add_Rivista(p1);
+     biblioteca.add_Rivista(t);
+     biblioteca.add_Libro(p);
+     biblioteca.add_Libro(p);
 
-    //db.remove_opera(6);
-    //db.remove_opera(7);
-    std::cout<<"       ";
-    //test prova stampa dal database:
-    contenitore<opera>::iteratore it;
-   /* for(it=db.db_begin();it!=db.db_end();it++)
-    {
-        std::cout<<"Titolo dell'opera: "<<(*(it))->GetTitolo().toStdString()<<"  "<<"Dettaglio: "<<(*(it))->Get_tipo().toStdString()<<std::endl;
-    }
-   // return a.exec();
-*/
-    utente_basic primoutente(0,"carlo","sindico","SNDCRLO1994002768","sonofigo",x);
-    utente_basic secondoutente(0,"carlo","sindico","SNDCRLO1994002768","sonofigo",x);
-    utente_basic terzoutente(0,"carlo","sindico","SNDCRLO1994002768","sonofigo",x);
-    utente_basic quartoutente(0,"carlo","sindico","SNDCRLO1994002768","sonofigo",x);
+
+
+
+   utente_basic primoutente(0,"carlo","sindico","SNDCRLO1994002768","sonofigo",biblioteca.getcontainer());
+    utente_pro secondoutente(0,"GIUSEPPE","MUSOTTO","GSP1996700267","sonobello",biblioteca.getcontainer());
+     utente_basic terzoutente(1,"SILVIO","MENEGUZZO","GSP1996700267","fenoch",biblioteca.getcontainer());
 
     info_utente primo=primoutente.infoutente();
     info_utente secondo=secondoutente.infoutente();
+     info_utente terzo=terzoutente.infoutente();
 
     database_utente utenti;
 
 
     utenti.add_utentebasic(primo);
-    utenti.add_utentebasic(secondo);
+       utenti.add_utentebasic(secondo);
+    utenti.add_utentebasic(terzo);
 
-    primoutente.ricevi_opera(7);
-     primoutente.ricevi_opera(8);
+    primoutente.ricevi_opera(3);
+    primoutente.ricevi_opera(4);
+    contenitore<opera>::iteratore it;
+    std::cout<<"OPERE CHE: "<<primoutente.GetNome().toStdString()<<"  HA CHIESTO IN PRESTITO E HA RICEVUTO"<<std::endl;
+    for(it=primoutente.Getcontainer()->begin();it!=primoutente.Getcontainer()->end();it++)
+    {
+        std::cout<<"Titolo dell'opera: "<<(*(it))->GetTitolo().toStdString()<<"  "<<"Dettaglio: "<<(*(it))->Get_tipo().toStdString()<<std::endl;
+    }
 
-     for(it=primoutente.Getcontainer()->begin();it!=primoutente.Getcontainer()->end();it++)
-     {
-         std::cout<<"Titolo dell'opera: "<<(*(it))->GetTitolo().toStdString()<<"  "<<"Dettaglio: "<<(*(it))->Get_tipo().toStdString()<<std::endl;
-     }
+
+    primoutente.restituisci_opera(3);
+
+    std::cout<<"OPERE CHE:  "<<primoutente.GetNome().toStdString()<<"  HA RESTITUITO ALLA BIBLIOTECA"<<std::endl;
+    for(it=primoutente.Getcontainer()->begin();it!=primoutente.Getcontainer()->end();it++)
+    {
+        std::cout<<"Titolo dell'opera: "<<(*(it))->GetTitolo().toStdString()<<"  "<<"Dettaglio: "<<(*(it))->Get_tipo().toStdString()<<std::endl;
+    }
+
+
 }

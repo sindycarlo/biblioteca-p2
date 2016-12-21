@@ -12,7 +12,7 @@
 #include"opera.h"
 #include"utente.h"
 #include"utente_basic.h"
-//#include"utente_pro.h"
+#include"utente_pro.h"
 
 
 

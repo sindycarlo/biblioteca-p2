@@ -9,10 +9,10 @@ unsigned int utente_basic::limiteopere=5;
 
 
 //costruttore di utente_basic:
-utente_basic::utente_basic(unsigned int no =0, QString n ="Sconociuto", QString c ="Sconosciuto", QString cf ="Sconosciuto", QString psw ="Sconosciuto",database* db =0): utente(n,c,cf,psw,db), NumOpere(no) {
-    if(no>limiteopere)
-    {std::cout<<"Errore: un utente basic non può prendere in prestito più di 5 opere";}
-    NumOpere=limiteopere;
+utente_basic::utente_basic(unsigned int no =0, QString n ="Sconociuto", QString c ="Sconosciuto", QString cf ="Sconosciuto", QString psw ="Sconosciuto",contenitore<opera>* db =0): utente(n,c,cf,psw,db), NumOpere(no) {
+    if(NumOpere>limiteopere)
+    {std::cout<<"Errore: un utente basic non può prendere in prestito più di 5 opere";NumOpere=limiteopere;}
+
 }
 
 
@@ -86,13 +86,27 @@ QString utente_basic::Get_tipo_utente() const {
 */
 void utente_basic::ricevi_opera(unsigned int x) {
    //cerco l'opera dentro il database:
-   opera*op=Getpuntdb()->trova_opera(x);
-   if(op->disponibile()==true && Get_numopere()<=NumOpere)
+    contenitore<opera>::iteratore it;
+    contenitore<opera>::iteratore risultato;
+    bool trovata=false;
+    it=Getpuntdb()->begin();
+    while(it!=Getpuntdb()->end() && !trovata)
+    {
+
+        if((*it)->GetId()==x){trovata=true;}
+        risultato=it;
+        it++;
+    }
+   if(trovata)
    {
-        op->Presta_opera();
-        Getcontainer()->add_item(op);
-        int id=op->GetId();
-        Getpuntdb()->remove_opera(id);
+       if(Get_numopere()<limiteopere)
+       {
+            (*risultato)->Presta_opera();
+            Getcontainer()->add_item((*risultato));
+            Getpuntdb()->remove_item((*risultato));
+
+       }
+
    }
    else{std::cout<<"Errore l'utente non è abilitato a ricevere l'opera";}
 }
