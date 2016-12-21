@@ -34,7 +34,7 @@ void utente::restituisci_opera(unsigned int x) {
 opera* op=Getpuntdb()->trova_opera(x);
 if(op!=0)
 {
-   Getcontainer()->add_item(op); opereuser->remove_item(op);
+   Getpuntdb()->; opereuser->remove_item(op);
 }
 else {std::cout<<"nessuna opera in prestito impossibile restituirla!";}
 }
