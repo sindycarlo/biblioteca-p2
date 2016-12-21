@@ -89,6 +89,7 @@ void utente_basic::ricevi_opera(unsigned int x) {
    opera*op=Getpuntdb()->trova_opera(x);
    if(op->disponibile()==true && Get_numopere()<=NumOpere)
    {
+        op->Presta_opera();
         Getcontainer()->add_item(op);
         int id=op->GetId();
         Getpuntdb()->remove_opera(id);
@@ -97,9 +98,7 @@ void utente_basic::ricevi_opera(unsigned int x) {
 }
 
 
-void utente_basic::restituisci_opera(unsigned int x) {
 
-}
 
 
 
