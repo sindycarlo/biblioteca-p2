@@ -36,7 +36,8 @@ HEADERS  += \
     MODEL/utente_basic.h \
     MODEL/utente_pro.h \
     MODEL/database_utente.h \
-    MODEL/info_utente.h
+    MODEL/info_utente.h \
+    MODEL/database_utente_opere.h
 
 FORMS    += biblioteca.ui
 

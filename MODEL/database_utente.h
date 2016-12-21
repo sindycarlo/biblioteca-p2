@@ -12,12 +12,12 @@
 #include"opera.h"
 #include"utente.h"
 #include"utente_basic.h"
-#include"utente_pro.h"
+//#include"utente_pro.h"
 
 
 
 
-class database{
+class database_utente {
 private:
     //campi dati
     static QString filename;
@@ -27,8 +27,8 @@ private:
     void Close();                                       //salva tutti i cambiamenti eseguiti dall'utente nel file XML
 
 public:
-     database();
-    ~database();
+     database_utente();
+    ~database_utente();
 
     bool vuoto() const;                                 //ritorna true <=> contenitore è vuoto altrimenti ritorna false
     void remove_utente(const int);                       //elimina un utente

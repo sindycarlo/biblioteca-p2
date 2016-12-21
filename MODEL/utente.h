@@ -3,7 +3,7 @@
 #include "info_utente.h"
 #include "opera.h"
 #include "database.h"
-#include "contenitore.h"
+//#include "database_utente_opere.h"
 #include <QXmlStreamWriter>
 #include<QString>
 #include<iostream>
@@ -14,7 +14,7 @@ private:
     QString Cognome;                      //cognome dell'utente
     QString codicefiscale;                 //codice fiscale dell'utente
     QString password;                       //password per accedere alla biblioteca
-    contenitore<opera>* opereuser;                  //ogni utente ha un proprio contenitore di opere che ha in prestito
+    contenitore<opera>* opereuser;     //ogni utente ha un proprio contenitore di opere che ha in prestito
     database* puntdb;                               //puntatore al database della biblioteca
     unsigned int id;                                 //ogni utente ha un codice identificativo univoco
 
@@ -38,6 +38,7 @@ public:
 
     //metodi propri di utente:
     virtual void Write_utente(QXmlStreamWriter&) const =0; //scrivo l'utente nel database
+    virtual void Write_utenteopere(QXmlStreamWriter&) const =0;
     virtual QString Get_tipo_utente() const =0;   //ritorna il tipo di utente
     virtual info_utente infoutente() const =0;
     virtual void  ricevi_opera(unsigned int) =0; //metodo che da in prestito un opera a seconda del tipo di utente sono imposte certe condizioni

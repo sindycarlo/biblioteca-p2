@@ -110,6 +110,7 @@ public:
         first=new nodo(o,first);
     }
 
+
     void remove_item(T* o)
     {
         smartp p=first, prec, q;
@@ -127,7 +128,6 @@ public:
         else if(prec==0) first=p->next;
              else prec->next=p->next;
     }
-
 
 
     iteratore begin() const

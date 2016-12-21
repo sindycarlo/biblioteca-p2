@@ -22,7 +22,6 @@ public:
     virtual bool ricerca_campi(const QString&) const;
     virtual info_opera info_tot()const;
     virtual void Presta_opera();
-
 };
 
 #endif // RIVISTA_H

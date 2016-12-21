@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseutenti>
-
+    <utente>
+        <Tipoutente>1</Tipoutente>
+        <Nome>carlo</Nome>
+        <Cognome>sindico</Cognome>
+        <CodiceFiscale>SNDCRLO1994002768</CodiceFiscale>
+        <Idutente>6</Idutente>
+        <Password>sonofigo</Password>
+        <NumeroOpere>5</NumeroOpere>
+    </utente>
+    <utente>
+        <Tipoutente>1</Tipoutente>
+        <Nome>carlo</Nome>
+        <Cognome>sindico</Cognome>
+        <CodiceFiscale>SNDCRLO1994002768</CodiceFiscale>
+        <Idutente>5</Idutente>
+        <Password>sonofigo</Password>
+        <NumeroOpere>5</NumeroOpere>
+    </utente>
 </databaseutenti>

@@ -20,7 +20,7 @@ unsigned int rivista::getMaxAnni() const {return MaxAnni;}
 bool rivista::disponibile() const {
     if(presente())
     {
-        if(annouscita<=MaxAnni)
+        if(annouscita>=MaxAnni)
         {return true;}
     }
     return false;
@@ -78,3 +78,5 @@ void rivista::Write_opera(QXmlStreamWriter &XmlWriter) const {
 }
 
 QString rivista::Get_tipo() const {return "rivista";}
+
+

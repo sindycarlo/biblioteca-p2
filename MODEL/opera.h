@@ -35,8 +35,6 @@ public:
     virtual bool disponibile() const;     //verifica se l'opera è disponibile al prestito secondo certe condizioni che vengono scelte dai sottotipi.
 
 
-
-
 };
 
 

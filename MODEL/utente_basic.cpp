@@ -42,16 +42,27 @@ void utente_basic::Write_utente(QXmlStreamWriter &XmlWriter) const {
     QString z;
     z.setNum(k);
     XmlWriter.writeTextElement("NumeroOpere",z);
-
-    //scorro il contenitore di utente basic:
-    contenitore<opera>::iteratore it;
-    for(it=Getcontainer()->begin();it!=Getcontainer()->end();it++)
-    {(*it)->Write_opera(XmlWriter);}
-
     XmlWriter.writeEndElement();
 }
 
 
+//scrive nel file xml le opere di un utente basic:
+void utente_basic::Write_utenteopere(QXmlStreamWriter &XmlWriter) const {
+    XmlWriter.writeStartElement("utente");
+
+    //essendo un utente basic il tipo è "1";
+    XmlWriter.writeTextElement("Tipo","1");
+    int id=GetID();
+    QString x;
+    x.setNum(id);
+    //scrivo id dell'utente:
+    XmlWriter.writeTextElement("Id",x);
+    //scorro il contenitore di utente basic:
+    contenitore<opera>::iteratore it;
+    for(it=Getcontainer()->begin();it!=Getcontainer()->end();it++)
+    {(*it)->Write_opera(XmlWriter);}
+    XmlWriter.writeEndElement();
+}
 
 //ottengo un oggetto info_utente che mi fornisce tutte le informazioni su un utente:
 info_utente utente_basic::infoutente() const {
@@ -59,12 +70,13 @@ info_utente utente_basic::infoutente() const {
     id.setNum(GetID());
     QString no;
     no.setNum(Get_numopere());
-    return info_utente(GetNome(),GetCognome(),id,GetPassword(),GetCodicefiscale(),no);
+    return info_utente(GetNome(),GetCognome(),id,GetPassword(),GetCodicefiscale(),no,Getpuntdb());
 }
 
 QString utente_basic::Get_tipo_utente() const {
     return "Utente Basic";
 }
+
 /*Per poter prendere in prestito un opera:
  * 1)inanzitutto deve essere disponibile nella Biblioteca;
  * 2)poi viene verificato se l'utente è abilitato ad ottenere il prestito
@@ -76,8 +88,17 @@ void utente_basic::ricevi_opera(unsigned int x) {
    //cerco l'opera dentro il database:
    opera*op=Getpuntdb()->trova_opera(x);
    if(op->disponibile()==true && Get_numopere()<=NumOpere)
-   {Getcontainer()->add_item(op);}
+   {
+        Getcontainer()->add_item(op);
+        int id=op->GetId();
+        Getpuntdb()->remove_opera(id);
+   }
    else{std::cout<<"Errore l'utente non è abilitato a ricevere l'opera";}
+}
+
+
+void utente_basic::restituisci_opera(unsigned int x) {
+
 }
 
 

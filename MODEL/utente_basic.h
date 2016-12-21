@@ -6,7 +6,7 @@
 #include<QString>
 #include<iostream>
 
-class utente_basic : public utente{
+class utente_basic : public utente {
 private:
     unsigned int NumOpere;
     static unsigned int limiteopere;
@@ -17,6 +17,7 @@ public:
     //metodi propri di utente_basic:
     unsigned int Get_numopere() const;
     virtual void Write_utente(QXmlStreamWriter&) const; //scrivo l'utente nel database
+    virtual void Write_utenteopere(QXmlStreamWriter&) const;
     virtual QString Get_tipo_utente() const;   //ritorna il tipo di utente
     virtual info_utente infoutente() const;
     virtual void  ricevi_opera(unsigned int); //metodo che da in prestito un opera a seconda del tipo di utente sono imposte certe condizioni

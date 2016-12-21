@@ -7,13 +7,13 @@ unsigned int utente::maxid=0;
 
 
 //costruttore di utente:
-utente::utente(QString n ="Sconosciuto", QString c ="Sconosciuto", QString  cf ="Sconosciuto", QString psw ="Sconosciuto", database * db =0): Nome(n), Cognome(c), codicefiscale(cf), password(psw), opereuser(0),puntdb(db) {
+utente::utente(QString n ="Sconosciuto", QString c ="Sconosciuto", QString  cf ="Sconosciuto", QString psw ="Sconosciuto", database * db =0): Nome(n), Cognome(c), codicefiscale(cf), password(psw),opereuser(new contenitore<opera>()),puntdb(db) {
     maxid++;
     id=maxid;
 }
 
 //il distruttore di utente va a distruggere anche le sue opere che aveva in prestito
-utente::~utente() {delete opereuser;}
+utente::~utente() {}
 
 
 QString utente::GetNome() const {return Nome;}
