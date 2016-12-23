@@ -2,29 +2,47 @@
 <databaseutenti>
     <utente>
         <Tipoutente>1</Tipoutente>
-        <Nome>SILVIO</Nome>
-        <Cognome>MENEGUZZO</Cognome>
-        <CodiceFiscale>GSP1996700267</CodiceFiscale>
-        <Idutente>6</Idutente>
-        <Password>fenoch</Password>
-        <NumeroOpere>1</NumeroOpere>
+        <Nome>rana</Nome>
+        <Cognome>daros</Cognome>
+        <CodiceFiscale>sndcrl1994rtsd34</CodiceFiscale>
+        <Idutente>10</Idutente>
+        <Password>prova5</Password>
+        <NumeroOpere>0</NumeroOpere>
+    </utente>
+    <utente>
+        <Tipoutente>2</Tipoutente>
+        <Nome>mattia</Nome>
+        <Cognome>dipauli</Cognome>
+        <CodiceFiscale>sndcrl1994rtsd34</CodiceFiscale>
+        <Idutente>9</Idutente>
+        <Password>prova4</Password>
+        <Tempoprestito>0</Tempoprestito>
     </utente>
     <utente>
         <Tipoutente>1</Tipoutente>
-        <Nome>GIUSEPPE</Nome>
-        <Cognome>MUSOTTO</Cognome>
-        <CodiceFiscale>GSP1996700267</CodiceFiscale>
-        <Idutente>5</Idutente>
-        <Password>sonobello</Password>
+        <Nome>giulio</Nome>
+        <Cognome>castagnara</Cognome>
+        <CodiceFiscale>sndcrl1994rtsd34</CodiceFiscale>
+        <Idutente>8</Idutente>
+        <Password>prova3</Password>
         <NumeroOpere>0</NumeroOpere>
+    </utente>
+    <utente>
+        <Tipoutente>2</Tipoutente>
+        <Nome>luca</Nome>
+        <Cognome>dalmaso</Cognome>
+        <CodiceFiscale>ldalmas35461997rty</CodiceFiscale>
+        <Idutente>7</Idutente>
+        <Password>prova2</Password>
+        <Tempoprestito>0</Tempoprestito>
     </utente>
     <utente>
         <Tipoutente>1</Tipoutente>
         <Nome>carlo</Nome>
         <Cognome>sindico</Cognome>
-        <CodiceFiscale>SNDCRLO1994002768</CodiceFiscale>
-        <Idutente>4</Idutente>
-        <Password>sonofigo</Password>
+        <CodiceFiscale>sndcrl1994rtsd34</CodiceFiscale>
+        <Idutente>6</Idutente>
+        <Password>prova1</Password>
         <NumeroOpere>0</NumeroOpere>
     </utente>
 </databaseutenti>

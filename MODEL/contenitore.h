@@ -4,7 +4,7 @@
 #define CONTENITORE_H
 
 #include<iostream>
-#include "opera.h"
+
 template <class T>
 class contenitore{
     friend class iteratore;

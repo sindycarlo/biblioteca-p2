@@ -7,12 +7,11 @@
 #include<QString>
 #include<vector>
 
-#include"contenitore.h"
-#include"opera.h"
-#include"utente.h"
-#include"utente_basic.h"
-//#include"utente_pro.h"
+#include "info_utente.h"
+#include "database.h"
+#include "utente.h"
 
+#include "database_utente.h"
 
 
 
@@ -20,28 +19,28 @@ class database_utente_opere {
 private:
     //campi dati
     static QString filename;
-    contenitore<opera> db;                                     //creo il contenitore leggendo il file xml
-
+    contenitore<opera> dbopereutente;                                     //creo il contenitore leggendo il file xml
+    database_utente* utenti;
     void Load();
     void Close();                                       //salva tutti i cambiamenti eseguiti dall'utente nel file XML
 
 public:
-     database_utente_opere();
+    database_utente_opere(database_utente*);
     ~database_utente_opere();
 
     bool vuoto() const;                                 //ritorna true <=> contenitore è vuoto altrimenti ritorna false
     void remove_operadelutente(const int);                       //elimina un utente
     opera* trova_operadelutente(unsigned int) const;
-    void add_librodelutente(const info_opera&);                             //aggiunge un libro in prestito
-    void add_rivistadelutente(const info_opera&);                               //aggiunge una rivista in prestito
-
+    void aggiungi_opera_utente(opera*);                 //aggiunge un opera al database ossia al contenitore
+    database_utente* Getutente() const;
 
 
     contenitore<opera>::iteratore db_iter;
 
-    contenitore<opera>::iteratore db_begin();
-    contenitore<opera>::iteratore db_end();
+    contenitore<opera>::iteratore dbopereutenti_begin();
+    contenitore<opera>::iteratore dbopereutenti_end();
 
 };
 
-#endif // DATABASE_UTENTE_OPERE_H
+#endif // DATABASE_UTENTE_OPERE_HB
+

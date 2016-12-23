@@ -7,7 +7,7 @@
 unsigned int utente_pro::limitetempo=30;
 
 //costruttore di utente_pro:
-utente_pro::utente_pro(unsigned int tp =0, QString n ="Sconociuto", QString c ="Sconosciuto", QString cf ="Sconosciuto", QString psw ="Sconosciuto",contenitore<opera>* db =0): utente(n,c,cf,psw,db), tempoprestito(tp) {
+utente_pro::utente_pro(database* db, unsigned int tp =0, QString n ="Sconociuto", QString c ="Sconosciuto", QString cf ="Sconosciuto", QString psw ="Sconosciuto"): utente(db,n,c,cf,psw), tempoprestito(tp) {
     if(tempoprestito>limitetempo)
     {std::cout<<"Errore: un utente pro non può prendere in prestito un opera per più di 30 giorni";tempoprestito=limitetempo;}
 
@@ -49,16 +49,17 @@ void utente_pro::Write_utenteopere(QXmlStreamWriter &XmlWriter) const {
     XmlWriter.writeStartElement("utente");
 
     //essendo un utente pro il tipo è "2";
-    XmlWriter.writeTextElement("Tipo","2");
+    XmlWriter.writeTextElement("Tipoutente","2");
     int id=GetID();
     QString x;
     x.setNum(id);
     //scrivo id dell'utente:
-    XmlWriter.writeTextElement("Id",x);
+    XmlWriter.writeTextElement("Idutente",x);
     //scorro il contenitore di utente pro:
     contenitore<opera>::iteratore it;
-    for(it=Getcontainer()->begin();it!=Getcontainer()->end();it++)
+   /* for(it=GetdbOpereUtente()->db_begin();it!=GetdbOpereUtente()->db_end();it++)
     {(*it)->Write_opera(XmlWriter);}
+    */
     XmlWriter.writeEndElement();
 }
 
@@ -68,7 +69,7 @@ info_utente utente_pro::infoutente() const {
     id.setNum(GetID());
     QString tp;
     tp.setNum(Get_tempoprestito());
-    return info_utente(GetNome(),GetCognome(),id,GetPassword(),GetCodicefiscale(),tp,Getpuntdb());
+    return info_utente(GetopereBiblioteca(),GetNome(),GetCognome(),id,GetPassword(),GetCodicefiscale(),tp);
 }
 
 QString utente_pro::Get_tipo_utente() const {
@@ -83,28 +84,17 @@ QString utente_pro::Get_tipo_utente() const {
  *
 */
 void utente_pro::ricevi_opera(unsigned int x) {
-   //cerco l'opera dentro il database:
-    contenitore<opera>::iteratore it;
-    contenitore<opera>::iteratore risultato;
-    bool trovata=true;
-    it=Getcontainer()->begin();
-    while(it!=Getcontainer()->end() && !trovata)
+    opera*op=GetopereBiblioteca()->trova_opera(x);
+    if( op!=0 && tempoprestito<limitetempo)
     {
+     //aggiungo al database di opere utente;
+      op->Presta_opera();
+      //GetdbOpereUtente()->aggiungi_opera_utente(op);
+      GetopereBiblioteca()->remove_opera(x);
 
-        if((*it)->GetId()==x) trovata=true;
-        risultato=it;
-        it++;
     }
-
-   if((*risultato)->disponibile()==true && Get_tempoprestito()<=limitetempo)
-   {
-        (*risultato)->Presta_opera();
-        Getcontainer()->add_item(*risultato);
-        Getpuntdb()->remove_item(*risultato);
-   }
    else{std::cout<<"Errore l'utente non è abilitato a ricevere l'opera";}
 }
-
 
 
 

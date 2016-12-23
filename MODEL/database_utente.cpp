@@ -1,18 +1,19 @@
 #include "MODEL/database_utente.h"
 
+
 //faccio l'include del file xml:
 QString database_utente::filename="../biblioteca-p2/databaseutenti.xml";
 
 
 
-contenitore<utente>::iteratore database_utente::db_begin() {return db.begin();}
+contenitore<utente>::iteratore database_utente::dbutenti_begin() {return dbutenti.begin();}
 
-contenitore<utente>::iteratore database_utente::db_end() {return db.end();}
+contenitore<utente>::iteratore database_utente::dbutenti_end() {return dbutenti.end();}
 
 
 
 //creare un database significa caricare il file databaseutenti.xml:
-database_utente::database_utente() {database_utente::Load();}
+database_utente::database_utente(database* biblio) : biblioteca(biblio) {database_utente::Load();}
 
 
 //"distruggere" un database significa fare la chiusura del file databaseutenti.xml:
@@ -25,7 +26,7 @@ void database_utente::Load() {
 
     unsigned int Tipoutente=0, idutente=-1, numopere=0, tempo=0;
 
-    utente*tmp=0;
+    utente* tmp=NULL;
     QFile file(filename);
          file.open(QIODevice::ReadOnly);
            // if (!file.open(QFile::ReadOnly | QFile::Text))  std::cout << "Errore: Impossibile leggere il file"<< std::endl;
@@ -65,7 +66,7 @@ void database_utente::Load() {
                                 else
                                     if(xmlReader.name()=="Password") password=xmlReader.readElementText();
                                     else
-                                        if(xmlReader.name()=="TempoPrestito") tempo=xmlReader.readElementText().toInt();
+                                        if(xmlReader.name()=="Tempoprestito") tempo=xmlReader.readElementText().toInt();
 
                                         else std::cout<<"Errore nella lettura di un utente pro";
                     }
@@ -75,10 +76,10 @@ void database_utente::Load() {
          {      //sono al tag </utente>
              if(xmlReader.isEndDocument() && xmlReader.name()=="utente")
              {
-               if(Tipoutente==1) tmp=new utente_basic(numopere,nome,cognome,codicefiscale,password,0);
-               //else tmp=new utente_pro(tempo,nome,cognome,codicefiscale,password);
+               if(Tipoutente==1) tmp=new utente_basic(GetDatabase(),numopere,nome,cognome,codicefiscale,password);
+               else tmp=new utente_pro(GetDatabase(),tempo,nome,cognome,codicefiscale,password);
                 tmp->SetID(idutente);
-                db.add_item(tmp);
+                dbutenti.add_item(tmp);
                 xmlReader.readNext();
               }
              else xmlReader.readNext();
@@ -100,7 +101,7 @@ void database_utente::Close() {
         {
          xmlWriter.writeStartElement("databaseutenti");
          contenitore<utente>::iteratore it;
-         for(it=db.begin();it!=db.end();it++)
+         for(it=dbutenti.begin();it!=dbutenti.end();it++)
          {
              (*it)->Write_utente(xmlWriter);
          }
@@ -117,8 +118,8 @@ utente* database_utente::trova_utente(unsigned int id) const{
    contenitore<utente>::iteratore it;
    contenitore<utente>::iteratore risultato;
    bool trovato=false;
-   it=db.begin();
-   while(it!=db.end() && !trovato)
+   it=dbutenti.begin();
+   while(it!=dbutenti.end() && !trovato)
    {
        if((*it)->GetID()==id){ trovato=true;}
            risultato=it;
@@ -130,12 +131,12 @@ utente* database_utente::trova_utente(unsigned int id) const{
 }
 void database_utente::remove_utente(const int id) {
 utente*tmp=trova_utente(id);
-if(tmp!=0){db.remove_item(tmp);}
+if(tmp!=0){dbutenti.remove_item(tmp);}
 else std::cout<<"Errore utente non presente nel database";
 }
 
 
-bool database_utente::vuoto() const {return db.empty();}
+bool database_utente::vuoto() const {return dbutenti.empty();}
 
 
 
@@ -144,17 +145,17 @@ bool database_utente::vuoto() const {return db.empty();}
 //aggiunge un utente basic al mio contenitore quindi al database:
 void database_utente::add_utentebasic(const info_utente& c) {
     unsigned int dettaglio=c.get_dettaglio().toInt();
-    utente_basic*p=new utente_basic(dettaglio,c.get_nome(),c.get_cognome(),c.get_codicefiscale(),c.get_password(),c.get_database());
-    db.add_item(p);
+    utente_basic*p=new utente_basic(c.get_database(),dettaglio,c.get_nome(),c.get_cognome(),c.get_codicefiscale(),c.get_password());
+    dbutenti.add_item(p);
 }
 
 //aggiunge un utente pro al mio contenitore quindi al database:
 void database_utente::add_utentepro(const info_utente & c1) {
     unsigned int dettaglio=c1.get_dettaglio().toInt();
-    utente_pro*p=new utente_pro(dettaglio,c1.get_nome(),c1.get_cognome(),c1.get_codicefiscale(),c1.get_password(),c1.get_database());
-    db.add_item(p);
+    utente_pro*p=new utente_pro(c1.get_database(),dettaglio,c1.get_nome(),c1.get_cognome(),c1.get_codicefiscale(),c1.get_password());
+    dbutenti.add_item(p);
 }
 
 
-
+database* database_utente::GetDatabase() const {return biblioteca;}
 

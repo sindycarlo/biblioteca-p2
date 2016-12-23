@@ -1,6 +1,5 @@
 #ifndef UTENTE_PRO_H
 #define UTENTE_PRO_H
-#include "info_utente.h"
 #include "utente.h"
 #include <QXmlStreamWriter>
 #include<QString>
@@ -12,7 +11,7 @@ private:
 unsigned int tempoprestito;
 static unsigned int limitetempo;
 public:
-    utente_pro(unsigned int,QString,QString,QString,QString,contenitore<opera>*);              //costruttore a 0,5 parametri (id del nuovo utente sarà id=maxid+1)
+    utente_pro(database*,unsigned int,QString,QString,QString,QString);              //costruttore a 0,5 parametri (id del nuovo utente sarà id=maxid+1)
 
     //metodi propri di utente_pro:
     unsigned int Get_tempoprestito() const;

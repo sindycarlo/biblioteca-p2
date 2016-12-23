@@ -1,8 +1,7 @@
 #ifndef LIBRO_H
 #define LIBRO_H
 #include"opera.h"
-#include"info_opera.h"
-
+#include "info_opera.h"
 #include <QXmlStreamWriter>
 #include<QString>
 #include<iostream>

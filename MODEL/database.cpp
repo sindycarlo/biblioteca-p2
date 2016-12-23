@@ -147,5 +147,3 @@ void database::add_Rivista(const info_opera & c1) {
 }
 
 
-contenitore<opera>* database::getcontainer() {return &db;}
-
