@@ -9,6 +9,7 @@ int opera::maxid=0;
 opera::opera(QString t ="sconosciuto",bool sp =1) : Titolo(t), statoPresenza(sp) {
     maxid++;
     id=maxid;
+    appartenenza=-1;
 }
 
 //distruttore di opera:
@@ -28,6 +29,9 @@ void opera::Set_maxid(const int x) {maxid=x;}
 
 void opera::Riscatta() {statoPresenza=1;}
 
+int opera::Getappartenenza() const {return appartenenza;}
+
+void opera::Setappartenenza(const int x) {appartenenza=x;}
 void  opera::Presta_opera() {statoPresenza=0;}
 
 bool opera::presente() const {

@@ -1,5 +1,6 @@
 #include "utente.h"
 #include<QString>
+#include "database_utente_opere.h"
 
 
 //inizializzo maxid di un utente:
@@ -35,11 +36,17 @@ void utente::SetID(unsigned int x) {id=x;}
 database* utente::GetopereBiblioteca() const {return opereBiblioteca;}
 
 
-//database_utente_opere* utente::GetdbOpereUtente() const {return opereUtente;}
+database_utente_opere* utente::GetdbOpereUtente() const {return opereUtente;}
 
 
-void utente::restituisci_opera(unsigned int x) {
-
+void utente::restituisci_opera(unsigned int idopera) {
+ opera*o=GetdbOpereUtente()->trova_operadelutente(GetID(),idopera);
+ if(o!=0)
+ {
+     o->Setappartenenza(-1);
+     o->Riscatta();
+     //GROSSO DILEMMA!!!!!!!!!!!!!!!!!!R
+ }
  {std::cout<<"ATTENZIONE!"<<" "<<"nessuna opera in prestito impossibile restituirla!";}
 
 }

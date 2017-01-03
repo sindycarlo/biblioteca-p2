@@ -60,9 +60,11 @@ void utente_basic::Write_utenteopere(QXmlStreamWriter &XmlWriter) const {
     XmlWriter.writeTextElement("Idutente",x);
     //scorro il contenitore di utente basic:
     contenitore<opera>::iteratore it;
-   /* for(it=GetdbOpereUtente()->db_begin();it!=GetdbOpereUtente()->db_end();it++)
-    {(*it)->Write_opera(XmlWriter);}
-    */
+    for(it=GetdbOpereUtente()->dbopereutenti_begin();it!=GetdbOpereUtente()->dbopereutenti_end();it++)
+    {
+        if((*it)->Getappartenenza()==GetID())
+        {(*it)->Write_opera(XmlWriter);}
+    }
     XmlWriter.writeEndElement();
 }
 
@@ -92,7 +94,11 @@ void utente_basic::ricevi_opera(unsigned int x) {
     {
      //aggiungo al database di opere utente;
       op->Presta_opera();
-      //GetdbOpereUtente()->aggiungi_opera_utente(op);
+      //ora so a chi appartiene l'opera:
+      op->Setappartenenza(GetID());
+      //la inserisco nel database delle opere di tutti gli utenti:
+      GetdbOpereUtente()->aggiungi_opera_utente(op);
+      //la rimuovo dalla biblioteca:
       GetopereBiblioteca()->remove_opera(x);
 
     }

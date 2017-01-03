@@ -5,7 +5,7 @@
 //test di prova per la parte di progettazione:
 #include "MODEL/database.h"
 #include "MODEL/database_utente.h"
-
+#include "MODEL/database_utente_opere.h"
 
 int main(int argc, char *argv[])
 {
@@ -56,6 +56,8 @@ int main(int argc, char *argv[])
      utenti.add_utentepro(p4);
      utenti.add_utentebasic(p5);
 
+    database_utente_opere db3(&utenti);
 
+    db3.remove_operadelutente(4,5);
 
 }

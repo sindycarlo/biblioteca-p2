@@ -29,8 +29,8 @@ public:
     ~database_utente_opere();
 
     bool vuoto() const;                                 //ritorna true <=> contenitore è vuoto altrimenti ritorna false
-    void remove_operadelutente(const int);                       //elimina un utente
-    opera* trova_operadelutente(unsigned int) const;
+    void remove_operadelutente(const int, const int);                       //elimina un utente
+    opera* trova_operadelutente(unsigned int,unsigned int) const;
     void aggiungi_opera_utente(opera*);                 //aggiunge un opera al database ossia al contenitore
     database_utente* Getutente() const;
 

@@ -11,7 +11,7 @@ private:
     QString Titolo;                          //titolo dell'opera
     bool statoPresenza;                     //se l'opera è presente oppure è in prestito
     int id;                                 //ogni opera ha un codice identificativo univoco
-
+    int appartenenza;
     static int maxid;                       //massimo id (ultimo id) che è stato assegnato ad un opera
                                             //(l'ultima opera che è stata memorizzata nel database)
 public:
@@ -24,7 +24,8 @@ public:
     void Set_id(const int);             //setta id dell'opera
     void Set_maxid(const int);         //setta maxid dell'opera
     bool presente () const;              // metodo che mi dice se l'opera è presente oppure no nella biblioteca
-
+    void Setappartenenza(const int);
+    int Getappartenenza() const;
     virtual ~opera();
     void Riscatta();                    //opera non è più in prestito quindi viene messa nella biblioteca
     virtual bool ricerca_campi(const QString&) const; //ricerco un nome di opera(stringa) nel titolo o nel id

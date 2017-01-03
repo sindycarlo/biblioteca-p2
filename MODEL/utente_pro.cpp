@@ -1,5 +1,6 @@
 #include "utente_pro.h"
 #include "database.h"
+#include "database_utente_opere.h"
 #include "QString"
 #include <QXmlStreamWriter>
 
@@ -57,9 +58,11 @@ void utente_pro::Write_utenteopere(QXmlStreamWriter &XmlWriter) const {
     XmlWriter.writeTextElement("Idutente",x);
     //scorro il contenitore di utente pro:
     contenitore<opera>::iteratore it;
-   /* for(it=GetdbOpereUtente()->db_begin();it!=GetdbOpereUtente()->db_end();it++)
-    {(*it)->Write_opera(XmlWriter);}
-    */
+    for(it=GetdbOpereUtente()->dbopereutenti_begin();it!=GetdbOpereUtente()->dbopereutenti_end();it++)
+    {
+        if((*it)->Getappartenenza()==GetID())
+        {(*it)->Write_opera(XmlWriter);}
+    }
     XmlWriter.writeEndElement();
 }
 
@@ -87,10 +90,14 @@ void utente_pro::ricevi_opera(unsigned int x) {
     opera*op=GetopereBiblioteca()->trova_opera(x);
     if( op!=0 && tempoprestito<limitetempo)
     {
-     //aggiungo al database di opere utente;
-      op->Presta_opera();
-      //GetdbOpereUtente()->aggiungi_opera_utente(op);
-      GetopereBiblioteca()->remove_opera(x);
+        //aggiungo al database di opere utente;
+         op->Presta_opera();
+         //ora so a chi appartiene l'opera:
+         op->Setappartenenza(GetID());
+         //la inserisco nel database delle opere di tutti gli utenti:
+         GetdbOpereUtente()->aggiungi_opera_utente(op);
+         //la rimuovo dalla biblioteca:
+         GetopereBiblioteca()->remove_opera(x);
 
     }
    else{std::cout<<"Errore l'utente non è abilitato a ricevere l'opera";}
