@@ -145,14 +145,14 @@ bool database_utente::vuoto() const {return dbutenti.empty();}
 //aggiunge un utente basic al mio contenitore quindi al database:
 void database_utente::add_utentebasic(const info_utente& c) {
     unsigned int dettaglio=c.get_dettaglio().toInt();
-    utente_basic*p=new utente_basic(c.get_database(),dettaglio,c.get_nome(),c.get_cognome(),c.get_codicefiscale(),c.get_password());
+    utente_basic*p=new utente_basic(GetDatabase(),dettaglio,c.get_nome(),c.get_cognome(),c.get_codicefiscale(),c.get_password());
     dbutenti.add_item(p);
 }
 
 //aggiunge un utente pro al mio contenitore quindi al database:
 void database_utente::add_utentepro(const info_utente & c1) {
     unsigned int dettaglio=c1.get_dettaglio().toInt();
-    utente_pro*p=new utente_pro(c1.get_database(),dettaglio,c1.get_nome(),c1.get_cognome(),c1.get_codicefiscale(),c1.get_password());
+    utente_pro*p=new utente_pro(GetDatabase(),dettaglio,c1.get_nome(),c1.get_cognome(),c1.get_codicefiscale(),c1.get_password());
     dbutenti.add_item(p);
 }
 

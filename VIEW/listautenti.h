@@ -16,7 +16,7 @@ class listautenti : public Widget_Padre
 {
     Q_OBJECT
 public:
-    explicit listautenti(database_utente*);
+    explicit listautenti(database*,database_utente*);
     void aggiorna_vista();
     void costruisci_contenuto();
     void build_Nuova(const contenitore<utente>&);         //costruisce la tabella partendo da un contenitore passato ad essa

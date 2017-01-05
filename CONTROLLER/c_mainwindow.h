@@ -24,7 +24,6 @@ private slots:
     void inserisci_utentebasicDB();
     void inserisci_utenteproDB();
     void cerca_operaDB(const QString&);
-    void cerca_utenteDB(const QString&);
 
 private:
     database* model;

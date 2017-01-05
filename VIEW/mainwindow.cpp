@@ -4,7 +4,7 @@
 mainWindow::mainWindow(database* db,database_utente* udb) : Widget_Padre(db,udb) {
 
     tab=new listaOp(get_model(),get_modelutenti());   //tabella con l'elenco delle opere
-    tabutenti=new listautenti(get_modelutenti());
+    tabutenti=new listautenti(get_model(),get_modelutenti());
     controllerOP=new C_listaop(get_model(),tab);
     controllerUTENTI=new C_listautenti(get_modelutenti(),tabutenti);
   //bottoni
@@ -109,6 +109,12 @@ void mainWindow::slot_inserisci_rivista(){
 
 void mainWindow::slot_inserisci_libro(){
     emit show_inserisci_libro();
+}
+void mainWindow::slot_inserisci_utentebasic(){
+    emit show_inserisci_utentebasic();
+}
+void mainWindow::slot_inserisci_utentepro(){
+    emit show_inserisci_utentepro();
 }
 
 

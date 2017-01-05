@@ -37,7 +37,10 @@ SOURCES += main.cpp \
     MODEL/amministratore.cpp \
     CONTROLLER/c_add_utentebasic.cpp \
     CONTROLLER/c_add_utentepro.cpp \
-    CONTROLLER/c_listautenti.cpp
+    CONTROLLER/c_listautenti.cpp \
+    VIEW/inserisci_utentebasic.cpp \
+    VIEW/inserisci_utentepro.cpp \
+    VIEW/lista_utenti.cpp
 
 HEADERS  += \
     MODEL/opera.h \
