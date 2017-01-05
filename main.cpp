@@ -15,8 +15,9 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     database db;
-    mainWindow finestra(&db);
-    C_mainWindow controller(&db,&finestra);
+    database_utente dbutenti(&db);
+    mainWindow finestra(&db,&dbutenti);
+    C_mainWindow controller(&db,&dbutenti,&finestra);
 
     finestra.show();
 

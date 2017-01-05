@@ -16,7 +16,7 @@ class listaOp : public Widget_Padre
 {
     Q_OBJECT
 public:
-    explicit listaOp(database*);
+    explicit listaOp(database*,database_utente*);
     void aggiorna_vista();
     void costruisci_contenuto();
     void build_Nuova(const contenitore<opera>&);         //costruisce la tabella partendo da un contenitore passato ad essa

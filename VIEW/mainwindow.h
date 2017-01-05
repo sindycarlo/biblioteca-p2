@@ -14,6 +14,8 @@
 
 #include "../CONTROLLER/c_listaop.h"
 #include "../MODEL/database.h"
+#include "../MODEL/database_utente.h"
+#include "../CONTROLLER/c_listautenti.h"
 
 
 
@@ -21,7 +23,7 @@ class mainWindow : public Widget_Padre
 {
     Q_OBJECT
 public:
-    explicit mainWindow(database*);
+    explicit mainWindow(database*,database_utente*);
     virtual void aggiorna_vista();
     virtual void costruisci_contenuto();
     void costruisci_Tabella(const contenitore<opera>&);
@@ -34,23 +36,31 @@ signals:
     void aggiorna_prestito(int);
     void show_inserisci_rivista();
     void show_inserisci_libro();
+    void show_inserisci_utentebasic();
+    void show_inserisci_utentepro();
     void cerca_opera(QString);
+    void cerca_utente(QString);
 
 private slots:
     void rimuovi_segnale();
     void slot_aggiorna_prestito();
     void slot_inserisci_rivista();
     void slot_inserisci_libro();
+    void slot_inserisci_utentebasic();
+    void slot_inserisci_utentepro();
     void modifica_campo(int);
     void disabilita();
     void testo_editato(const QString&);
 private:
     database* model;
-
+    database_utente* modelutenti;
     listaOp* tab;
+    listautenti* tabutenti;
     C_listaop* controllerOP;
+    C_listautenti* controllerUTENTI;
 
     int opera_selezionata;
+    int utente_selezionato;
 
     QLineEdit* barra_cerca;
 

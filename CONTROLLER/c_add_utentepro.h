@@ -14,7 +14,7 @@ public:
     explicit c_add_utentepro(database_utente* , inserisci_utentepro* ,mainWindow* , QObject *parent = 0);
 
 public slots:
-    void addutentepro(const info_utente&);
+    void add_utentepro(const info_utente&);
     void chiudi_add_utentepro();
 
 private:

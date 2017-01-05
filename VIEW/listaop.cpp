@@ -1,6 +1,6 @@
 #include"listaop.h"
 
-listaOp::listaOp(database* db): Widget_Padre(db){
+listaOp::listaOp(database* db,database_utente* udb): Widget_Padre(db,udb){
     table=new QTableWidget();
 
   //inserisco la tabella nel layout del widget

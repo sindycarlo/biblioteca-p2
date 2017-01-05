@@ -34,7 +34,10 @@ SOURCES += main.cpp \
     VIEW/widget_padre.cpp \
     CONTROLLER/c_listaop.cpp \
     VIEW/listaop.cpp \
-    MODEL/amministratore.cpp
+    MODEL/amministratore.cpp \
+    CONTROLLER/c_add_utentebasic.cpp \
+    CONTROLLER/c_add_utentepro.cpp \
+    CONTROLLER/c_listautenti.cpp
 
 HEADERS  += \
     MODEL/opera.h \

@@ -1,10 +1,11 @@
 #include "c_mainwindow.h"
 
-C_mainWindow::C_mainWindow(database* db,mainWindow* v, QObject *parent) :model(db),view(v),  QObject(parent) {
+C_mainWindow::C_mainWindow(database* db,database_utente* udb,mainWindow* v, QObject *parent) :model(db),modelutenti(udb),view(v),  QObject(parent) {
     connect(view,SIGNAL(rimuovi(int)),this,SLOT(rimuovi_operaDB(int)));
     connect(view,SIGNAL(aggiorna_prestito(int)),this,SLOT(aggiorna_prestitoDB(int)));
     connect(view,SIGNAL(show_inserisci_rivista()),this,SLOT(inserisci_rivistaDB()));
     connect(view,SIGNAL(show_inserisci_libro()),this,SLOT(inserisci_libroDB()));
+    connect(view,SIGNAL(show_inserisci_utentebasic()),this,SLOT(inserisci_utentebasicDB()));
 
    //connessione che permette la ricerca di un'opera o di una serie di opere
     connect(view,SIGNAL(cerca_opera(QString)),this,SLOT(cerca_operaDB(QString)));

@@ -21,7 +21,7 @@ public:
     ~inserisci_Libro();
 
 signals:
-    void submitL(info_opera);
+    void submitL(const info_opera&);
     void chiudi_aggiungi_Libro();
 
 public slots:

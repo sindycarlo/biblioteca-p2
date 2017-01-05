@@ -1,18 +1,20 @@
 #include "mainwindow.h"
 #include<QApplication>
 #include<QToolTip>
-mainWindow::mainWindow(database* db) : Widget_Padre(db) {
+mainWindow::mainWindow(database* db,database_utente* udb) : Widget_Padre(db,udb) {
 
-    tab=new listaOp(get_model());   //tabella con l'elenco delle opere
-
+    tab=new listaOp(get_model(),get_modelutenti());   //tabella con l'elenco delle opere
+    tabutenti=new listautenti(get_modelutenti());
     controllerOP=new C_listaop(get_model(),tab);
-
+    controllerUTENTI=new C_listautenti(get_modelutenti(),tabutenti);
   //bottoni
     exit=new QPushButton("ESCI");
     presta_rientra=new QPushButton("PRESTA / RIENTRA");
     aggiungi_rivista=new QPushButton("AGGIUNGI RIVISTA");
     aggiungi_libro=new QPushButton("AGGIUNGI LIBRO");
     rimuovi_opera=new QPushButton("RIMUOVI OPERA");
+    aggiungi_utente_basic=new QPushButton("AGGIUNGI UTENTE BASIC");
+    aggiungi_utente_pro=new QPushButton("AGGIUNGI UTENTE PRO");
     disabilita_bottoni();
 
   //barra della ricerca
@@ -32,6 +34,8 @@ mainWindow::mainWindow(database* db) : Widget_Padre(db) {
     connect(presta_rientra,SIGNAL(clicked()),this,SLOT(slot_aggiorna_prestito()));
     connect(aggiungi_rivista,SIGNAL(clicked()),this,SLOT(slot_inserisci_rivista()));
     connect(aggiungi_libro,SIGNAL(clicked()),this,SLOT(slot_inserisci_libro()));
+    connect(aggiungi_utente_basic,SIGNAL(clicked()),this,SLOT(slot_inserisci_utentebasic()));
+    connect(aggiungi_utente_pro,SIGNAL(clicked()),this,SLOT(slot_inserisci_utentepro()));
     connect(exit,SIGNAL(clicked()),qApp,SLOT(quit()));
     connect(barra_cerca,SIGNAL(textEdited(QString)),this,SLOT(testo_editato(const QString& )));
 
@@ -42,6 +46,7 @@ void mainWindow::set_style(){
     barra_cerca->setPlaceholderText("Ricerca per: Titolo, Autore, Anno di uscita, ID");
     barra_cerca->setToolTip("Eliminare il contenuto della barra per tornare all'elenco completo delle opere");
     tab->setToolTip("Doppio click per visualizzare i dettagli dell'opera");
+    tabutenti->setToolTip("Doppio click per visualizzare i dettagli dell'utente");
     presta_rientra->setToolTip("Funzione disponibile se si seleziona un' opera con un click");
     barra_cerca->setToolTipDuration(5000);
     barra_cerca->setToolTipDuration(5000);
@@ -59,8 +64,11 @@ void mainWindow::creaLayout(){
     bottoni->addWidget(aggiungi_libro);
     bottoni->addWidget(aggiungi_rivista);
     bottoni->addWidget(rimuovi_opera);
+    bottoni->addWidget(aggiungi_utente_basic);
+    bottoni->addWidget(aggiungi_utente_pro);
 
     orizzontale->addWidget(tab);
+    orizzontale->addWidget(tabutenti);
     orizzontale->addLayout(bottoni);
 
     Prlayout->addWidget(barra_cerca);
@@ -110,33 +118,12 @@ void mainWindow::disabilita(){
 
 void mainWindow::slot_aggiorna_prestito(){
 
- /*   info_opera infoOP=(get_model()->(opera_selezionata);
-    QString identificativo,stato;
-    identificativo.setNum(opera_selezionata);
-
-    if(infoOP.is_consultabile()=="si") stato="prestare";
-    else stato="ricevere";
-
-    QMessageBox warning;
-        warning.setIcon(QMessageBox::Question);
-        warning.setWindowTitle("Aggiornamento del prestito");
-        warning.setText("Hai selezionato l'opera con ID: <b>"+identificativo+"</b>");
-        warning.setInformativeText("Vuoi veramente "+stato+ " questa opera?");
-        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
-        warning.setDefaultButton(QMessageBox::Cancel);
-        int ret = warning.exec();
-        if(ret==QMessageBox::Yes)
-        {
-            (get_model())->aggiorna_view();
-            emit aggiorna_prestito(opera_selezionata);
-        }
-        */
 }
 
 
 void mainWindow::costruisci_Tabella(const contenitore<opera>& lista){ tab->build_Nuova(lista); }
 
-void mainWindow::aggiorna_vista(){ tab->aggiorna_vista(); }
+void mainWindow::aggiorna_vista(){ tab->aggiorna_vista();tabutenti->aggiorna_vista(); }
 
 void mainWindow::abilita_bottoni(){
     rimuovi_opera->setEnabled(true);
@@ -158,11 +145,15 @@ mainWindow::~mainWindow(){
     delete Prlayout;
     delete rimuovi_opera;
     delete tab;
+    delete tabutenti;
     delete presta_rientra;
     delete controllerOP;
+    delete controllerUTENTI;
     delete aggiungi_libro;
     delete barra_cerca;
     delete aggiungi_rivista;
+    delete aggiungi_utente_basic;
+    delete aggiungi_utente_pro;
     delete exit;
 }
 
