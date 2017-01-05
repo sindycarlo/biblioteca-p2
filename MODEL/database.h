@@ -13,7 +13,7 @@
 #include"rivista.h"
 #include"libro.h"
 #include"info_opera.h"
-
+#include"../VIEW/widget_padre.h"
 
 
 
@@ -22,7 +22,7 @@ private:
     //campi dati
     static QString filename;
     contenitore<opera> db;                                     //creo il contenitore leggendo il file xml
-
+    std::vector<Widget_Padre*> registro;                //registro delle view "dettagli" collegate al modello per aggionramento nel caso in cui "presta/ricevi" venga con la view dettagli aperta
     void Load();
     void Close();                                       //salva tutti i cambiamenti eseguiti dall'utente nel file XML
 
@@ -35,6 +35,12 @@ public:
     opera* trova_opera(unsigned int) const;
     void add_Rivista(const info_opera&);                             //aggiunge una rivista
     void add_Libro(const info_opera&);                               //aggiunge una libro
+    info_opera get_infoOpera(int) const;
+
+    void aggiorna_view() const;                         //permette di aggiornare le view registrate al dataBase
+    void add_registro(Widget_Padre*);                   //registrazione al DataBase
+    void remove_registro(Widget_Padre*);                //permette di eliminare la registrazione al DataBase
+
 
     contenitore<opera>::iteratore db_iter;
 

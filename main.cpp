@@ -2,6 +2,35 @@
 #include "MODEL/database.h"
 
 
+
+
+
+
+#include "MODEL/database.h"
+#include <CONTROLLER/c_mainwindow.h>
+
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    database db;
+    mainWindow finestra(&db);
+    C_mainWindow controller(&db,&finestra);
+
+    finestra.show();
+
+    return a.exec();
+}
+
+
+/*
+
+
+
+
+
+
 //test di prova per la parte di progettazione:
 #include "MODEL/database.h"
 #include "MODEL/database_utente.h"
@@ -9,7 +38,6 @@
 
 int main(int argc, char *argv[])
 {
-    //QApplication a(argc, argv);
 
 
 
@@ -58,6 +86,8 @@ int main(int argc, char *argv[])
 
     database_utente_opere db3(&utenti);
 
-    db3.remove_operadelutente(4,5);
+
 
 }
+*/
+

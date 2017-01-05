@@ -24,7 +24,17 @@ SOURCES += main.cpp \
     MODEL/utente_pro.cpp \
     MODEL/info_utente.cpp \
     MODEL/database_utente.cpp \
-    MODEL/database_utente_opere.cpp
+    MODEL/database_utente_opere.cpp \
+    CONTROLLER/c_add_libro.cpp \
+    CONTROLLER/c_add_rivista.cpp \
+    CONTROLLER/c_mainwindow.cpp \
+    VIEW/inserisci_libro.cpp \
+    VIEW/inserisci_rivista.cpp \
+    VIEW/mainwindow.cpp \
+    VIEW/widget_padre.cpp \
+    CONTROLLER/c_listaop.cpp \
+    VIEW/listaop.cpp \
+    MODEL/amministratore.cpp
 
 HEADERS  += \
     MODEL/opera.h \
@@ -38,7 +48,20 @@ HEADERS  += \
     MODEL/utente_pro.h \
     MODEL/database_utente.h \
     MODEL/info_utente.h \
-    MODEL/database_utente_opere.h
+    MODEL/database_utente_opere.h \
+    CONTROLLER/c_add_libro.h \
+    CONTROLLER/c_add_rivista.h \
+    CONTROLLER/c_mainwindow.h \
+    VIEW/inserisci_libro.h \
+    VIEW/inserisci_rivista.h \
+    VIEW/mainwindow.h \
+    VIEW/widget_padre.h \
+    CONTROLLER/c_listaop.h \
+    VIEW/listaop.h \
+    MODEL/amministratore.h \
+    CONTROLLER/c_add_utentebasic.h \
+    CONTROLLER/c_add_utentepro.h \
+    CONTROLLER/c_listautenti.h
 
 FORMS    += biblioteca.ui
 

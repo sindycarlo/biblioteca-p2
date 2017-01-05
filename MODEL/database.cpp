@@ -147,3 +147,37 @@ void database::add_Rivista(const info_opera & c1) {
 }
 
 
+info_opera database::get_infoOpera(int ID) const{
+    opera* op=trova_opera(ID);
+    if(!op)
+    {
+        std::cout<<"opera non trovata"<<std::endl;
+        return info_opera("Opera non presente", "Opera non presente", "Opera non presente", "Opera non presente","Opera non presente");
+    }
+    return info_opera(op->info_tot());
+}
+
+void database::aggiorna_view() const{
+    std::vector<Widget_Padre*>::const_iterator it=registro.begin();
+    std::vector<Widget_Padre*>::const_iterator it_e=registro.end();
+    for(; it<it_e; ++it) (*it)->aggiorna_vista();
+}
+
+
+void database::add_registro(Widget_Padre* wp){
+    registro.push_back(wp);
+}
+
+
+void database::remove_registro(Widget_Padre* wp){
+    std::vector<Widget_Padre*>::iterator it=registro.begin();
+    std::vector<Widget_Padre*>::iterator it_e=registro.end();
+    bool trovato=false;
+    for(; it<it_e && !trovato; ++it)
+    {
+        if((*it)==wp){
+            trovato=true;
+            registro.erase(it);
+        }
+    }
+}
