@@ -29,9 +29,9 @@ void inserisci_utentebasic::build_Layout(){
 
     grid->addWidget(n,0,0); grid->addWidget(nome,0,1);
     grid->addWidget(co,1,0); grid->addWidget(cognome,1,1);
-    grid->addWidget(cf,2,0); grid->addWidget(codicefiscale,2,2);
-    grid->addWidget(psw,3,0); grid->addWidget(password,3,3);
-    grid->addWidget(Numop,4,0); grid->addWidget(Numeropere,4,4);
+    grid->addWidget(cf,2,0); grid->addWidget(codicefiscale,2,1);
+    grid->addWidget(psw,3,0); grid->addWidget(password,3,1);
+    grid->addWidget(Numop,4,0); grid->addWidget(Numeropere,4,1);
     layout->addLayout(grid);
     layout->addWidget(submit);
 

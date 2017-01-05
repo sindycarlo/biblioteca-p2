@@ -21,25 +21,25 @@ void listautenti::costruisci_contenuto(){ aggiorna_vista(); }
 void listautenti::aggiorna_vista(){
 
     int row=0;
-        database* ciao=get_model();
-        if(!((get_model())->vuoto()))
+        database_utente* ciao=get_modelutenti();
+        if(!((get_modelutenti())->vuoto()))
         {
              int id;
              QString i;
-             contenitore<opera>::iteratore it;
-             for(it=(get_model())->db_begin(); it!=(get_model())->db_end(); it++)
+             contenitore<utente>::iteratore it;
+             for(it=(get_modelutenti())->dbutenti_begin(); it!=(get_modelutenti())->dbutenti_end(); it++)
              {
                 table->setRowCount(row+1);
-                id=(*it)->GetId();
+                id=(*it)->GetID();
                 i.setNum(id);
 
                 QTableWidgetItem *ID = new QTableWidgetItem(i);
-                QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
-                QTableWidgetItem *tipo = new QTableWidgetItem((*it)->Get_tipo());
+                QTableWidgetItem *nome = new QTableWidgetItem((*it)->GetNome());
+                QTableWidgetItem *cognome = new QTableWidgetItem((*it)->GetCognome());
 
                 table->setItem(row,0,ID);
-                table->setItem(row,1,valore);
-                table->setItem(row,2,tipo);
+                table->setItem(row,1,nome);
+                table->setItem(row,2,cognome);
                 row++;
              }
         }
@@ -66,7 +66,7 @@ void listautenti::set_style(){
 
     //intestazione tabella
     QStringList tabHeader;
-    tabHeader<<"ID"<<"Titolo"<<"Tipologia";
+    tabHeader<<"ID"<<"Nome"<<"Cognome";
     table->setHorizontalHeaderLabels(tabHeader);
 
     //comportamento nel momento in cui si seleziona un item
@@ -90,12 +90,12 @@ void listautenti::build_Nuova(const contenitore<utente>& lista){
             i.setNum(id);
 
             QTableWidgetItem *ID = new QTableWidgetItem(i);
-            QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetNome());
-            QTableWidgetItem *tipo = new QTableWidgetItem((*it)->GetCognome());
+            QTableWidgetItem *nome = new QTableWidgetItem((*it)->GetNome());
+            QTableWidgetItem *cognome = new QTableWidgetItem((*it)->GetCognome());
 
             table->setItem(row,0,ID);
-            table->setItem(row,1,valore);
-            table->setItem(row,2,tipo);
+            table->setItem(row,1,nome);
+            table->setItem(row,2,cognome);
             row++;
          }
     }
