@@ -61,7 +61,10 @@ HEADERS  += \
     MODEL/amministratore.h \
     CONTROLLER/c_add_utentebasic.h \
     CONTROLLER/c_add_utentepro.h \
-    CONTROLLER/c_listautenti.h
+    CONTROLLER/c_listautenti.h \
+    VIEW/inserisci_utentebasic.h \
+    VIEW/inserisci_utentepro.h \
+    VIEW/listautenti.h
 
 FORMS    += biblioteca.ui
 

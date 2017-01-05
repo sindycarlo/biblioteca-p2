@@ -1,0 +1,4 @@
+#ifndef LISTAUTENTI_H
+#define LISTAUTENTI_H
+
+#endif // LISTAUTENTI_H

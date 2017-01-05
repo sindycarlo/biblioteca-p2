@@ -3,23 +3,23 @@
 
 #include <QObject>
 #include<QApplication>
-#include "../VIEW/inserisci_libro.h"
+#include "../VIEW/inserisci_utentepro.h"
 #include "../VIEW/mainwindow.h"
-#include "../MODEL/database.h"
+#include "../MODEL/database_utente.h"
 
-class c_add_libro : public QObject
+class c_add_utentepro : public QObject
 {
     Q_OBJECT
 public:
-    explicit c_add_libro(database* , inserisci_Libro* ,mainWindow* , QObject *parent = 0);
+    explicit c_add_utentepro(database_utente* , inserisci_utentepro* ,mainWindow* , QObject *parent = 0);
 
 public slots:
-    void add(const info_opera&);
-    void chiudi_add_libro();
+    void addutentepro(const info_utente&);
+    void chiudi_add_utentepro();
 
 private:
-    database* model;
-    inserisci_Libro* view;
+    database_utente* model;
+    inserisci_utentepro* view;
     mainWindow* mainW;
 };
 
