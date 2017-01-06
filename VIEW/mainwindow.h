@@ -39,6 +39,7 @@ signals:
     void show_inserisci_utentebasic();
     void show_inserisci_utentepro();
     void cerca_opera(QString);
+    void cerca_utente(QString);
 
 private slots:
     void rimuovi_segnale();
@@ -62,6 +63,7 @@ private:
     int utente_selezionato;
 
     QLineEdit* barra_cerca;
+    QLineEdit* barra_cercautenti;
 
     QPushButton* presta_rientra;
     QPushButton* aggiungi_rivista;

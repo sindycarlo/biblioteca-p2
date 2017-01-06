@@ -9,14 +9,18 @@ C_mainWindow::C_mainWindow(database* db,database_utente* udb,mainWindow* v, QObj
     connect(view,SIGNAL(show_inserisci_utentepro()),this,SLOT(inserisci_utenteproDB()));
    //connessione che permette la ricerca di un'opera o di una serie di opere
     connect(view,SIGNAL(cerca_opera(QString)),this,SLOT(cerca_operaDB(QString)));
-
+    connect(view,SIGNAL(cerca_utente(QString)),this,SLOT(cerca_utenteDB(QString)));
     //chiudi
     connect(view,SIGNAL(chiudi_app()),qApp,SLOT(quit()));
 }
 
 void C_mainWindow::cerca_operaDB(const QString& text){
+model->
+}
+void C_mainWindow::cerca_utenteDB(const QString& text){
 
 }
+
 
 void C_mainWindow::rimuovi_operaDB(int ID){
     model->remove_opera(ID);
