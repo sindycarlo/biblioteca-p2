@@ -34,6 +34,7 @@ public:
     database* GetopereBiblioteca() const;
     unsigned int GetID() const;
     unsigned int Getmaxid() const;
+    bool ricerca_campi(const QString&) const;
 
     void SetID(unsigned int);
 

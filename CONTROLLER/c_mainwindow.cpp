@@ -15,10 +15,21 @@ C_mainWindow::C_mainWindow(database* db,database_utente* udb,mainWindow* v, QObj
 }
 
 void C_mainWindow::cerca_operaDB(const QString& text){
-model->
+    contenitore<opera> container;
+    container=model->trova_opere_insieme(text);
+    if(!(container.empty()))
+    {
+        view->costruisci_Tabella(container);
+    }else{std::cout<<"ciao";view->aggiorna_vista();}
 }
 void C_mainWindow::cerca_utenteDB(const QString& text){
-
+    contenitore<utente> container;
+    container=modelutenti->trova_utenti_insieme(text);
+    if(!(container.empty()))
+    {
+        std::cout<<"TROVATO";
+        view->costruisci_Tabellautenti(container);
+    }else{std::cout<<"DIO BOIA";view->aggiorna_vista();}
 }
 
 

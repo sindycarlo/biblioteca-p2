@@ -110,6 +110,8 @@ void mainWindow::rimuovi_segnale(){
 
 void mainWindow::testo_editato(const QString& text){ emit cerca_opera(text); }
 
+void mainWindow::testo_editato_utenti(const QString& text){ emit cerca_utente(text); }
+
 void mainWindow::slot_inserisci_rivista(){
     emit show_inserisci_rivista();
 }
@@ -135,9 +137,8 @@ void mainWindow::slot_aggiorna_prestito(){
 
 
 void mainWindow::costruisci_Tabella(const contenitore<opera>& lista){ tab->build_Nuova(lista); }
-
-void mainWindow::aggiorna_vista(){ tab->aggiorna_vista();tabutenti->aggiorna_vista(); }
-
+void mainWindow::costruisci_Tabellautenti(const contenitore<utente> & listautenti) {tabutenti->build_Nuova(listautenti);}
+void mainWindow::aggiorna_vista(){ tab->aggiorna_vista();tabutenti->aggiorna_vista();}
 void mainWindow::abilita_bottoni(){
     rimuovi_opera->setEnabled(true);
     presta_rientra->setEnabled(true);

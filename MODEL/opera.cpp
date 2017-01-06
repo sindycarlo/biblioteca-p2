@@ -42,7 +42,7 @@ bool opera::presente() const {
 
 bool opera::ricerca_campi(const QString& text) const {
 int ID=text.toInt();
-if((QString::compare(text,GetTitolo(),Qt::CaseInsensitive))==0) return true;
+if(!(QString::compare(text,GetTitolo(),Qt::CaseInsensitive))) return true;
 if(ID==GetId()) return true;
 return false;
 }

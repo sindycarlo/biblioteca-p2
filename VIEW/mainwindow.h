@@ -27,6 +27,7 @@ public:
     virtual void aggiorna_vista();
     virtual void costruisci_contenuto();
     void costruisci_Tabella(const contenitore<opera>&);
+    void costruisci_Tabellautenti(const contenitore<utente>&);
     virtual void set_style();
     void closeEvent(QCloseEvent*);
     ~mainWindow();
@@ -50,6 +51,7 @@ private slots:
     void slot_inserisci_utentepro();
     void modifica_campo(int);
     void disabilita();
+    void testo_editato_utenti(const QString&);
     void testo_editato(const QString&);
 private:
     database* model;
