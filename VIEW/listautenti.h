@@ -20,19 +20,19 @@ public:
     void aggiorna_vista();
     void costruisci_contenuto();
     void build_Nuova(const contenitore<utente>&);         //costruisce la tabella partendo da un contenitore passato ad essa
-    void abilita_doppio_click();
-    void disabilita_doppio_click();
+    void abilita_doppio_click_utenti();
+    void disabilita_doppio_click_utenti();
     ~listautenti();
 signals:
-   void richiesta_info(const int);
-   void selezione(const int);
-   void tabella_vuota();
-   void disabilita_funzioni();
-   void abilita_funzioni();
+   void richiesta_info_utenti(const int);
+   void selezione_utenti(const int);
+   void tabella_vuota_utenti();
+   void disabilita_funzioni_utenti();
+   void abilita_funzioni_utenti();
 
 private slots:
-   void doppio_click(int);        //permette di emettere il segnale richiesta_info l'id selezionato
-   void click_singolo(int);       //permette di far emettere il segnale selezione con l'id selezionato
+   void doppio_click_utenti(int);        //permette di emettere il segnale richiesta_info l'id selezionato
+   void click_singolo_utenti(int);       //permette di far emettere il segnale selezione con l'id selezionato
 
 private:
 

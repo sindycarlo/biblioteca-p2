@@ -13,9 +13,11 @@ mainWindow::mainWindow(database* db,database_utente* udb) : Widget_Padre(db,udb)
     aggiungi_rivista=new QPushButton("AGGIUNGI RIVISTA");
     aggiungi_libro=new QPushButton("AGGIUNGI LIBRO");
     rimuovi_opera=new QPushButton("RIMUOVI OPERA");
+    rimuovi_utenti=new QPushButton("RIMUOVI UTENTE");
     aggiungi_utente_basic=new QPushButton("AGGIUNGI UTENTE BASIC");
     aggiungi_utente_pro=new QPushButton("AGGIUNGI UTENTE PRO");
     disabilita_bottoni();
+    disabilita_bottoni_utenti();
 
   //barra della ricerca
     barra_cerca=new QLineEdit();
@@ -31,7 +33,9 @@ mainWindow::mainWindow(database* db,database_utente* udb) : Widget_Padre(db,udb)
     set_style();
 
     connect(tab,SIGNAL(selezione(int)),this,SLOT(modifica_campo(int)));
+    connect(tabutenti,SIGNAL(selezione_utenti(int)),this,SLOT(modifica_campo_utenti(int)));
     connect(rimuovi_opera,SIGNAL(clicked()),this,SLOT(rimuovi_segnale()));
+    connect(rimuovi_utenti,SIGNAL(clicked()),this,SLOT(rimuovi_segnale_utenti()));
     connect(presta_rientra,SIGNAL(clicked()),this,SLOT(slot_aggiorna_prestito()));
     connect(aggiungi_rivista,SIGNAL(clicked()),this,SLOT(slot_inserisci_rivista()));
     connect(aggiungi_libro,SIGNAL(clicked()),this,SLOT(slot_inserisci_libro()));
@@ -70,6 +74,7 @@ void mainWindow::creaLayout(){
     bottoni->addWidget(aggiungi_libro);
     bottoni->addWidget(aggiungi_rivista);
     bottoni->addWidget(rimuovi_opera);
+    bottoni->addWidget(rimuovi_utenti);
     bottoni->addWidget(aggiungi_utente_basic);
     bottoni->addWidget(aggiungi_utente_pro);
 
@@ -91,6 +96,12 @@ void mainWindow::modifica_campo(int ID){
 
 }
 
+void mainWindow::modifica_campo_utenti(int ID){
+    utente_selezionato=ID;
+    abilita_bottoni_utenti();
+
+}
+
 void mainWindow::rimuovi_segnale(){
     QString identificativo;
     identificativo.setNum(opera_selezionata);
@@ -104,6 +115,21 @@ void mainWindow::rimuovi_segnale(){
         int ret = warning.exec();
         if(ret==QMessageBox::Yes) {
             emit rimuovi(opera_selezionata);
+        }
+}
+void mainWindow::rimuovi_segnale_utenti(){
+    QString identificativo;
+    identificativo.setNum(utente_selezionato);
+    QMessageBox warning;
+        warning.setIcon(QMessageBox::Question);
+        warning.setWindowTitle("Rimuovi Utente");
+        warning.setText("Hai selezionato l'utente con ID: <b>"+identificativo+"</b>");
+        warning.setInformativeText("Vuoi veramente eliminare questo utente?");
+        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+        warning.setDefaultButton(QMessageBox::Cancel);
+        int ret = warning.exec();
+        if(ret==QMessageBox::Yes) {
+            emit rimuovi_utente(utente_selezionato);
         }
 }
 
@@ -148,6 +174,18 @@ void mainWindow::disabilita_bottoni(){
    rimuovi_opera->setEnabled(false);
    presta_rientra->setEnabled(false);
 }
+void mainWindow::abilita_bottoni_utenti(){
+    rimuovi_opera->setEnabled(false);
+    presta_rientra->setEnabled(false);
+    rimuovi_utenti->setEnabled(true);
+
+}
+
+void mainWindow::disabilita_bottoni_utenti(){
+   rimuovi_opera->setEnabled(false);
+   rimuovi_utenti->setEnabled(false);
+   presta_rientra->setEnabled(false);
+}
 
 
 void mainWindow::closeEvent(QCloseEvent *event){ emit chiudi_app(); }
@@ -158,6 +196,7 @@ mainWindow::~mainWindow(){
     delete orizzontale;
     delete Prlayout;
     delete rimuovi_opera;
+    delete rimuovi_utenti;
     delete tab;
     delete tabutenti;
     delete presta_rientra;

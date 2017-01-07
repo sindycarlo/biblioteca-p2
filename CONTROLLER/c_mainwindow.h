@@ -18,6 +18,7 @@ public:
 
 private slots:
     void rimuovi_operaDB(int);
+    void rimuovi_utenteDB(int);
     void aggiorna_prestitoDB(int);
     void inserisci_rivistaDB();
     void inserisci_libroDB();

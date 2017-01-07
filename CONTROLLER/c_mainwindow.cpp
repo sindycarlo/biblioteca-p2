@@ -2,6 +2,7 @@
 
 C_mainWindow::C_mainWindow(database* db,database_utente* udb,mainWindow* v, QObject *parent) :model(db),modelutenti(udb),view(v),  QObject(parent) {
     connect(view,SIGNAL(rimuovi(int)),this,SLOT(rimuovi_operaDB(int)));
+    connect(view,SIGNAL(rimuovi_utente(int)),this,SLOT(rimuovi_utenteDB(int)));
     connect(view,SIGNAL(aggiorna_prestito(int)),this,SLOT(aggiorna_prestitoDB(int)));
     connect(view,SIGNAL(show_inserisci_rivista()),this,SLOT(inserisci_rivistaDB()));
     connect(view,SIGNAL(show_inserisci_libro()),this,SLOT(inserisci_libroDB()));
@@ -20,21 +21,25 @@ void C_mainWindow::cerca_operaDB(const QString& text){
     if(!(container.empty()))
     {
         view->costruisci_Tabella(container);
-    }else{std::cout<<"ciao";view->aggiorna_vista();}
+    }else{view->aggiorna_vista();}
 }
 void C_mainWindow::cerca_utenteDB(const QString& text){
     contenitore<utente> container;
     container=modelutenti->trova_utenti_insieme(text);
     if(!(container.empty()))
     {
-        std::cout<<"TROVATO";
+
         view->costruisci_Tabellautenti(container);
-    }else{std::cout<<"DIO BOIA";view->aggiorna_vista();}
+    }else{view->aggiorna_vista();}
 }
 
 
 void C_mainWindow::rimuovi_operaDB(int ID){
     model->remove_opera(ID);
+    view->aggiorna_vista();
+}
+void C_mainWindow::rimuovi_utenteDB(int ID){
+    modelutenti->remove_utente(ID);
     view->aggiorna_vista();
 }
 

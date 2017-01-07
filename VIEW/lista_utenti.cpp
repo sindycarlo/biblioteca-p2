@@ -11,8 +11,8 @@ listautenti::listautenti(database* db,database_utente* udb): Widget_Padre(db,udb
 
     costruisci_contenuto();
 
-    connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click(int)));     //doppio click
-    connect(table,SIGNAL(cellClicked(int,int)),this,SLOT(click_singolo(int)));          //click singolo
+    connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click_utenti(int)));     //doppio click
+    connect(table,SIGNAL(cellClicked(int,int)),this,SLOT(click_singolo_utenti(int)));          //click singolo
 
 }
 
@@ -45,7 +45,7 @@ void listautenti::aggiorna_vista(){
         }
         else{
                 table->setRowCount(row);
-                emit tabella_vuota();
+                emit tabella_vuota_utenti();
             }
 }
 
@@ -101,19 +101,19 @@ void listautenti::build_Nuova(const contenitore<utente>& lista){
     }
     else{
             table->setRowCount(row);
-            emit tabella_vuota();
+            emit tabella_vuota_utenti();
         }
 }
 
 
-void listautenti::doppio_click(int r){
+void listautenti::doppio_click_utenti(int r){
     select_utente=table->item(r,0)->text().toInt();
-    emit richiesta_info(select_utente);
+    emit richiesta_info_utenti(select_utente);
 }
 
-void listautenti::click_singolo(int r){
+void listautenti::click_singolo_utenti(int r){
     select_utente=table->item(r,0)->text().toInt();
-    emit selezione(select_utente);
+    emit selezione_utenti(select_utente);
 }
 
 listautenti::~listautenti(){
@@ -121,13 +121,13 @@ listautenti::~listautenti(){
     delete layout_table;
 }
 
-void listautenti::abilita_doppio_click(){
-    connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click(int)));
-    emit abilita_funzioni();
+void listautenti::abilita_doppio_click_utenti(){
+    connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click_utenti(int)));
+    emit abilita_funzioni_utenti();
 }
 
-void listautenti::disabilita_doppio_click(){
-    disconnect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click(int)));
-    emit disabilita_funzioni();
+void listautenti::disabilita_doppio_click_utenti(){
+    disconnect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click_utenti(int)));
+    emit disabilita_funzioni_utenti();
 }
 

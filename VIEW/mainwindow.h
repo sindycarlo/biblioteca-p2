@@ -34,6 +34,7 @@ public:
 signals:
     void chiudi_app();
     void rimuovi(int);
+    void rimuovi_utente(int);
     void aggiorna_prestito(int);
     void show_inserisci_rivista();
     void show_inserisci_libro();
@@ -44,12 +45,14 @@ signals:
 
 private slots:
     void rimuovi_segnale();
+    void rimuovi_segnale_utenti();
     void slot_aggiorna_prestito();
     void slot_inserisci_rivista();
     void slot_inserisci_libro();
     void slot_inserisci_utentebasic();
     void slot_inserisci_utentepro();
     void modifica_campo(int);
+    void modifica_campo_utenti(int);
     void disabilita();
     void testo_editato_utenti(const QString&);
     void testo_editato(const QString&);
@@ -71,6 +74,7 @@ private:
     QPushButton* aggiungi_rivista;
     QPushButton* aggiungi_libro;
     QPushButton* rimuovi_opera;
+    QPushButton* rimuovi_utenti;
     QPushButton* aggiungi_utente_basic;
     QPushButton* aggiungi_utente_pro;
     QPushButton* exit;
@@ -80,7 +84,9 @@ private:
 
     void creaLayout();
     void abilita_bottoni();
+    void abilita_bottoni_utenti();
     void disabilita_bottoni();
+    void disabilita_bottoni_utenti();
 };
 
 #endif // MAINWINDOW_H
