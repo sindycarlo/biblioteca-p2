@@ -71,20 +71,20 @@ void database_utente_opere::Load() {
                                    }
 
                         }
-                        else //sono alla fine del documento opere quindi:
+                        else //sono alla fine del documento quindi:
                         {      //sono al tag </opera>
-                            if(xmlReader.isEndDocument() && xmlReader.name()=="opera")
+                            if(xmlReader.EndElement && xmlReader.name()=="opera")
                             {
                               if(Tipo==1) tmp=new libro(Titolo,Autore,Stato);
                               else tmp=new rivista(Titolo,AnnoUscita,Stato);
                                tmp->Set_id(Id);
-                               tmp->Setappartenenza(Idutente);
                                dbopereutente.add_item(tmp);
                                xmlReader.readNext();
                              }
                             else xmlReader.readNext();
                         }
                         }
+
                     }
                     else if(Tipoutente==2)
                     {
@@ -118,7 +118,7 @@ void database_utente_opere::Load() {
                         }
                         else //sono alla fine del documento opere quindi:
                         {      //sono al tag </opera>
-                            if(xmlReader.isEndDocument() && xmlReader.name()=="opera")
+                            if(xmlReader.EndElement &&  xmlReader.name()=="opera")
                             {
                               if(Tipo==1) tmp=new libro(Titolo,Autore,Stato);
                               else tmp=new rivista(Titolo,AnnoUscita,Stato);
@@ -129,11 +129,11 @@ void database_utente_opere::Load() {
                              }
                             else xmlReader.readNext();
                         }
+                           xmlReader.readNext();
                         }
                     }
 
          }
-         else
          xmlReader.readNext();
          }
          }
@@ -172,20 +172,20 @@ void database_utente_opere::Close() {
 
 opera* database_utente_opere::trova_operadelutente(unsigned int idutente, unsigned int idopera) const{
    if(vuoto()) return 0;
-
    contenitore<opera>::iteratore it;
    contenitore<opera>::iteratore risultato;
    bool trovato=false;
    it=dbopereutente.begin();
    while(it!=dbopereutente.end() && !trovato)
    {
-       if((*it)->Getappartenenza()==idutente && (*it)->GetId()==idopera){ trovato=true;}
+       if((*it)->Getappartenenza()==idutente && (*it)->GetId()==idopera){std::cout<<"X"; trovato=true;}
            risultato=it;
            it++;
 
    }
    if(trovato) return *risultato;
    return 0;
+
 }
 void database_utente_opere::remove_operadelutente(const int idutente, const int idopera) {
 opera*tmp=trova_operadelutente(idutente,idopera);
@@ -197,12 +197,19 @@ else std::cout<<"Errore opera non presente nel database";
 bool database_utente_opere::vuoto() const {return dbopereutente.empty();}
 
 
-void database_utente_opere::aggiungi_opera_utente(opera *o) {
-    if(o!=0)
-    {
-        dbopereutente.add_item(o);
-        std::cout<<"x";
-    }
+void database_utente_opere::aggiungi_libro_utente(const info_opera& l,unsigned int id) {
+    libro*p=new libro(l.get_titolo(),l.get_dettaglio(),0);
+    p->Setappartenenza(id);
+    dbopereutente.add_item(p);
+}
+void database_utente_opere::aggiungi_rivista_utente(const info_opera& s,unsigned int id) {
+    unsigned int x=s.get_dettaglio().toInt();
+    rivista*p=new rivista(s.get_titolo(),x,0);
+    p->Setappartenenza(id);
+    std::cout<<p->GetAnnouscita();
+    dbopereutente.add_item(p);
+
+
 }
 
 database_utente* database_utente_opere::Getutente() const {return utenti;}

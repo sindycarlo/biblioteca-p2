@@ -6,6 +6,7 @@
 #include<QXmlStreamReader>
 #include<QString>
 #include<vector>
+#include <QXmlQuery>
 
 #include "info_utente.h"
 #include "database.h"
@@ -31,7 +32,8 @@ public:
     bool vuoto() const;                                 //ritorna true <=> contenitore è vuoto altrimenti ritorna false
     void remove_operadelutente(const int, const int);                       //elimina un utente
     opera* trova_operadelutente(unsigned int,unsigned int) const;
-    void aggiungi_opera_utente(opera*);                 //aggiunge un opera al database ossia al contenitore
+    void aggiungi_libro_utente(const info_opera&,unsigned int);                 //aggiunge un opera al database ossia al contenitore
+    void aggiungi_rivista_utente(const info_opera&,unsigned int);
     database_utente* Getutente() const;
 
 

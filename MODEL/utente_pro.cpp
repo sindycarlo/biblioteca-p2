@@ -79,28 +79,24 @@ QString utente_pro::Get_tipo_utente() const {
     return "Utente Pro";
 }
 
-/*Per poter prendere in prestito un opera:
- * 1)inanzitutto deve essere disponibile nella Biblioteca;
- * 2)poi viene verificato se l'utente è abilitato ad ottenere il prestito
- * 3)se è abilitato allora l'opera viene salvata e rimossa dal database della biblioteca
- * 4)ed aggiunta al database delle opere del utente.
- *
-*/
-void utente_pro::ricevi_opera(unsigned int x) {
-    opera*op=GetopereBiblioteca()->trova_opera(x);
-    if( op!=0 && tempoprestito<limitetempo)
-    {
-        //aggiungo al database di opere utente;
-         op->Presta_opera();
-         //ora so a chi appartiene l'opera:
-         op->Setappartenenza(GetID());
-         //la inserisco nel database delle opere di tutti gli utenti:
-         GetdbOpereUtente()->aggiungi_opera_utente(op);
-         //la rimuovo dalla biblioteca:
-         GetopereBiblioteca()->remove_opera(x);
 
-    }
-   else{std::cout<<"Errore l'utente non è abilitato a ricevere l'opera";}
+
+void utente_pro::ricevi_libro(unsigned int id) {
+    if(tempoprestito<=limitetempo)
+    {
+        info_opera op=GetopereBiblioteca()->get_infoOpera(id);
+        GetdbOpereUtente()->aggiungi_libro_utente(op,GetID());
+        GetopereBiblioteca()->remove_opera(id);
+    }else std::cout<<"L'utente non è abilitato a ricevere il libro";
+}
+
+void utente_pro::ricevi_rivista(unsigned int id) {
+    if(tempoprestito<=limitetempo)
+   {
+        info_opera op=GetopereBiblioteca()->get_infoOpera(id);
+        GetdbOpereUtente()->aggiungi_rivista_utente(op,GetID());
+        GetopereBiblioteca()->remove_opera(id);
+   }else std::cout<<"L'utente non è abilitato a ricevere la rivista";
 }
 
 

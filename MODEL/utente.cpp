@@ -50,14 +50,3 @@ return false;
 
 
 
-void utente::restituisci_opera(unsigned int idopera) {
- opera*o=GetdbOpereUtente()->trova_operadelutente(GetID(),idopera);
- if(o!=0)
- {
-     o->Setappartenenza(-1);
-     o->Riscatta();
-     //GROSSO DILEMMA!!!!!!!!!!!!!!!!!!
- }
- {std::cout<<"ATTENZIONE!"<<" "<<"nessuna opera in prestito impossibile restituirla!";}
-
-}

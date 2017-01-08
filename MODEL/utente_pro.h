@@ -19,7 +19,7 @@ public:
      virtual void Write_utenteopere(QXmlStreamWriter&) const;
     virtual QString Get_tipo_utente() const;   //ritorna il tipo di utente
     virtual info_utente infoutente() const;
-    virtual void  ricevi_opera(unsigned int); //metodo che da in prestito un opera a seconda del tipo di utente sono imposte certe condizioni
-
+    virtual void  ricevi_libro(unsigned int); //metodo che da in prestito un libro a seconda del tipo di utente sono imposte certe condizioni
+    virtual void  ricevi_rivista(unsigned int);
 };
 #endif // UTENTE_PRO_H

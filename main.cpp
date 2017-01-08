@@ -3,10 +3,7 @@
 
 
 
-
-
-
-#include "MODEL/database.h"
+/*#include "MODEL/database.h"
 #include <CONTROLLER/c_mainwindow.h>
 
 using namespace std;
@@ -24,8 +21,8 @@ int main(int argc, char *argv[])
     return a.exec();
 }
 
+*/
 
-/*
 
 
 
@@ -86,9 +83,9 @@ int main(int argc, char *argv[])
      utenti.add_utentebasic(p5);
 
     database_utente_opere db3(&utenti);
+    //primo5.ricevi_libro(11);
 
 
-
+    return 0;
 }
-*/
 

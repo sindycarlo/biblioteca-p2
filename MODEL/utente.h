@@ -43,8 +43,9 @@ public:
     virtual void Write_utenteopere(QXmlStreamWriter&) const =0;
     virtual QString Get_tipo_utente() const =0;   //ritorna il tipo di utente
     virtual info_utente infoutente() const =0;
-    virtual void  ricevi_opera(unsigned int) =0; //metodo che da in prestito un opera a seconda del tipo di utente sono imposte certe condizioni
-    virtual void restituisci_opera(unsigned int); //metodo che restituisce un opera alla biblioteca.
+    virtual void  ricevi_libro(unsigned int) =0; //metodo che da in prestito un libro a seconda del tipo di utente sono imposte certe condizioni
+    virtual void ricevi_rivista(unsigned int) =0; //metodo che da in prestito una rivista a seconda del tipo di utente sono imposte certe condizioni
+    //virtual void restituisci_opera(unsigned int); //metodo che restituisce un opera alla biblioteca.
 
 };
 

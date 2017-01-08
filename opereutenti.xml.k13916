@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<opereutenti>
+<utente>
+<Tipoutente>1</Tipoutente>
+<Idutente>6</Idutente>
 <database>
     <opera>
         <Tipo>1</Tipo>
@@ -64,3 +68,5 @@
         <AnnoUscita>1700</AnnoUscita>
     </opera>
 </database>
+</utente>
+</opereutenti>
