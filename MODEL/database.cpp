@@ -25,8 +25,7 @@ void database::Load() {
     QString Titolo="Nessuno", Autore="Nessuno";
     opera*tmp=NULL;
     QFile file(filename);
-         file.open(QIODevice::ReadOnly);
-           // if (!file.open(QFile::ReadOnly | QFile::Text))  std::cout << "Errore: Impossibile leggere il file"<< std::endl;
+     if (!file.open(QFile::ReadOnly | QFile::Text))  std::cout << "Errore: Impossibile leggere il file"<< std::endl;
          QXmlStreamReader xmlReader(&file);
          xmlReader.readNext();
          while(!xmlReader.atEnd())
@@ -61,7 +60,7 @@ void database::Load() {
          }
          else //sono alla fine del documento quindi:
          {      //sono al tag </opera>
-             if(xmlReader.isEndDocument() && xmlReader.name()=="opera")
+             if(xmlReader.isEndElement() && xmlReader.name()=="opera")
              {
                if(Tipo==1) tmp=new libro(Titolo,Autore,Stato);
                else tmp=new rivista(Titolo,AnnoUscita,Stato);
@@ -84,16 +83,18 @@ void database::Close() {
          QXmlStreamWriter xmlWriter(&file);
          xmlWriter.setAutoFormatting(true);
          xmlWriter.writeStartDocument();
+         xmlWriter.writeStartElement("database");
         if(!vuoto())
         {
-         xmlWriter.writeStartElement("database");
+
          contenitore<opera>::iteratore it;
          for(it=db.begin();it!=db.end();it++)
          {
              (*it)->Write_opera(xmlWriter);
          }
-         xmlWriter.writeEndDocument();
+
         }
+        xmlWriter.writeEndDocument();
         file.close();
 }
 

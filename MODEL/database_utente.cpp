@@ -28,8 +28,7 @@ void database_utente::Load() {
 
     utente* tmp=NULL;
     QFile file(filename);
-         file.open(QIODevice::ReadOnly);
-           // if (!file.open(QFile::ReadOnly | QFile::Text))  std::cout << "Errore: Impossibile leggere il file"<< std::endl;
+         if (!file.open(QFile::ReadOnly | QFile::Text))  std::cout << "Errore: Impossibile leggere il file"<< std::endl;
          QXmlStreamReader xmlReader(&file);
          xmlReader.readNext();
          while(!xmlReader.atEnd())
@@ -74,7 +73,7 @@ void database_utente::Load() {
          }
          else //sono alla fine del documento quindi:
          {      //sono al tag </utente>
-             if(xmlReader.isEndDocument() && xmlReader.name()=="utente")
+             if(xmlReader.isEndElement() && xmlReader.name()=="utente")
              {
 
                if(Tipoutente==1) tmp=new utente_basic(GetDatabase(),Getdbopere(),numopere,nome,cognome,codicefiscale,password);
@@ -98,16 +97,17 @@ void database_utente::Close() {
          QXmlStreamWriter xmlWriter(&file);
          xmlWriter.setAutoFormatting(true);
          xmlWriter.writeStartDocument();
-        if(!vuoto())
-        {
          xmlWriter.writeStartElement("databaseutenti");
+         if(!vuoto())
+        {
          contenitore<utente>::iteratore it;
          for(it=dbutenti.begin();it!=dbutenti.end();it++)
          {
              (*it)->Write_utente(xmlWriter);
          }
-         xmlWriter.writeEndDocument();
+
         }
+          xmlWriter.writeEndDocument();
         file.close();
 }
 

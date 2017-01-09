@@ -1,19 +1,1 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<database>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>NATIONAL GEOGRAPHIC</Titolo>
-        <Id>6</Id>
-        <Appartenenza>1</Appartenenza>
-        <Stato>0</Stato>
-        <AnnoUscita>1700</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>NEMO</Titolo>
-        <Id>5</Id>
-        <Appartenenza>1</Appartenenza>
-        <Stato>0</Stato>
-        <Autore>CARLO SINDICO</Autore>
-    </opera>
-</database>

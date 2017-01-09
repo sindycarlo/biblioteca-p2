@@ -3,7 +3,7 @@
 
 
 
-/*#include "MODEL/database.h"
+#include "MODEL/database.h"
 #include <CONTROLLER/c_mainwindow.h>
 
 using namespace std;
@@ -12,16 +12,17 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     database db;
-    database_utente dbutenti(&db);
+    //database_utente_opere udb;
+    database_utente dbutenti(&db,0);
     mainWindow finestra(&db,&dbutenti);
     C_mainWindow controller(&db,&dbutenti,&finestra);
+
 
     finestra.show();
 
     return a.exec();
 }
 
-*/
 
 
 
@@ -29,6 +30,7 @@ int main(int argc, char *argv[])
 
 
 
+/*
 //test di prova per la parte di progettazione:
 #include "MODEL/database.h"
 #include "MODEL/database_utente.h"
@@ -55,9 +57,11 @@ int main(int argc, char *argv[])
       database_utente_opere db3;
 
      utente_basic primo(&biblioteca,&db3,0,"carlo","sindico","sndcrl1994rtsd34","prova1");
+     utente_pro secondo(&biblioteca,&db3,0,"thomas","fuser","sndcrl1994rtsd34","prova2");
 
 
      info_utente p1=primo.infoutente();
+     info_utente p2=secondo.infoutente();
 
 
      //aggiungo utenti al database degli utenti:
@@ -65,14 +69,13 @@ int main(int argc, char *argv[])
 
 
      utenti.add_utentebasic(p1);
-     utenti.add_utentebasic(p1);
-     utenti.add_utentebasic(p1);
+     utenti.add_utentebasic(p2);
 
-     primo.ricevi_libro(4);
-     primo.ricevi_rivista(3);
+
+
 
 
 
     return 0;
 }
-
+*/

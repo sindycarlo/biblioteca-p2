@@ -64,7 +64,7 @@ void database_utente_opere::Load() {
          }
          else //sono alla fine del documento quindi:
          {      //sono al tag </opera>
-             if(xmlReader.isEndDocument() && xmlReader.name()=="opera")
+             if(xmlReader.isEndElement() && xmlReader.name()=="opera")
              {
                if(Tipo==1) tmp=new libro(Titolo,Autore,Stato);
                else tmp=new rivista(Titolo,AnnoUscita,Stato);

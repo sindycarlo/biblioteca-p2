@@ -2,29 +2,11 @@
 <databaseutenti>
     <utente>
         <Tipoutente>1</Tipoutente>
-        <Nome>carlo</Nome>
-        <Cognome>sindico</Cognome>
-        <CodiceFiscale>sndcrl1994rtsd34</CodiceFiscale>
-        <Idutente>4</Idutente>
-        <Password>prova1</Password>
-        <NumeroOpere>0</NumeroOpere>
-    </utente>
-    <utente>
-        <Tipoutente>1</Tipoutente>
-        <Nome>carlo</Nome>
-        <Cognome>sindico</Cognome>
-        <CodiceFiscale>sndcrl1994rtsd34</CodiceFiscale>
-        <Idutente>3</Idutente>
-        <Password>prova1</Password>
-        <NumeroOpere>0</NumeroOpere>
-    </utente>
-    <utente>
-        <Tipoutente>1</Tipoutente>
-        <Nome>carlo</Nome>
-        <Cognome>sindico</Cognome>
-        <CodiceFiscale>sndcrl1994rtsd34</CodiceFiscale>
-        <Idutente>2</Idutente>
-        <Password>prova1</Password>
+        <Nome>prova</Nome>
+        <Cognome>prova</Cognome>
+        <CodiceFiscale>sndrcefn</CodiceFiscale>
+        <Idutente>1</Idutente>
+        <Password>fdnskd</Password>
         <NumeroOpere>0</NumeroOpere>
     </utente>
 </databaseutenti>

@@ -21,7 +21,7 @@ void C_mainWindow::cerca_operaDB(const QString& text){
     if(!(container.empty()))
     {
         view->costruisci_Tabella(container);
-    }else{view->aggiorna_vista();}
+    }else{std::cout<<"NON TROVATO";view->aggiorna_vista();}
 }
 void C_mainWindow::cerca_utenteDB(const QString& text){
     contenitore<utente> container;
