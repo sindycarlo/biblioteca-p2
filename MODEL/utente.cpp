@@ -8,9 +8,10 @@ unsigned int utente::maxid=0;
 
 
 //costruttore di utente:
-utente::utente(database *db, QString n ="Sconosciuto", QString c ="Sconosciuto", QString  cf ="Sconosciuto", QString psw ="Sconosciuto"): Nome(n), Cognome(c), codicefiscale(cf), password(psw),opereBiblioteca(db) {
+utente::utente(database *db,database_utente_opere* udb, QString n ="Sconosciuto", QString c ="Sconosciuto", QString  cf ="Sconosciuto", QString psw ="Sconosciuto"): Nome(n), Cognome(c), codicefiscale(cf), password(psw),opereBiblioteca(db), opereUtente(udb) {
     maxid++;
     id=maxid;
+
 }
 
 //il distruttore di utente va a distruggere anche le sue opere che aveva in prestito

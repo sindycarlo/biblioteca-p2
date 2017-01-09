@@ -64,6 +64,10 @@ void rivista::Write_opera(QXmlStreamWriter &XmlWriter) const {
    QString x;
    x.setNum(id);
    XmlWriter.writeTextElement("Id",x);
+   int appartiene=Getappartenenza();
+   QString a;
+   a.setNum(appartiene);
+   XmlWriter.writeTextElement("Appartenenza",a);
    //scrivo stato presenza rivista nella biblioteca:
    bool b=presente();
    QString y;

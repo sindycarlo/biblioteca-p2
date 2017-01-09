@@ -21,7 +21,7 @@ database::~database() {database::Close();}
 
 //quando carico il database scrivo tutte le opre nel mio contenitore:
 void database::Load() {
-    int Tipo=0, AnnoUscita=0,Stato=-1, Id=0;
+    int Tipo=0, AnnoUscita=0,Stato=-1, Id=0,Appartiene=-1;
     QString Titolo="Nessuno", Autore="Nessuno";
     opera*tmp=NULL;
     QFile file(filename);
@@ -39,6 +39,8 @@ void database::Load() {
                     else
                         if(xmlReader.name()=="Id") Id=xmlReader.readElementText().toInt();
                         else
+                            if(xmlReader.name()=="Appartenenza") Appartiene=xmlReader.readElementText().toInt();
+                            else
                             if(xmlReader.name()=="Stato") Stato=xmlReader.readElementText().toInt();
                             else
                     if(Tipo==1)//sto leggendo un libro:

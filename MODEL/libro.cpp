@@ -43,6 +43,11 @@ return  info_opera(GetTitolo(),disp,id,Getautore(),pres);
     QString x;
     x.setNum(id);
     XmlWriter.writeTextElement("Id",x);
+    int appartiene=Getappartenenza();
+    std::cout<<Getappartenenza();
+    QString a;
+    a.setNum(appartiene);
+    XmlWriter.writeTextElement("Appartenenza",a);
     //scrivo stato presenza libro nella biblioteca:
     bool b=presente();
     QString y;

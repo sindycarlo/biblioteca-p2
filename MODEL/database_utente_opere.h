@@ -21,12 +21,11 @@ private:
     //campi dati
     static QString filename;
     contenitore<opera> dbopereutente;                                     //creo il contenitore leggendo il file xml
-    database_utente* utenti;
     void Load();
     void Close();                                       //salva tutti i cambiamenti eseguiti dall'utente nel file XML
 
 public:
-    database_utente_opere(database_utente*);
+    database_utente_opere();
     ~database_utente_opere();
 
     bool vuoto() const;                                 //ritorna true <=> contenitore è vuoto altrimenti ritorna false
@@ -34,7 +33,6 @@ public:
     opera* trova_operadelutente(unsigned int,unsigned int) const;
     void aggiungi_libro_utente(const info_opera&,unsigned int);                 //aggiunge un opera al database ossia al contenitore
     void aggiungi_rivista_utente(const info_opera&,unsigned int);
-    database_utente* Getutente() const;
 
 
     contenitore<opera>::iteratore db_iter;

@@ -13,7 +13,7 @@ contenitore<opera>::iteratore database_utente_opere::dbopereutenti_end() {return
 
 
 //creare un database significa caricare il file database.xml:
-database_utente_opere::database_utente_opere(database_utente * u) : utenti(u) {database_utente_opere::Load();}
+database_utente_opere::database_utente_opere() {database_utente_opere::Load();}
 
 
 //"distruggere" un database significa fare la chiusura del file database.xml:
@@ -25,6 +25,7 @@ void database_utente_opere::Load() {
     QString Titolo="Sconosciuto",Autore="Sconosciuto";
      int Idutente=-1, Id=-1, Stato=-1, Tipoutente=0, Tipo=0,  AnnoUscita=-1;
     opera*tmp=NULL;
+    int Appartiene=-1;
     utente*tmp1=NULL;
     QFile file(filename);
          file.open(QIODevice::ReadOnly);
@@ -35,110 +36,47 @@ void database_utente_opere::Load() {
          {
             if(xmlReader.isStartElement())
             {
-                if(xmlReader.name()=="opereutente" || xmlReader.name()=="utente") xmlReader.readNext();
+                if(xmlReader.name()=="database" || xmlReader.name()=="opera") xmlReader.readNext();
                 else
-                    if(xmlReader.name()=="Tipoutente") Tipoutente=xmlReader.readElementText().toInt();
+                    if(xmlReader.name()=="Tipo") Tipo=xmlReader.readElementText().toInt();
                     else
-                        if(xmlReader.name()=="Idutente") Idutente=xmlReader.readElementText().toInt();
+                        if(xmlReader.name()=="Id") Id=xmlReader.readElementText().toInt();
                         else
-                    if(Tipoutente==1)//sto leggendo un utente_basic e relative opere:
+                            if(xmlReader.name()=="Appartenenza") Appartiene=xmlReader.readElementText().toInt();
+                            else
+                            if(xmlReader.name()=="Stato") Stato=xmlReader.readElementText().toInt();
+                            else
+                    if(Tipo==1)//sto leggendo un libro:
                     {
-                        while(!xmlReader.atEnd())
-                        {
-                           if(xmlReader.isStartElement())
-                           {
-                               if(xmlReader.name()=="database" || xmlReader.name()=="opera") xmlReader.readNext();
-                               else
-                                   if(xmlReader.name()=="Tipo") Tipo=xmlReader.readElementText().toInt();
-                                   else
-                                       if(xmlReader.name()=="Id") Id=xmlReader.readElementText().toInt();
-                                       else
-                                           if(xmlReader.name()=="Stato") Stato=xmlReader.readElementText().toInt();
-                                           else
-                                   if(Tipo==1)//sto leggendo un libro:
-                                   {
-                                       if(xmlReader.name()=="Titolo") Titolo=xmlReader.readElementText();
-                                       else
-                                           if(xmlReader.name()=="Autore") Autore=xmlReader.readElementText();
-                                       else std::cout<<"Errore nella lettura di un libro";
-                                   }
-                                   else if(Tipo==2)
-                                   {
-                                       if(xmlReader.name()=="Titolo") Titolo=xmlReader.readElementText();
-                                       else
-                                           if(xmlReader.name()=="AnnoUscita") Autore=xmlReader.readElementText();
-                                       else std::cout<<"Errore nella lettura di una rivista";
-                                   }
-
-                        }
-                        else //sono alla fine del documento quindi:
-                        {      //sono al tag </opera>
-                            if(xmlReader.EndElement && xmlReader.name()=="opera")
-                            {
-                              if(Tipo==1) tmp=new libro(Titolo,Autore,Stato);
-                              else tmp=new rivista(Titolo,AnnoUscita,Stato);
-                               tmp->Set_id(Id);
-                               dbopereutente.add_item(tmp);
-                               xmlReader.readNext();
-                             }
-                            else xmlReader.readNext();
-                        }
-                        }
-
+                        if(xmlReader.name()=="Titolo") Titolo=xmlReader.readElementText();
+                        else
+                            if(xmlReader.name()=="Autore") Autore=xmlReader.readElementText();
+                        else std::cout<<"Errore nella lettura di un libro";
                     }
-                    else if(Tipoutente==2)
+                    else if(Tipo==2)
                     {
-                        while(!xmlReader.atEnd())
-                        {
-                           if(xmlReader.isStartElement())
-                           {
-                               if(xmlReader.name()=="database" || xmlReader.name()=="opera") xmlReader.readNext();
-                               else
-                                   if(xmlReader.name()=="Tipo") Tipo=xmlReader.readElementText().toInt();
-                                   else
-                                       if(xmlReader.name()=="Id") Id=xmlReader.readElementText().toInt();
-                                       else
-                                           if(xmlReader.name()=="Stato") Stato=xmlReader.readElementText().toInt();
-                                           else
-                                   if(Tipo==1)//sto leggendo un libro:
-                                   {
-                                       if(xmlReader.name()=="Titolo") Titolo=xmlReader.readElementText();
-                                       else
-                                           if(xmlReader.name()=="Autore") Autore=xmlReader.readElementText();
-                                       else std::cout<<"Errore nella lettura di un libro";
-                                   }
-                                   else if(Tipo==2)
-                                   {
-                                       if(xmlReader.name()=="Titolo") Titolo=xmlReader.readElementText();
-                                       else
-                                           if(xmlReader.name()=="AnnoUscita") Autore=xmlReader.readElementText();
-                                       else std::cout<<"Errore nella lettura di una rivista";
-                                   }
-
-                        }
-                        else //sono alla fine del documento opere quindi:
-                        {      //sono al tag </opera>
-                            if(xmlReader.EndElement &&  xmlReader.name()=="opera")
-                            {
-                              if(Tipo==1) tmp=new libro(Titolo,Autore,Stato);
-                              else tmp=new rivista(Titolo,AnnoUscita,Stato);
-                               tmp->Set_id(Id);
-                               tmp->Setappartenenza(Idutente);
-                               dbopereutente.add_item(tmp);
-                               xmlReader.readNext();
-                             }
-                            else xmlReader.readNext();
-                        }
-                           xmlReader.readNext();
-                        }
+                        if(xmlReader.name()=="Titolo") Titolo=xmlReader.readElementText();
+                        else
+                            if(xmlReader.name()=="AnnoUscita") Autore=xmlReader.readElementText();
+                        else std::cout<<"Errore nella lettura di una rivista";
                     }
 
          }
-         xmlReader.readNext();
+         else //sono alla fine del documento quindi:
+         {      //sono al tag </opera>
+             if(xmlReader.isEndDocument() && xmlReader.name()=="opera")
+             {
+               if(Tipo==1) tmp=new libro(Titolo,Autore,Stato);
+               else tmp=new rivista(Titolo,AnnoUscita,Stato);
+                tmp->Set_id(Id);
+                tmp->Setappartenenza(Appartiene);
+                dbopereutente.add_item(tmp);
+                xmlReader.readNext();
+              }
+             else xmlReader.readNext();
          }
-         }
-
-
+}
+}
 
 
 //apporto le modifiche riscrivendo tutto il database:
@@ -151,11 +89,11 @@ void database_utente_opere::Close() {
          xmlWriter.writeStartDocument();
         if(!vuoto())
         {
-         xmlWriter.writeStartElement("opereutente");
-         contenitore<utente>::iteratore it;
-         for(it=utenti->dbutenti_begin();it!=utenti->dbutenti_end();it++)
+         xmlWriter.writeStartElement("database");
+         contenitore<opera>::iteratore it;
+         for(it=dbopereutente.begin();it!=dbopereutenti_end();it++)
          {
-             (*it)->Write_utenteopere(xmlWriter);
+             (*it)->Write_opera(xmlWriter);
          }
          xmlWriter.writeEndDocument();
         }
@@ -200,16 +138,16 @@ bool database_utente_opere::vuoto() const {return dbopereutente.empty();}
 void database_utente_opere::aggiungi_libro_utente(const info_opera& l,unsigned int id) {
     libro*p=new libro(l.get_titolo(),l.get_dettaglio(),0);
     p->Setappartenenza(id);
+    p->Presta_opera();
     dbopereutente.add_item(p);
 }
 void database_utente_opere::aggiungi_rivista_utente(const info_opera& s,unsigned int id) {
     unsigned int x=s.get_dettaglio().toInt();
     rivista*p=new rivista(s.get_titolo(),x,0);
     p->Setappartenenza(id);
-    std::cout<<p->GetAnnouscita();
     dbopereutente.add_item(p);
 
 
 }
 
-database_utente* database_utente_opere::Getutente() const {return utenti;}
+

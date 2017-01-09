@@ -11,7 +11,7 @@ private:
 unsigned int tempoprestito;
 static unsigned int limitetempo;
 public:
-    utente_pro(database*,unsigned int,QString,QString,QString,QString);              //costruttore a 0,5 parametri (id del nuovo utente sarà id=maxid+1)
+    utente_pro(database*,database_utente_opere*,unsigned int,QString,QString,QString,QString);              //costruttore a 0,5 parametri (id del nuovo utente sarà id=maxid+1)
 
     //metodi propri di utente_pro:
     unsigned int Get_tempoprestito() const;

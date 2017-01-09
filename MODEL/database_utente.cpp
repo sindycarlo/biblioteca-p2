@@ -13,7 +13,7 @@ contenitore<utente>::iteratore database_utente::dbutenti_end() {return dbutenti.
 
 
 //creare un database significa caricare il file databaseutenti.xml:
-database_utente::database_utente(database* biblio) : biblioteca(biblio) {database_utente::Load();}
+database_utente::database_utente(database* biblio, database_utente_opere * opere) : biblioteca(biblio), opereutenti(opere){database_utente::Load();}
 
 
 //"distruggere" un database significa fare la chiusura del file databaseutenti.xml:
@@ -76,8 +76,9 @@ void database_utente::Load() {
          {      //sono al tag </utente>
              if(xmlReader.isEndDocument() && xmlReader.name()=="utente")
              {
-               if(Tipoutente==1) tmp=new utente_basic(GetDatabase(),numopere,nome,cognome,codicefiscale,password);
-               else tmp=new utente_pro(GetDatabase(),tempo,nome,cognome,codicefiscale,password);
+
+               if(Tipoutente==1) tmp=new utente_basic(GetDatabase(),Getdbopere(),numopere,nome,cognome,codicefiscale,password);
+               else tmp=new utente_pro(GetDatabase(),Getdbopere(),tempo,nome,cognome,codicefiscale,password);
                 tmp->SetID(idutente);
                 dbutenti.add_item(tmp);
                 xmlReader.readNext();
@@ -153,17 +154,18 @@ contenitore<utente> database_utente::trova_utenti_insieme(const QString &u) cons
 //aggiunge un utente basic al mio contenitore quindi al database:
 void database_utente::add_utentebasic(const info_utente& c) {
     unsigned int dettaglio=c.get_dettaglio().toInt();
-    utente_basic*p=new utente_basic(GetDatabase(),dettaglio,c.get_nome(),c.get_cognome(),c.get_codicefiscale(),c.get_password());
+    utente_basic*p=new utente_basic(GetDatabase(),Getdbopere(),dettaglio,c.get_nome(),c.get_cognome(),c.get_codicefiscale(),c.get_password());
     dbutenti.add_item(p);
 }
 
 //aggiunge un utente pro al mio contenitore quindi al database:
 void database_utente::add_utentepro(const info_utente & c1) {
     unsigned int dettaglio=c1.get_dettaglio().toInt();
-    utente_pro*p=new utente_pro(GetDatabase(),dettaglio,c1.get_nome(),c1.get_cognome(),c1.get_codicefiscale(),c1.get_password());
+    utente_pro*p=new utente_pro(GetDatabase(),Getdbopere(),dettaglio,c1.get_nome(),c1.get_cognome(),c1.get_codicefiscale(),c1.get_password());
     dbutenti.add_item(p);
 }
 
 
 database* database_utente::GetDatabase() const {return biblioteca;}
 
+database_utente_opere* database_utente::Getdbopere() const {return opereutenti;}

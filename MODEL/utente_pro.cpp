@@ -8,7 +8,7 @@
 unsigned int utente_pro::limitetempo=30;
 
 //costruttore di utente_pro:
-utente_pro::utente_pro(database* db, unsigned int tp =0, QString n ="Sconociuto", QString c ="Sconosciuto", QString cf ="Sconosciuto", QString psw ="Sconosciuto"): utente(db,n,c,cf,psw), tempoprestito(tp) {
+utente_pro::utente_pro(database* db,database_utente_opere* udb, unsigned int tp =0, QString n ="Sconociuto", QString c ="Sconosciuto", QString cf ="Sconosciuto", QString psw ="Sconosciuto"): utente(db,udb,n,c,cf,psw), tempoprestito(tp) {
     if(tempoprestito>limitetempo)
     {std::cout<<"Errore: un utente pro non può prendere in prestito un opera per più di 30 giorni";tempoprestito=limitetempo;}
 

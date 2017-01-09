@@ -11,7 +11,7 @@ private:
     static unsigned int limiteopere;
 
 public:
-    utente_basic(database*,unsigned int,QString,QString,QString,QString);              //costruttore a 0,5 parametri (id del nuovo utente sarà id=maxid+1)
+    utente_basic(database*,database_utente_opere*,unsigned int,QString,QString,QString,QString);              //costruttore a 0,5 parametri (id del nuovo utente sarà id=maxid+1)
 
     //metodi propri di utente_basic:
     unsigned int Get_numopere() const;

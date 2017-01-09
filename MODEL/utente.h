@@ -22,7 +22,7 @@ private:
     static unsigned int maxid;                       //massimo id (ultimo id) che è stato assegnato ad un utente
                                             //(l'ultimo utente che è stato memorizzato nel database)
 public:
-    utente(database*,QString,QString,QString,QString);              //costruttore a 0,5 parametri (id del nuovo utente sarà id=maxid+1)
+    utente(database*,database_utente_opere*,QString,QString,QString,QString);              //costruttore a 0,5 parametri (id del nuovo utente sarà id=maxid+1)
 
 
     virtual ~utente();

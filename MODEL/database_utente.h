@@ -21,11 +21,12 @@ private:
     static QString filename;
     contenitore<utente> dbutenti;                                     //creo il contenitore leggendo il file xml
     database* biblioteca;
+    database_utente_opere* opereutenti;
     void Load();
     void Close();                                       //salva tutti i cambiamenti eseguiti dall'utente nel file XML
 
 public:
-     database_utente(database*);
+     database_utente(database*,database_utente_opere*);
     ~database_utente();
 
     bool vuoto() const;                                 //ritorna true <=> contenitore è vuoto altrimenti ritorna false
@@ -35,6 +36,7 @@ public:
     void add_utentepro(const info_utente&);                             //aggiunge un utente_pro
     void add_utentebasic(const info_utente&);                               //aggiunge un utente basic
     database* GetDatabase() const;
+    database_utente_opere* Getdbopere() const;
     contenitore<utente>::iteratore db_iter;
 
     contenitore<utente>::iteratore dbutenti_begin();

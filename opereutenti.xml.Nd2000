@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>NEMO</Titolo>
+        <Id>10</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>CARLO SINDICO</Autore>
+    </opera>
+    </database>
