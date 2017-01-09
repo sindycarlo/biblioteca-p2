@@ -62,9 +62,9 @@ void homewindow::slot_accediutente() {
 void homewindow::creaLayout(){
 
     bottoni->addWidget(accedicomeadmin);
-    orizzontale->addWidget(accedicomeutente);
-    orizzontale->addWidget(nameuser);
-    orizzontale->addWidget(password);
+    bottoni->addWidget(accedicomeutente);
+    bottoni->addWidget(nameuser);
+    bottoni->addWidget(password);
     orizzontale->addLayout(bottoni);
     Prlayout->addLayout(orizzontale);
     Prlayout->addWidget(exit);

@@ -46,6 +46,7 @@ private:
     QHBoxLayout* orizzontale;
     QVBoxLayout* Prlayout, *bottoni;
 
+
     void creaLayout();
 
 };
