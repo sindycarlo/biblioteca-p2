@@ -16,7 +16,6 @@ public:
     //metodi propri di utente_basic:
     unsigned int Get_numopere() const;
     virtual void Write_utente(QXmlStreamWriter&) const; //scrivo l'utente nel database
-    virtual void Write_utenteopere(QXmlStreamWriter&) const;
     virtual QString Get_tipo_utente() const;   //ritorna il tipo di utente
     virtual info_utente infoutente() const;
     virtual void  ricevi_libro(unsigned int); //metodo che da in prestito un libro a seconda del tipo di utente sono imposte certe condizioni

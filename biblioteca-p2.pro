@@ -41,7 +41,9 @@ SOURCES += main.cpp \
     CONTROLLER/c_listautenti.cpp \
     VIEW/inserisci_utentebasic.cpp \
     VIEW/inserisci_utentepro.cpp \
-    VIEW/lista_utenti.cpp
+    VIEW/lista_utenti.cpp \
+    VIEW/homewindow.cpp \
+    CONTROLLER/c_homewindow.cpp
 
 HEADERS  += \
     MODEL/opera.h \
@@ -71,7 +73,9 @@ HEADERS  += \
     CONTROLLER/c_listautenti.h \
     VIEW/inserisci_utentebasic.h \
     VIEW/inserisci_utentepro.h \
-    VIEW/listautenti.h
+    VIEW/listautenti.h \
+    VIEW/homewindow.h \
+    CONTROLLER/c_homewindow.h
 
 FORMS    += biblioteca.ui
 

@@ -5,6 +5,7 @@
 
 #include "MODEL/database.h"
 #include <CONTROLLER/c_mainwindow.h>
+#include <CONTROLLER/c_homewindow.h>
 
 using namespace std;
 
@@ -14,11 +15,11 @@ int main(int argc, char *argv[])
     database db;
     //database_utente_opere udb;
     database_utente dbutenti(&db,0);
-    mainWindow finestra(&db,&dbutenti);
-    C_mainWindow controller(&db,&dbutenti,&finestra);
 
+    homewindow finestra2(&db,&dbutenti);
+    c_homewindow home(&db,&dbutenti,&finestra2);
 
-    finestra.show();
+    finestra2.show();
 
     return a.exec();
 }

@@ -45,27 +45,6 @@ void utente_pro::Write_utente(QXmlStreamWriter &XmlWriter) const {
 }
 
 
-//scrive nel file xml le opere di un utente basic:
-void utente_pro::Write_utenteopere(QXmlStreamWriter &XmlWriter) const {
-    XmlWriter.writeStartElement("utente");
-
-    //essendo un utente pro il tipo è "2";
-    XmlWriter.writeTextElement("Tipoutente","2");
-    int id=GetID();
-    QString x;
-    x.setNum(id);
-    //scrivo id dell'utente:
-    XmlWriter.writeTextElement("Idutente",x);
-    //scorro il contenitore di utente pro:
-    contenitore<opera>::iteratore it;
-    for(it=GetdbOpereUtente()->dbopereutenti_begin();it!=GetdbOpereUtente()->dbopereutenti_end();it++)
-    {
-        if((*it)->Getappartenenza()==GetID())
-        {(*it)->Write_opera(XmlWriter);}
-    }
-    XmlWriter.writeEndElement();
-}
-
 //ottengo un oggetto info_utente che mi fornisce tutte le informazioni su un utente:
 info_utente utente_pro::infoutente() const {
     QString id;

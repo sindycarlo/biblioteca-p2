@@ -43,11 +43,34 @@ database_utente_opere* utente::GetdbOpereUtente() const {return opereUtente;}
 
 bool utente::ricerca_campi(const QString& text) const {
 int ID=text.toInt();
-if((QString::compare(text,GetNome(),Qt::CaseInsensitive))==0) return true;
-if((QString::compare(text,GetCognome(),Qt::CaseInsensitive))==0) return true;
+if(!(QString::compare(text,GetNome(),Qt::CaseInsensitive))) return true;
+if(!(QString::compare(text,GetCognome(),Qt::CaseInsensitive))) return true;
 if(ID==GetID()) return true;
 return false;
 }
 
 
+void utente::restituisci_libro(unsigned int id) {
+    opera*op=GetdbOpereUtente()->trova_operadelutente(GetID(),id);
+    if(op!=0)
+    {
+        op->Setappartenenza(-1);
+        op->Riscatta();
+        info_opera o=op->info_tot();
+        GetopereBiblioteca()->add_Libro(o);
+    }
+    else std::cout<<"Errore libro non in prestito";
+}
+
+void utente::restituisci_rivista(unsigned int id) {
+    opera*op=GetdbOpereUtente()->trova_operadelutente(GetID(),id);
+    if(op!=0)
+    {
+        op->Setappartenenza(-1);
+        op->Riscatta();
+        info_opera o=op->info_tot();
+        GetopereBiblioteca()->add_Rivista(o);
+    }
+    else std::cout<<"Errore rivista non in prestito";
+}
 

@@ -173,7 +173,7 @@ void mainWindow::abilita_bottoni(){
 void mainWindow::disabilita_bottoni(){
    rimuovi_opera->setEnabled(false);
    presta_rientra->setEnabled(false);
-   rimuovi_utenti->setEnabled(false);
+   rimuovi_utenti->setEnabled(true);
 }
 void mainWindow::abilita_bottoni_utenti(){
     rimuovi_opera->setEnabled(false);
