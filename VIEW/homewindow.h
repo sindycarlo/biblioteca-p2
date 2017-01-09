@@ -25,16 +25,22 @@ public:
 signals:
     void chiudi_app();
     void show_accedi();
+    void show_accediutente(QString,QString);
 
 private slots:
 
     void slot_accedi();
+    void slot_accediutente();
 
 private:
 
 
     QPushButton* accedicomeadmin;
+    QPushButton* accedicomeutente;
     QPushButton* exit;
+
+    QLineEdit* nameuser;
+    QLineEdit* password;
 
 
     QHBoxLayout* orizzontale;

@@ -2,11 +2,11 @@
 <database>
     <opera>
         <Tipo>1</Tipo>
-        <Titolo>Mille e un notte</Titolo>
-        <Id>2</Id>
+        <Titolo>Il Nome dell Rosa</Titolo>
+        <Id>5</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <Autore>Italo Calvino</Autore>
+        <Autore>Umberto Eco</Autore>
     </opera>
     <opera>
         <Tipo>1</Tipo>
@@ -18,10 +18,10 @@
     </opera>
     <opera>
         <Tipo>1</Tipo>
-        <Titolo>Il Nome dell Rosa</Titolo>
-        <Id>5</Id>
+        <Titolo>Mille e un notte</Titolo>
+        <Id>2</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <Autore>Umberto Eco</Autore>
+        <Autore>Italo Calvino</Autore>
     </opera>
 </database>
