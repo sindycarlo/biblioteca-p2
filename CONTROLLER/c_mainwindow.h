@@ -14,7 +14,7 @@ class C_mainWindow : public QObject
 {
     Q_OBJECT
 public:
-    explicit C_mainWindow(database* ,database_utente*, mainWindow* , QObject *parent=0);
+    explicit C_mainWindow(database* ,database_utente*,database_utente_opere*, mainWindow* , QObject *parent=0);
 
 private slots:
     void rimuovi_operaDB(int);
@@ -30,6 +30,7 @@ private slots:
 private:
     database* model;
     database_utente* modelutenti;
+    database_utente_opere* modelutenteopere;
     mainWindow* view;
 };
 

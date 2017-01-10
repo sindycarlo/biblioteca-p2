@@ -1,10 +1,10 @@
 #include "mainwindow.h"
 #include<QApplication>
 #include<QToolTip>
-mainWindow::mainWindow(database* db,database_utente* udb) : Widget_Padre(db,udb) {
+mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*uodb) : Widget_Padre(db,udb,uodb) {
 
-    tab=new listaOp(get_model(),get_modelutenti());   //tabella con l'elenco delle opere
-    tabutenti=new listautenti(get_model(),get_modelutenti());
+    tab=new listaOp(get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco delle opere
+    tabutenti=new listautenti(get_model(),get_modelutenti(),get_modelutenteopere());
     controllerOP=new C_listaop(get_model(),tab);
     controllerUTENTI=new C_listautenti(get_modelutenti(),tabutenti);
   //bottoni

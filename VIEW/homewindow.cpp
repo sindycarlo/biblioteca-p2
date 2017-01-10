@@ -1,7 +1,7 @@
 #include "homewindow.h"
 #include<QApplication>
 #include<QToolTip>
-homewindow::homewindow(database* db,database_utente* udb) : Widget_Padre(db,udb) {
+homewindow::homewindow(database* db,database_utente* udb,database_utente_opere* uodb) : Widget_Padre(db,udb,uodb) {
 
 
   //bottoni

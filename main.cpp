@@ -13,11 +13,11 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     database db;
-    //database_utente_opere udb;
+    database_utente_opere udb;
     database_utente dbutenti(&db,0);
 
-    homewindow finestra2(&db,&dbutenti);
-    c_homewindow home(&db,&dbutenti,&finestra2);
+    homewindow finestra2(&db,&dbutenti,&udb);
+    c_homewindow home(&db,&dbutenti,&udb,&finestra2);
 
     finestra2.show();
 

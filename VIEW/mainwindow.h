@@ -23,7 +23,7 @@ class mainWindow : public Widget_Padre
 {
     Q_OBJECT
 public:
-    explicit mainWindow(database*,database_utente*);
+    explicit mainWindow(database*,database_utente*,database_utente_opere*);
     virtual void aggiorna_vista();
     virtual void costruisci_contenuto();
     void costruisci_Tabella(const contenitore<opera>&);

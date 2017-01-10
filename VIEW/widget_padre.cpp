@@ -1,12 +1,13 @@
 #include "widget_padre.h"
 
-Widget_Padre::Widget_Padre(database* db,database_utente* udb,QWidget *parent) :model(db),modelutenti(udb), QWidget(parent){}
+Widget_Padre::Widget_Padre(database* db,database_utente* udb,database_utente_opere*uodb,QWidget *parent) :model(db),modelutenti(udb),modelutenteopere(uodb), QWidget(parent){}
 
 
 Widget_Padre::~Widget_Padre(){}
 
 database* Widget_Padre::get_model()const { return model; }
 database_utente* Widget_Padre::get_modelutenti()const { return modelutenti; }
+database_utente_opere* Widget_Padre::get_modelutenteopere()const { return modelutenteopere; }
 void Widget_Padre::centra_finestra(){
        int width = frameGeometry().width();
        int height = frameGeometry().height();
