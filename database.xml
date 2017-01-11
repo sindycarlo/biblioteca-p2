@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
     <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Mille e un notte</Titolo>
-        <Id>2</Id>
+        <Tipo>2</Tipo>
+        <Titolo>NATIONAL GEOGRAPHIC</Titolo>
+        <Id>8</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <Autore>Italo Calvino</Autore>
+        <AnnoUscita>1700</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>FOCUS</Titolo>
+        <Id>7</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>1700</AnnoUscita>
     </opera>
     <opera>
         <Tipo>1</Tipo>
-        <Titolo>Il Barone Rampante</Titolo>
-        <Id>3</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Italo Calvino</Autore>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il Nome dell Rosa</Titolo>
+        <Titolo>Cancaro Man</Titolo>
         <Id>5</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <Autore>Umberto Eco</Autore>
+        <Autore>Cancaro Man</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il Soldato di Ferro</Titolo>
+        <Id>4</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Gigi d'agostino</Autore>
     </opera>
 </database>

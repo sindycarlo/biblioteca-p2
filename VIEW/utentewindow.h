@@ -9,9 +9,10 @@
 #include <QMessageBox>
 #include<QDesktopWidget>
 #include <QApplication>
-#include "widget_padre.h"
-#include "../CONTROLLER/c_listaop.h"
-#include "listaop.h"
+#include "../CONTROLLER/c_listalibri.h"
+#include "listalibri.h"
+#include "../CONTROLLER/c_listariviste.h"
+#include "listariviste.h"
 
 #include "../MODEL/database.h"
 #include "../MODEL/database_utente.h"
@@ -28,23 +29,32 @@ public:
     virtual void costruisci_contenuto();
     void costruisci_Tabella_libri(const contenitore<opera>&);
     void costruisci_Tabella_riviste(const contenitore<opera>&);
-    void costruisci_Tabella_prestito(const contenitore<opera>&);
+    //void costruisci_Tabella_prestito(const contenitore<opera>&);
     virtual void set_style();
     void closeEvent(QCloseEvent*);
     ~utenteWindow();
 signals:
     void chiudi_app();
-    void ricevilibro(unsigned int);
-    void ricevirivista(unsigned int);
-
-private slots:
     void show_ricevi_rivista(unsigned int);
     void show_ricevi_libro(unsigned int);
+    void show_restituisci_rivista(unsigned int);
+    void show_restituisci_libro(unsigned int);
+
+
+private slots:
+    void ricevi_segnale_libri();
+    void ricevi_segnale_riviste();
+    void modifica_campo_libro(int);
+    void modifica_campo_rivista(int);
 private:
     database* model;
     database_utente_opere* modelutenteopere;
-    listaOp* tab;
-    C_listaop* controllerOP;
+    listalibri* tablibri;
+    C_listalibri* controllerLB;
+    listariviste* tabriviste;
+    C_listariviste* controllerRB;
+
+
 
     int libro_selezionato;
     int rivista_selezionata;
@@ -60,7 +70,9 @@ private:
     QVBoxLayout* Prlayout, *bottoni;
 
     void creaLayout();
-    void abilita_bottoni();
-    void disabilita_bottoni();
+    void abilita_bottoni_libri();
+    void disabilita_bottoni_libri();
+    void abilita_bottoni_riviste();
+    void disabilita_bottoni_riviste();
 };
 #endif // UTENTEWINDOW_H

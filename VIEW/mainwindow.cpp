@@ -3,13 +3,14 @@
 #include<QToolTip>
 mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*uodb) : Widget_Padre(db,udb,uodb) {
 
-    tab=new listaOp(get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco delle opere
+    tablibri=new listalibri(get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco delle opere
+    tabriviste=new listariviste(get_model(),get_modelutenti(),get_modelutenteopere());
     tabutenti=new listautenti(get_model(),get_modelutenti(),get_modelutenteopere());
-    controllerOP=new C_listaop(get_model(),tab);
+    controllerLP=new C_listalibri(get_model(),tablibri);
+    controllerRP=new C_listariviste(get_model(),tabriviste);
     controllerUTENTI=new C_listautenti(get_modelutenti(),tabutenti);
   //bottoni
     exit=new QPushButton("ESCI");
-    presta_rientra=new QPushButton("PRESTA / RIENTRA");
     aggiungi_rivista=new QPushButton("AGGIUNGI RIVISTA");
     aggiungi_libro=new QPushButton("AGGIUNGI LIBRO");
     rimuovi_opera=new QPushButton("RIMUOVI OPERA");
@@ -32,11 +33,11 @@ mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*u
     creaLayout();
     set_style();
 
-    connect(tab,SIGNAL(selezione(int)),this,SLOT(modifica_campo(int)));
+    connect(tablibri,SIGNAL(selezione(int)),this,SLOT(modifica_campo(int)));
+    connect(tabriviste,SIGNAL(selezione(int)),this,SLOT(modifica_campo(int)));
     connect(tabutenti,SIGNAL(selezione_utenti(int)),this,SLOT(modifica_campo_utenti(int)));
     connect(rimuovi_opera,SIGNAL(clicked()),this,SLOT(rimuovi_segnale()));
     connect(rimuovi_utenti,SIGNAL(clicked()),this,SLOT(rimuovi_segnale_utenti()));
-    connect(presta_rientra,SIGNAL(clicked()),this,SLOT(slot_aggiorna_prestito()));
     connect(aggiungi_rivista,SIGNAL(clicked()),this,SLOT(slot_inserisci_rivista()));
     connect(aggiungi_libro,SIGNAL(clicked()),this,SLOT(slot_inserisci_libro()));
     connect(aggiungi_utente_basic,SIGNAL(clicked()),this,SLOT(slot_inserisci_utentebasic()));
@@ -52,9 +53,8 @@ void mainWindow::set_style(){
     barra_cerca->setToolTip("Eliminare il contenuto della barra per tornare all'elenco completo delle opere");
     barra_cercautenti->setPlaceholderText("Ricerca per: Nome, Cognome, ID");
     barra_cercautenti->setToolTip("Eliminare il contenuto della barra per tornare all'elenco completo degli utenti");
-    tab->setToolTip("Doppio click per visualizzare i dettagli dell'opera");
+    tablibri->setToolTip("Doppio click per visualizzare i dettagli dell'opera");
     tabutenti->setToolTip("Doppio click per visualizzare i dettagli dell'utente");
-    presta_rientra->setToolTip("Funzione disponibile se si seleziona un' opera con un click");
     barra_cerca->setToolTipDuration(5000);
     barra_cerca->setToolTipDuration(5000);
     barra_cerca->setToolTipDuration(5000);
@@ -70,7 +70,6 @@ void mainWindow::costruisci_contenuto(){
 
 void mainWindow::creaLayout(){
 
-    bottoni->addWidget(presta_rientra);
     bottoni->addWidget(aggiungi_libro);
     bottoni->addWidget(aggiungi_rivista);
     bottoni->addWidget(rimuovi_opera);
@@ -78,7 +77,8 @@ void mainWindow::creaLayout(){
     bottoni->addWidget(aggiungi_utente_basic);
     bottoni->addWidget(aggiungi_utente_pro);
 
-    orizzontale->addWidget(tab);
+    orizzontale->addWidget(tablibri);
+    orizzontale->addWidget(tabriviste);
     orizzontale->addWidget(tabutenti);
     orizzontale->addLayout(bottoni);
 
@@ -93,12 +93,14 @@ void mainWindow::creaLayout(){
 void mainWindow::modifica_campo(int ID){
     opera_selezionata=ID;
     abilita_bottoni();
+    disabilita_bottoni_utenti();
 
 }
 
 void mainWindow::modifica_campo_utenti(int ID){
     utente_selezionato=ID;
     abilita_bottoni_utenti();
+    disabilita_bottoni();
 
 }
 
@@ -157,35 +159,26 @@ void mainWindow::disabilita(){
     disabilita_bottoni();
 }
 
-void mainWindow::slot_aggiorna_prestito(){
 
-}
-
-
-void mainWindow::costruisci_Tabella(const contenitore<opera>& lista){ tab->build_Nuova(lista); }
+void mainWindow::costruisci_Tabella(const contenitore<opera>& lista){ tablibri->build_Nuova(lista); tabriviste->build_Nuova(lista);}
 void mainWindow::costruisci_Tabellautenti(const contenitore<utente> & listautenti) {tabutenti->build_Nuova(listautenti);}
-void mainWindow::aggiorna_vista(){ tab->aggiorna_vista();tabutenti->aggiorna_vista();}
+void mainWindow::aggiorna_vista(){tablibri->aggiorna_vista();tabriviste->aggiorna_vista();tabutenti->aggiorna_vista();}
 void mainWindow::abilita_bottoni(){
     rimuovi_opera->setEnabled(true);
-    presta_rientra->setEnabled(true);
 }
 
 void mainWindow::disabilita_bottoni(){
    rimuovi_opera->setEnabled(false);
-   presta_rientra->setEnabled(false);
-   rimuovi_utenti->setEnabled(true);
+
 }
 void mainWindow::abilita_bottoni_utenti(){
-    rimuovi_opera->setEnabled(false);
-    presta_rientra->setEnabled(false);
     rimuovi_utenti->setEnabled(true);
 
 }
 
 void mainWindow::disabilita_bottoni_utenti(){
-   rimuovi_opera->setEnabled(false);
    rimuovi_utenti->setEnabled(false);
-   presta_rientra->setEnabled(false);
+
 }
 
 
@@ -198,10 +191,11 @@ mainWindow::~mainWindow(){
     delete Prlayout;
     delete rimuovi_opera;
     delete rimuovi_utenti;
-    delete tab;
+    delete tablibri;
+    delete tabriviste;
+    delete controllerRP;
     delete tabutenti;
-    delete presta_rientra;
-    delete controllerOP;
+    delete controllerLP;
     delete controllerUTENTI;
     delete aggiungi_libro;
     delete barra_cerca;

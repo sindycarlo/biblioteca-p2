@@ -3,7 +3,6 @@
 C_mainWindow::C_mainWindow(database* db,database_utente* udb,database_utente_opere* uodb,mainWindow* v, QObject *parent) :model(db),modelutenti(udb),modelutenteopere(uodb),view(v),  QObject(parent) {
     connect(view,SIGNAL(rimuovi(int)),this,SLOT(rimuovi_operaDB(int)));
     connect(view,SIGNAL(rimuovi_utente(int)),this,SLOT(rimuovi_utenteDB(int)));
-    connect(view,SIGNAL(aggiorna_prestito(int)),this,SLOT(aggiorna_prestitoDB(int)));
     connect(view,SIGNAL(show_inserisci_rivista()),this,SLOT(inserisci_rivistaDB()));
     connect(view,SIGNAL(show_inserisci_libro()),this,SLOT(inserisci_libroDB()));
     connect(view,SIGNAL(show_inserisci_utentebasic()),this,SLOT(inserisci_utentebasicDB()));

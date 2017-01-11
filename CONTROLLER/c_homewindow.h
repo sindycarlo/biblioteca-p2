@@ -15,6 +15,7 @@ public:
     database* Getmodel() const;
     database_utente* Getmodelutenti() const;
     database_utente_opere* Getmodelutenteopere() const;
+
 private slots:
     void accedi_admin();
     void accedi_utente(QString,QString);

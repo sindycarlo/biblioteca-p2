@@ -9,10 +9,12 @@
 #include <QMessageBox>
 #include<QDesktopWidget>
 #include <QApplication>
-#include "listaop.h"
+#include "listalibri.h"
+#include "listariviste.h"
 #include "widget_padre.h"
 
-#include "../CONTROLLER/c_listaop.h"
+#include "../CONTROLLER/c_listariviste.h"
+#include "../CONTROLLER/c_listalibri.h"
 #include "../MODEL/database.h"
 #include "../MODEL/database_utente.h"
 #include "../CONTROLLER/c_listautenti.h"
@@ -35,7 +37,6 @@ signals:
     void chiudi_app();
     void rimuovi(int);
     void rimuovi_utente(int);
-    void aggiorna_prestito(int);
     void show_inserisci_rivista();
     void show_inserisci_libro();
     void show_inserisci_utentebasic();
@@ -46,7 +47,6 @@ signals:
 private slots:
     void rimuovi_segnale();
     void rimuovi_segnale_utenti();
-    void slot_aggiorna_prestito();
     void slot_inserisci_rivista();
     void slot_inserisci_libro();
     void slot_inserisci_utentebasic();
@@ -59,9 +59,12 @@ private slots:
 private:
     database* model;
     database_utente* modelutenti;
-    listaOp* tab;
+    listalibri* tablibri;
+    listariviste* tabriviste;
+
     listautenti* tabutenti;
-    C_listaop* controllerOP;
+    C_listalibri* controllerLP;
+    C_listariviste* controllerRP;
     C_listautenti* controllerUTENTI;
 
     int opera_selezionata;
@@ -70,7 +73,6 @@ private:
     QLineEdit* barra_cerca;
     QLineEdit* barra_cercautenti;
 
-    QPushButton* presta_rientra;
     QPushButton* aggiungi_rivista;
     QPushButton* aggiungi_libro;
     QPushButton* rimuovi_opera;

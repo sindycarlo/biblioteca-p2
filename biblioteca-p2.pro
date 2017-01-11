@@ -45,7 +45,11 @@ SOURCES += main.cpp \
     VIEW/homewindow.cpp \
     CONTROLLER/c_homewindow.cpp \
     CONTROLLER/c_utentewindow.cpp \
-    VIEW/utentewindow.cpp
+    VIEW/utentewindow.cpp \
+    CONTROLLER/c_listalibri.cpp \
+    CONTROLLER/c_listariviste.cpp \
+    VIEW/listalibri.cpp \
+    VIEW/listariviste.cpp
 
 HEADERS  += \
     MODEL/opera.h \
@@ -79,7 +83,11 @@ HEADERS  += \
     VIEW/homewindow.h \
     CONTROLLER/c_homewindow.h \
     CONTROLLER/c_utentewindow.h \
-    VIEW/utentewindow.h
+    VIEW/utentewindow.h \
+    CONTROLLER/c_listalibri.h \
+    CONTROLLER/c_listariviste.h \
+    VIEW/listalibri.h \
+    VIEW/listariviste.h
 
 FORMS    += biblioteca.ui
 

@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     database db;
     database_utente_opere udb;
-    database_utente dbutenti(&db,0);
+    database_utente dbutenti(&db,&udb);
 
     homewindow finestra2(&db,&dbutenti,&udb);
     c_homewindow home(&db,&dbutenti,&udb,&finestra2);

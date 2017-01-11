@@ -2,11 +2,11 @@
 <databaseutenti>
     <utente>
         <Tipoutente>1</Tipoutente>
-        <Nome>carlo</Nome>
-        <Cognome>sindico</Cognome>
-        <CodiceFiscale>SNDCRLOPQ123789</CodiceFiscale>
+        <Nome>Carlo</Nome>
+        <Cognome>Sindico</Cognome>
+        <CodiceFiscale>SNDCRL125HGUTJKD</CodiceFiscale>
         <Idutente>2</Idutente>
-        <Password>carlo</Password>
+        <Password>Csindico</Password>
         <NumeroOpere>0</NumeroOpere>
     </utente>
 </databaseutenti>

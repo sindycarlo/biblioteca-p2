@@ -34,9 +34,10 @@ void c_homewindow::accedi_utente(QString u,QString p) {
         if((*it)->GetNome()==u && (*it)->GetPassword()==p)
         {
             trovato=true;
+            int id=(*it)->GetID();
             //apro la finestra utente:
             utenteWindow*finestrautente=new utenteWindow(Getmodel(),Getmodelutenti(),Getmodelutenteopere());
-            c_utentewindow*controllerutente= new c_utentewindow(Getmodel(),Getmodelutenti(),Getmodelutenteopere(),finestrautente);
+            c_utentewindow*controllerutente= new c_utentewindow(id,Getmodel(),Getmodelutenti(),Getmodelutenteopere(),finestrautente);
             finestrautente->show();
         }else std::cout<<"errore username e password sbagliati";
     }

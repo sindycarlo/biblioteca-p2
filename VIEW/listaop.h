@@ -17,25 +17,27 @@ class listaOp : public Widget_Padre
     Q_OBJECT
 public:
     explicit listaOp(database*,database_utente*,database_utente_opere*);
-    void aggiorna_vista();
-    void costruisci_contenuto();
-    void build_Nuova(const contenitore<opera>&);         //costruisce la tabella partendo da un contenitore passato ad essa
+
+    //eredito i due metodi virtuali puri e non li implemento
+    virtual void build_Nuova(const contenitore<opera>&) =0;
+    int Getopera() const;
+    QTableWidget* Getable() const;
+    QVBoxLayout* Getlayout_table()const;
     void abilita_doppio_click();
     void disabilita_doppio_click();
-    ~listaOp();
+    virtual ~listaOp();
 signals:
-   void richiesta_info(const int);
-   void selezione(const int);
    void tabella_vuota();
    void disabilita_funzioni();
    void abilita_funzioni();
+   void selezione(const int);
+
 
 private slots:
-   void doppio_click(int);        //permette di emettere il segnale richiesta_info l'id selezionato
    void click_singolo(int);       //permette di far emettere il segnale selezione con l'id selezionato
 
-private:
 
+private:
     QTableWidget* table;
     QVBoxLayout* layout_table;
     int select_opera;
