@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
     <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Una Storia Semplice</Titolo>
+        <Id>10</Id>
+        <Appartenenza>2</Appartenenza>
+        <Stato>0</Stato>
+        <Autore>Leonardo Sciascia</Autore>
+    </opera>
+    <opera>
         <Tipo>2</Tipo>
-        <Titolo>sss</Titolo>
-        <Id>3</Id>
-        <Appartenenza>3</Appartenenza>
+        <Titolo>AIRONE</Titolo>
+        <Id>9</Id>
+        <Appartenenza>2</Appartenenza>
         <Stato>0</Stato>
         <AnnoUscita>4294967295</AnnoUscita>
     </opera>
@@ -18,18 +26,10 @@
     </opera>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>AIRONE</Titolo>
-        <Id>9</Id>
-        <Appartenenza>2</Appartenenza>
+        <Titolo>sss</Titolo>
+        <Id>3</Id>
+        <Appartenenza>3</Appartenenza>
         <Stato>0</Stato>
         <AnnoUscita>4294967295</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Una Storia Semplice</Titolo>
-        <Id>10</Id>
-        <Appartenenza>2</Appartenenza>
-        <Stato>0</Stato>
-        <Autore>Leonardo Sciascia</Autore>
     </opera>
 </database>

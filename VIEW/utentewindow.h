@@ -27,9 +27,6 @@ public:
     explicit utenteWindow(database*,database_utente*,database_utente_opere*);
     virtual void aggiorna_vista();
     virtual void costruisci_contenuto();
-    void costruisci_Tabella_libri(const contenitore<opera>&);
-    void costruisci_Tabella_riviste(const contenitore<opera>&);
-    //void costruisci_Tabella_prestito(const contenitore<opera>&);
     virtual void set_style();
     void closeEvent(QCloseEvent*);
     ~utenteWindow();
@@ -44,6 +41,8 @@ signals:
 private slots:
     void ricevi_segnale_libri();
     void ricevi_segnale_riviste();
+    void restituisci_segnale_libri();
+    void restituisci_segnale_riviste();
     void modifica_campo_libro(int);
     void modifica_campo_rivista(int);
 private:
@@ -53,6 +52,10 @@ private:
     C_listalibri* controllerLB;
     listariviste* tabriviste;
     C_listariviste* controllerRB;
+    listalibri* tablibriprestito;
+    C_listalibri* controllerLBprestito;
+    listariviste* tabrivisteprestito;
+    C_listariviste* controllerRBprestito;
 
 
 
@@ -67,7 +70,7 @@ private:
     QPushButton* exit;
 
     QHBoxLayout* orizzontale;
-    QVBoxLayout* Prlayout, *bottoni;
+    QVBoxLayout* Prlayout, *bottoni,*verticale;
 
     void creaLayout();
     void abilita_bottoni_libri();

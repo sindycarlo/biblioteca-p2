@@ -7,6 +7,10 @@ utenteWindow::utenteWindow(database* db,database_utente* udb,database_utente_ope
     controllerLB=new C_listalibri(get_model(),tablibri);
     tabriviste=new listariviste(get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco deli libri
     controllerRB=new C_listariviste(get_model(),tabriviste);
+    tablibriprestito=new listalibri(get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco dei libri
+    controllerLBprestito=new C_listalibri(get_model(),tablibriprestito);
+    tabrivisteprestito=new listariviste(get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco deli libri
+    controllerRBprestito=new C_listariviste(get_model(),tabrivisteprestito);
     exit=new QPushButton("ESCI");
     ricevi_libro=new QPushButton("RICEVI LIBRO");
     ricevi_rivista=new QPushButton("RICEVI RIVISTA");
@@ -26,8 +30,8 @@ utenteWindow::utenteWindow(database* db,database_utente* udb,database_utente_ope
     connect(tabriviste,SIGNAL(selezione(int)),this,SLOT(modifica_campo_rivista(int)));
     connect(ricevi_libro,SIGNAL(clicked()),this,SLOT(ricevi_segnale_libri()));
     connect(ricevi_rivista,SIGNAL(clicked()),this,SLOT(ricevi_segnale_riviste()));
-    //connect(restituisci_libro,SIGNAL(restituiscirivista(unsigned int)),this,SLOT(show_restituisci_rivista(unsigned int)));
-    //connect(restituisci_rivista,SIGNAL(restituiscilibro(unsigned int)),this,SLOT(show_restituisci_libro(unsigned int)));
+    connect(restituisci_libro,SIGNAL(selezione(int)),this,SLOT(modifica_campo_libro(int)));
+    connect(restituisci_rivista,SIGNAL(selezione(int)),this,SLOT(modifica_campo_rivista(int)));
     connect(exit,SIGNAL(clicked()),qApp,SLOT(quit()));
 }
 
@@ -82,6 +86,36 @@ void utenteWindow::ricevi_segnale_riviste(){
             emit show_ricevi_rivista(rivista_selezionata);
         }
 }
+void utenteWindow::restituisci_segnale_libri(){
+    QString identificativo;
+    identificativo.setNum(libro_selezionato);
+    QMessageBox warning;
+        warning.setIcon(QMessageBox::Question);
+        warning.setWindowTitle("Restituisci Libro");
+        warning.setText("Hai selezionato il libro con ID: <b>"+identificativo+"</b>");
+        warning.setInformativeText("Vuoi veramente restituire questa opera?");
+        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+        warning.setDefaultButton(QMessageBox::Cancel);
+        int ret = warning.exec();
+        if(ret==QMessageBox::Yes) {
+            emit show_restituisci_libro(libro_selezionato);
+        }
+}
+void utenteWindow::restituisci_segnale_riviste(){
+    QString identificativo;
+    identificativo.setNum(rivista_selezionata);
+    QMessageBox warning;
+        warning.setIcon(QMessageBox::Question);
+        warning.setWindowTitle("Restituisci Rivista");
+        warning.setText("Hai selezionato il libro con ID: <b>"+identificativo+"</b>");
+        warning.setInformativeText("Vuoi veramente restituire questa opera?");
+        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+        warning.setDefaultButton(QMessageBox::Cancel);
+        int ret = warning.exec();
+        if(ret==QMessageBox::Yes) {
+            emit show_restituisci_rivista(rivista_selezionata);
+        }
+}
 
 
 
@@ -95,17 +129,18 @@ void utenteWindow::creaLayout(){
     orizzontale->addWidget(tablibri);
     orizzontale->addWidget(tabriviste);
     orizzontale->addLayout(bottoni);
+    orizzontale->addWidget(tablibriprestito);
+    orizzontale->addWidget(tabrivisteprestito);
 
     Prlayout->addLayout(orizzontale);
+    Prlayout->addLayout(verticale);
     Prlayout->addWidget(exit);
     setLayout(Prlayout);
 
 }
 
 
-void utenteWindow::costruisci_Tabella_libri(const contenitore<opera>& lista){  }
-void utenteWindow::costruisci_Tabella_riviste(const contenitore<opera>& lista){  }
-void utenteWindow::aggiorna_vista(){tabriviste->aggiorna_vista();tablibri->aggiorna_vista();}
+void utenteWindow::aggiorna_vista(){tabriviste->aggiorna_vista();tablibri->aggiorna_vista();tabrivisteprestito->aggiorna_vista();tablibriprestito->aggiorna_vista();}
 void utenteWindow::abilita_bottoni_libri(){
     ricevi_libro->setEnabled(true);
     restituisci_libro->setEnabled(true);
@@ -138,6 +173,10 @@ utenteWindow::~utenteWindow(){
     delete tabriviste;
     delete controllerLB;
     delete controllerRB;
+    delete tablibriprestito;
+    delete tabrivisteprestito;
+    delete controllerLBprestito;
+    delete controllerRBprestito;
     delete ricevi_libro;
     delete ricevi_rivista;
     delete restituisci_libro;
