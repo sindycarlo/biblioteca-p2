@@ -24,9 +24,10 @@ class utenteWindow : public Widget_Padre
 {
     Q_OBJECT
 public:
-    explicit utenteWindow(database*,database_utente*,database_utente_opere*);
+    explicit utenteWindow(unsigned int,database*,database_utente*,database_utente_opere*);
     virtual void aggiorna_vista();
     virtual void costruisci_contenuto();
+    unsigned int Getidutente() const;
     virtual void set_style();
     void closeEvent(QCloseEvent*);
     ~utenteWindow();
@@ -45,7 +46,10 @@ private slots:
     void restituisci_segnale_riviste();
     void modifica_campo_libro(int);
     void modifica_campo_rivista(int);
+    void modifica_campo_libro_prestito(int);
+    void modifica_campo_rivista_prestito(int);
 private:
+    unsigned int idutente;
     database* model;
     database_utente_opere* modelutenteopere;
     listalibri* tablibri;
@@ -77,5 +81,9 @@ private:
     void disabilita_bottoni_libri();
     void abilita_bottoni_riviste();
     void disabilita_bottoni_riviste();
+    void abilita_bottoni_libri_prestito();
+    void disabilita_bottoni_libri_prestito();
+    void abilita_bottoni_riviste_prestito();
+    void disabilita_bottoni_riviste_prestito();
 };
 #endif // UTENTEWINDOW_H

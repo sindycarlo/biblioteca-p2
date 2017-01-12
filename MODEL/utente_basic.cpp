@@ -64,15 +64,41 @@ QString utente_basic::Get_tipo_utente() const {
 void utente_basic::ricevi_libro(unsigned int id) {
     info_opera op=GetopereBiblioteca()->get_infoOpera(id);
     GetdbOpereUtente()->aggiungi_libro_utente(op,GetID());
+    NumOpere++;
     GetopereBiblioteca()->remove_opera(id);
 }
 
 void utente_basic::ricevi_rivista(unsigned int id) {
     info_opera op=GetopereBiblioteca()->get_infoOpera(id);
     GetdbOpereUtente()->aggiungi_rivista_utente(op,GetID());
+    NumOpere++;
     GetopereBiblioteca()->remove_opera(id);
 }
 
+void utente_basic::restituisci_libro(unsigned int id) {
+    opera*op=GetdbOpereUtente()->trova_operadelutente(GetID(),id);
+    if(op!=0)
+    {   NumOpere--;
+        info_opera o=op->info_tot();
+        GetdbOpereUtente()->remove_operadelutente(GetID(),id);
+        GetopereBiblioteca()->add_Libro(o);
+
+    }
+    else std::cout<<"Errore libro non in prestito";
+}
+
+void utente_basic::restituisci_rivista(unsigned int id) {
+    opera*op=GetdbOpereUtente()->trova_operadelutente(GetID(),id);
+    if(op!=0)
+    {
+        NumOpere--;
+        info_opera o=op->info_tot();
+         GetdbOpereUtente()->remove_operadelutente(GetID(),id);
+        GetopereBiblioteca()->add_Rivista(o);
+
+    }
+    else std::cout<<"Errore rivista non in prestito";
+}
 
 
 

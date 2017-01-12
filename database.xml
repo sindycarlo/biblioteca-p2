@@ -1,33 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
     <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il Soldato di Ferro</Titolo>
-        <Id>4</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Gigi d'agostino</Autore>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Cancaro Man</Titolo>
-        <Id>5</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Cancaro Man</Autore>
-    </opera>
-    <opera>
         <Tipo>2</Tipo>
-        <Titolo>FOCUS</Titolo>
-        <Id>7</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>1700</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>NATIONAL GEOGRAPHIC</Titolo>
-        <Id>8</Id>
+        <Titolo>c</Titolo>
+        <Id>3</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
         <AnnoUscita>1700</AnnoUscita>

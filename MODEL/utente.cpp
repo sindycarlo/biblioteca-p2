@@ -15,7 +15,7 @@ utente::utente(database *db,database_utente_opere* udb, QString n ="Sconosciuto"
 }
 
 //il distruttore di utente va a distruggere anche le sue opere che aveva in prestito
-utente::~utente() {}
+utente::~utente() {delete GetdbOpereUtente();}
 
 
 QString utente::GetNome() const {return Nome;}
@@ -50,27 +50,5 @@ return false;
 }
 
 
-void utente::restituisci_libro(unsigned int id) {
-    opera*op=GetdbOpereUtente()->trova_operadelutente(GetID(),id);
-    if(op!=0)
-    {
-        op->Setappartenenza(-1);
-        op->Riscatta();
-        info_opera o=op->info_tot();
-        GetopereBiblioteca()->add_Libro(o);
-    }
-    else std::cout<<"Errore libro non in prestito";
-}
 
-void utente::restituisci_rivista(unsigned int id) {
-    opera*op=GetdbOpereUtente()->trova_operadelutente(GetID(),id);
-    if(op!=0)
-    {
-        op->Setappartenenza(-1);
-        op->Riscatta();
-        info_opera o=op->info_tot();
-        GetopereBiblioteca()->add_Rivista(o);
-    }
-    else std::cout<<"Errore rivista non in prestito";
-}
 

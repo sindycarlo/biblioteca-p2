@@ -78,6 +78,29 @@ void utente_pro::ricevi_rivista(unsigned int id) {
    }else std::cout<<"L'utente non è abilitato a ricevere la rivista";
 }
 
+void utente_pro::restituisci_libro(unsigned int id) {
+    opera*op=GetdbOpereUtente()->trova_operadelutente(GetID(),id);
+    if(op!=0)
+    {
+        info_opera o=op->info_tot();
+        GetdbOpereUtente()->remove_operadelutente(GetID(),id);
+        GetopereBiblioteca()->add_Libro(o);
+    }
+    else std::cout<<"Errore libro non in prestito";
+}
+
+void utente_pro::restituisci_rivista(unsigned int id) {
+    opera*op=GetdbOpereUtente()->trova_operadelutente(GetID(),id);
+    if(op!=0)
+    {
+        info_opera o=op->info_tot();
+        GetdbOpereUtente()->remove_operadelutente(GetID(),id);
+        GetopereBiblioteca()->add_Rivista(o);
+
+    }
+    else std::cout<<"Errore rivista non in prestito";
+}
+
 
 
 

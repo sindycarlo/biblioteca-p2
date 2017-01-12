@@ -20,5 +20,7 @@ public:
     virtual info_utente infoutente() const;
     virtual void  ricevi_libro(unsigned int); //metodo che da in prestito un libro a seconda del tipo di utente sono imposte certe condizioni
     virtual void  ricevi_rivista(unsigned int);
+    virtual void restituisci_libro(unsigned int); //metodo che restituisce un opera alla biblioteca.
+    virtual void restituisci_rivista(unsigned int);
 };
 #endif // UTENTE_BASIC_H

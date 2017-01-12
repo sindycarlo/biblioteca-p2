@@ -4,8 +4,6 @@
 #include <QWidget>
 #include <QDesktopWidget>
 
-
-
 class database;
 class database_utente;
 class database_utente_opere;

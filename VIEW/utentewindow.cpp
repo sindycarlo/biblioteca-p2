@@ -1,15 +1,15 @@
 #include "utentewindow.h"
 #include<QApplication>
 #include<QToolTip>
-utenteWindow::utenteWindow(database* db,database_utente* udb,database_utente_opere*uodb) : Widget_Padre(db,udb,uodb) {
+utenteWindow::utenteWindow(unsigned int id,database* db,database_utente* udb,database_utente_opere*uodb) : idutente(id), Widget_Padre(db,udb,uodb) {
 
-    tablibri=new listalibri(get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco dei libri
+    tablibri=new listalibri(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco dei libri
     controllerLB=new C_listalibri(get_model(),tablibri);
-    tabriviste=new listariviste(get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco deli libri
+    tabriviste=new listariviste(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco deli libri
     controllerRB=new C_listariviste(get_model(),tabriviste);
-    tablibriprestito=new listalibri(get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco dei libri
+    tablibriprestito=new listalibri(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco dei libri
     controllerLBprestito=new C_listalibri(get_model(),tablibriprestito);
-    tabrivisteprestito=new listariviste(get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco deli libri
+    tabrivisteprestito=new listariviste(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco deli libri
     controllerRBprestito=new C_listariviste(get_model(),tabrivisteprestito);
     exit=new QPushButton("ESCI");
     ricevi_libro=new QPushButton("RICEVI LIBRO");
@@ -28,10 +28,12 @@ utenteWindow::utenteWindow(database* db,database_utente* udb,database_utente_ope
 
     connect(tablibri,SIGNAL(selezione(int)),this,SLOT(modifica_campo_libro(int)));
     connect(tabriviste,SIGNAL(selezione(int)),this,SLOT(modifica_campo_rivista(int)));
+    connect(tablibriprestito,SIGNAL(selezione(int)),this,SLOT(modifica_campo_libro_prestito(int)));
+    connect(tabrivisteprestito,SIGNAL(selezione(int)),this,SLOT(modifica_campo_rivista_prestito(int)));
     connect(ricevi_libro,SIGNAL(clicked()),this,SLOT(ricevi_segnale_libri()));
     connect(ricevi_rivista,SIGNAL(clicked()),this,SLOT(ricevi_segnale_riviste()));
-    connect(restituisci_libro,SIGNAL(selezione(int)),this,SLOT(modifica_campo_libro(int)));
-    connect(restituisci_rivista,SIGNAL(selezione(int)),this,SLOT(modifica_campo_rivista(int)));
+    connect(restituisci_libro,SIGNAL(clicked()),this,SLOT(restituisci_segnale_libri()));
+    connect(restituisci_rivista,SIGNAL(clicked()),this,SLOT(restituisci_segnale_riviste()));
     connect(exit,SIGNAL(clicked()),qApp,SLOT(quit()));
 }
 
@@ -56,6 +58,19 @@ void utenteWindow::modifica_campo_rivista(int ID){
     disabilita_bottoni_libri();
 
 }
+void utenteWindow::modifica_campo_libro_prestito(int ID){
+    libro_selezionato=ID;
+    abilita_bottoni_libri_prestito();
+    disabilita_bottoni_riviste_prestito();
+
+}
+void utenteWindow::modifica_campo_rivista_prestito(int ID){
+    rivista_selezionata=ID;
+    abilita_bottoni_riviste_prestito();
+    disabilita_bottoni_libri_prestito();
+
+}
+
 void utenteWindow::ricevi_segnale_libri(){
     QString identificativo;
     identificativo.setNum(libro_selezionato);
@@ -71,6 +86,9 @@ void utenteWindow::ricevi_segnale_libri(){
             emit show_ricevi_libro(libro_selezionato);
         }
 }
+
+unsigned int utenteWindow::Getidutente() const {return idutente;}
+
 void utenteWindow::ricevi_segnale_riviste(){
     QString identificativo;
     identificativo.setNum(rivista_selezionata);
@@ -140,10 +158,10 @@ void utenteWindow::creaLayout(){
 }
 
 
-void utenteWindow::aggiorna_vista(){tabriviste->aggiorna_vista();tablibri->aggiorna_vista();tabrivisteprestito->aggiorna_vista();tablibriprestito->aggiorna_vista();}
+void utenteWindow::aggiorna_vista(){tabriviste->aggiorna_vista();tablibri->aggiorna_vista();tabrivisteprestito->aggiorna_vista_prestito_riviste();tablibriprestito->aggiorna_vista_prestito_libri();}
 void utenteWindow::abilita_bottoni_libri(){
     ricevi_libro->setEnabled(true);
-    restituisci_libro->setEnabled(true);
+    restituisci_libro->setEnabled(false);
 }
 void utenteWindow::disabilita_bottoni_libri(){
     ricevi_libro->setEnabled(false);
@@ -151,12 +169,28 @@ void utenteWindow::disabilita_bottoni_libri(){
 }
 void utenteWindow::abilita_bottoni_riviste(){
    ricevi_rivista->setEnabled(true);
-   restituisci_rivista->setEnabled(true);
+   restituisci_rivista->setEnabled(false);
 
 }
 
 void utenteWindow::disabilita_bottoni_riviste(){
    ricevi_rivista->setEnabled(false);
+   restituisci_rivista->setEnabled(false);
+
+}
+
+void utenteWindow::abilita_bottoni_libri_prestito(){
+    restituisci_libro->setEnabled(true);
+}
+void utenteWindow::disabilita_bottoni_libri_prestito(){
+    restituisci_libro->setEnabled(false);
+}
+void utenteWindow::abilita_bottoni_riviste_prestito(){
+   restituisci_rivista->setEnabled(true);
+
+}
+
+void utenteWindow::disabilita_bottoni_riviste_prestito(){
    restituisci_rivista->setEnabled(false);
 
 }

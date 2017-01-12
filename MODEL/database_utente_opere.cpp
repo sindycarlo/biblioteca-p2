@@ -116,7 +116,7 @@ opera* database_utente_opere::trova_operadelutente(unsigned int idutente, unsign
    it=dbopereutente.begin();
    while(it!=dbopereutente.end() && !trovato)
    {
-       if((*it)->Getappartenenza()==idutente && (*it)->GetId()==idopera){std::cout<<"X"; trovato=true;}
+       if((*it)->Getappartenenza()==idutente && (*it)->GetId()==idopera){trovato=true;}
            risultato=it;
            it++;
 

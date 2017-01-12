@@ -9,15 +9,21 @@
 
 #include "listaop.h"
 #include"../MODEL/database.h"
+#include"../MODEL/database_utente.h"
+#include"../MODEL/database_utente_opere.h"
 #include"../MODEL/contenitore.h"
 
 class listalibri : public listaOp
 {
     Q_OBJECT
 public:
-    explicit listalibri(database*,database_utente*,database_utente_opere*);
+    explicit listalibri(unsigned int,database*,database_utente*,database_utente_opere*);
     void aggiorna_vista();
+    void aggiorna_vista_prestito_libri();
     void costruisci_contenuto();
     void build_Nuova(const contenitore<opera> &);
+    unsigned int Getidutente() const;
+private:
+    unsigned int idutente;
 };
 #endif // LISTALIBRI_H

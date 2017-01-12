@@ -2,9 +2,9 @@
 #include<QApplication>
 #include<QToolTip>
 mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*uodb) : Widget_Padre(db,udb,uodb) {
-
-    tablibri=new listalibri(get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco delle opere
-    tabriviste=new listariviste(get_model(),get_modelutenti(),get_modelutenteopere());
+    //da correggere
+    tablibri=new listalibri(0,get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco delle opere
+    tabriviste=new listariviste(0,get_model(),get_modelutenti(),get_modelutenteopere());
     tabutenti=new listautenti(get_model(),get_modelutenti(),get_modelutenteopere());
     controllerLP=new C_listalibri(get_model(),tablibri);
     controllerRP=new C_listariviste(get_model(),tabriviste);

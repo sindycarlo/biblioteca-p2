@@ -139,6 +139,8 @@ bool database::vuoto() const {return db.empty();}
 //aggiunge un libro al mio contenitore quindi al database:
 void database::add_Libro(const info_opera& c) {
 libro*p=new libro(c.get_titolo(),c.get_dettaglio(),1);
+p->Setappartenenza(-1);
+p->Riscatta();
 db.add_item(p);
 }
 
@@ -146,6 +148,8 @@ db.add_item(p);
 void database::add_Rivista(const info_opera & c1) {
     unsigned int x=c1.get_dettaglio().toInt();
     rivista*p=new rivista(c1.get_titolo(),x,1);
+    p->Setappartenenza(-1);
+    p->Riscatta();
     db.add_item(p);
 }
 
