@@ -1,9 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
+    <max>5</max>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>d</Titolo>
+        <Id>1</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>d</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>f</Titolo>
+        <Id>2</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>f</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>g</Titolo>
+        <Id>3</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>g</Autore>
+    </opera>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>c</Titolo>
-        <Id>3</Id>
+        <Titolo>h</Titolo>
+        <Id>4</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>1700</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>g</Titolo>
+        <Id>5</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
         <AnnoUscita>1700</AnnoUscita>

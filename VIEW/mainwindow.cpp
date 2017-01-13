@@ -17,8 +17,7 @@ mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*u
     rimuovi_utenti=new QPushButton("RIMUOVI UTENTE");
     aggiungi_utente_basic=new QPushButton("AGGIUNGI UTENTE BASIC");
     aggiungi_utente_pro=new QPushButton("AGGIUNGI UTENTE PRO");
-    disabilita_bottoni();
-    disabilita_bottoni_utenti();
+    disabilita_bottoni_tutti();
 
   //barra della ricerca
     barra_cerca=new QLineEdit();
@@ -120,6 +119,28 @@ void mainWindow::rimuovi_segnale(){
         }
 }
 void mainWindow::rimuovi_segnale_utenti(){
+    bool erroreopereprestito=false;
+    contenitore<opera>::iteratore it;
+    for(it=get_modelutenteopere()->dbopereutenti_begin();it!=get_modelutenteopere()->dbopereutenti_end();it++)
+    {if((*it)->Getappartenenza()==utente_selezionato){erroreopereprestito=true;}}
+    if(erroreopereprestito==true)
+    {
+            QString identificativo;
+            identificativo.setNum(utente_selezionato);
+            QMessageBox warning;
+            warning.setIcon(QMessageBox::Question);
+            warning.setWindowTitle("Errore");
+            warning.setText(" l'utente con ID: <b>"+identificativo+"</b> ha ancora opere in prestito");
+            warning.setStandardButtons(QMessageBox::Cancel);
+            warning.setDefaultButton(QMessageBox::Cancel);
+            warning.exec();
+
+
+
+    }else{
+
+
+
     QString identificativo;
     identificativo.setNum(utente_selezionato);
     QMessageBox warning;
@@ -133,6 +154,7 @@ void mainWindow::rimuovi_segnale_utenti(){
         if(ret==QMessageBox::Yes) {
             emit rimuovi_utente(utente_selezionato);
         }
+    }
 }
 
 
@@ -160,7 +182,6 @@ void mainWindow::disabilita(){
 }
 
 
-void mainWindow::costruisci_Tabella(const contenitore<opera>& lista){ tablibri->build_Nuova(lista); tabriviste->build_Nuova(lista);}
 void mainWindow::costruisci_Tabellautenti(const contenitore<utente> & listautenti) {tabutenti->build_Nuova(listautenti);}
 void mainWindow::aggiorna_vista(){tablibri->aggiorna_vista();tabriviste->aggiorna_vista();tabutenti->aggiorna_vista();}
 void mainWindow::abilita_bottoni(){
@@ -180,7 +201,15 @@ void mainWindow::disabilita_bottoni_utenti(){
    rimuovi_utenti->setEnabled(false);
 
 }
+void mainWindow::disabilita_bottoni_tutti(){
+   rimuovi_opera->setEnabled(false);
+   rimuovi_utenti->setEnabled(false);
 
+}
+
+void mainWindow::costruisci_Tabella_opere(const contenitore<opera> & lista) {
+    tablibri->build_Nuova(lista); tabriviste->build_Nuova(lista);
+}
 
 void mainWindow::closeEvent(QCloseEvent *event){ emit chiudi_app(); }
 

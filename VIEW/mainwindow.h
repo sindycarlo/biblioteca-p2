@@ -28,7 +28,7 @@ public:
     explicit mainWindow(database*,database_utente*,database_utente_opere*);
     virtual void aggiorna_vista();
     virtual void costruisci_contenuto();
-    void costruisci_Tabella(const contenitore<opera>&);
+    void costruisci_Tabella_opere(const contenitore<opera>&);
     void costruisci_Tabellautenti(const contenitore<utente>&);
     virtual void set_style();
     void closeEvent(QCloseEvent*);
@@ -89,6 +89,8 @@ private:
     void abilita_bottoni_utenti();
     void disabilita_bottoni();
     void disabilita_bottoni_utenti();
+
+    void disabilita_bottoni_tutti();
 };
 
 #endif // MAINWINDOW_H

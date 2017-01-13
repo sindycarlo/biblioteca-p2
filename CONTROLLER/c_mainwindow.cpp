@@ -15,13 +15,14 @@ C_mainWindow::C_mainWindow(database* db,database_utente* udb,database_utente_ope
 }
 
 void C_mainWindow::cerca_operaDB(const QString& text){
-    contenitore<opera> container;
-    container=model->trova_opere_insieme(text);
-    if(!(container.empty()))
-    {
-        view->costruisci_Tabella(container);
-    }else{std::cout<<"NON TROVATO";view->aggiorna_vista();}
+
+    contenitore<opera> lista=model->trova_opere_insieme(text);
+    if(!(lista.empty())){
+        view->costruisci_Tabella_opere(lista);
+    }else view->aggiorna_vista();
 }
+
+
 void C_mainWindow::cerca_utenteDB(const QString& text){
     contenitore<utente> container;
     container=modelutenti->trova_utenti_insieme(text);
@@ -41,11 +42,6 @@ void C_mainWindow::rimuovi_utenteDB(int ID){
     modelutenti->remove_utente(ID);
     view->aggiorna_vista();
 }
-
-void C_mainWindow::aggiorna_prestitoDB(int ID){
-
-}
-
 
 void C_mainWindow::inserisci_rivistaDB(){
     inserisci_Rivista* inserisci=new inserisci_Rivista();

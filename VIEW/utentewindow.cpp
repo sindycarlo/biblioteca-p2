@@ -72,6 +72,19 @@ void utenteWindow::modifica_campo_rivista_prestito(int ID){
 }
 
 void utenteWindow::ricevi_segnale_libri(){
+    utente* u=get_modelutenti()->trova_utente(Getidutente());
+    utente_basic* ub=dynamic_cast<utente_basic*>(u);
+    if(ub && ub->Get_numopere()>=5)
+    {
+        QMessageBox warning;
+            warning.setIcon(QMessageBox::Question);
+            warning.setWindowTitle("Errore");
+            warning.setText("Hai raggiunto il massimo numero di opere che puoi ricevere in prestito");
+            warning.setStandardButtons(QMessageBox::Cancel);
+            warning.setDefaultButton(QMessageBox::Cancel);
+            warning.exec();
+    }
+    else {
     QString identificativo;
     identificativo.setNum(libro_selezionato);
     QMessageBox warning;
@@ -85,11 +98,26 @@ void utenteWindow::ricevi_segnale_libri(){
         if(ret==QMessageBox::Yes) {
             emit show_ricevi_libro(libro_selezionato);
         }
+    }
 }
 
 unsigned int utenteWindow::Getidutente() const {return idutente;}
 
 void utenteWindow::ricevi_segnale_riviste(){
+
+    utente* u=get_modelutenti()->trova_utente(Getidutente());
+    utente_basic* ub=dynamic_cast<utente_basic*>(u);
+    if(ub && ub->Get_numopere()>=5)
+    {
+        QMessageBox warning;
+            warning.setIcon(QMessageBox::Question);
+            warning.setWindowTitle("Errore");
+            warning.setText("Hai raggiunto il massimo numero di opere che puoi ricevere in prestito");
+            warning.setStandardButtons(QMessageBox::Cancel);
+            warning.setDefaultButton(QMessageBox::Cancel);
+            warning.exec();
+    }
+    else {
     QString identificativo;
     identificativo.setNum(rivista_selezionata);
     QMessageBox warning;
@@ -103,6 +131,7 @@ void utenteWindow::ricevi_segnale_riviste(){
         if(ret==QMessageBox::Yes) {
             emit show_ricevi_rivista(rivista_selezionata);
         }
+    }
 }
 void utenteWindow::restituisci_segnale_libri(){
     QString identificativo;
@@ -151,7 +180,6 @@ void utenteWindow::creaLayout(){
     orizzontale->addWidget(tabrivisteprestito);
 
     Prlayout->addLayout(orizzontale);
-    Prlayout->addLayout(verticale);
     Prlayout->addWidget(exit);
     setLayout(Prlayout);
 
@@ -181,12 +209,14 @@ void utenteWindow::disabilita_bottoni_riviste(){
 
 void utenteWindow::abilita_bottoni_libri_prestito(){
     restituisci_libro->setEnabled(true);
+    ricevi_libro->setEnabled(false);
 }
 void utenteWindow::disabilita_bottoni_libri_prestito(){
     restituisci_libro->setEnabled(false);
 }
 void utenteWindow::abilita_bottoni_riviste_prestito(){
    restituisci_rivista->setEnabled(true);
+   ricevi_rivista->setEnabled(false);
 
 }
 

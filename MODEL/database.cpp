@@ -21,7 +21,7 @@ database::~database() {database::Close();}
 
 //quando carico il database scrivo tutte le opre nel mio contenitore:
 void database::Load() {
-    int Tipo=0, AnnoUscita=0,Stato=-1, Id=0,Appartiene=-1;
+    int Tipo=0, AnnoUscita=0,max=0,Stato=-1, Id=0,Appartiene=-1;
     QString Titolo="Nessuno", Autore="Nessuno";
     opera*tmp=NULL;
     QFile file(filename);
@@ -34,6 +34,8 @@ void database::Load() {
             {
                 if(xmlReader.name()=="database" || xmlReader.name()=="opera") xmlReader.readNext();
                 else
+                  if(xmlReader.name()=="max") max=xmlReader.readElementText().toInt();
+                    else
                     if(xmlReader.name()=="Tipo") Tipo=xmlReader.readElementText().toInt();
                     else
                         if(xmlReader.name()=="Id") Id=xmlReader.readElementText().toInt();
@@ -65,6 +67,7 @@ void database::Load() {
                if(Tipo==1) tmp=new libro(Titolo,Autore,Stato);
                else tmp=new rivista(Titolo,AnnoUscita,Stato);
                 tmp->Set_id(Id);
+                tmp->Set_maxid(max);
                 db.add_item(tmp);
                 xmlReader.readNext();
               }
@@ -84,11 +87,15 @@ void database::Close() {
          xmlWriter.setAutoFormatting(true);
          xmlWriter.writeStartDocument();
          xmlWriter.writeStartElement("database");
+         contenitore<opera>::iteratore it=db.begin();
         if(!vuoto())
         {
+            int max_val=db[it]->GetMaxId();
+            QString MAX;
+            MAX.setNum(max_val);
+            xmlWriter.writeTextElement("max",MAX);
 
-         contenitore<opera>::iteratore it;
-         for(it=db.begin();it!=db.end();it++)
+         for(;it!=db.end();it++)
          {
              (*it)->Write_opera(xmlWriter);
          }

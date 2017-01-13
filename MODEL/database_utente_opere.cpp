@@ -23,10 +23,9 @@ database_utente_opere::~database_utente_opere() {database_utente_opere::Close();
 //quando carico il database scrivo tutte le opre nel mio contenitore:
 void database_utente_opere::Load() {
     QString Titolo="Sconosciuto",Autore="Sconosciuto";
-     int Idutente=-1, Id=-1, Stato=-1, Tipoutente=0, Tipo=0,  AnnoUscita=-1;
+     int  Id=-1, Stato=-1,max=0, Tipo=0,  AnnoUscita=-1;
     opera*tmp=NULL;
     int Appartiene=-1;
-    utente*tmp1=NULL;
     QFile file(filename);
          file.open(QIODevice::ReadOnly);
            // if (!file.open(QFile::ReadOnly | QFile::Text))  std::cout << "Errore: Impossibile leggere il file"<< std::endl;
@@ -38,6 +37,8 @@ void database_utente_opere::Load() {
             {
                 if(xmlReader.name()=="database" || xmlReader.name()=="opera") xmlReader.readNext();
                 else
+                  if(xmlReader.name()=="max") max=xmlReader.readElementText().toInt();
+                   else
                     if(xmlReader.name()=="Tipo") Tipo=xmlReader.readElementText().toInt();
                     else
                         if(xmlReader.name()=="Id") Id=xmlReader.readElementText().toInt();
@@ -69,6 +70,7 @@ void database_utente_opere::Load() {
                if(Tipo==1) tmp=new libro(Titolo,Autore,Stato);
                else tmp=new rivista(Titolo,AnnoUscita,Stato);
                 tmp->Set_id(Id);
+                tmp->Set_maxid(max);
                 tmp->Setappartenenza(Appartiene);
                 dbopereutente.add_item(tmp);
                 xmlReader.readNext();
@@ -87,16 +89,22 @@ void database_utente_opere::Close() {
          QXmlStreamWriter xmlWriter(&file);
          xmlWriter.setAutoFormatting(true);
          xmlWriter.writeStartDocument();
+          xmlWriter.writeStartElement("database");
+          contenitore<opera>::iteratore it=dbopereutente.begin();
         if(!vuoto())
         {
-         xmlWriter.writeStartElement("database");
-         contenitore<opera>::iteratore it;
-         for(it=dbopereutente.begin();it!=dbopereutenti_end();it++)
+            int max_val=dbopereutente[it]->GetMaxId();
+            QString MAX;
+            MAX.setNum(max_val);
+            xmlWriter.writeTextElement("max",MAX);
+
+         for(;it!=dbopereutenti_end();it++)
          {
              (*it)->Write_opera(xmlWriter);
          }
-         xmlWriter.writeEndDocument();
+
         }
+         xmlWriter.writeEndDocument();
         file.close();
 }
 

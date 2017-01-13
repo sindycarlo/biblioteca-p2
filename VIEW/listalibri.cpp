@@ -51,6 +51,7 @@ void listalibri::aggiorna_vista_prestito_libri(){
              int id;
              QString i;
              contenitore<opera>::iteratore it;
+             bool trovato=false;
              for(it=(get_modelutenteopere())->dbopereutenti_begin(); it!=(get_modelutenteopere())->dbopereutenti_end(); it++)
              {
                  if((*it)->Get_tipo()=="libro" && (*it)->Getappartenenza()==Getidutente())
@@ -58,7 +59,7 @@ void listalibri::aggiorna_vista_prestito_libri(){
                     Getable()->setRowCount(row+1);
                     id=(*it)->GetId();
                     i.setNum(id);
-
+                    trovato=true;
                     QTableWidgetItem *ID = new QTableWidgetItem(i);
                     QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
                     QTableWidgetItem *tipo = new QTableWidgetItem((*it)->Get_tipo());
@@ -68,6 +69,11 @@ void listalibri::aggiorna_vista_prestito_libri(){
                     Getable()->setItem(row,2,tipo);
                     row++;
                  }
+             }
+             if(trovato==false)
+             {
+                 Getable()->setRowCount(row);
+                 emit tabella_vuota();
              }
         }
         else{

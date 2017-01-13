@@ -49,6 +49,7 @@ void listariviste::aggiorna_vista_prestito_riviste(){
         {
              int id;
              QString i;
+             bool trovato=false;
              contenitore<opera>::iteratore it;
              for(it=(get_modelutenteopere())->dbopereutenti_begin(); it!=(get_modelutenteopere())->dbopereutenti_end(); it++)
              {
@@ -57,7 +58,7 @@ void listariviste::aggiorna_vista_prestito_riviste(){
                     Getable()->setRowCount(row+1);
                     id=(*it)->GetId();
                     i.setNum(id);
-
+                    trovato=true;
                     QTableWidgetItem *ID = new QTableWidgetItem(i);
                     QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
                     QTableWidgetItem *tipo = new QTableWidgetItem((*it)->Get_tipo());
@@ -67,6 +68,11 @@ void listariviste::aggiorna_vista_prestito_riviste(){
                     Getable()->setItem(row,2,tipo);
                     row++;
                  }
+             }
+             if(trovato==false)
+             {
+                 Getable()->setRowCount(row);
+                 emit tabella_vuota();
              }
         }
         else{
