@@ -53,20 +53,29 @@ void inserisci_utentebasic::slot_submit(){
             warning.setDefaultButton(QMessageBox::Ok);
             warning.exec();
         }
-        else{
-            QMessageBox warning;
-            warning.setIcon(QMessageBox::Question);
-            warning.setWindowTitle("Inserisci nuovo utente basic");
-            warning.setText("Sei sicuro di voler inserire l'utente basic <b>"+nome->text()+"</b>");
-            warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
-            warning.setDefaultButton(QMessageBox::Cancel);
-            int ret = warning.exec();
-            if(ret==QMessageBox::Yes) {
-                info_utente u(0,nome->text(),cognome->text(),"",password->text(),codicefiscale->text(),Numeropere->text());
-                emit submitub(u);
-                pulisci_Campi();
-            }
-            }
+        else if(Numeropere->text().toInt()!=0 || !Numeropere->text().toInt())
+            {
+        QMessageBox warning;
+        warning.setIcon(QMessageBox::Critical);
+        warning.setWindowTitle("Impossibile inserire un nuovo utente basic");
+        warning.setText("un utente che deve ancora essere registrato alla biblioteca, non può avere già opere in prestito");
+        warning.setStandardButtons(QMessageBox::Ok);
+        warning.setDefaultButton(QMessageBox::Ok);
+        warning.exec();
+            }else{
+                    QMessageBox warning;
+                    warning.setIcon(QMessageBox::Question);
+                    warning.setWindowTitle("Inserisci nuovo utente basic");
+                    warning.setText("Sei sicuro di voler inserire l'utente basic <b>"+nome->text()+"</b>");
+                    warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+                    warning.setDefaultButton(QMessageBox::Cancel);
+                    int ret = warning.exec();
+                    if(ret==QMessageBox::Yes) {
+                        info_utente u(0,nome->text(),cognome->text(),"",password->text(),codicefiscale->text(),Numeropere->text());
+                        emit submitub(u);
+                        pulisci_Campi();
+                            }
+    }
 }
 void inserisci_utentebasic::pulisci_Campi(){
     nome->clear();

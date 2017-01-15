@@ -81,6 +81,7 @@ void mainWindow::creaLayout(){
     orizzontale->addWidget(tabutenti);
     orizzontale->addLayout(bottoni);
 
+
     Prlayout->addWidget(barra_cerca);
     Prlayout->addWidget(barra_cercautenti);
     Prlayout->addLayout(orizzontale);

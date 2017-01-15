@@ -32,7 +32,7 @@ void homewindow::set_style(){
 }
 
 void homewindow::costruisci_contenuto(){
-     //aggiorna_vista();
+
 }
 void homewindow::aggiorna_vista() {
 
@@ -54,8 +54,32 @@ void homewindow::slot_accediutente() {
             warning.exec();
         }
         else{
-                emit show_accediutente(nameuser->text(),password->text());
-             }
+        //verifico se username e password coincidono con un utente nel database:
+        contenitore<utente>::iteratore it;
+        bool trovato=false;
+        for(it=get_modelutenti()->dbutenti_begin();it!=get_modelutenti()->dbutenti_end();it++)
+        {
+            if((*it)->GetNome()==nameuser->text() && (*it)->GetPassword()==password->text())
+            {
+                trovato=true;
+            }
+        }
+        if(trovato==false)
+        {
+            QMessageBox warning;
+            warning.setIcon(QMessageBox::Critical);
+            warning.setWindowTitle("Impossibile inviare richiesta");
+            warning.setText("Errore username o password non corretti");
+            warning.setStandardButtons(QMessageBox::Ok);
+            warning.setDefaultButton(QMessageBox::Ok);
+            warning.exec();
+            pulisci_campi();
+
+        }
+        else {emit show_accediutente(nameuser->text(),password->text());}
+
+    }
+    emit show_accediutente(nameuser->text(),password->text());
 }
 
 
@@ -73,7 +97,10 @@ void homewindow::creaLayout(){
 }
 
 
-
+void homewindow::pulisci_campi(){
+    nameuser->clear();
+    password->clear();
+}
 
 
 void homewindow::closeEvent(QCloseEvent *event){ emit chiudi_app(); }

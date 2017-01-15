@@ -44,7 +44,6 @@ return  info_opera(GetTitolo(),disp,id,Getautore(),pres);
     x.setNum(id);
     XmlWriter.writeTextElement("Id",x);
     int appartiene=Getappartenenza();
-    std::cout<<Getappartenenza();
     QString a;
     a.setNum(appartiene);
     XmlWriter.writeTextElement("Appartenenza",a);

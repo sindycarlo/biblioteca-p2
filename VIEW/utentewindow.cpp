@@ -16,6 +16,11 @@ utenteWindow::utenteWindow(unsigned int id,database* db,database_utente* udb,dat
     ricevi_rivista=new QPushButton("RICEVI RIVISTA");
     restituisci_libro=new QPushButton("RESTITUISCI LIBRO");
     restituisci_rivista=new QPushButton("RESTITUISCI RIVISTA");
+
+    disabilita_bottoni_libri();
+    disabilita_bottoni_libri_prestito();
+    disabilita_bottoni_riviste();
+    disabilita_bottoni_riviste_prestito();
   //layout
     orizzontale=new QHBoxLayout();
     Prlayout=new QVBoxLayout();

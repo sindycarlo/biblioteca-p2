@@ -17,6 +17,7 @@ void listalibri::aggiorna_vista(){
              int id;
              QString i;
              contenitore<opera>::iteratore it;
+             bool trovata=false;
              for(it=(get_model())->db_begin(); it!=(get_model())->db_end(); it++)
              {
                  if((*it)->Get_tipo()=="libro")
@@ -24,7 +25,7 @@ void listalibri::aggiorna_vista(){
                     Getable()->setRowCount(row+1);
                     id=(*it)->GetId();
                     i.setNum(id);
-
+                    trovata=true;
                     QTableWidgetItem *ID = new QTableWidgetItem(i);
                     QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
                     QTableWidgetItem *tipo = new QTableWidgetItem((*it)->Get_tipo());
@@ -34,6 +35,10 @@ void listalibri::aggiorna_vista(){
                     Getable()->setItem(row,2,tipo);
                     row++;
                  }
+             }if(trovata==false)
+             {
+                 Getable()->setRowCount(row);
+                 emit tabella_vuota();
              }
         }
         else{

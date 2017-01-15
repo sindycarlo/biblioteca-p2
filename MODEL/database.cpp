@@ -176,7 +176,6 @@ info_opera database::get_infoOpera(int ID) const{
     opera* op=trova_opera(ID);
     if(!op)
     {
-        std::cout<<"opera non trovata"<<std::endl;
         return info_opera("Opera non presente", "Opera non presente", "Opera non presente", "Opera non presente","Opera non presente");
     }
     return info_opera(op->info_tot());

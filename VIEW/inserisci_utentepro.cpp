@@ -53,20 +53,29 @@ void inserisci_utentepro::slot_submit(){
             warning.setDefaultButton(QMessageBox::Ok);
             warning.exec();
         }
-        else{
-            QMessageBox warning;
-            warning.setIcon(QMessageBox::Question);
-            warning.setWindowTitle("Inserisci nuovo utente pro");
-            warning.setText("Sei sicuro di voler inserire l'utente basic <b>"+nome->text()+"</b>");
-            warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
-            warning.setDefaultButton(QMessageBox::Cancel);
-            int ret = warning.exec();
-            if(ret==QMessageBox::Yes) {
-                info_utente u(0,nome->text(),cognome->text(),"",password->text(),codicefiscale->text(),Tempoprestito->text());
-                emit submitup(u);
-                pulisci_Campi();
+        else if(Tempoprestito->text().toInt()<0 || Tempoprestito->text().toInt()>30) {
+        QMessageBox warning;
+        warning.setIcon(QMessageBox::Critical);
+        warning.setWindowTitle("Impossibile inserire un nuovo utente pro");
+        warning.setText("Il tempo di prestito non può essere negativo e nemmeno superiore a 30 giorni");
+        warning.setStandardButtons(QMessageBox::Ok);
+        warning.setDefaultButton(QMessageBox::Ok);
+        warning.exec();
+
+            }else {
+        QMessageBox warning;
+        warning.setIcon(QMessageBox::Question);
+        warning.setWindowTitle("Inserisci nuovo utente pro");
+        warning.setText("Sei sicuro di voler inserire l'utente basic <b>"+nome->text()+"</b>");
+        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+        warning.setDefaultButton(QMessageBox::Cancel);
+        int ret = warning.exec();
+        if(ret==QMessageBox::Yes) {
+            info_utente u(0,nome->text(),cognome->text(),"",password->text(),codicefiscale->text(),Tempoprestito->text());
+            emit submitup(u);
+            pulisci_Campi();
             }
-            }
+    }
 }
 void inserisci_utentepro::pulisci_Campi(){
     nome->clear();

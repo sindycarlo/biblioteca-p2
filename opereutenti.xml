@@ -1,2 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<database/>
+<database>
+    <max>45</max>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Airone</Titolo>
+        <Id>28</Id>
+        <Appartenenza>1</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>4294967295</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>27</Id>
+        <Appartenenza>1</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>4294967295</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il Mastino dei Baskerville</Titolo>
+        <Id>21</Id>
+        <Appartenenza>3</Appartenenza>
+        <Stato>0</Stato>
+        <Autore>Artur Conan Doyle</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Se Questo è Un Uomo</Titolo>
+        <Id>20</Id>
+        <Appartenenza>3</Appartenenza>
+        <Stato>0</Stato>
+        <Autore>Primo Levi</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>PCdiscount</Titolo>
+        <Id>19</Id>
+        <Appartenenza>3</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>4294967295</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>La Storia di Gianni Rivera</Titolo>
+        <Id>18</Id>
+        <Appartenenza>3</Appartenenza>
+        <Stato>0</Stato>
+        <Autore>Gianni Rivera</Autore>
+    </opera>
+</database>

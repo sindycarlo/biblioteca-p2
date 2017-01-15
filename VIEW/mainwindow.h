@@ -6,6 +6,7 @@
 #include <QLineEdit>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QLabel>
 #include <QMessageBox>
 #include<QDesktopWidget>
 #include <QApplication>
@@ -83,6 +84,7 @@ private:
 
     QHBoxLayout* orizzontale;
     QVBoxLayout* Prlayout, *bottoni;
+
 
     void creaLayout();
     void abilita_bottoni();

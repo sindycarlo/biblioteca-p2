@@ -11,6 +11,8 @@
 #include <QApplication>
 #include "widget_padre.h"
 
+#include "../MODEL/database_utente.h"
+
 
 class homewindow : public Widget_Padre
 {
@@ -48,6 +50,7 @@ private:
 
 
     void creaLayout();
+    void pulisci_campi();
 
 };
 

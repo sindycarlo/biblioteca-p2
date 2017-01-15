@@ -12,7 +12,7 @@ unsigned int utente_basic::limiteopere=5;
 //costruttore di utente_basic:
 utente_basic::utente_basic(database *db,database_utente_opere* udb, unsigned int no =0, QString n ="Sconociuto", QString c ="Sconosciuto", QString cf ="Sconosciuto", QString psw ="Sconosciuto"): utente(db,udb,n,c,cf,psw), NumOpere(no) {
     if(NumOpere>limiteopere)
-    {std::cout<<"Errore: un utente basic non può prendere in prestito più di 5 opere";NumOpere=limiteopere;}
+    {NumOpere=limiteopere;}
 
 }
 
