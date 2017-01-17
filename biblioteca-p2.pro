@@ -33,7 +33,6 @@ SOURCES += main.cpp \
     VIEW/inserisci_rivista.cpp \
     VIEW/mainwindow.cpp \
     VIEW/widget_padre.cpp \
-    CONTROLLER/c_listaop.cpp \
     VIEW/listaop.cpp \
     MODEL/amministratore.cpp \
     CONTROLLER/c_add_utentebasic.cpp \
@@ -49,7 +48,10 @@ SOURCES += main.cpp \
     CONTROLLER/c_listalibri.cpp \
     CONTROLLER/c_listariviste.cpp \
     VIEW/listalibri.cpp \
-    VIEW/listariviste.cpp
+    VIEW/listariviste.cpp \
+    VIEW/dettagli_opera.cpp \
+    VIEW/dettagli_libro.cpp \
+    VIEW/dettagli_rivista.cpp
 
 HEADERS  += \
     MODEL/opera.h \
@@ -71,7 +73,6 @@ HEADERS  += \
     VIEW/inserisci_rivista.h \
     VIEW/mainwindow.h \
     VIEW/widget_padre.h \
-    CONTROLLER/c_listaop.h \
     VIEW/listaop.h \
     MODEL/amministratore.h \
     CONTROLLER/c_add_utentebasic.h \
@@ -87,7 +88,10 @@ HEADERS  += \
     CONTROLLER/c_listalibri.h \
     CONTROLLER/c_listariviste.h \
     VIEW/listalibri.h \
-    VIEW/listariviste.h
+    VIEW/listariviste.h \
+    VIEW/dettagli_opera.h \
+    VIEW/dettagli_libro.h \
+    VIEW/dettagli_rivista.h
 
 FORMS    += biblioteca.ui
 

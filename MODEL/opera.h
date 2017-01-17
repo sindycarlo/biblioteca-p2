@@ -23,6 +23,7 @@ public:
     int GetMaxId() const;                 //restituisce id dell'ultima opera aggiunta al database
     void Set_id(const int);             //setta id dell'opera
     void Set_maxid(const int);         //setta maxid dell'opera
+    void SetTitolo(QString);
     bool presente () const;              // metodo che mi dice se l'opera è presente oppure no nella biblioteca
     void Setappartenenza(const int);
     int Getappartenenza() const;

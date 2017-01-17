@@ -178,8 +178,10 @@ info_opera database::get_infoOpera(int ID) const{
     {
         return info_opera("Opera non presente", "Opera non presente", "Opera non presente", "Opera non presente","Opera non presente");
     }
-    return info_opera(op->info_tot());
+    info_opera o=op->info_tot();
+    return o;
 }
+
 
 void database::aggiorna_view() const{
     std::vector<Widget_Padre*>::const_iterator it=registro.begin();

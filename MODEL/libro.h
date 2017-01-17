@@ -13,6 +13,7 @@ private:
 public:
     libro(QString, QString, bool =1);
     QString Getautore()const;
+    void SetAutore(QString);
     virtual void Write_opera(QXmlStreamWriter& XmlWriter) const;
     virtual QString Get_tipo() const;
     virtual bool ricerca_campi(const QString &) const;

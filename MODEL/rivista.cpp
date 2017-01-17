@@ -27,6 +27,7 @@ bool rivista::disponibile() const {
     return false;
 }
 
+void rivista::SetAnnouscita(int au){annouscita=au;}
 void rivista::Presta_opera() {
 if(disponibile())
 {opera::Presta_opera();}
@@ -43,7 +44,7 @@ return false;
 }
 
 info_opera rivista::info_tot() const {
-QString disp="disponibile", id, anno="1700", pres="si";
+QString disp="disponibile", id, anno="1900", pres="si";
 if(!disponibile()) disp="non disponibile";
 if(!presente()) pres="non presente";
 id.setNum(GetId());

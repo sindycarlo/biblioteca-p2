@@ -4,19 +4,18 @@
 utenteWindow::utenteWindow(unsigned int id,database* db,database_utente* udb,database_utente_opere*uodb) : idutente(id), Widget_Padre(db,udb,uodb) {
 
     tablibri=new listalibri(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco dei libri
-    controllerLB=new C_listalibri(get_model(),tablibri);
+    controllerLB=new C_listalibri(get_model(),get_modelutenti(),get_modelutenteopere(),tablibri,0);
     tabriviste=new listariviste(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco deli libri
-    controllerRB=new C_listariviste(get_model(),tabriviste);
+    controllerRB=new C_listariviste(get_model(),get_modelutenti(),get_modelutenteopere(),tabriviste,0);
     tablibriprestito=new listalibri(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco dei libri
-    controllerLBprestito=new C_listalibri(get_model(),tablibriprestito);
+    controllerLBprestito=new C_listalibri(get_model(),get_modelutenti(),get_modelutenteopere(),tablibriprestito);
     tabrivisteprestito=new listariviste(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco deli libri
-    controllerRBprestito=new C_listariviste(get_model(),tabrivisteprestito);
+    controllerRBprestito=new C_listariviste(get_model(),get_modelutenti(),get_modelutenteopere(),tabrivisteprestito);
     exit=new QPushButton("ESCI");
     ricevi_libro=new QPushButton("RICEVI LIBRO");
     ricevi_rivista=new QPushButton("RICEVI RIVISTA");
     restituisci_libro=new QPushButton("RESTITUISCI LIBRO");
     restituisci_rivista=new QPushButton("RESTITUISCI RIVISTA");
-
     disabilita_bottoni_libri();
     disabilita_bottoni_libri_prestito();
     disabilita_bottoni_riviste();

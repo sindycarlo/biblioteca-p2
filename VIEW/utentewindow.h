@@ -13,6 +13,8 @@
 #include "listalibri.h"
 #include "../CONTROLLER/c_listariviste.h"
 #include "listariviste.h"
+#include "dettagli_opera.h"
+
 
 #include "../MODEL/database.h"
 #include "../MODEL/database_utente.h"

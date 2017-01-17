@@ -2,7 +2,7 @@
 #define INSERISCI_LIBRO_H
 
 #include <QWidget>
- #include <QPushButton>
+#include <QPushButton>
 #include <QLabel>
 #include <QLineEdit>
 #include <QVBoxLayout>

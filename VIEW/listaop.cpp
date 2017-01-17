@@ -8,7 +8,7 @@ listaOp::listaOp(database* db,database_utente* udb,database_utente_opere* uodb):
     set_style();
     setLayout(layout_table);
 
-    //connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(Doppio_click(int)));     //doppio click
+    connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click(int)));     //doppio click
     connect(table,SIGNAL(cellClicked(int,int)),this,SLOT(click_singolo(int)));          //click singolo
 
 }
@@ -49,7 +49,10 @@ void listaOp::disabilita_doppio_click(){
     emit disabilita_funzioni();
 }
 
-
+void listaOp::doppio_click(int r){
+    select_opera=table->item(r,0)->text().toInt();
+    emit richiesta_info(select_opera);
+}
 
 void listaOp::click_singolo(int r){
     select_opera=table->item(r,0)->text().toInt();

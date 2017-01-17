@@ -34,6 +34,8 @@ int opera::Getappartenenza() const {return appartenenza;}
 void opera::Setappartenenza(const int x) {appartenenza=x;}
 void  opera::Presta_opera() {statoPresenza=0;}
 
+void opera::SetTitolo(QString t) {Titolo=t;}
+
 bool opera::presente() const {
 
     if(statoPresenza==1) return true;

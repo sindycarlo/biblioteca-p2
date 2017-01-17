@@ -2,26 +2,24 @@
 #define DETTAGLI_RIVISTA_H
 #include"dettagli_opera.h"
 
-class Dettagli_Rivista : public Dettagli_opera
+class dettagli_Rivista : public dettagli_opera
 {
     Q_OBJECT
 public:
-    explicit Dettagli_Rivista(int, database*);
+    explicit dettagli_Rivista(int, database*,database_utente*,database_utente_opere*);
     void update_dettagli();
-    ~Dettagli_Rivista();
+    ~dettagli_Rivista();
+public slots:
+    void slot_submit();
 private:
-
     QLabel* a;                      //anno
-
     QLineEdit* anno;
 
     void costruisci_contenuto();
     void disabilita_modifica();
+    void abilita_modifica();
     void set_style();
 
 };
 
 #endif // DETTAGLI_RIVISTA_H
-
-
-

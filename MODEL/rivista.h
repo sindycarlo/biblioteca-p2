@@ -17,6 +17,7 @@ public:
     unsigned int GetAnnouscita() const;
     unsigned int getMaxAnni() const;
     virtual bool disponibile() const;
+    void SetAnnouscita(int);
     virtual void Write_opera(QXmlStreamWriter& xmlWriter) const;
     virtual QString Get_tipo() const;
     virtual bool ricerca_campi(const QString&) const;

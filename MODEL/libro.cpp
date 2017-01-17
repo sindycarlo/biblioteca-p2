@@ -11,6 +11,7 @@ libro::libro(QString t ="Sconosciuto", QString a ="sconosciuto", bool d) : opera
 
 QString libro::Getautore() const {return autore;}
 
+void libro::SetAutore(QString a) {autore=a;}
 
 bool libro::ricerca_campi(const QString & x) const {
    if(opera::ricerca_campi(x)) return true;

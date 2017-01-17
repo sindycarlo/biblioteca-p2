@@ -27,6 +27,7 @@ public:
     void disabilita_doppio_click();
     virtual ~listaOp();
 signals:
+   void richiesta_info(int);
    void tabella_vuota();
    void disabilita_funzioni();
    void abilita_funzioni();
@@ -35,7 +36,7 @@ signals:
 
 private slots:
    void click_singolo(int);       //permette di far emettere il segnale selezione con l'id selezionato
-
+   void doppio_click(int);
 
 private:
     QTableWidget* table;

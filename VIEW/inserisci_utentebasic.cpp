@@ -53,7 +53,7 @@ void inserisci_utentebasic::slot_submit(){
             warning.setDefaultButton(QMessageBox::Ok);
             warning.exec();
         }
-        else if(Numeropere->text().toInt()!=0 || !Numeropere->text().toInt())
+        else if(Numeropere->text().toInt()!=0)
             {
         QMessageBox warning;
         warning.setIcon(QMessageBox::Critical);

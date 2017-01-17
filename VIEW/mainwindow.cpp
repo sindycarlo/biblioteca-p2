@@ -6,8 +6,8 @@ mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*u
     tablibri=new listalibri(0,get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco delle opere
     tabriviste=new listariviste(0,get_model(),get_modelutenti(),get_modelutenteopere());
     tabutenti=new listautenti(get_model(),get_modelutenti(),get_modelutenteopere());
-    controllerLP=new C_listalibri(get_model(),tablibri);
-    controllerRP=new C_listariviste(get_model(),tabriviste);
+    controllerLP=new C_listalibri(get_model(),get_modelutenti(),get_modelutenteopere(),tablibri);
+    controllerRP=new C_listariviste(get_model(),get_modelutenti(),get_modelutenteopere(),tabriviste);
     controllerUTENTI=new C_listautenti(get_modelutenti(),tabutenti);
   //bottoni
     exit=new QPushButton("ESCI");
@@ -104,6 +104,7 @@ void mainWindow::modifica_campo_utenti(int ID){
 
 }
 
+
 void mainWindow::rimuovi_segnale(){
     QString identificativo;
     identificativo.setNum(opera_selezionata);
@@ -139,8 +140,6 @@ void mainWindow::rimuovi_segnale_utenti(){
 
 
     }else{
-
-
 
     QString identificativo;
     identificativo.setNum(utente_selezionato);
