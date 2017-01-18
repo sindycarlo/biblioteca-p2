@@ -10,12 +10,11 @@ listaOp::listaOp(database* db,database_utente* udb,database_utente_opere* uodb):
 
     connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click(int)));     //doppio click
     connect(table,SIGNAL(cellClicked(int,int)),this,SLOT(click_singolo(int)));          //click singolo
-
 }
 void listaOp::set_style(){
     Widget_Padre::set_style();
   //set numero righe e colonne della tabella
-    table->setColumnCount(3);
+    table->setColumnCount(4);
     table->setRowCount(0);
 
   //set dimensioni tabella
@@ -29,7 +28,7 @@ void listaOp::set_style(){
 
     //intestazione tabella
     QStringList tabHeader;
-    tabHeader<<"ID"<<"Titolo"<<"Tipologia";
+    tabHeader<<"ID"<<"Titolo"<<"Dettaglio"<<"Tipologia";
     table->setHorizontalHeaderLabels(tabHeader);
 
     //comportamento nel momento in cui si seleziona un item

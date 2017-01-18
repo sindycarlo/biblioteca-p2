@@ -5,6 +5,7 @@ c_utentewindow::c_utentewindow(unsigned int id,database* db,database_utente* udb
     connect(view,SIGNAL(show_ricevi_rivista(unsigned int)),this,SLOT(ricevirivistaDB(unsigned int)));
     connect(view,SIGNAL(show_restituisci_libro(unsigned int)),this,SLOT(restituiscilibroDB(unsigned int)));
     connect(view,SIGNAL(show_restituisci_rivista(unsigned int)),this,SLOT(restituiscirivistaDB(unsigned int)));
+
     //chiudi
     connect(view,SIGNAL(chiudi_app()),qApp,SLOT(quit()));
 }

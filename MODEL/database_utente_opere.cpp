@@ -23,7 +23,7 @@ database_utente_opere::~database_utente_opere() {database_utente_opere::Close();
 //quando carico il database scrivo tutte le opre nel mio contenitore:
 void database_utente_opere::Load() {
     QString Titolo="Sconosciuto",Autore="Sconosciuto";
-     int  Id=-1, Stato=-1,max=0, Tipo=0,  AnnoUscita=-1;
+     int  Id=-1, Stato=-1,max=0, Tipo=0,  AnnoUscita=0;
     opera*tmp=NULL;
     int Appartiene=-1;
     QFile file(filename);
@@ -58,7 +58,7 @@ void database_utente_opere::Load() {
                     {
                         if(xmlReader.name()=="Titolo") Titolo=xmlReader.readElementText();
                         else
-                            if(xmlReader.name()=="AnnoUscita") Autore=xmlReader.readElementText();
+                            if(xmlReader.name()=="AnnoUscita") AnnoUscita=xmlReader.readElementText().toInt();
                         else std::cout<<"Errore nella lettura di una rivista";
                     }
 

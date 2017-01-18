@@ -28,6 +28,7 @@ public:
     virtual ~listaOp();
 signals:
    void richiesta_info(int);
+   void disabilita_servizi();
    void tabella_vuota();
    void disabilita_funzioni();
    void abilita_funzioni();

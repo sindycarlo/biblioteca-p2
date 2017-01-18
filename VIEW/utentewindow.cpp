@@ -16,6 +16,7 @@ utenteWindow::utenteWindow(unsigned int id,database* db,database_utente* udb,dat
     ricevi_rivista=new QPushButton("RICEVI RIVISTA");
     restituisci_libro=new QPushButton("RESTITUISCI LIBRO");
     restituisci_rivista=new QPushButton("RESTITUISCI RIVISTA");
+    disabilita_doppio_click();
     disabilita_bottoni_libri();
     disabilita_bottoni_libri_prestito();
     disabilita_bottoni_riviste();
@@ -168,6 +169,12 @@ void utenteWindow::restituisci_segnale_riviste(){
         }
 }
 
+void utenteWindow::disabilita_doppio_click() {
+    tablibri->disabilita_doppio_click();
+    tabriviste->disabilita_doppio_click();
+    tablibriprestito->disabilita_doppio_click();
+    tabrivisteprestito->disabilita_doppio_click();
+}
 
 
 void utenteWindow::creaLayout(){

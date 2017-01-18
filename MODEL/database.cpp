@@ -55,7 +55,7 @@ void database::Load() {
                     {
                         if(xmlReader.name()=="Titolo") Titolo=xmlReader.readElementText();
                         else
-                            if(xmlReader.name()=="AnnoUscita") Autore=xmlReader.readElementText();
+                            if(xmlReader.name()=="AnnoUscita") AnnoUscita=xmlReader.readElementText().toInt();
                         else std::cout<<"Errore nella lettura di una rivista";
                     }
 

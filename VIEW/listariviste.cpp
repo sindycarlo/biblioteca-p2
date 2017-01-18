@@ -23,16 +23,19 @@ void listariviste::aggiorna_vista(){
                  if((*it)->Get_tipo()=="rivista")
                  {
                     Getable()->setRowCount(row+1);
+                    info_opera op=(*it)->info_tot();
                     id=(*it)->GetId();
                     i.setNum(id);
                     trovata=true;
                     QTableWidgetItem *ID = new QTableWidgetItem(i);
                     QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
+                    QTableWidgetItem *annouscita = new QTableWidgetItem(op.get_dettaglio());
                     QTableWidgetItem *tipo = new QTableWidgetItem((*it)->Get_tipo());
 
                     Getable()->setItem(row,0,ID);
                     Getable()->setItem(row,1,valore);
-                    Getable()->setItem(row,2,tipo);
+                    Getable()->setItem(row,2,annouscita);
+                    Getable()->setItem(row,3,tipo);
                     row++;
                  }
              }
@@ -63,16 +66,19 @@ void listariviste::aggiorna_vista_prestito_riviste(){
                  if((*it)->Get_tipo()=="rivista" && (*it)->Getappartenenza()==Getidutente())
                 {
                     Getable()->setRowCount(row+1);
+                    info_opera op=(*it)->info_tot();
                     id=(*it)->GetId();
                     i.setNum(id);
                     trovato=true;
                     QTableWidgetItem *ID = new QTableWidgetItem(i);
                     QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
+                    QTableWidgetItem *annouscita = new QTableWidgetItem(op.get_dettaglio());
                     QTableWidgetItem *tipo = new QTableWidgetItem((*it)->Get_tipo());
 
                     Getable()->setItem(row,0,ID);
                     Getable()->setItem(row,1,valore);
-                    Getable()->setItem(row,2,tipo);
+                    Getable()->setItem(row,2,annouscita);
+                    Getable()->setItem(row,3,tipo);
                     row++;
                  }
              }
@@ -103,16 +109,19 @@ void listariviste::build_Nuova(const contenitore<opera>& lista){
              if((*it)->Get_tipo()=="rivista")
              {
                 Getable()->setRowCount(row+1);
+                info_opera op=(*it)->info_tot();
                 id=(*it)->GetId();
                 i.setNum(id);
 
                 QTableWidgetItem *ID = new QTableWidgetItem(i);
                 QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
+                QTableWidgetItem *annouscita = new QTableWidgetItem(op.get_dettaglio());
                 QTableWidgetItem *tipo = new QTableWidgetItem((*it)->Get_tipo());
 
                 Getable()->setItem(row,0,ID);
                 Getable()->setItem(row,1,valore);
-                Getable()->setItem(row,2,tipo);
+                Getable()->setItem(row,2,annouscita);
+                Getable()->setItem(row,3,tipo);
                 row++;
              }
          }

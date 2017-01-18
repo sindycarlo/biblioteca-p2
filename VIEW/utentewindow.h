@@ -87,5 +87,6 @@ private:
     void disabilita_bottoni_libri_prestito();
     void abilita_bottoni_riviste_prestito();
     void disabilita_bottoni_riviste_prestito();
+    void disabilita_doppio_click();
 };
 #endif // UTENTEWINDOW_H

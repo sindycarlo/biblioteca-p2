@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<database/>
+<database>
+    <max>4</max>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>auguri</Titolo>
+        <Id>3</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>auguri</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>ciao</Titolo>
+        <Id>4</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2006</AnnoUscita>
+    </opera>
+</database>
