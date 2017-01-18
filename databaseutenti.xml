@@ -2,11 +2,20 @@
 <databaseutenti>
     <utente>
         <Tipoutente>1</Tipoutente>
-        <Nome>f</Nome>
-        <Cognome>f</Cognome>
-        <CodiceFiscale>f</CodiceFiscale>
-        <Idutente>1</Idutente>
-        <Password>f</Password>
-        <NumeroOpere>0</NumeroOpere>
+        <Nome>Carlo</Nome>
+        <Cognome>Sindico</Cognome>
+        <CodiceFiscale>SNDCRLOPQ3498021</CodiceFiscale>
+        <Idutente>2</Idutente>
+        <Password>Csindico</Password>
+        <NumeroOpere>5</NumeroOpere>
+    </utente>
+    <utente>
+        <Tipoutente>2</Tipoutente>
+        <Nome>Francesco</Nome>
+        <Cognome>Sindico</Cognome>
+        <CodiceFiscale>SNDFSCERT3456789JK</CodiceFiscale>
+        <Idutente>3</Idutente>
+        <Password>Fsindico</Password>
+        <Tempoprestito>20</Tempoprestito>
     </utente>
 </databaseutenti>

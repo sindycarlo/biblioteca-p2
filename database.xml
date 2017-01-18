@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>4</max>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>auguri</Titolo>
-        <Id>3</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>auguri</Autore>
-    </opera>
+    <max>21</max>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>ciao</Titolo>
-        <Id>4</Id>
+        <Titolo>Focus</Titolo>
+        <Id>21</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
         <AnnoUscita>2006</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il barone rampante</Titolo>
+        <Id>7</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Italo Calvino</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Se questo è un uomo</Titolo>
+        <Id>5</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Primo Levi</Autore>
     </opera>
 </database>

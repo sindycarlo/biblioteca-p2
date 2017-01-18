@@ -1,2 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<database/>
+<database>
+    <max>21</max>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>13</Id>
+        <Appartenenza>2</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2005</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il piccolo principe</Titolo>
+        <Id>14</Id>
+        <Appartenenza>2</Appartenenza>
+        <Stato>0</Stato>
+        <Autore>Arthur Conan Doyle</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Airone</Titolo>
+        <Id>15</Id>
+        <Appartenenza>2</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>1988</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il sentiero dei nidi di ragno</Titolo>
+        <Id>16</Id>
+        <Appartenenza>2</Appartenenza>
+        <Stato>0</Stato>
+        <Autore>Italo Calvino</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>17</Id>
+        <Appartenenza>2</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2003</AnnoUscita>
+    </opera>
+</database>

@@ -91,7 +91,10 @@ HEADERS  += \
     VIEW/listariviste.h \
     VIEW/dettagli_opera.h \
     VIEW/dettagli_libro.h \
-    VIEW/dettagli_rivista.h
+    VIEW/dettagli_rivista.h \
+    VIEW/dettagli_utente.h \
+    VIEW/dettagli_utente_basic.h \
+    VIEW/dettagli_utente_pro.h
 
 FORMS    += biblioteca.ui
 

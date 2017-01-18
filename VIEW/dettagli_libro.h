@@ -7,7 +7,6 @@ class dettagli_Libro : public dettagli_opera
     Q_OBJECT
 public:
     explicit dettagli_Libro(int, database*,database_utente*,database_utente_opere*);
-    void update_dettagli(QString,QString);
     ~dettagli_Libro();
 public slots:
     void slot_submit();

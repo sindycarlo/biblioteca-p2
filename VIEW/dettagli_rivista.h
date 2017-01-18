@@ -7,7 +7,6 @@ class dettagli_Rivista : public dettagli_opera
     Q_OBJECT
 public:
     explicit dettagli_Rivista(int, database*,database_utente*,database_utente_opere*);
-    void update_dettagli();
     ~dettagli_Rivista();
 public slots:
     void slot_submit();

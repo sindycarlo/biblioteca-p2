@@ -22,7 +22,7 @@ private:
     //campi dati
     static QString filename;
     contenitore<opera> db;                                     //creo il contenitore leggendo il file xml
-    std::vector<Widget_Padre*> registro;                //registro delle view "dettagli" collegate al modello per aggionramento nel caso in cui "presta/ricevi" venga con la view dettagli aperta
+    std::vector<Widget_Padre*> registro;                //registro delle view "dettagli" collegate al modello per aggiornamenti
     void Load();
     void Close();                                       //salva tutti i cambiamenti eseguiti dall'utente nel file XML
 

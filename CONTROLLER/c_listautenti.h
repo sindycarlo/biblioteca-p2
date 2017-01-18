@@ -5,6 +5,7 @@
 
 #include "../MODEL/database_utente.h"
 #include "../VIEW/listautenti.h"
+#include "../VIEW/dettagli_utente.h"
 
 
 class C_listautenti : public QObject
@@ -19,6 +20,7 @@ public slots:
 private:
     database_utente* model;
     listautenti* view;
+    dettagli_utente* dett_utente;
 
 };
 
