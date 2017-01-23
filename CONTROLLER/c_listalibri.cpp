@@ -14,6 +14,7 @@ void C_listalibri::visualizza_info_libro(int id){
 
 }
 
+
 void C_listalibri::chiudi_dettagli_libro(){
     view->abilita_doppio_click();
     delete dettagliolibro;

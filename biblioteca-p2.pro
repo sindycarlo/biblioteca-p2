@@ -51,7 +51,10 @@ SOURCES += main.cpp \
     VIEW/listariviste.cpp \
     VIEW/dettagli_opera.cpp \
     VIEW/dettagli_libro.cpp \
-    VIEW/dettagli_rivista.cpp
+    VIEW/dettagli_rivista.cpp \
+    VIEW/dettagli_utente.cpp \
+    VIEW/dettagli_utentepro.cpp \
+    VIEW/dettagli_utentebasic.cpp
 
 HEADERS  += \
     MODEL/opera.h \

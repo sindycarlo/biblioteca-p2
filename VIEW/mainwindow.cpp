@@ -8,7 +8,7 @@ mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*u
     tabutenti=new listautenti(get_model(),get_modelutenti(),get_modelutenteopere());
     controllerLP=new C_listalibri(get_model(),get_modelutenti(),get_modelutenteopere(),tablibri);
     controllerRP=new C_listariviste(get_model(),get_modelutenti(),get_modelutenteopere(),tabriviste);
-    controllerUTENTI=new C_listautenti(get_modelutenti(),tabutenti);
+    controllerUTENTI=new C_listautenti(get_model(),get_modelutenti(),get_modelutenteopere(),tabutenti);
   //bottoni
     exit=new QPushButton("ESCI");
     aggiungi_rivista=new QPushButton("AGGIUNGI RIVISTA");

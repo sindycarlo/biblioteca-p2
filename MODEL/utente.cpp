@@ -32,6 +32,10 @@ unsigned int utente::Getmaxid() const {return maxid;}
 
 void utente::SetID(unsigned int x) {id=x;}
 
+void utente::Setnome(QString n) {Nome=n;}
+
+void utente::Setcognome(QString cn) {Cognome=cn;}
+
 
 
 database* utente::GetopereBiblioteca() const {return opereBiblioteca;}

@@ -4,16 +4,16 @@
         <Tipoutente>1</Tipoutente>
         <Nome>Carlo</Nome>
         <Cognome>Sindico</Cognome>
-        <CodiceFiscale>SNDCRLOPQ3498021</CodiceFiscale>
+        <CodiceFiscale>SNDCRLOPQRST3452</CodiceFiscale>
         <Idutente>2</Idutente>
         <Password>Csindico</Password>
-        <NumeroOpere>5</NumeroOpere>
+        <NumeroOpere>0</NumeroOpere>
     </utente>
     <utente>
         <Tipoutente>2</Tipoutente>
-        <Nome>Francesco</Nome>
+        <Nome>Francesco </Nome>
         <Cognome>Sindico</Cognome>
-        <CodiceFiscale>SNDFSCERT3456789JK</CodiceFiscale>
+        <CodiceFiscale>SNDFSCRKJFHJD34527</CodiceFiscale>
         <Idutente>3</Idutente>
         <Password>Fsindico</Password>
         <Tempoprestito>20</Tempoprestito>

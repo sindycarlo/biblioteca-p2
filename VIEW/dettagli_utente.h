@@ -19,13 +19,13 @@ public:
     virtual ~dettagli_utente();
 
 signals:
-    void modifica(QString,QString,int);
+    void modifica_utente(QString,QString,int);
     void chiudi_dettagli_utente();
 
 
 
 protected:
-    explicit dettagli_utente(int, database*,database_utente*,database_utente_opere*);
+    explicit dettagli_utente(int , database*,database_utente*,database_utente_opere*);
 
     virtual void set_style();
     virtual void costruisci_contenuto();
@@ -35,7 +35,7 @@ protected:
 
 private:
 
-    int id;
+    int idutente;
     QLabel* n;                  //nome
     QLabel* c;                  //cognome
     QLabel* id;                  //id
@@ -53,8 +53,8 @@ private:
     QGridLayout* grid;
     QVBoxLayout*layout;
 
-    void registra() const;
-    void elimina_registrazione() const;
+    void registra_utente() const;
+    void elimina_registrazione_utente() const;
 
 public:
     QLineEdit* Getnome() const;

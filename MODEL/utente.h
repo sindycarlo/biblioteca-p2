@@ -37,6 +37,8 @@ public:
     bool ricerca_campi(const QString&) const;
 
     void SetID(unsigned int);
+    void Setnome(QString);
+    void Setcognome(QString);
 
     //metodi propri di utente:
     virtual void Write_utente(QXmlStreamWriter&) const =0; //scrivo l'utente nel database

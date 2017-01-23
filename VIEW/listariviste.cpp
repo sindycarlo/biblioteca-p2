@@ -20,7 +20,7 @@ void listariviste::aggiorna_vista(){
              bool trovata=false;
              for(it=(get_model())->db_begin(); it!=(get_model())->db_end(); it++)
              {
-                 if((*it)->Get_tipo()=="rivista")
+                 if(typeid((**it))==typeid(rivista))
                  {
                     Getable()->setRowCount(row+1);
                     info_opera op=(*it)->info_tot();
@@ -63,7 +63,7 @@ void listariviste::aggiorna_vista_prestito_riviste(){
              contenitore<opera>::iteratore it;
              for(it=(get_modelutenteopere())->dbopereutenti_begin(); it!=(get_modelutenteopere())->dbopereutenti_end(); it++)
              {
-                 if((*it)->Get_tipo()=="rivista" && (*it)->Getappartenenza()==Getidutente())
+                 if(typeid((**it))==typeid(rivista) && (*it)->Getappartenenza()==Getidutente())
                 {
                     Getable()->setRowCount(row+1);
                     info_opera op=(*it)->info_tot();
@@ -106,7 +106,7 @@ void listariviste::build_Nuova(const contenitore<opera>& lista){
 
          for(it=lista.begin(); it!=lista.end(); it++)
          {
-             if((*it)->Get_tipo()=="rivista")
+             if(typeid((**it))==typeid(rivista))
              {
                 Getable()->setRowCount(row+1);
                 info_opera op=(*it)->info_tot();

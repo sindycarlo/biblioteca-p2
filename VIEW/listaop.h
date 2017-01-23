@@ -7,6 +7,7 @@
 #include <QVBoxLayout>
 #include <QAbstractItemView>
 #include <QVBoxLayout>
+#include <typeinfo>
 
 #include "widget_padre.h"
 #include"../MODEL/database.h"

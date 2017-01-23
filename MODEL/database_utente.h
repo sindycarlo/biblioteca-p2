@@ -20,6 +20,7 @@ private:
     //campi dati
     static QString filename;
     contenitore<utente> dbutenti;                                     //creo il contenitore leggendo il file xml
+   std::vector<Widget_Padre*> registro;                //registro delle view "dettagli" collegate al modello per aggiornamenti
     database* biblioteca;
     database_utente_opere* opereutenti;
     void Load();
@@ -37,7 +38,13 @@ public:
     void add_utentebasic(const info_utente&);                               //aggiunge un utente basic
     database* GetDatabase() const;
     database_utente_opere* Getdbopere() const;
+    info_utente get_infoUtente(int) const;
     contenitore<utente>::iteratore db_iter;
+
+
+    void aggiorna_view() const;                         //permette di aggiornare le view registrate al dataBase
+    void add_registro_utente(Widget_Padre*);                   //registrazione al DataBase
+    void remove_registro_utente(Widget_Padre*);
 
     contenitore<utente>::iteratore dbutenti_begin();
     contenitore<utente>::iteratore dbutenti_end();

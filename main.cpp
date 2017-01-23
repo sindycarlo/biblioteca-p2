@@ -1,9 +1,6 @@
 #include <QApplication>
 #include "MODEL/database.h"
 
-
-
-#include "MODEL/database.h"
 #include <CONTROLLER/c_mainwindow.h>
 #include <CONTROLLER/c_homewindow.h>
 
@@ -16,10 +13,10 @@ int main(int argc, char *argv[])
     database_utente_opere udb;
     database_utente dbutenti(&db,&udb);
 
-    homewindow finestra2(&db,&dbutenti,&udb);
-    c_homewindow home(&db,&dbutenti,&udb,&finestra2);
+    homewindow finestra(&db,&dbutenti,&udb);
+    c_homewindow home(&db,&dbutenti,&udb,&finestra);
 
-    finestra2.show();
+    finestra.show();
 
     return a.exec();
 }

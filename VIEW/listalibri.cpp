@@ -20,7 +20,8 @@ void listalibri::aggiorna_vista(){
              bool trovata=false;
              for(it=(get_model())->db_begin(); it!=(get_model())->db_end(); it++)
              {
-                 if((*it)->Get_tipo()=="libro")
+
+                if(typeid((**it))==typeid(libro))
                 {
                     Getable()->setRowCount(row+1);
                     info_opera op=(*it)->info_tot();
@@ -62,7 +63,7 @@ void listalibri::aggiorna_vista_prestito_libri(){
              bool trovato=false;
              for(it=(get_modelutenteopere())->dbopereutenti_begin(); it!=(get_modelutenteopere())->dbopereutenti_end(); it++)
              {
-                 if((*it)->Get_tipo()=="libro" && (*it)->Getappartenenza()==Getidutente())
+                 if(typeid((**it))==typeid(libro) && (*it)->Getappartenenza()==Getidutente())
                 {
                     Getable()->setRowCount(row+1);
                     info_opera op=(*it)->info_tot();
@@ -105,7 +106,7 @@ void listalibri::build_Nuova(const contenitore<opera>& lista){
 
          for(it=lista.begin(); it!=lista.end(); it++)
          {
-             if((*it)->Get_tipo()=="libro")
+             if(typeid((**it))==typeid(libro))
              {
                 Getable()->setRowCount(row+1);
                 info_opera op=(*it)->info_tot();
