@@ -17,6 +17,7 @@ private slots:
     void accedi_admin();
     void accedi_utente(QString,QString);
 
+
 private:
     database* model;
     database_utente* modelutenti;

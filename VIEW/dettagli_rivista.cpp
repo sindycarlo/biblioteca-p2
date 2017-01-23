@@ -31,6 +31,9 @@ void dettagli_Rivista::set_style(){
 }
 
 void dettagli_Rivista::slot_submit(){
+    QRegExp re("\\d*");
+    //time_t t = time(0);             //oggetto che contenente anno auttuale
+    QDate time=QDate::currentDate();
     if(Gettitolo()->text().isEmpty() || Gettitolo()->text().isNull() ||  anno->text().isEmpty() || anno->text().isNull())
     {
             QMessageBox warning;
@@ -41,18 +44,26 @@ void dettagli_Rivista::slot_submit(){
             warning.setDefaultButton(QMessageBox::Ok);
             warning.exec();
         }
-        else{
-            QMessageBox warning;
-            warning.setIcon(QMessageBox::Question);
-            warning.setWindowTitle("Modifica a rivista");
-            warning.setText("Sei sicuro di voler modificare la rivista <b>"+Gettitolo()->text()+"</b>");
-            warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
-            warning.setDefaultButton(QMessageBox::Cancel);
-            int ret = warning.exec();
-            if(ret==QMessageBox::Yes) {
-            emit modifica(Gettitolo()->text(),anno->text(),get_ID());
+        else if((anno->text().toInt())>time.year() || !(re.exactMatch(anno->text()))){
+                QMessageBox warning;
+                warning.setIcon(QMessageBox::Critical);
+                warning.setWindowTitle("Impossibile modificare la rivista");
+                warning.setText("Anno di uscita non valido");
+                warning.setStandardButtons(QMessageBox::Ok);
+                warning.setDefaultButton(QMessageBox::Ok);
+                warning.exec();
+            }else {
+                QMessageBox warning;
+                warning.setIcon(QMessageBox::Question);
+                warning.setWindowTitle("Modifica a rivista");
+                warning.setText("Sei sicuro di voler modificare la rivista <b>"+Gettitolo()->text()+"</b>");
+                warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+                warning.setDefaultButton(QMessageBox::Cancel);
+                int ret = warning.exec();
+                if(ret==QMessageBox::Yes) {
+                emit modifica(Gettitolo()->text(),anno->text(),get_ID());
             }
-            }
+          }
 }
 
 

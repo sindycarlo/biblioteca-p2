@@ -17,6 +17,7 @@ homewindow::homewindow(database* db,database_utente* udb,database_utente_opere* 
   //campi dati richiesti ad utente
     nameuser=new QLineEdit();
     password=new QLineEdit();
+    password->setEchoMode(QLineEdit::Password);
 
     costruisci_contenuto();
     creaLayout();
@@ -76,7 +77,7 @@ void homewindow::slot_accediutente() {
             pulisci_campi();
 
         }
-        else {emit show_accediutente(nameuser->text(),password->text());}
+        else { emit show_accediutente(nameuser->text(),password->text());}
 
     }
     emit show_accediutente(nameuser->text(),password->text());
@@ -101,6 +102,7 @@ void homewindow::pulisci_campi(){
     nameuser->clear();
     password->clear();
 }
+
 
 
 void homewindow::closeEvent(QCloseEvent *event){ emit chiudi_app(); }

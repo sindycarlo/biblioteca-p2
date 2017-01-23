@@ -8,6 +8,7 @@
 #include <QMessageBox>
 #include <QLineEdit>
 #include <QGridLayout>
+#include <QDateTime>
 
 #include"../MODEL/database.h"
 #include "widget_padre.h"

@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<database/>
+<database>
+    <max>14</max>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Airone</Titolo>
+        <Id>14</Id>
+        <Appartenenza>2</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>1700</AnnoUscita>
+    </opera>
+</database>

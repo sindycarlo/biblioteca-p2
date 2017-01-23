@@ -41,6 +41,7 @@ void C_listariviste::modificaR(QString t, QString a, int id) {
         r->SetAnnouscita(a.toInt());
     }
     view->aggiorna_vista();
+
 }
 
 

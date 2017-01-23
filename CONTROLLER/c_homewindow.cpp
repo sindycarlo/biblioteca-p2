@@ -13,6 +13,8 @@ void c_homewindow::accedi_admin() {
     mainWindow* finestraamministratore= new mainWindow(model,modelutenti,modelutenteopere);
     C_mainWindow* controlleramministratore=new C_mainWindow(model,modelutenti,modelutenteopere,finestraamministratore);
     finestraamministratore->show();
+    //view->disabilita_pulsanti_user();
+
 }
 
 void c_homewindow::accedi_utente(QString u,QString p) {
@@ -26,10 +28,12 @@ void c_homewindow::accedi_utente(QString u,QString p) {
         {
             trovato=true;
             int id=(*it)->GetID();
+
             //apro la finestra utente:
             utenteWindow*finestrautente=new utenteWindow(id,model,modelutenti,modelutenteopere);
             c_utentewindow*controllerutente= new c_utentewindow(id,model,modelutenti,modelutenteopere,finestrautente);
             finestrautente->show();
+            //view->disabilita_pulsanti_admin();
         }
     }
 
