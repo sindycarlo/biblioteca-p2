@@ -34,7 +34,6 @@ SOURCES += main.cpp \
     VIEW/mainwindow.cpp \
     VIEW/widget_padre.cpp \
     VIEW/listaop.cpp \
-    MODEL/amministratore.cpp \
     CONTROLLER/c_add_utentebasic.cpp \
     CONTROLLER/c_add_utentepro.cpp \
     CONTROLLER/c_listautenti.cpp \
@@ -77,7 +76,6 @@ HEADERS  += \
     VIEW/mainwindow.h \
     VIEW/widget_padre.h \
     VIEW/listaop.h \
-    MODEL/amministratore.h \
     CONTROLLER/c_add_utentebasic.h \
     CONTROLLER/c_add_utentepro.h \
     CONTROLLER/c_listautenti.h \

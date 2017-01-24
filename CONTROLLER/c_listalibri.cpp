@@ -17,11 +17,13 @@ void C_listalibri::visualizza_info_libro(int id){
 
 void C_listalibri::chiudi_dettagli_libro(){
     view->abilita_doppio_click();
-    dettagliolibro->close();
     delete dettagliolibro;
 }
 
 void C_listalibri::modificaL(QString t, QString a, int id) {
+    //ATTENZIONE!!
+    //SONO COSTRETTO A FARE IL DYNAMIC_CAST IN QUANTO HO SOLO UN PUNTATORE AD OPERA E NON SO
+    //SE UN LIBRO OPPURE UNA RIVISTA. INOLTRE DEVO FARE UNA MODIFICA A QUELL'OPERA; BEN DIVERSO CHE INSERIRLA.
     opera* op=model->trova_opera(id);
     libro* l=dynamic_cast<libro*>(op);
     rivista* r=dynamic_cast<rivista*>(op);

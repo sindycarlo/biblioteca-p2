@@ -2,76 +2,12 @@
 <database>
     <max>15</max>
     <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Airone</Titolo>
-        <Id>15</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>1986</AnnoUscita>
-    </opera>
-    <opera>
         <Tipo>1</Tipo>
-        <Titolo>1984</Titolo>
-        <Id>11</Id>
+        <Titolo>Il piccolo principe</Titolo>
+        <Id>1</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <Autore>George orwell</Autore>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>10</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>1999</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>National geographic</Titolo>
-        <Id>9</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2008</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Airone</Titolo>
-        <Id>7</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2006</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>6</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2017</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>5</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2005</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Imagine.. puoi</Titolo>
-        <Id>4</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>George clooney</Autore>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Stand by me</Titolo>
-        <Id>3</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Gigi dag</Autore>
+        <Autore>Arthur conan doyle</Autore>
     </opera>
     <opera>
         <Tipo>1</Tipo>
@@ -83,10 +19,74 @@
     </opera>
     <opera>
         <Tipo>1</Tipo>
-        <Titolo>Il piccolo principe</Titolo>
-        <Id>1</Id>
+        <Titolo>Stand by me</Titolo>
+        <Id>3</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <Autore>Arthur conan doyle</Autore>
+        <Autore>Gigi dag</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Imagine.. puoi</Titolo>
+        <Id>4</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>George clooney</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>5</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2005</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>6</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2017</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Airone</Titolo>
+        <Id>7</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2006</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>National geographic</Titolo>
+        <Id>9</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2008</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>10</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>1999</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>1984</Titolo>
+        <Id>11</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>George orwell</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Airone</Titolo>
+        <Id>15</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>1986</AnnoUscita>
     </opera>
 </database>
