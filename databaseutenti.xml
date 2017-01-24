@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseutenti>
     <utente>
-        <Tipoutente>2</Tipoutente>
-        <Nome>Francesco </Nome>
-        <Cognome>Sindico</Cognome>
-        <CodiceFiscale>SNDFSCRKJFHJD34527</CodiceFiscale>
-        <Idutente>3</Idutente>
-        <Password>Fsindico</Password>
-        <Tempoprestito>20</Tempoprestito>
-    </utente>
-    <utente>
         <Tipoutente>1</Tipoutente>
-        <Nome>Carlo</Nome>
-        <Cognome>Sindico</Cognome>
-        <CodiceFiscale>SNDCRLOPQRST3452</CodiceFiscale>
+        <Nome>carlo</Nome>
+        <Cognome>sindaco</Cognome>
+        <CodiceFiscale>SNDCRLOPQRST3546</CodiceFiscale>
         <Idutente>2</Idutente>
-        <Password>Csindico</Password>
-        <NumeroOpere>1</NumeroOpere>
+        <Password>csindico</Password>
+        <NumeroOpere>0</NumeroOpere>
     </utente>
 </databaseutenti>

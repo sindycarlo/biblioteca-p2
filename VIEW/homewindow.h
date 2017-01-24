@@ -23,6 +23,7 @@ public:
     virtual void costruisci_contenuto();
     virtual void set_style();
     void closeEvent(QCloseEvent*);
+    void disabilita_pulsanti_home();
     ~homewindow();
 signals:
     void chiudi_app();
@@ -50,7 +51,6 @@ private:
 
 
     void creaLayout();
-    void pulisci_campi();
 
 };
 

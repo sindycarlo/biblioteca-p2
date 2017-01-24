@@ -17,7 +17,7 @@ void c_homewindow::accedi_admin() {
 
 }
 
-void c_homewindow::accedi_utente(QString u, QString p) {
+void c_homewindow::accedi_utente(QString u,QString p, int id) {
 
     //cerco utente nel database degli utenti con quel nome e quella password:
     contenitore<utente>::iteratore it;

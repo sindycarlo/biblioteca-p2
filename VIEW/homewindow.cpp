@@ -33,12 +33,12 @@ void homewindow::set_style(){
 }
 
 void homewindow::costruisci_contenuto(){
-
+    aggiorna_vista();
 }
 void homewindow::aggiorna_vista() {
-
+    nameuser->clear();
+    password->clear();
 }
-
 void homewindow::slot_accedi() {
     emit show_accedi();
 }
@@ -74,13 +74,12 @@ void homewindow::slot_accediutente() {
             warning.setStandardButtons(QMessageBox::Ok);
             warning.setDefaultButton(QMessageBox::Ok);
             warning.exec();
-            pulisci_campi();
+            aggiorna_vista();
 
         }
         else { emit show_accediutente(nameuser->text(),password->text());}
 
     }
-    emit show_accediutente(nameuser->text(),password->text());
 }
 
 
@@ -98,9 +97,9 @@ void homewindow::creaLayout(){
 }
 
 
-void homewindow::pulisci_campi(){
-    nameuser->clear();
-    password->clear();
+void homewindow::disabilita_pulsanti_home() {
+    accedicomeadmin->setEnabled(false);
+    accedicomeutente->setEnabled(false);
 }
 
 
