@@ -31,7 +31,6 @@ void rivista::SetAnnouscita(int au){annouscita=au;}
 void rivista::Presta_opera() {
 if(disponibile())
 {opera::Presta_opera();}
-else{/*solleva eccezione*/}
 }
 
 bool rivista::ricerca_campi(const QString & text) const {

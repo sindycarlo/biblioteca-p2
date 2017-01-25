@@ -28,6 +28,9 @@ public:
     bool presente () const;              // metodo che mi dice se l'opera è presente oppure no nella biblioteca
     void Setappartenenza(const int);
     unsigned int Getappartenenza() const;
+
+    virtual opera* getObject() = 0;
+
     virtual ~opera();
     void Riscatta();                    //opera non è più in prestito quindi viene messa nella biblioteca
     virtual bool ricerca_campi(const QString&) const; //ricerco un nome di opera(stringa) nel titolo o nel id

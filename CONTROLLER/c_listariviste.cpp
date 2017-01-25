@@ -24,18 +24,9 @@ void C_listariviste::chiudi_dettaglio_rivista(){
 }
 
 void C_listariviste::modificaR(QString t, QString a, int id) {
-    //ATTENZIONE!!
-    //SONO COSTRETTO A FARE IL DYNAMIC_CAST IN QUANTO HO SOLO UN PUNTATORE AD OPERA E NON SO
-    //SE UN LIBRO OPPURE UNA RIVISTA. INOLTRE DEVO FARE UNA MODIFICA A QUELL'OPERA; BEN DIVERSO CHE INSERIRLA.
     opera* op=model->trova_opera(id);
-    libro* l=dynamic_cast<libro*>(op);
     rivista* r=dynamic_cast<rivista*>(op);
-    if(l)
-    {
-        l->SetTitolo(t);
-        l->SetAutore(a);
-    }
-    else if(r)
+    if(r)
     {
         r->SetTitolo(t);
         r->SetAnnouscita(a.toInt());

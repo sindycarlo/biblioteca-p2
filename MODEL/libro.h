@@ -16,6 +16,9 @@ public:
     void SetAutore(QString);
     virtual void Write_opera(QXmlStreamWriter& XmlWriter) const;
     virtual QString Get_tipo() const;
+
+    virtual libro* getObject() { return this; }
+
     virtual bool ricerca_campi(const QString &) const;
     virtual info_opera info_tot() const;
 };

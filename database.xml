@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>47</max>
+    <max>51</max>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>National geographic</Titolo>
+        <Id>51</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2009</AnnoUscita>
+    </opera>
     <opera>
         <Tipo>2</Tipo>
         <Titolo>L'espresso</Titolo>
@@ -24,14 +32,6 @@
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
         <AnnoUscita>2017</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>National geographic</Titolo>
-        <Id>31</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2009</AnnoUscita>
     </opera>
     <opera>
         <Tipo>2</Tipo>
@@ -107,18 +107,18 @@
     </opera>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>Airone</Titolo>
-        <Id>37</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>1988</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
         <Titolo>Focus</Titolo>
         <Id>38</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
         <AnnoUscita>2008</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>49</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>1992</AnnoUscita>
     </opera>
 </database>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>47</max>
+    <max>51</max>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>41</Id>
+        <Titolo>Airone</Titolo>
+        <Id>50</Id>
         <Appartenenza>2</Appartenenza>
         <Stato>0</Stato>
-        <AnnoUscita>1992</AnnoUscita>
+        <AnnoUscita>1988</AnnoUscita>
     </opera>
     <opera>
         <Tipo>1</Tipo>
