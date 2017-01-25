@@ -32,6 +32,8 @@ void inserisci_Rivista::build_Layout(){
 
 
 void inserisci_Rivista::slot_submit(){
+    QRegExp re("\\d*");
+    QDate t=QDate::currentDate();
     if(titolo->text().isEmpty() || titolo->text().isNull() ||  anno->text().isEmpty() || anno->text().isNull())
     {
             QMessageBox warning;
@@ -41,8 +43,16 @@ void inserisci_Rivista::slot_submit(){
             warning.setStandardButtons(QMessageBox::Ok);
             warning.setDefaultButton(QMessageBox::Ok);
             warning.exec();
-        }
-        else{
+        }else if((anno->text().toInt())>t.year() || !(re.exactMatch(anno->text()))) {
+        QMessageBox warning;
+        warning.setIcon(QMessageBox::Critical);
+        warning.setWindowTitle("Impossibile inserire una nuova rivista");
+        warning.setText("Anno di uscita della rivista non valido");
+        warning.setStandardButtons(QMessageBox::Ok);
+        warning.setDefaultButton(QMessageBox::Ok);
+        warning.exec();
+    }
+    else{
             QMessageBox warning;
             warning.setIcon(QMessageBox::Question);
             warning.setWindowTitle("Inserisci nuova rivista");

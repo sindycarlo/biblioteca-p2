@@ -4,13 +4,13 @@ c_homewindow::c_homewindow(database * db, database_utente * udb, database_utente
     connect(view,SIGNAL(show_accedi()),this,SLOT(accedi_admin()));
     connect(view,SIGNAL(show_accediutente(QString,QString)),this,SLOT(accedi_utente(QString,QString)));
     //chiudi
-    connect(view,SIGNAL(chiudi_app()),qApp,SLOT(quit()));
+    connect(view,SIGNAL(chiudi_app()),this,SLOT(chiudi_homewindow()));
 }
 
 
 void c_homewindow::accedi_admin() {
 
-    mainWindow* finestraamministratore= new mainWindow(model,modelutenti,modelutenteopere);
+    mainWindow* finestraamministratore= new mainWindow(model,modelutenti,modelutenteopere,view);
     C_mainWindow* controlleramministratore=new C_mainWindow(model,modelutenti,modelutenteopere,finestraamministratore);
     finestraamministratore->show();
     view->disabilita_pulsanti_home();
@@ -34,10 +34,14 @@ void c_homewindow::accedi_utente(QString u, QString p) {
     if(trovato==true)
     {
         //apro la finestra utente:
-        utenteWindow*finestrautente=new utenteWindow(id,model,modelutenti,modelutenteopere);
+        utenteWindow*finestrautente=new utenteWindow(id,model,modelutenti,modelutenteopere,view);
         c_utentewindow*controllerutente= new c_utentewindow(id,model,modelutenti,modelutenteopere,finestrautente);
         finestrautente->show();
         view->disabilita_pulsanti_home();
     }
 
+}
+
+void c_homewindow::chiudi_homewindow() {
+    delete view;
 }

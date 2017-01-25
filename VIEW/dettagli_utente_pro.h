@@ -12,8 +12,8 @@ public:
 public slots:
     void slot_submit();
 private:
-    QLabel* tempoprestito;                  //tempo di prestito assegnato all'utente
-    QLineEdit* tempop;
+    QLabel* numeroriviste;                  //tempo di prestito assegnato all'utente
+    QLineEdit* numriv;
 
     void costruisci_contenuto();
     void disabilita_modifica();

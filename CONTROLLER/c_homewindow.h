@@ -16,6 +16,7 @@ public:
 private slots:
     void accedi_admin();
     void accedi_utente(QString,QString);
+    void chiudi_homewindow();
 
 
 private:
@@ -23,6 +24,8 @@ private:
     database_utente* modelutenti;
     database_utente_opere* modelutenteopere;
     homewindow* view;
+    mainWindow* viewmain;
+    utenteWindow* viewutente;
 };
 
 

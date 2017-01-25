@@ -1,6 +1,7 @@
 #ifndef OPERA_H
 #define OPERA_H
 #include "info_opera.h"
+#include <QDate>
 #include <QXmlStreamWriter>
 #include<QString>
 #include<iostream>
@@ -19,14 +20,14 @@ public:
 
 
     QString GetTitolo() const;            //restituisce il titolo di un opera
-    int GetId() const;                  //restituisce id idi un opera
+    unsigned int GetId() const;                  //restituisce id idi un opera
     int GetMaxId() const;                 //restituisce id dell'ultima opera aggiunta al database
     void Set_id(const int);             //setta id dell'opera
     void Set_maxid(const int);         //setta maxid dell'opera
     void SetTitolo(QString);
     bool presente () const;              // metodo che mi dice se l'opera è presente oppure no nella biblioteca
     void Setappartenenza(const int);
-    int Getappartenenza() const;
+    unsigned int Getappartenenza() const;
     virtual ~opera();
     void Riscatta();                    //opera non è più in prestito quindi viene messa nella biblioteca
     virtual bool ricerca_campi(const QString&) const; //ricerco un nome di opera(stringa) nel titolo o nel id

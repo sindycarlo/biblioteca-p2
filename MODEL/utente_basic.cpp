@@ -70,7 +70,6 @@ void utente_basic::ricevi_libro(unsigned int id) {
 
 void utente_basic::ricevi_rivista(unsigned int id) {
     info_opera op=GetopereBiblioteca()->get_infoOpera(id);
-    std::cout<<op.get_dettaglio().toInt();
     GetdbOpereUtente()->aggiungi_rivista_utente(op,GetID());
     NumOpere++;
     GetopereBiblioteca()->remove_opera(id);

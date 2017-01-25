@@ -11,7 +11,6 @@ dettagli_Rivista::dettagli_Rivista(int Id, database* db,database_utente*udb,data
     get_grid()->addWidget(a,1,0);
     get_grid()->addWidget(anno,1,1);
 
-    setLayout(get_grid());
     abilita_modifica();
     set_style();
     costruisci_contenuto();
@@ -32,7 +31,6 @@ void dettagli_Rivista::set_style(){
 
 void dettagli_Rivista::slot_submit(){
     QRegExp re("\\d*");
-    //time_t t = time(0);             //oggetto che contenente anno auttuale
     QDate time=QDate::currentDate();
     if(Gettitolo()->text().isEmpty() || Gettitolo()->text().isNull() ||  anno->text().isEmpty() || anno->text().isNull())
     {

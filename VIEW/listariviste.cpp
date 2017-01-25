@@ -54,7 +54,6 @@ void listariviste::aggiorna_vista(){
 void listariviste::aggiorna_vista_prestito_riviste(){
 
     int row=0;
-        database* ciao=get_model();
         if(!((get_modelutenteopere())->vuoto()))
         {
              int id;

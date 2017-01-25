@@ -21,8 +21,8 @@ unsigned int rivista::getMaxAnni() const {return MaxAnni;}
 bool rivista::disponibile() const {
     if(presente())
     {
-        if(annouscita>=MaxAnni)
-        {return true;}
+        QDate time=QDate::currentDate();
+       if((time.year()-annouscita)<=MaxAnni) return true;
     }
     return false;
 }
@@ -37,7 +37,7 @@ else{/*solleva eccezione*/}
 bool rivista::ricerca_campi(const QString & text) const {
 if(opera::ricerca_campi(text))return true;
 else{
-  int anniu=text.toInt();
+  unsigned int anniu=text.toInt();
   if(anniu==annouscita) return true;
   }
 return false;

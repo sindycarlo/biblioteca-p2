@@ -2,6 +2,7 @@
 #define RIVISTA_H
 #include"opera.h"
 #include "info_opera.h"
+#include <QDate>
 #include <QXmlStreamWriter>
 #include<QString>
 #include<iostream>

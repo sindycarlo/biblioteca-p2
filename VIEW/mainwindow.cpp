@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include<QApplication>
 #include<QToolTip>
-mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*uodb) : Widget_Padre(db,udb,uodb) {
+mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*uodb,homewindow* hw) : Widget_Padre(db,udb,uodb),finestraprinc(hw) {
     //da correggere
     tablibri=new listalibri(0,get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco delle opere
     tabriviste=new listariviste(0,get_model(),get_modelutenti(),get_modelutenteopere());
@@ -18,10 +18,6 @@ mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*u
     aggiungi_utente_basic=new QPushButton("AGGIUNGI UTENTE BASIC");
     aggiungi_utente_pro=new QPushButton("AGGIUNGI UTENTE PRO");
     disabilita_bottoni_tutti();
-
-  //barra della ricerca
-    barra_cerca=new QLineEdit();
-    barra_cercautenti=new QLineEdit();
 
   //layout
     orizzontale=new QHBoxLayout();
@@ -41,25 +37,13 @@ mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*u
     connect(aggiungi_libro,SIGNAL(clicked()),this,SLOT(slot_inserisci_libro()));
     connect(aggiungi_utente_basic,SIGNAL(clicked()),this,SLOT(slot_inserisci_utentebasic()));
     connect(aggiungi_utente_pro,SIGNAL(clicked()),this,SLOT(slot_inserisci_utentepro()));
-    connect(exit,SIGNAL(clicked()),qApp,SLOT(quit()));
-    connect(barra_cerca,SIGNAL(textEdited(QString)),this,SLOT(testo_editato(const QString& )));
-    connect(barra_cercautenti,SIGNAL(textEdited(QString)),this,SLOT(testo_editato(const QString& )));
+    connect(exit,SIGNAL(clicked()),this,SLOT(chiudi()));
 }
 
 void mainWindow::set_style(){
     Widget_Padre::set_style();
-    barra_cerca->setPlaceholderText("Ricerca per: Titolo, Autore, Anno di uscita, ID");
-    barra_cerca->setToolTip("Eliminare il contenuto della barra per tornare all'elenco completo delle opere");
-    barra_cercautenti->setPlaceholderText("Ricerca per: Nome, Cognome, ID");
-    barra_cercautenti->setToolTip("Eliminare il contenuto della barra per tornare all'elenco completo degli utenti");
     tablibri->setToolTip("Doppio click per visualizzare i dettagli dell'opera");
     tabutenti->setToolTip("Doppio click per visualizzare i dettagli dell'utente");
-    barra_cerca->setToolTipDuration(5000);
-    barra_cerca->setToolTipDuration(5000);
-    barra_cerca->setToolTipDuration(5000);
-    barra_cercautenti->setToolTipDuration(5000);
-    barra_cercautenti->setToolTipDuration(5000);
-    barra_cercautenti->setToolTipDuration(5000);
 
 }
 
@@ -82,8 +66,6 @@ void mainWindow::creaLayout(){
     orizzontale->addLayout(bottoni);
 
 
-    Prlayout->addWidget(barra_cerca);
-    Prlayout->addWidget(barra_cercautenti);
     Prlayout->addLayout(orizzontale);
     Prlayout->addWidget(exit);
     setLayout(Prlayout);
@@ -157,11 +139,6 @@ void mainWindow::rimuovi_segnale_utenti(){
     }
 }
 
-
-void mainWindow::testo_editato(const QString& text){ emit cerca_opera(text); }
-
-void mainWindow::testo_editato_utenti(const QString& text){ emit cerca_utente(text); }
-
 void mainWindow::slot_inserisci_rivista(){
     emit show_inserisci_rivista();
 }
@@ -208,10 +185,15 @@ void mainWindow::disabilita_bottoni_tutti(){
 }
 
 void mainWindow::costruisci_Tabella_opere(const contenitore<opera> & lista) {
-    tablibri->build_Nuova(lista); tabriviste->build_Nuova(lista);
+    tablibri->build_Nuova(lista);
 }
 
-void mainWindow::closeEvent(QCloseEvent *event){ emit chiudi_app(); }
+void mainWindow::chiudi() {
+    finestraprinc->abilita_pulsanti_home();
+    emit chiudi_app();
+}
+
+void mainWindow::closeEvent(QCloseEvent *event){finestraprinc->abilita_pulsanti_home(); emit chiudi_app(); }
 
 
 mainWindow::~mainWindow(){
@@ -227,8 +209,6 @@ mainWindow::~mainWindow(){
     delete controllerLP;
     delete controllerUTENTI;
     delete aggiungi_libro;
-    delete barra_cerca;
-    delete barra_cercautenti;
     delete aggiungi_rivista;
     delete aggiungi_utente_basic;
     delete aggiungi_utente_pro;

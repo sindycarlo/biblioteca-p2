@@ -16,6 +16,7 @@
 
 #include "../CONTROLLER/c_listariviste.h"
 #include "../CONTROLLER/c_listalibri.h"
+#include "../VIEW/homewindow.h"
 #include "../MODEL/database.h"
 #include "../MODEL/database_utente.h"
 #include "../CONTROLLER/c_listautenti.h"
@@ -26,7 +27,7 @@ class mainWindow : public Widget_Padre
 {
     Q_OBJECT
 public:
-    explicit mainWindow(database*,database_utente*,database_utente_opere*);
+    explicit mainWindow(database*,database_utente*,database_utente_opere*,homewindow*);
     virtual void aggiorna_vista();
     virtual void costruisci_contenuto();
     void costruisci_Tabella_opere(const contenitore<opera>&);
@@ -42,8 +43,6 @@ signals:
     void show_inserisci_libro();
     void show_inserisci_utentebasic();
     void show_inserisci_utentepro();
-    void cerca_opera(QString);
-    void cerca_utente(QString);
 
 private slots:
     void rimuovi_segnale();
@@ -55,9 +54,11 @@ private slots:
     void modifica_campo(int);
     void modifica_campo_utenti(int);
     void disabilita();
-    void testo_editato_utenti(const QString&);
-    void testo_editato(const QString&);
+    void chiudi();
 private:
+
+    homewindow* finestraprinc;
+
     database* model;
     database_utente* modelutenti;
     listalibri* tablibri;
@@ -71,8 +72,6 @@ private:
     int opera_selezionata;
     int utente_selezionato;
 
-    QLineEdit* barra_cerca;
-    QLineEdit* barra_cercautenti;
 
     QPushButton* aggiungi_rivista;
     QPushButton* aggiungi_libro;

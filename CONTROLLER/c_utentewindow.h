@@ -18,6 +18,7 @@ void ricevilibroDB(unsigned int);
 void ricevirivistaDB(unsigned int);
 void restituiscilibroDB(unsigned int);
 void restituiscirivistaDB(unsigned int);
+void chiudi_utentewindow();
 
 
 private:

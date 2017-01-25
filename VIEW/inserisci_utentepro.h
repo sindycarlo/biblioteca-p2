@@ -34,13 +34,13 @@ private:
     QLabel* co;              //cognome
     QLabel* cf;      //codicefiscale
     QLabel* psw;           //password
-    QLabel* Tempp;           //il tempo di prestitito di un opera
+    QLabel* Numriv;           //numero di riviste
 
     QLineEdit* nome;
     QLineEdit* cognome;
     QLineEdit* codicefiscale;
     QLineEdit* password;
-    QLineEdit* Tempoprestito;
+    QLineEdit* Numeroriviste;
 
 
     QVBoxLayout* layout;

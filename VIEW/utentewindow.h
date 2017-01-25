@@ -10,6 +10,7 @@
 #include<QDesktopWidget>
 #include <QApplication>
 #include "../CONTROLLER/c_listalibri.h"
+#include "../VIEW/homewindow.h"
 #include "listalibri.h"
 #include "../CONTROLLER/c_listariviste.h"
 #include "listariviste.h"
@@ -26,7 +27,7 @@ class utenteWindow : public Widget_Padre
 {
     Q_OBJECT
 public:
-    explicit utenteWindow(unsigned int,database*,database_utente*,database_utente_opere*);
+    explicit utenteWindow(unsigned int,database*,database_utente*,database_utente_opere*,homewindow*);
     virtual void aggiorna_vista();
     virtual void costruisci_contenuto();
     unsigned int Getidutente() const;
@@ -50,7 +51,10 @@ private slots:
     void modifica_campo_rivista(int);
     void modifica_campo_libro_prestito(int);
     void modifica_campo_rivista_prestito(int);
+    void chiudi();
 private:
+    homewindow* finestraprinc;
+
     unsigned int idutente;
     database* model;
     database_utente_opere* modelutenteopere;

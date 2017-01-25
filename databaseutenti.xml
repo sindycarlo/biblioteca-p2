@@ -3,10 +3,28 @@
     <utente>
         <Tipoutente>1</Tipoutente>
         <Nome>carlo</Nome>
-        <Cognome>sindaco</Cognome>
-        <CodiceFiscale>SNDCRLOPQRST3546</CodiceFiscale>
+        <Cognome>sindico</Cognome>
+        <CodiceFiscale>SNDCRLOPQ345FG</CodiceFiscale>
         <Idutente>2</Idutente>
         <Password>csindico</Password>
-        <NumeroOpere>0</NumeroOpere>
+        <NumeroOpere>5</NumeroOpere>
+    </utente>
+    <utente>
+        <Tipoutente>2</Tipoutente>
+        <Nome>abdelilah</Nome>
+        <Cognome>lahmer</Cognome>
+        <CodiceFiscale>ABDGFHRYCNFH56473</CodiceFiscale>
+        <Idutente>4</Idutente>
+        <Password>ab</Password>
+        <NumeroRiviste>0</NumeroRiviste>
+    </utente>
+    <utente>
+        <Tipoutente>2</Tipoutente>
+        <Nome>francesco</Nome>
+        <Cognome>sindico</Cognome>
+        <CodiceFiscale>FSNDCRETDG468GHSD</CodiceFiscale>
+        <Idutente>5</Idutente>
+        <Password>fsindico</Password>
+        <NumeroRiviste>1</NumeroRiviste>
     </utente>
 </databaseutenti>

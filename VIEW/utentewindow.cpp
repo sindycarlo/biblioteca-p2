@@ -1,7 +1,7 @@
 #include "utentewindow.h"
 #include<QApplication>
 #include<QToolTip>
-utenteWindow::utenteWindow(unsigned int id,database* db,database_utente* udb,database_utente_opere*uodb) : idutente(id), Widget_Padre(db,udb,uodb) {
+utenteWindow::utenteWindow(unsigned int id,database* db,database_utente* udb,database_utente_opere*uodb,homewindow* hw) : idutente(id), Widget_Padre(db,udb,uodb), finestraprinc(hw) {
 
     tablibri=new listalibri(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco dei libri
     controllerLB=new C_listalibri(get_model(),get_modelutenti(),get_modelutenteopere(),tablibri,0);
@@ -39,7 +39,7 @@ utenteWindow::utenteWindow(unsigned int id,database* db,database_utente* udb,dat
     connect(ricevi_rivista,SIGNAL(clicked()),this,SLOT(ricevi_segnale_riviste()));
     connect(restituisci_libro,SIGNAL(clicked()),this,SLOT(restituisci_segnale_libri()));
     connect(restituisci_rivista,SIGNAL(clicked()),this,SLOT(restituisci_segnale_riviste()));
-    connect(exit,SIGNAL(clicked()),qApp,SLOT(quit()));
+    connect(exit,SIGNAL(clicked()),this,SLOT(chiudi()));
 }
 
 void utenteWindow::set_style(){
@@ -236,8 +236,13 @@ void utenteWindow::disabilita_bottoni_riviste_prestito(){
 
 }
 
+void utenteWindow::chiudi() {
+    finestraprinc->abilita_pulsanti_home();
+    emit chiudi_app();
+}
 
-void utenteWindow::closeEvent(QCloseEvent *event){ emit chiudi_app(); }
+
+void utenteWindow::closeEvent(QCloseEvent *event){finestraprinc->abilita_pulsanti_home();emit chiudi_app(); }
 
 
 utenteWindow::~utenteWindow(){

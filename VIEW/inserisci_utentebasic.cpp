@@ -40,6 +40,7 @@ void inserisci_utentebasic::build_Layout(){
 
 
 void inserisci_utentebasic::slot_submit(){
+    QRegExp re("\\d*");
     if(nome->text().isEmpty() || nome->text().isNull() ||  cognome->text().isEmpty() || cognome->text().isNull()
               ||codicefiscale->text().isEmpty() || codicefiscale->text().isNull()
             ||password->text().isEmpty() || password->text().isNull()
@@ -53,12 +54,12 @@ void inserisci_utentebasic::slot_submit(){
             warning.setDefaultButton(QMessageBox::Ok);
             warning.exec();
         }
-        else if(Numeropere->text().toInt()!=0)
+        else if(Numeropere->text().toInt()!=0 || !(re.exactMatch(Numeropere->text())))
             {
         QMessageBox warning;
         warning.setIcon(QMessageBox::Critical);
         warning.setWindowTitle("Impossibile inserire un nuovo utente basic");
-        warning.setText("un utente che deve ancora essere registrato alla biblioteca, non può avere già opere in prestito");
+        warning.setText("Numero opere deve essere settato a 0");
         warning.setStandardButtons(QMessageBox::Ok);
         warning.setDefaultButton(QMessageBox::Ok);
         warning.exec();

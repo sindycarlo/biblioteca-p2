@@ -19,7 +19,7 @@ opera::~opera() {}
 
 QString opera::GetTitolo() const {return Titolo;}
 
-int opera::GetId() const {return id;}
+unsigned int opera::GetId() const {return id;}
 
 int opera::GetMaxId() const {return maxid;}
 
@@ -29,7 +29,7 @@ void opera::Set_maxid(const int x) {maxid=x;}
 
 void opera::Riscatta() {statoPresenza=1;}
 
-int opera::Getappartenenza() const {return appartenenza;}
+unsigned int opera::Getappartenenza() const {return appartenenza;}
 
 void opera::Setappartenenza(const int x) {appartenenza=x;}
 void  opera::Presta_opera() {statoPresenza=0;}

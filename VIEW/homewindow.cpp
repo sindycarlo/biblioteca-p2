@@ -96,6 +96,10 @@ void homewindow::creaLayout(){
 
 }
 
+void homewindow::abilita_pulsanti_home() {
+    accedicomeadmin->setEnabled(true);
+    accedicomeutente->setEnabled(true);
+}
 
 void homewindow::disabilita_pulsanti_home() {
     accedicomeadmin->setEnabled(false);

@@ -24,6 +24,7 @@ public:
     virtual void set_style();
     void closeEvent(QCloseEvent*);
     void disabilita_pulsanti_home();
+    void abilita_pulsanti_home();
     ~homewindow();
 signals:
     void chiudi_app();

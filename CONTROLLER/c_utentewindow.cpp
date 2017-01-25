@@ -7,7 +7,7 @@ c_utentewindow::c_utentewindow(unsigned int id,database* db,database_utente* udb
     connect(view,SIGNAL(show_restituisci_rivista(unsigned int)),this,SLOT(restituiscirivistaDB(unsigned int)));
 
     //chiudi
-    connect(view,SIGNAL(chiudi_app()),qApp,SLOT(quit()));
+    connect(view,SIGNAL(chiudi_app()),this,SLOT(chiudi_utentewindow()));
 }
 
 unsigned int c_utentewindow::Getidutente() const {return idutente;}
@@ -20,9 +20,10 @@ void c_utentewindow::ricevilibroDB(unsigned int id) {
 }
 
 void c_utentewindow::ricevirivistaDB(unsigned int id) {
-    utente* user=modelutenti->trova_utente(Getidutente());
-    user->ricevi_rivista(id);
-    view->aggiorna_vista();
+    utente* user=modelutenti->trova_utente(Getidutente());     
+      user->ricevi_rivista(id);
+      view->aggiorna_vista();
+
 }
 
 void c_utentewindow::restituiscilibroDB(unsigned int id) {
@@ -37,3 +38,6 @@ void c_utentewindow::restituiscirivistaDB(unsigned int id) {
     view->aggiorna_vista();
 }
 
+void c_utentewindow::chiudi_utentewindow() {
+    delete view;
+}

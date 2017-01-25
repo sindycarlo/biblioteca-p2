@@ -7,32 +7,9 @@ C_mainWindow::C_mainWindow(database* db,database_utente* udb,database_utente_ope
     connect(view,SIGNAL(show_inserisci_libro()),this,SLOT(inserisci_libroDB()));
     connect(view,SIGNAL(show_inserisci_utentebasic()),this,SLOT(inserisci_utentebasicDB()));
     connect(view,SIGNAL(show_inserisci_utentepro()),this,SLOT(inserisci_utenteproDB()));
-   //connessione che permette la ricerca di un'opera o di una serie di opere
-    connect(view,SIGNAL(cerca_opera(QString)),this,SLOT(cerca_operaDB(QString)));
-    connect(view,SIGNAL(cerca_utente(QString)),this,SLOT(cerca_utenteDB(QString)));
     //chiudi
-    connect(view,SIGNAL(chiudi_app()),qApp,SLOT(quit()));
+    connect(view,SIGNAL(chiudi_app()),this,SLOT(chiudi_mainwindow()));
 }
-
-void C_mainWindow::cerca_operaDB(const QString& text){
-
-    contenitore<opera> lista=model->trova_opere_insieme(text);
-    if(!(lista.empty())){
-        view->costruisci_Tabella_opere(lista);
-    }else view->aggiorna_vista();
-}
-
-
-void C_mainWindow::cerca_utenteDB(const QString& text){
-    contenitore<utente> container;
-    container=modelutenti->trova_utenti_insieme(text);
-    if(!(container.empty()))
-    {
-
-        view->costruisci_Tabellautenti(container);
-    }else{view->aggiorna_vista();}
-}
-
 
 void C_mainWindow::rimuovi_operaDB(int ID){
     model->remove_opera(ID);
@@ -65,4 +42,8 @@ void C_mainWindow::inserisci_utenteproDB(){
     inserisci_utentepro* inserisci=new inserisci_utentepro();
     c_add_utentepro* controller=new c_add_utentepro(modelutenti,inserisci,view);
     inserisci->show();
+}
+
+void C_mainWindow::chiudi_mainwindow() {
+    delete view;
 }

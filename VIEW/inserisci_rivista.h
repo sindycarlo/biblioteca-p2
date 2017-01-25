@@ -4,6 +4,7 @@
 #include <QWidget>
  #include <QPushButton>
 #include <QLabel>
+#include <QDate>
 #include <QLineEdit>
 #include <QVBoxLayout>
 #include <QMessageBox>

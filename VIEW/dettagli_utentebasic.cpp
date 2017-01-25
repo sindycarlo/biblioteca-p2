@@ -12,7 +12,6 @@ dettagli_utente_basic::dettagli_utente_basic(int Id, database* db,database_utent
 
     get_grid()->addWidget(Numopere,1,0);
     get_grid()->addWidget(Numop,1,1);
-    setLayout(get_grid());
     abilita_modifica();
     set_style();
     costruisci_contenuto();

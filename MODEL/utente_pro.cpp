@@ -5,17 +5,17 @@
 #include <QXmlStreamWriter>
 
 //un utente pro ha il limite relativo al tempo di prestito di 30 giorni al massimo:
-unsigned int utente_pro::limitetempo=30;
+unsigned int utente_pro::limiteriviste=4;
 
 //costruttore di utente_pro:
-utente_pro::utente_pro(database* db,database_utente_opere* udb, unsigned int tp =0, QString n ="Sconociuto", QString c ="Sconosciuto", QString cf ="Sconosciuto", QString psw ="Sconosciuto"): utente(db,udb,n,c,cf,psw), tempoprestito(tp) {
-    if(tempoprestito>limitetempo)
-    {std::cout<<"Errore: un utente pro non può prendere in prestito un opera per più di 30 giorni";tempoprestito=limitetempo;}
+utente_pro::utente_pro(database* db,database_utente_opere* udb, unsigned int tp =0, QString n ="Sconociuto", QString c ="Sconosciuto", QString cf ="Sconosciuto", QString psw ="Sconosciuto"): utente(db,udb,n,c,cf,psw), numeroriviste(tp) {
+    if(numeroriviste>limiteriviste)
+    {std::cout<<"Errore: un utente pro non può prendere in prestito più di 4 riviste";numeroriviste=limiteriviste;}
 
 }
 
 
-unsigned int utente_pro::Get_tempoprestito() const {return tempoprestito;}
+unsigned int utente_pro::Get_numeroriviste() const {return numeroriviste;}
 
 //scrive nel file xml un utente basic:
 void utente_pro::Write_utente(QXmlStreamWriter &XmlWriter) const {
@@ -37,10 +37,10 @@ void utente_pro::Write_utente(QXmlStreamWriter &XmlWriter) const {
     //scrivo password utente:
     XmlWriter.writeTextElement("Password",GetPassword());
     //scrivo il dettaglio di utente_basic che è Numero opere in prestito:
-    unsigned int k=Get_tempoprestito();
+    unsigned int k=Get_numeroriviste();
     QString z;
     z.setNum(k);
-    XmlWriter.writeTextElement("Tempoprestito",z);
+    XmlWriter.writeTextElement("NumeroRiviste",z);
     XmlWriter.writeEndElement();
 }
 
@@ -50,7 +50,7 @@ info_utente utente_pro::infoutente() const {
     QString id;
     id.setNum(GetID());
     QString tp;
-    tp.setNum(Get_tempoprestito());
+    tp.setNum(Get_numeroriviste());
     return info_utente(GetopereBiblioteca(),GetNome(),GetCognome(),id,GetPassword(),GetCodicefiscale(),tp);
 }
 
@@ -61,19 +61,18 @@ QString utente_pro::Get_tipo_utente() const {
 
 
 void utente_pro::ricevi_libro(unsigned int id) {
-    if(tempoprestito<=limitetempo)
-    {
         info_opera op=GetopereBiblioteca()->get_infoOpera(id);
         GetdbOpereUtente()->aggiungi_libro_utente(op,GetID());
         GetopereBiblioteca()->remove_opera(id);
-    }else std::cout<<"L'utente non è abilitato a ricevere il libro";
+
 }
 
 void utente_pro::ricevi_rivista(unsigned int id) {
-    if(tempoprestito<=limitetempo)
+    if(numeroriviste<=limiteriviste)
    {
         info_opera op=GetopereBiblioteca()->get_infoOpera(id);
         GetdbOpereUtente()->aggiungi_rivista_utente(op,GetID());
+        numeroriviste++;
         GetopereBiblioteca()->remove_opera(id);
    }else std::cout<<"L'utente non è abilitato a ricevere la rivista";
 }
@@ -95,6 +94,7 @@ void utente_pro::restituisci_rivista(unsigned int id) {
     {
         info_opera o=op->info_tot();
         GetdbOpereUtente()->remove_operadelutente(GetID(),id);
+        numeroriviste--;
         GetopereBiblioteca()->add_Rivista(o);
 
     }
