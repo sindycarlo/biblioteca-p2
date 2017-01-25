@@ -2,17 +2,33 @@
 <database>
     <max>51</max>
     <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il fu mattia pascal</Titolo>
+        <Id>47</Id>
+        <Appartenenza>5</Appartenenza>
+        <Stato>0</Stato>
+        <Autore>Luigi pirandello</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Chi</Titolo>
+        <Id>46</Id>
+        <Appartenenza>5</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2016</AnnoUscita>
+    </opera>
+    <opera>
         <Tipo>2</Tipo>
         <Titolo>Airone</Titolo>
-        <Id>50</Id>
+        <Id>45</Id>
         <Appartenenza>2</Appartenenza>
         <Stato>0</Stato>
         <AnnoUscita>1988</AnnoUscita>
     </opera>
     <opera>
         <Tipo>1</Tipo>
-        <Titolo>Il sentiero dei nidi di ragno</Titolo>
-        <Id>42</Id>
+        <Titolo>Il barone rampante</Titolo>
+        <Id>44</Id>
         <Appartenenza>2</Appartenenza>
         <Stato>0</Stato>
         <Autore>Italo calvino</Autore>
@@ -27,8 +43,8 @@
     </opera>
     <opera>
         <Tipo>1</Tipo>
-        <Titolo>Il barone rampante</Titolo>
-        <Id>44</Id>
+        <Titolo>Il sentiero dei nidi di ragno</Titolo>
+        <Id>42</Id>
         <Appartenenza>2</Appartenenza>
         <Stato>0</Stato>
         <Autore>Italo calvino</Autore>
@@ -36,25 +52,9 @@
     <opera>
         <Tipo>2</Tipo>
         <Titolo>Airone</Titolo>
-        <Id>45</Id>
+        <Id>50</Id>
         <Appartenenza>2</Appartenenza>
         <Stato>0</Stato>
         <AnnoUscita>1988</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Chi</Titolo>
-        <Id>46</Id>
-        <Appartenenza>5</Appartenenza>
-        <Stato>0</Stato>
-        <AnnoUscita>2016</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il fu mattia pascal</Titolo>
-        <Id>47</Id>
-        <Appartenenza>5</Appartenenza>
-        <Stato>0</Stato>
-        <Autore>Luigi pirandello</Autore>
     </opera>
 </database>

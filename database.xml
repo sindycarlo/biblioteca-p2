@@ -3,91 +3,27 @@
     <max>51</max>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>National geographic</Titolo>
-        <Id>51</Id>
+        <Titolo>Focus</Titolo>
+        <Id>49</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <AnnoUscita>2009</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>L'espresso</Titolo>
-        <Id>35</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2006</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Panorama</Titolo>
-        <Id>34</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2005</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Chi</Titolo>
-        <Id>32</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2017</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>National geographic</Titolo>
-        <Id>30</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2006</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Airone</Titolo>
-        <Id>29</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>1987</AnnoUscita>
+        <AnnoUscita>1992</AnnoUscita>
     </opera>
     <opera>
         <Tipo>2</Tipo>
         <Titolo>Focus</Titolo>
-        <Id>26</Id>
+        <Id>38</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
         <AnnoUscita>2008</AnnoUscita>
     </opera>
     <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>25</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2005</AnnoUscita>
-    </opera>
-    <opera>
         <Tipo>1</Tipo>
-        <Titolo>Torto marcio</Titolo>
-        <Id>24</Id>
+        <Titolo>Il piccolo principe</Titolo>
+        <Id>17</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <Autore>Alessandro robecchi</Autore>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>1984</Titolo>
-        <Id>23</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>George orwell</Autore>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Se questo è un uomo</Titolo>
-        <Id>19</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Primo Levi</Autore>
+        <Autore>Arthur conan doyle</Autore>
     </opera>
     <opera>
         <Tipo>1</Tipo>
@@ -99,26 +35,90 @@
     </opera>
     <opera>
         <Tipo>1</Tipo>
-        <Titolo>Il piccolo principe</Titolo>
-        <Id>17</Id>
+        <Titolo>Se questo è un uomo</Titolo>
+        <Id>19</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <Autore>Arthur conan doyle</Autore>
+        <Autore>Primo Levi</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>1984</Titolo>
+        <Id>23</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>George orwell</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Torto marcio</Titolo>
+        <Id>24</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Alessandro robecchi</Autore>
     </opera>
     <opera>
         <Tipo>2</Tipo>
         <Titolo>Focus</Titolo>
-        <Id>38</Id>
+        <Id>25</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2005</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>26</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
         <AnnoUscita>2008</AnnoUscita>
     </opera>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>49</Id>
+        <Titolo>Airone</Titolo>
+        <Id>29</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <AnnoUscita>1992</AnnoUscita>
+        <AnnoUscita>1987</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>National geographic</Titolo>
+        <Id>30</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2006</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Chi</Titolo>
+        <Id>32</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2017</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Panorama</Titolo>
+        <Id>34</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2005</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>L'espresso</Titolo>
+        <Id>35</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2006</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>National geographic</Titolo>
+        <Id>51</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2009</AnnoUscita>
     </opera>
 </database>
