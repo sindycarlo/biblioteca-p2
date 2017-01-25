@@ -43,6 +43,9 @@ private:
     QPushButton* accedicomeutente;
     QPushButton* exit;
 
+    QLineEdit* adminuser;
+    QLineEdit* adminpassword;
+
     QLineEdit* nameuser;
     QLineEdit* password;
 

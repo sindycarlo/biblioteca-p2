@@ -18,6 +18,7 @@ utente_basic::utente_basic(database *db,database_utente_opere* udb, unsigned int
 
 
 unsigned int utente_basic::Get_numopere() const {return NumOpere;}
+unsigned int utente_basic::Get_limiteopere() const {return limiteopere;}
 
 //scrive nel file xml un utente basic:
 void utente_basic::Write_utente(QXmlStreamWriter &XmlWriter) const {

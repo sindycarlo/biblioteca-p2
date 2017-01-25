@@ -14,6 +14,12 @@ homewindow::homewindow(database* db,database_utente* udb,database_utente_opere* 
     Prlayout=new QVBoxLayout();
     bottoni=new QVBoxLayout();
 
+
+    //campi dati richiesti ad amministratore
+      adminuser=new QLineEdit();
+      adminpassword=new QLineEdit();
+      adminpassword->setEchoMode(QLineEdit::Password);
+
   //campi dati richiesti ad utente
     nameuser=new QLineEdit();
     password=new QLineEdit();
@@ -38,9 +44,23 @@ void homewindow::costruisci_contenuto(){
 void homewindow::aggiorna_vista() {
     nameuser->clear();
     password->clear();
+    adminuser->clear();
+    adminpassword->clear();
 }
 void homewindow::slot_accedi() {
-    emit show_accedi();
+    if(adminuser->text().isEmpty() || adminpassword->text().isEmpty())
+    {
+            QMessageBox warning;
+            warning.setIcon(QMessageBox::Critical);
+            warning.setWindowTitle("Impossibile inviare richiesta");
+            warning.setText("E' necessario compilare tutti i campi.");
+            warning.setStandardButtons(QMessageBox::Ok);
+            warning.setDefaultButton(QMessageBox::Ok);
+            warning.exec();
+        }
+        else if(adminuser->text()=="admin" && adminpassword->text()=="admin")
+                {aggiorna_vista();emit show_accedi();}
+
 }
 void homewindow::slot_accediutente() {
 
@@ -86,6 +106,8 @@ void homewindow::slot_accediutente() {
 void homewindow::creaLayout(){
 
     bottoni->addWidget(accedicomeadmin);
+    bottoni->addWidget(adminuser);
+    bottoni->addWidget(adminpassword);
     bottoni->addWidget(accedicomeutente);
     bottoni->addWidget(nameuser);
     bottoni->addWidget(password);
@@ -118,6 +140,8 @@ homewindow::~homewindow(){
     delete accedicomeadmin;
     delete exit;
     delete accedicomeutente;
+    delete adminuser;
+    delete adminpassword;
     delete nameuser;
     delete password;
 }

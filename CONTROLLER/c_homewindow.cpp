@@ -10,10 +10,10 @@ c_homewindow::c_homewindow(database * db, database_utente * udb, database_utente
 
 void c_homewindow::accedi_admin() {
 
-    mainWindow* finestraamministratore= new mainWindow(model,modelutenti,modelutenteopere,view);
-    C_mainWindow* controlleramministratore=new C_mainWindow(model,modelutenti,modelutenteopere,finestraamministratore);
-    finestraamministratore->show();
-    view->disabilita_pulsanti_home();
+        mainWindow* finestraamministratore= new mainWindow(model,modelutenti,modelutenteopere,view);
+        C_mainWindow* controlleramministratore=new C_mainWindow(model,modelutenti,modelutenteopere,finestraamministratore);
+        finestraamministratore->show();
+        view->disabilita_pulsanti_home();
 
 }
 

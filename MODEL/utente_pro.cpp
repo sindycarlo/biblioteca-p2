@@ -16,6 +16,7 @@ utente_pro::utente_pro(database* db,database_utente_opere* udb, unsigned int tp 
 
 
 unsigned int utente_pro::Get_numeroriviste() const {return numeroriviste;}
+unsigned int utente_pro::Get_limiteriviste() const {return limiteriviste;}
 
 //scrive nel file xml un utente basic:
 void utente_pro::Write_utente(QXmlStreamWriter &XmlWriter) const {

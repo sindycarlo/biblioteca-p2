@@ -112,7 +112,8 @@ void utenteWindow::ricevi_segnale_riviste(){
 
     utente* u=get_modelutenti()->trova_utente(Getidutente());
     utente_basic* ub=dynamic_cast<utente_basic*>(u);
-    if(ub && ub->Get_numopere()>=5)
+    utente_pro* up=dynamic_cast<utente_pro*>(u);
+    if(ub && ub->Get_numopere()>ub->Get_limiteopere())
     {
         QMessageBox warning;
             warning.setIcon(QMessageBox::Question);
@@ -122,19 +123,29 @@ void utenteWindow::ricevi_segnale_riviste(){
             warning.setDefaultButton(QMessageBox::Cancel);
             warning.exec();
     }
-    else {
-    QString identificativo;
-    identificativo.setNum(rivista_selezionata);
-    QMessageBox warning;
-        warning.setIcon(QMessageBox::Question);
-        warning.setWindowTitle("Ricevi Rivista");
-        warning.setText("Hai selezionato il libro con ID: <b>"+identificativo+"</b>");
-        warning.setInformativeText("Vuoi veramente ricevere in prestito questa opera?");
-        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
-        warning.setDefaultButton(QMessageBox::Cancel);
-        int ret = warning.exec();
-        if(ret==QMessageBox::Yes) {
-            emit show_ricevi_rivista(rivista_selezionata);
+    else if(up && up->Get_numeroriviste()>(up->Get_limiteriviste()))
+    {
+        QMessageBox warning;
+            warning.setIcon(QMessageBox::Question);
+            warning.setWindowTitle("Errore");
+            warning.setText("Hai raggiunto il massimo numero di riviste che puoi ricevere in prestito");
+            warning.setStandardButtons(QMessageBox::Cancel);
+            warning.setDefaultButton(QMessageBox::Cancel);
+            warning.exec();
+
+    }else {
+        QString identificativo;
+        identificativo.setNum(rivista_selezionata);
+        QMessageBox warning;
+            warning.setIcon(QMessageBox::Question);
+            warning.setWindowTitle("Ricevi Rivista");
+            warning.setText("Hai selezionato il libro con ID: <b>"+identificativo+"</b>");
+            warning.setInformativeText("Vuoi veramente ricevere in prestito questa opera?");
+            warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+            warning.setDefaultButton(QMessageBox::Cancel);
+            int ret = warning.exec();
+            if(ret==QMessageBox::Yes) {
+                emit show_ricevi_rivista(rivista_selezionata);
         }
     }
 }
