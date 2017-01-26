@@ -21,27 +21,27 @@ void C_mainWindow::rimuovi_utenteDB(int ID){
 }
 
 void C_mainWindow::inserisci_rivistaDB(){
-    inserisci_Rivista* inserisci=new inserisci_Rivista();
-    c_add_rivista * controller=new c_add_rivista(model,inserisci,view);
-    inserisci->show();
+    insR=new inserisci_Rivista();
+    c_R=new c_add_rivista(model,insR,view);
+    insR->show();
 
 
 }
 void C_mainWindow::inserisci_libroDB(){
-    inserisci_Libro* inserisci=new inserisci_Libro();
-    c_add_libro* controller=new c_add_libro(model,inserisci,view);
-    inserisci->show();
+    insL=new inserisci_Libro();
+    c_L=new c_add_libro(model,insL,view);
+    insL->show();
 }
 
 void C_mainWindow::inserisci_utentebasicDB(){
-    inserisci_utentebasic* inserisci=new inserisci_utentebasic();
-    c_add_utentebasic* controller=new c_add_utentebasic(modelutenti,inserisci,view);
-    inserisci->show();
+    insUB=new inserisci_utentebasic();
+    c_UB=new c_add_utentebasic(modelutenti,insUB,view);
+    insUB->show();
 }
 void C_mainWindow::inserisci_utenteproDB(){
-    inserisci_utentepro* inserisci=new inserisci_utentepro();
-    c_add_utentepro* controller=new c_add_utentepro(modelutenti,inserisci,view);
-    inserisci->show();
+    insUP=new inserisci_utentepro();
+    c_UP=new c_add_utentepro(modelutenti,insUP,view);
+    insUP->show();
 }
 
 void C_mainWindow::chiudi_mainwindow() {

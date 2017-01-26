@@ -30,6 +30,17 @@ private:
     database_utente* modelutenti;
     database_utente_opere* modelutenteopere;
     mainWindow* view;
+
+    inserisci_Rivista* insR;
+    c_add_rivista * c_R;
+    inserisci_Libro* insL;
+    c_add_libro* c_L;
+    inserisci_utentebasic* insUB;
+    c_add_utentebasic* c_UB;
+    inserisci_utentepro* insUP;
+    c_add_utentepro* c_UP;
+
+
 };
 
 #endif // C_MAINWINDOW_H

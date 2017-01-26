@@ -26,6 +26,8 @@ private:
     homewindow* view;
     mainWindow* viewmain;
     utenteWindow* viewutente;
+    C_mainWindow* c_main;
+    c_utentewindow* c_utente;
 };
 
 

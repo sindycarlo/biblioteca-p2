@@ -15,8 +15,8 @@ private:
     QString Cognome;                      //cognome dell'utente
     QString codicefiscale;                 //codice fiscale dell'utente
     QString password;                       //password per accedere alla biblioteca
+        database* opereBiblioteca;          //puntatore al database della biblioteca
     database_utente_opere* opereUtente;     //ogni utente ha un database con le proprie opere in prestito
-    database* opereBiblioteca;                               //puntatore al database della biblioteca
     unsigned int id;                                 //ogni utente ha un codice identificativo univoco
 
     static unsigned int maxid;                       //massimo id (ultimo id) che è stato assegnato ad un utente
