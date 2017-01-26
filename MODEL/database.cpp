@@ -68,6 +68,7 @@ void database::Load() {
                else tmp=new rivista(Titolo,AnnoUscita,Stato);
                 tmp->Set_id(Id);
                 tmp->Set_maxid(max);
+                tmp->Setappartenenza(Appartiene);
                 db.add_item(tmp);
                 xmlReader.readNext();
               }

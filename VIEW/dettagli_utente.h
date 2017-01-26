@@ -15,7 +15,7 @@ class dettagli_utente : public Widget_Padre{
     Q_OBJECT
 
 public:
-    void closeEvent(QCloseEvent*);
+    void closeEvent();
     virtual ~dettagli_utente();
 
 signals:

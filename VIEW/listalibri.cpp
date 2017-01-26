@@ -11,7 +11,7 @@ unsigned int listalibri::Getidutente() const {return idutente;}
 void listalibri::aggiorna_vista(){
 
     int row=0;
-        database* ciao=get_model();
+
         if(!((get_model())->vuoto()))
         {
              int id;
@@ -54,7 +54,7 @@ void listalibri::aggiorna_vista(){
 void listalibri::aggiorna_vista_prestito_libri(){
 
     int row=0;
-        database* ciao=get_model();
+
         if(!((get_modelutenteopere())->vuoto()))
         {
              int id;

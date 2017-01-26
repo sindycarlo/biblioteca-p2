@@ -18,7 +18,7 @@ class inserisci_Rivista : public QWidget
     Q_OBJECT
 public:
     explicit inserisci_Rivista(QWidget *parent = 0);
-    void closeEvent(QCloseEvent*);
+    void closeEvent();
     ~inserisci_Rivista();
 
 signals:

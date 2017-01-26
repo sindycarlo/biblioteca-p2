@@ -9,7 +9,7 @@ C_listautenti::C_listautenti(database *db, database_utente* udb, database_utente
 
 void C_listautenti::visualizza_info_utenti(int id){
 
-    view->disabilita_doppio_click_utenti();
+
 
     if(dynamic_cast<utente_basic*>(modelutenti->trova_utente(id)))
     {

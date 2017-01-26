@@ -96,7 +96,7 @@ QLineEdit* dettagli_utente::Getnome() const {return nome;}
 QLineEdit* dettagli_utente::Getcognome() const {return cognome;}
 
 
-void dettagli_utente::closeEvent(QCloseEvent *event){
+void dettagli_utente::closeEvent(){
     emit chiudi_dettagli_utente();
 }
 

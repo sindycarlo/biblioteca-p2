@@ -91,7 +91,7 @@ void dettagli_opera::aggiorna_vista(){
 
 
 
-void dettagli_opera::closeEvent(QCloseEvent *event){
+void dettagli_opera::closeEvent(){
     emit chiudi_dettagli_opera();
 }
 

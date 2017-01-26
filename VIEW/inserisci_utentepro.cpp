@@ -101,7 +101,7 @@ void inserisci_utentepro::centra_finestra(){
        move(x,y);
 }
 
-void inserisci_utentepro::closeEvent(QCloseEvent *event){
+void inserisci_utentepro::closeEvent(){
     emit chiudi_aggiungi_utentepro();
 }
 

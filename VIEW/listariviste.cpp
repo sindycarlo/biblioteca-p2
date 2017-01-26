@@ -11,7 +11,7 @@ unsigned int listariviste::Getidutente() const {return idutente;}
 void listariviste::aggiorna_vista(){
 
     int row=0;
-        database* ciao=get_model();
+
         if(!((get_model())->vuoto()))
         {
              int id;

@@ -21,7 +21,7 @@ void listautenti::costruisci_contenuto(){ aggiorna_vista(); }
 void listautenti::aggiorna_vista(){
 
     int row=0;
-        database_utente* ciao=get_modelutenti();
+
         if(!((get_modelutenti())->vuoto()))
         {
              int id;

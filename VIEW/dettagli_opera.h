@@ -18,7 +18,7 @@ class dettagli_opera : public Widget_Padre{
     Q_OBJECT
 
 public:
-    void closeEvent(QCloseEvent*);
+    void closeEvent();
     virtual ~dettagli_opera();
 
 signals:

@@ -132,7 +132,7 @@ void homewindow::disabilita_pulsanti_home() {
 
 
 
-void homewindow::closeEvent(QCloseEvent *event){ emit chiudi_app(); }
+void homewindow::closeEvent(){ emit chiudi_app(); }
 
 
 homewindow::~homewindow(){

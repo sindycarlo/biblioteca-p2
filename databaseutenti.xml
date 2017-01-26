@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseutenti>
     <utente>
-        <Tipoutente>1</Tipoutente>
-        <Nome>carlo</Nome>
+        <Tipoutente>2</Tipoutente>
+        <Nome>francesco</Nome>
         <Cognome>sindico</Cognome>
-        <CodiceFiscale>SNDCRLOPQ345FG</CodiceFiscale>
-        <Idutente>2</Idutente>
-        <Password>csindico</Password>
-        <NumeroOpere>5</NumeroOpere>
+        <CodiceFiscale>FSNDCRETDG468GHSD</CodiceFiscale>
+        <Idutente>5</Idutente>
+        <Password>fsindico</Password>
+        <NumeroRiviste>1</NumeroRiviste>
     </utente>
     <utente>
         <Tipoutente>2</Tipoutente>
@@ -19,12 +19,12 @@
         <NumeroRiviste>0</NumeroRiviste>
     </utente>
     <utente>
-        <Tipoutente>2</Tipoutente>
-        <Nome>francesco</Nome>
+        <Tipoutente>1</Tipoutente>
+        <Nome>carlo</Nome>
         <Cognome>sindico</Cognome>
-        <CodiceFiscale>FSNDCRETDG468GHSD</CodiceFiscale>
-        <Idutente>5</Idutente>
-        <Password>fsindico</Password>
-        <NumeroRiviste>1</NumeroRiviste>
+        <CodiceFiscale>SNDCRLOPQ345FG</CodiceFiscale>
+        <Idutente>2</Idutente>
+        <Password>csindico</Password>
+        <NumeroOpere>5</NumeroOpere>
     </utente>
 </databaseutenti>

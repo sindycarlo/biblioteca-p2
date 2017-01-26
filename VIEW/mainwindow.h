@@ -33,7 +33,7 @@ public:
     void costruisci_Tabella_opere(const contenitore<opera>&);
     void costruisci_Tabellautenti(const contenitore<utente>&);
     virtual void set_style();
-    void closeEvent(QCloseEvent*);
+    void closeEvent();
     ~mainWindow();
 signals:
     void chiudi_app();
@@ -69,8 +69,8 @@ private:
     C_listariviste* controllerRP;
     C_listautenti* controllerUTENTI;
 
-    int opera_selezionata;
-    int utente_selezionato;
+    unsigned int opera_selezionata;
+    unsigned int utente_selezionato;
 
 
     QPushButton* aggiungi_rivista;

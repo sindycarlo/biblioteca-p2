@@ -22,7 +22,7 @@ public:
     virtual void aggiorna_vista();
     virtual void costruisci_contenuto();
     virtual void set_style();
-    void closeEvent(QCloseEvent*);
+    void closeEvent();
     void disabilita_pulsanti_home();
     void abilita_pulsanti_home();
     ~homewindow();
