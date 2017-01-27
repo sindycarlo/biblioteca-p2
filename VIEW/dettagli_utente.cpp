@@ -3,6 +3,7 @@
 dettagli_utente::dettagli_utente(int ID, database* db,database_utente* udb,database_utente_opere* uodb) : idutente(ID) , Widget_Padre(db,udb,uodb)
 {
     registra_utente();
+    setWindowTitle("Dettagli utente");
     //set lable
        submit=new QPushButton("CONFERMA");
        n=new QLabel("NOME:");
@@ -10,6 +11,8 @@ dettagli_utente::dettagli_utente(int ID, database* db,database_utente* udb,datab
        id=new QLabel("ID:");
        cf=new QLabel("CODICE FISCALE:");
        ps=new QLabel("PASSWORD:");
+       Numop=new QLabel("NUMERO OPERE IN PRESTITO:");
+
 
     //set QLineEdit
        nome=new QLineEdit();
@@ -17,6 +20,7 @@ dettagli_utente::dettagli_utente(int ID, database* db,database_utente* udb,datab
        identificativo=new QLineEdit();
        codicefiscale=new QLineEdit();
        password=new QLineEdit();
+       Numopere=new QLineEdit();
 
        //creo i layout manager
         grid=new QGridLayout;
@@ -33,9 +37,17 @@ dettagli_utente::dettagli_utente(int ID, database* db,database_utente* udb,datab
         grid->addWidget(codicefiscale,4,1);
         grid->addWidget(ps,5,0);
         grid->addWidget(password,5,1);
+        grid->addWidget(Numop,6,0);
+        grid->addWidget(Numopere,6,1);
         layout->addLayout(grid);
         layout->addWidget(submit);
         setLayout(layout);
+
+        abilita_modifica();
+        set_style();
+        costruisci_contenuto();
+        connect(submit,SIGNAL(clicked()),this,SLOT(slot_submit()));
+
 }
 
 void dettagli_utente::set_style(){
@@ -50,6 +62,7 @@ void dettagli_utente::set_style(){
     identificativo->setPalette(*paletteLine);
     codicefiscale->setPalette(*paletteLine);
     password->setPalette(*paletteLine);
+    Numopere->setPalette(*paletteLine);
 }
 
 void dettagli_utente::costruisci_contenuto(){
@@ -60,6 +73,8 @@ void dettagli_utente::costruisci_contenuto(){
     identificativo->setText(info_ut.get_ID());
     codicefiscale->setText(info_ut.get_codicefiscale());
     password->setText(info_ut.get_password());
+    Numopere->setText(info_ut.get_dettaglio());
+
 }
 
 void dettagli_utente::disabilita_modifica(){
@@ -68,17 +83,41 @@ void dettagli_utente::disabilita_modifica(){
       identificativo->setEnabled(false);
       codicefiscale->setEnabled(false);
       password->setEnabled(false);
+      Numopere->setEnabled(false);
+
+}
+void dettagli_utente::slot_submit(){
+    if(nome->text().isEmpty() || nome->text().isNull() ||  cognome->text().isEmpty() || cognome->text().isNull())
+    {
+            QMessageBox warning;
+            warning.setIcon(QMessageBox::Critical);
+            warning.setWindowTitle("Impossibile modificare l'utente");
+            warning.setText("E' necessario compilare tutti i campi.");
+            warning.setStandardButtons(QMessageBox::Ok);
+            warning.setDefaultButton(QMessageBox::Ok);
+            warning.exec();
+        }
+        else{
+            QMessageBox warning;
+            warning.setIcon(QMessageBox::Question);
+            warning.setWindowTitle("Modifica a utente");
+            warning.setText("Sei sicuro di voler modificare l'utente <b>"+nome->text()+"</b>");
+            warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+            warning.setDefaultButton(QMessageBox::Cancel);
+            int ret = warning.exec();
+            if(ret==QMessageBox::Yes) {
+            emit modifica_utente(nome->text(),cognome->text(),identificativo->text().toInt());
+            }
+            }
+
 }
 
-int dettagli_utente::get_ID()const{ return idutente; }
 
-QPalette* dettagli_utente::get_paletteLine()const{ return paletteLine; }
-
-QGridLayout* dettagli_utente::get_grid()const{ return grid; }
 
 void dettagli_utente::aggiorna_vista(){
     info_utente info_u=(get_modelutenti())->get_infoUtente(idutente);
-    //da definire!!!
+    nome->setText(info_u.get_nome());
+    cognome->setText(info_u.get_cognome());
 }
 
 void dettagli_utente::abilita_modifica(){
@@ -87,13 +126,10 @@ void dettagli_utente::abilita_modifica(){
     identificativo->setEnabled(false);
     codicefiscale->setEnabled(false);
     password->setEnabled(false);
+    Numopere->setEnabled(false);
 
 }
 
-QPushButton* dettagli_utente::get_submit() const {return submit;}
-
-QLineEdit* dettagli_utente::Getnome() const {return nome;}
-QLineEdit* dettagli_utente::Getcognome() const {return cognome;}
 
 
 void dettagli_utente::closeEvent(){
@@ -120,6 +156,8 @@ dettagli_utente::~dettagli_utente(){
     delete identificativo;
     delete codicefiscale;
     delete password;
+    delete Numop;
+    delete Numopere;
 }
 
 void dettagli_utente::registra_utente() const{ get_modelutenti()->add_registro_utente(const_cast<dettagli_utente*> (this)); }

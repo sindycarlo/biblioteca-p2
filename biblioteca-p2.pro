@@ -51,9 +51,7 @@ SOURCES += main.cpp \
     VIEW/dettagli_opera.cpp \
     VIEW/dettagli_libro.cpp \
     VIEW/dettagli_rivista.cpp \
-    VIEW/dettagli_utente.cpp \
-    VIEW/dettagli_utentepro.cpp \
-    VIEW/dettagli_utentebasic.cpp
+    VIEW/dettagli_utente.cpp
 
 HEADERS  += \
     MODEL/opera.h \
@@ -93,9 +91,7 @@ HEADERS  += \
     VIEW/dettagli_opera.h \
     VIEW/dettagli_libro.h \
     VIEW/dettagli_rivista.h \
-    VIEW/dettagli_utente.h \
-    VIEW/dettagli_utente_basic.h \
-    VIEW/dettagli_utente_pro.h
+    VIEW/dettagli_utente.h
 
 FORMS    += biblioteca.ui
 

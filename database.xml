@@ -3,35 +3,35 @@
     <max>69</max>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>Chi</Titolo>
-        <Id>55</Id>
+        <Titolo>L'espresso</Titolo>
+        <Id>61</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <AnnoUscita>2016</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il fu mattia pascal</Titolo>
-        <Id>54</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Luigi pirandello</Autore>
+        <AnnoUscita>2006</AnnoUscita>
     </opera>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>National geographic</Titolo>
-        <Id>51</Id>
+        <Titolo>Chi</Titolo>
+        <Id>60</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <AnnoUscita>2009</AnnoUscita>
+        <AnnoUscita>2017</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Se questo è un uomo</Titolo>
+        <Id>59</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Primo Levi</Autore>
     </opera>
     <opera>
         <Tipo>2</Tipo>
         <Titolo>Focus</Titolo>
-        <Id>25</Id>
+        <Id>49</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <AnnoUscita>2005</AnnoUscita>
+        <AnnoUscita>1992</AnnoUscita>
     </opera>
     <opera>
         <Tipo>1</Tipo>
@@ -44,33 +44,33 @@
     <opera>
         <Tipo>2</Tipo>
         <Titolo>Focus</Titolo>
-        <Id>49</Id>
+        <Id>25</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <AnnoUscita>1992</AnnoUscita>
+        <AnnoUscita>2005</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>National geographic</Titolo>
+        <Id>51</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2009</AnnoUscita>
     </opera>
     <opera>
         <Tipo>1</Tipo>
-        <Titolo>Se questo è un uomo</Titolo>
-        <Id>59</Id>
+        <Titolo>Il fu mattia pascal</Titolo>
+        <Id>54</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <Autore>Primo Levi</Autore>
+        <Autore>Luigi pirandello</Autore>
     </opera>
     <opera>
         <Tipo>2</Tipo>
         <Titolo>Chi</Titolo>
-        <Id>60</Id>
+        <Id>55</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <AnnoUscita>2017</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>L'espresso</Titolo>
-        <Id>61</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2006</AnnoUscita>
+        <AnnoUscita>2016</AnnoUscita>
     </opera>
 </database>

@@ -15,6 +15,13 @@ class dettagli_utente : public Widget_Padre{
     Q_OBJECT
 
 public:
+    explicit dettagli_utente(int , database*,database_utente*,database_utente_opere*);
+
+    virtual void set_style();
+    virtual void aggiorna_vista();
+    virtual void costruisci_contenuto();
+    void disabilita_modifica();
+    void abilita_modifica();
     void closeEvent();
     virtual ~dettagli_utente();
 
@@ -22,16 +29,8 @@ signals:
     void modifica_utente(QString,QString,int);
     void chiudi_dettagli_utente();
 
-
-
-protected:
-    explicit dettagli_utente(int , database*,database_utente*,database_utente_opere*);
-
-    virtual void set_style();
-    virtual void costruisci_contenuto();
-    void disabilita_modifica();
-    void abilita_modifica();
-
+public slots:
+    void slot_submit();
 
 private:
 
@@ -53,18 +52,15 @@ private:
     QGridLayout* grid;
     QVBoxLayout*layout;
 
+    QLabel* Numop;                  //Numero opere in prestito
+    QLineEdit* Numopere;
+
     void registra_utente() const;
     void elimina_registrazione_utente() const;
 
-public:
-    QLineEdit* Getnome() const;
-    QLineEdit* Getcognome() const;
-    QLineEdit* Getcodicefiscale() const;
-    virtual void aggiorna_vista();
-    int get_ID()const;
-    QPalette* get_paletteLine()const;
-    QGridLayout* get_grid()const;
-    QPushButton* get_submit() const;
+
+
+
 
 };
 

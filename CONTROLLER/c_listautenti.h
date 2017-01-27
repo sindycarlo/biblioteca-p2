@@ -6,8 +6,7 @@
 #include "../MODEL/database_utente.h"
 #include "../VIEW/listautenti.h"
 #include "../VIEW/dettagli_utente.h"
-#include "../VIEW/dettagli_utente_basic.h"
-#include "../VIEW/dettagli_utente_pro.h"
+
 
 
 class C_listautenti : public QObject
@@ -19,16 +18,15 @@ public:
 public slots:
     void visualizza_info_utenti(int);
     void modifica_utente(QString,QString,int);
-    void chiudi_dettagli_utenteb();
-    void chiudi_dettagli_utentep();
+    void chiudi_dettagli_utente();
+
 
 private:
     database* model;
     database_utente* modelutenti;
     database_utente_opere* modelutenteopere;
     listautenti* view;
-    dettagli_utente_basic* dett_utenteb;
-    dettagli_utente_pro* dett_utentep;
+    dettagli_utente* dett_utente;
 
 };
 
