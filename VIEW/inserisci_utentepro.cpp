@@ -7,14 +7,14 @@ inserisci_utentepro::inserisci_utentepro(QWidget *parent) : QWidget(parent){
     co=new QLabel("COGNOME:");
     cf=new QLabel("CODICEFISCALE:");
     psw=new QLabel("PASSWORD:");
-    Numriv=new QLabel("NUMERO RIVISTE IN PRESTITO:");
+    Numop=new QLabel("NUMERO OPERE:");
 
 
     nome=new QLineEdit();
     cognome=new QLineEdit();
     codicefiscale=new QLineEdit();
     password=new QLineEdit();
-    Numeroriviste=new QLineEdit();
+    Numeroopere=new QLineEdit();
 
     grid=new QGridLayout();
     layout=new QVBoxLayout();
@@ -31,7 +31,7 @@ void inserisci_utentepro::build_Layout(){
     grid->addWidget(co,1,0); grid->addWidget(cognome,1,1);
     grid->addWidget(cf,2,0); grid->addWidget(codicefiscale,2,1);
     grid->addWidget(psw,3,0); grid->addWidget(password,3,1);
-    grid->addWidget(Numriv,4,0); grid->addWidget(Numeroriviste,4,1);
+    grid->addWidget(Numop,4,0); grid->addWidget(Numeroopere,4,1);
     layout->addLayout(grid);
     layout->addWidget(submit);
 
@@ -44,7 +44,7 @@ void inserisci_utentepro::slot_submit(){
     if(nome->text().isEmpty() || nome->text().isNull() ||  cognome->text().isEmpty() || cognome->text().isNull()
               ||codicefiscale->text().isEmpty() || codicefiscale->text().isNull()
             ||password->text().isEmpty() || password->text().isNull()
-            ||Numeroriviste->text().isEmpty() || Numeroriviste->text().isNull())
+            ||Numeroopere->text().isEmpty() || Numeroopere->text().isNull())
     {
             QMessageBox warning;
             warning.setIcon(QMessageBox::Critical);
@@ -54,11 +54,11 @@ void inserisci_utentepro::slot_submit(){
             warning.setDefaultButton(QMessageBox::Ok);
             warning.exec();
         }
-        else if(Numeroriviste->text().toInt()>0 || Numeroriviste->text().toInt()<0 || !(re.exactMatch(Numeroriviste->text()))) {
+        else if(Numeroopere->text().toInt()>0 || Numeroopere->text().toInt()<0 || !(re.exactMatch(Numeroopere->text()))) {
         QMessageBox warning;
         warning.setIcon(QMessageBox::Critical);
         warning.setWindowTitle("Impossibile inserire un nuovo utente pro");
-        warning.setText("Il numero delle riviste in prestito per un utente pro deve essere inizialmente 0");
+        warning.setText("Il numero delle opere in prestito per un utente pro deve essere inizialmente 0");
         warning.setStandardButtons(QMessageBox::Ok);
         warning.setDefaultButton(QMessageBox::Ok);
         warning.exec();
@@ -72,7 +72,7 @@ void inserisci_utentepro::slot_submit(){
         warning.setDefaultButton(QMessageBox::Cancel);
         int ret = warning.exec();
         if(ret==QMessageBox::Yes) {
-            info_utente u(0,nome->text(),cognome->text(),"",password->text(),codicefiscale->text(),Numeroriviste->text());
+            info_utente u(0,nome->text(),cognome->text(),"",password->text(),codicefiscale->text(),Numeroopere->text());
             emit submitup(u);
             pulisci_Campi();
             }
@@ -83,7 +83,7 @@ void inserisci_utentepro::pulisci_Campi(){
     cognome->clear();
     codicefiscale->clear();
     password->clear();
-    Numeroriviste->clear();
+    Numeroopere->clear();
 }
 
 void inserisci_utentepro::centra_finestra(){
@@ -115,11 +115,11 @@ inserisci_utentepro::~inserisci_utentepro(){
      delete co;
      delete cf;
      delete psw;
-     delete Numriv;
+     delete Numop;
 
      delete nome;
      delete cognome;
      delete codicefiscale;
      delete password;
-     delete Numeroriviste;
+     delete Numeroopere;
  }

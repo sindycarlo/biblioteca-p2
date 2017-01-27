@@ -24,7 +24,7 @@ database_utente::~database_utente() {database_utente::Close();}
 void database_utente::Load() {
     QString nome="Sconosciuto",cognome="Sconosciuto",codicefiscale="Sconosciuto",password="Sconosciuto";
 
-    unsigned int Tipoutente=0, idutente=-1, numopere=0, numriviste=0;
+    unsigned int Tipoutente=0, idutente=-1, numopere=0;
 
     utente* tmp=NULL;
     QFile file(filename);
@@ -65,7 +65,7 @@ void database_utente::Load() {
                                 else
                                     if(xmlReader.name()=="Password") password=xmlReader.readElementText();
                                     else
-                                        if(xmlReader.name()=="NumeroRiviste") numriviste=xmlReader.readElementText().toInt();
+                                        if(xmlReader.name()=="NumeroOpere") numopere=xmlReader.readElementText().toInt();
 
                                         else std::cout<<"Errore nella lettura di un utente pro";
                     }
@@ -77,7 +77,7 @@ void database_utente::Load() {
              {
 
                if(Tipoutente==1) tmp=new utente_basic(GetDatabase(),Getdbopere(),numopere,nome,cognome,codicefiscale,password);
-               else tmp=new utente_pro(GetDatabase(),Getdbopere(),numriviste,nome,cognome,codicefiscale,password);
+               else tmp=new utente_pro(GetDatabase(),Getdbopere(),numopere,nome,cognome,codicefiscale,password);
                 tmp->SetID(idutente);
                 dbutenti.add_item(tmp);
                 xmlReader.readNext();

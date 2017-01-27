@@ -7,16 +7,7 @@
         <CodiceFiscale>FSNDCRETDG468GHSD</CodiceFiscale>
         <Idutente>5</Idutente>
         <Password>fsindico</Password>
-        <NumeroRiviste>1</NumeroRiviste>
-    </utente>
-    <utente>
-        <Tipoutente>2</Tipoutente>
-        <Nome>abdelilah</Nome>
-        <Cognome>lahmer</Cognome>
-        <CodiceFiscale>ABDGFHRYCNFH56473</CodiceFiscale>
-        <Idutente>4</Idutente>
-        <Password>ab</Password>
-        <NumeroRiviste>0</NumeroRiviste>
+        <NumeroOpere>8</NumeroOpere>
     </utente>
     <utente>
         <Tipoutente>1</Tipoutente>

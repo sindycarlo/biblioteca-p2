@@ -8,7 +8,7 @@ unsigned int utente::maxid=0;
 
 
 //costruttore di utente:
-utente::utente(database *db,database_utente_opere* udb, QString n ="Sconosciuto", QString c ="Sconosciuto", QString  cf ="Sconosciuto", QString psw ="Sconosciuto"): Nome(n), Cognome(c), codicefiscale(cf), password(psw),opereBiblioteca(db), opereUtente(udb) {
+utente::utente(database *db, database_utente_opere* udb, QString n ="Sconosciuto", QString c ="Sconosciuto", QString  cf ="Sconosciuto", QString psw ="Sconosciuto", unsigned int no=0): Nome(n), Cognome(c), codicefiscale(cf), password(psw),opereBiblioteca(db), opereUtente(udb),numeroopere(no) {
     maxid++;
     id=maxid;
 
@@ -36,7 +36,8 @@ void utente::Setnome(QString n) {Nome=n;}
 
 void utente::Setcognome(QString cn) {Cognome=cn;}
 
-
+unsigned int& utente::setnumeroopere() {return numeroopere;}
+unsigned int utente::Getnumeroopere() const {return numeroopere;}
 
 database* utente::GetopereBiblioteca() const {return opereBiblioteca;}
 

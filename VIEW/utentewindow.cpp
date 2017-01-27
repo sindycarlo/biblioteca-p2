@@ -78,8 +78,7 @@ void utenteWindow::modifica_campo_rivista_prestito(int ID){
 
 void utenteWindow::ricevi_segnale_libri(){
     utente* u=get_modelutenti()->trova_utente(Getidutente());
-    utente_basic* ub=dynamic_cast<utente_basic*>(u);
-    if(ub && ub->Get_numopere()>=5)
+    if(!u->checklimite())
     {
         QMessageBox warning;
             warning.setIcon(QMessageBox::Question);
@@ -111,9 +110,8 @@ unsigned int utenteWindow::Getidutente() const {return idutente;}
 void utenteWindow::ricevi_segnale_riviste(){
 
     utente* u=get_modelutenti()->trova_utente(Getidutente());
-    utente_basic* ub=dynamic_cast<utente_basic*>(u);
-    utente_pro* up=dynamic_cast<utente_pro*>(u);
-    if(ub && ub->Get_numopere()>ub->Get_limiteopere())
+
+    if(!u->checklimite())
     {
         QMessageBox warning;
             warning.setIcon(QMessageBox::Question);
@@ -123,17 +121,7 @@ void utenteWindow::ricevi_segnale_riviste(){
             warning.setDefaultButton(QMessageBox::Cancel);
             warning.exec();
     }
-    else if(up && up->Get_numeroriviste()>(up->Get_limiteriviste()))
-    {
-        QMessageBox warning;
-            warning.setIcon(QMessageBox::Question);
-            warning.setWindowTitle("Errore");
-            warning.setText("Hai raggiunto il massimo numero di riviste che puoi ricevere in prestito");
-            warning.setStandardButtons(QMessageBox::Cancel);
-            warning.setDefaultButton(QMessageBox::Cancel);
-            warning.exec();
-
-    }else {
+   else {
         QString identificativo;
         identificativo.setNum(rivista_selezionata);
         QMessageBox warning;

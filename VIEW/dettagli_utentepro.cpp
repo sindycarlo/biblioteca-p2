@@ -5,13 +5,13 @@ dettagli_utente_pro::dettagli_utente_pro(int Id, database* db,database_utente*ud
 
     setWindowTitle("Dettagli utente PRO");
 
-    numeroriviste=new QLabel("NUMERO RIVISTE CHE HA IN PRESTITO:");
+    numeroopere=new QLabel("NUMERO OPERE IN PRESTITO:");
 
-    numriv=new QLineEdit();
+    numop=new QLineEdit();
 
 
-    get_grid()->addWidget(numeroriviste,1,0);
-    get_grid()->addWidget(numriv,1,1);
+    get_grid()->addWidget(numeroopere,1,0);
+    get_grid()->addWidget(numop,1,1);
     abilita_modifica();
     set_style();
     costruisci_contenuto();
@@ -21,7 +21,7 @@ dettagli_utente_pro::dettagli_utente_pro(int Id, database* db,database_utente*ud
 void dettagli_utente_pro::costruisci_contenuto(){
      dettagli_utente::costruisci_contenuto();
      info_utente info_upro=(get_modelutenti())->get_infoUtente(get_ID());
-     numriv->setText(info_upro.get_dettaglio());
+     numop->setText(info_upro.get_dettaglio());
 
 
 }
@@ -53,22 +53,22 @@ void dettagli_utente_pro::slot_submit(){
 
 void dettagli_utente_pro::set_style(){
     dettagli_utente::set_style();
-    numeroriviste->setPalette(*get_paletteLine());
+    numeroopere->setPalette(*get_paletteLine());
 }
 
 
 void dettagli_utente_pro::disabilita_modifica(){
       dettagli_utente::disabilita_modifica();
-      numriv->setEnabled(false);
+      numop->setEnabled(false);
 }
 
 void dettagli_utente_pro::abilita_modifica(){
       dettagli_utente::abilita_modifica();
-      numriv->setEnabled(false);
+      numop->setEnabled(false);
 }
 
 
 dettagli_utente_pro::~dettagli_utente_pro(){
-    delete numriv;
-    delete numeroriviste;
+    delete numop;
+    delete numeroopere;
 }
