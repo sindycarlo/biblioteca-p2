@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>69</max>
+    <max>75</max>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Chi</Titolo>
+        <Id>74</Id>
+        <Appartenenza>2</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2016</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Airone</Titolo>
+        <Id>73</Id>
+        <Appartenenza>2</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>1988</AnnoUscita>
+    </opera>
     <opera>
         <Tipo>2</Tipo>
         <Titolo>Panorama</Titolo>
@@ -42,14 +58,6 @@
         <Autore>Arthur conan doyle</Autore>
     </opera>
     <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>64</Id>
-        <Appartenenza>5</Appartenenza>
-        <Stato>0</Stato>
-        <AnnoUscita>2008</AnnoUscita>
-    </opera>
-    <opera>
         <Tipo>1</Tipo>
         <Titolo>1984</Titolo>
         <Id>63</Id>
@@ -88,21 +96,5 @@
         <Appartenenza>2</Appartenenza>
         <Stato>0</Stato>
         <AnnoUscita>2004</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il sentiero dei nidi di ragno</Titolo>
-        <Id>42</Id>
-        <Appartenenza>2</Appartenenza>
-        <Stato>0</Stato>
-        <Autore>Italo calvino</Autore>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Airone</Titolo>
-        <Id>50</Id>
-        <Appartenenza>2</Appartenenza>
-        <Stato>0</Stato>
-        <AnnoUscita>1988</AnnoUscita>
     </opera>
 </database>

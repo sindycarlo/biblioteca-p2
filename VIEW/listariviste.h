@@ -21,7 +21,6 @@ public:
     void aggiorna_vista();
     void aggiorna_vista_prestito_riviste();
     void costruisci_contenuto();
-    void build_Nuova(const contenitore<opera> &);
     unsigned int Getidutente() const;
 private:
     unsigned int idutente;

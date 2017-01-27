@@ -96,46 +96,6 @@ void listalibri::aggiorna_vista_prestito_libri(){
 
 
 
-void listalibri::build_Nuova(const contenitore<opera>& lista){
-    int row=0;
-    if(!(lista.empty()))
-    {
-         int id;
-         QString i;
-         contenitore<opera>::iteratore it;
-
-         for(it=lista.begin(); it!=lista.end(); it++)
-         {
-             if(typeid((**it))==typeid(libro))
-             {
-                Getable()->setRowCount(row+1);
-                info_opera op=(*it)->info_tot();
-                id=(*it)->GetId();
-                i.setNum(id);
-
-                QTableWidgetItem *ID = new QTableWidgetItem(i);
-                QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
-                QTableWidgetItem *autore = new QTableWidgetItem(op.get_dettaglio());
-                QTableWidgetItem *tipo = new QTableWidgetItem((*it)->Get_tipo());
-
-                Getable()->setItem(row,0,ID);
-                Getable()->setItem(row,1,valore);
-                Getable()->setItem(row,2,autore);
-                Getable()->setItem(row,3,tipo);
-                row++;
-             }
-         }
-    }
-    else{
-            Getable()->setRowCount(row);
-            emit tabella_vuota();
-        }
-}
-
-
-
-
-
 
 
 

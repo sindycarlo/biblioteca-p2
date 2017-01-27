@@ -18,9 +18,6 @@ class listaOp : public Widget_Padre
     Q_OBJECT
 public:
     explicit listaOp(database*,database_utente*,database_utente_opere*);
-
-    //eredito i due metodi virtuali puri e non li implemento
-    virtual void build_Nuova(const contenitore<opera>&) =0;
     int Getopera() const;
     QTableWidget* Getable() const;
     QVBoxLayout* Getlayout_table()const;

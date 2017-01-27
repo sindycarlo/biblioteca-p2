@@ -30,8 +30,6 @@ public:
     explicit mainWindow(database*,database_utente*,database_utente_opere*,homewindow*);
     virtual void aggiorna_vista();
     virtual void costruisci_contenuto();
-    void costruisci_Tabella_opere(const contenitore<opera>&);
-    void costruisci_Tabellautenti(const contenitore<utente>&);
     virtual void set_style();
     void closeEvent();
     ~mainWindow();

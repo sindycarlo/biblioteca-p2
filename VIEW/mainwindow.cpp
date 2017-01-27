@@ -159,7 +159,6 @@ void mainWindow::disabilita(){
 }
 
 
-void mainWindow::costruisci_Tabellautenti(const contenitore<utente> & listautenti) {tabutenti->build_Nuova(listautenti);}
 void mainWindow::aggiorna_vista(){tablibri->aggiorna_vista();tabriviste->aggiorna_vista();tabutenti->aggiorna_vista();}
 void mainWindow::abilita_bottoni(){
     rimuovi_opera->setEnabled(true);
@@ -184,9 +183,6 @@ void mainWindow::disabilita_bottoni_tutti(){
 
 }
 
-void mainWindow::costruisci_Tabella_opere(const contenitore<opera> & lista) {
-    tablibri->build_Nuova(lista);
-}
 
 void mainWindow::chiudi() {
     finestraprinc->abilita_pulsanti_home();
