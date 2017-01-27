@@ -19,6 +19,7 @@ class listaOp : public Widget_Padre
 public:
     explicit listaOp(database*,database_utente*,database_utente_opere*);
     int Getopera() const;
+    virtual opera* visualizzaopera(opera*) const=0;
     QTableWidget* Getable() const;
     QVBoxLayout* Getlayout_table()const;
     void abilita_doppio_click();

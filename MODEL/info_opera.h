@@ -19,7 +19,7 @@ public:
     QString get_titolo() const;
     QString get_stato() const;
     QString get_ID() const;
-    QString get_dettaglio() const;
+    virtual QString get_dettaglio() const;
     QString is_consultabile() const;
 };
 

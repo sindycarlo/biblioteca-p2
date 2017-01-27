@@ -69,7 +69,6 @@ QVBoxLayout* listaOp::Getlayout_table() const {
     return layout_table;
 }
 
-
  listaOp::~listaOp() {
     delete table;
     delete layout_table;

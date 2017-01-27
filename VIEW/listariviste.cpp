@@ -20,24 +20,26 @@ void listariviste::aggiorna_vista(){
              bool trovata=false;
              for(it=(get_model())->db_begin(); it!=(get_model())->db_end(); it++)
              {
-                 if(typeid((**it))==typeid(rivista))
-                 {
-                    Getable()->setRowCount(row+1);
-                    info_opera op=(*it)->info_tot();
-                    id=(*it)->GetId();
-                    i.setNum(id);
-                    trovata=true;
-                    QTableWidgetItem *ID = new QTableWidgetItem(i);
-                    QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
-                    QTableWidgetItem *annouscita = new QTableWidgetItem(op.get_dettaglio());
-                    QTableWidgetItem *tipo = new QTableWidgetItem((*it)->Get_tipo());
 
-                    Getable()->setItem(row,0,ID);
-                    Getable()->setItem(row,1,valore);
-                    Getable()->setItem(row,2,annouscita);
-                    Getable()->setItem(row,3,tipo);
-                    row++;
-                 }
+                    rivista* r=visualizzaopera((*it));
+                    if(r)
+                    {
+                        Getable()->setRowCount(row+1);
+                        id=(r)->GetId();
+                        i.setNum(id);
+                        trovata=true;
+                        QTableWidgetItem *ID = new QTableWidgetItem(i);
+                        QTableWidgetItem *valore = new QTableWidgetItem((r)->GetTitolo());
+                        QTableWidgetItem *annouscita = new QTableWidgetItem(r->GetAnnouscita());
+                        QTableWidgetItem *tipo = new QTableWidgetItem((r)->Get_tipo());
+
+                        Getable()->setItem(row,0,ID);
+                        Getable()->setItem(row,1,valore);
+                        Getable()->setItem(row,2,annouscita);
+                        Getable()->setItem(row,3,tipo);
+                        row++;
+                    }
+
              }
              if(trovata==false)
              {
@@ -62,7 +64,8 @@ void listariviste::aggiorna_vista_prestito_riviste(){
              contenitore<opera>::iteratore it;
              for(it=(get_modelutenteopere())->dbopereutenti_begin(); it!=(get_modelutenteopere())->dbopereutenti_end(); it++)
              {
-                 if(typeid((**it))==typeid(rivista) && (*it)->Getappartenenza()==Getidutente())
+                 rivista* r=visualizzaopera((*it));
+                 if(r && (*it)->Getappartenenza()==Getidutente())
                 {
                     Getable()->setRowCount(row+1);
                     info_opera op=(*it)->info_tot();
@@ -95,7 +98,9 @@ void listariviste::aggiorna_vista_prestito_riviste(){
 
 
 
-
+rivista* listariviste::visualizzaopera(opera *op) const {
+    return dynamic_cast<rivista*>(op);
+}
 
 
 

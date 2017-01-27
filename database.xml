@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>75</max>
+    <max>78</max>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>78</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2004</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il barone rampante</Titolo>
+        <Id>77</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Italo calvino</Autore>
+    </opera>
     <opera>
         <Tipo>2</Tipo>
         <Titolo>Focus</Titolo>

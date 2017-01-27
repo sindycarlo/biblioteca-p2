@@ -22,6 +22,7 @@ public:
     void aggiorna_vista_prestito_libri();
     void costruisci_contenuto();
     unsigned int Getidutente() const;
+    virtual libro* visualizzaopera(opera*) const;
 private:
     unsigned int idutente;
 };

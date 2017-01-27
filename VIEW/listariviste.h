@@ -22,6 +22,7 @@ public:
     void aggiorna_vista_prestito_riviste();
     void costruisci_contenuto();
     unsigned int Getidutente() const;
+    virtual rivista* visualizzaopera(opera*) const;
 private:
     unsigned int idutente;
 };
