@@ -79,7 +79,7 @@ public:
             return *this;
 
         }      //operatore di incremento prefisso
-        iteratore& operator++(int){
+        iteratore operator++(int){
             iteratore prov=*this;
             if(punt!=0) punt=punt->next;
             return prov;

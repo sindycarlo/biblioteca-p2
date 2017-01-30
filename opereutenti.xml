@@ -1,84 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>78</max>
+    <max>8</max>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>Chi</Titolo>
-        <Id>74</Id>
-        <Appartenenza>2</Appartenenza>
-        <Stato>0</Stato>
-        <AnnoUscita>2016</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Airone</Titolo>
-        <Id>73</Id>
-        <Appartenenza>2</Appartenenza>
-        <Stato>0</Stato>
-        <AnnoUscita>1988</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Panorama</Titolo>
-        <Id>69</Id>
-        <Appartenenza>5</Appartenenza>
+        <Titolo>Focus</Titolo>
+        <Id>7</Id>
+        <Appartenenza>1</Appartenenza>
         <Stato>0</Stato>
         <AnnoUscita>2005</AnnoUscita>
     </opera>
     <opera>
-        <Tipo>2</Tipo>
-        <Titolo>National geographic</Titolo>
-        <Id>68</Id>
-        <Appartenenza>5</Appartenenza>
-        <Stato>0</Stato>
-        <AnnoUscita>2006</AnnoUscita>
-    </opera>
-    <opera>
         <Tipo>1</Tipo>
-        <Titolo>Torto marcio</Titolo>
-        <Id>67</Id>
-        <Appartenenza>5</Appartenenza>
+        <Titolo>Il barone rampante</Titolo>
+        <Id>8</Id>
+        <Appartenenza>1</Appartenenza>
         <Stato>0</Stato>
-        <Autore>Alessandro robecchi</Autore>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Airone</Titolo>
-        <Id>66</Id>
-        <Appartenenza>5</Appartenenza>
-        <Stato>0</Stato>
-        <AnnoUscita>1987</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il mastino dei baskerville</Titolo>
-        <Id>65</Id>
-        <Appartenenza>5</Appartenenza>
-        <Stato>0</Stato>
-        <Autore>Arthur conan doyle</Autore>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>1984</Titolo>
-        <Id>63</Id>
-        <Appartenenza>5</Appartenenza>
-        <Stato>0</Stato>
-        <Autore>George orwell</Autore>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>62</Id>
-        <Appartenenza>5</Appartenenza>
-        <Stato>0</Stato>
-        <AnnoUscita>2008</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Airone</Titolo>
-        <Id>45</Id>
-        <Appartenenza>2</Appartenenza>
-        <Stato>0</Stato>
-        <AnnoUscita>1988</AnnoUscita>
+        <Autore>Italo calvino</Autore>
     </opera>
 </database>

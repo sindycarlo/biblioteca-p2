@@ -12,6 +12,7 @@ dettagli_utente::dettagli_utente(int ID, database* db,database_utente* udb,datab
        cf=new QLabel("CODICE FISCALE:");
        ps=new QLabel("PASSWORD:");
        Numop=new QLabel("NUMERO OPERE IN PRESTITO:");
+       tuser=new QLabel("TIPO UTENTE");
 
 
     //set QLineEdit
@@ -21,6 +22,7 @@ dettagli_utente::dettagli_utente(int ID, database* db,database_utente* udb,datab
        codicefiscale=new QLineEdit();
        password=new QLineEdit();
        Numopere=new QLineEdit();
+       tipoutente=new QLineEdit();
 
        //creo i layout manager
         grid=new QGridLayout;
@@ -39,6 +41,8 @@ dettagli_utente::dettagli_utente(int ID, database* db,database_utente* udb,datab
         grid->addWidget(password,5,1);
         grid->addWidget(Numop,6,0);
         grid->addWidget(Numopere,6,1);
+        grid->addWidget(tuser,7,0);
+        grid->addWidget(tipoutente,7,1);
         layout->addLayout(grid);
         layout->addWidget(submit);
         setLayout(layout);
@@ -63,17 +67,20 @@ void dettagli_utente::set_style(){
     codicefiscale->setPalette(*paletteLine);
     password->setPalette(*paletteLine);
     Numopere->setPalette(*paletteLine);
+    tipoutente->setPalette(*paletteLine);
 }
 
 void dettagli_utente::costruisci_contenuto(){
     info_utente info_ut=(get_modelutenti())->get_infoUtente(idutente);
-
+    utente* u=get_modelutenti()->trova_utente(idutente);
+    QString tipo=u->Get_tipo_utente();
     nome->setText(info_ut.get_nome());
     cognome->setText(info_ut.get_cognome());
     identificativo->setText(info_ut.get_ID());
     codicefiscale->setText(info_ut.get_codicefiscale());
     password->setText(info_ut.get_password());
     Numopere->setText(info_ut.get_dettaglio());
+    tipoutente->setText(tipo);
 
 }
 
@@ -84,6 +91,7 @@ void dettagli_utente::disabilita_modifica(){
       codicefiscale->setEnabled(false);
       password->setEnabled(false);
       Numopere->setEnabled(false);
+      tipoutente->setEnabled(false);
 
 }
 void dettagli_utente::slot_submit(){
@@ -143,6 +151,7 @@ dettagli_utente::~dettagli_utente(){
     delete paletteLine;
     delete grid;
     delete layout;
+    delete tuser;
     delete submit;
 
     delete n;
@@ -158,6 +167,7 @@ dettagli_utente::~dettagli_utente(){
     delete password;
     delete Numop;
     delete Numopere;
+    delete tipoutente;
 }
 
 void dettagli_utente::registra_utente() const{ get_modelutenti()->add_registro_utente(const_cast<dettagli_utente*> (this)); }

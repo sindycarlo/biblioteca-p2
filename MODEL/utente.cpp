@@ -14,8 +14,7 @@ utente::utente(database *db, database_utente_opere* udb, QString n ="Sconosciuto
 
 }
 
-//il distruttore di utente va a distruggere anche le sue opere che aveva in prestito
-utente::~utente() {delete GetdbOpereUtente();}
+utente::~utente() {}
 
 
 QString utente::GetNome() const {return Nome;}
@@ -29,6 +28,8 @@ QString utente::GetPassword() const {return password;}
 unsigned int utente::GetID() const {return id;}
 
 unsigned int utente::Getmaxid() const {return maxid;}
+
+void utente::Set_maxid(const int x) {maxid=x;}
 
 void utente::SetID(unsigned int x) {id=x;}
 

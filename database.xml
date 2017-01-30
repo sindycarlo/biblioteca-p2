@@ -1,100 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>78</max>
+    <max>8</max>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Se questo è un uomo</Titolo>
+        <Id>2</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Primo levi</Autore>
+    </opera>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>78</Id>
+        <Titolo>Airone</Titolo>
+        <Id>5</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
         <AnnoUscita>2004</AnnoUscita>
     </opera>
     <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il barone rampante</Titolo>
-        <Id>77</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Italo calvino</Autore>
-    </opera>
-    <opera>
         <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>75</Id>
+        <Titolo>Airone</Titolo>
+        <Id>6</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <AnnoUscita>2008</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il sentiero dei nidi di ragno</Titolo>
-        <Id>71</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Italo calvino</Autore>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>L'espresso</Titolo>
-        <Id>61</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2006</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Chi</Titolo>
-        <Id>60</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2017</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Se questo è un uomo</Titolo>
-        <Id>59</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Primo Levi</Autore>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>49</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>1992</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il piccolo principe</Titolo>
-        <Id>17</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Arthur conan doyle</Autore>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>25</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2005</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>National geographic</Titolo>
-        <Id>51</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2009</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il fu mattia pascal</Titolo>
-        <Id>54</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Luigi pirandello</Autore>
+        <AnnoUscita>1985</AnnoUscita>
     </opera>
 </database>

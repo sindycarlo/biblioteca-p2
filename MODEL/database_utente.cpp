@@ -24,7 +24,7 @@ database_utente::~database_utente() {database_utente::Close();}
 void database_utente::Load() {
     QString nome="Sconosciuto",cognome="Sconosciuto",codicefiscale="Sconosciuto",password="Sconosciuto";
 
-    unsigned int Tipoutente=0, idutente=-1, numopere=0;
+    unsigned int Tipoutente=0, idutente=-1, numopere=0,max=0;
 
     utente* tmp=NULL;
     QFile file(filename);
@@ -37,10 +37,12 @@ void database_utente::Load() {
             {
                 if(xmlReader.name()=="databaseutenti" || xmlReader.name()=="utente") xmlReader.readNext();
                 else
-                    if(xmlReader.name()=="Tipoutente") Tipoutente=xmlReader.readElementText().toInt();
+                    if(xmlReader.name()=="max") max=xmlReader.readElementText().toInt();
                     else
-                        if(xmlReader.name()=="Idutente") idutente=xmlReader.readElementText().toInt();
+                        if(xmlReader.name()=="Tipoutente") Tipoutente=xmlReader.readElementText().toInt();
                         else
+                            if(xmlReader.name()=="Idutente") idutente=xmlReader.readElementText().toInt();
+                            else
                     if(Tipoutente==1)//sto leggendo un utente_basic:
                     {
                         if(xmlReader.name()=="Nome") nome=xmlReader.readElementText();
@@ -79,6 +81,7 @@ void database_utente::Load() {
                if(Tipoutente==1) tmp=new utente_basic(GetDatabase(),Getdbopere(),numopere,nome,cognome,codicefiscale,password);
                else tmp=new utente_pro(GetDatabase(),Getdbopere(),numopere,nome,cognome,codicefiscale,password);
                 tmp->SetID(idutente);
+                tmp->Set_maxid(max);
                 dbutenti.add_item(tmp);
                 xmlReader.readNext();
               }
@@ -101,6 +104,11 @@ void database_utente::Close() {
          if(!vuoto())
         {
          contenitore<utente>::iteratore it;
+         it=dbutenti.begin();
+         unsigned int max_val=dbutenti[it]->Getmaxid();
+         QString MAX;
+         MAX.setNum(max_val);
+         xmlWriter.writeTextElement("max",MAX);
          for(it=dbutenti.begin();it!=dbutenti.end();it++)
          {
              (*it)->Write_utente(xmlWriter);

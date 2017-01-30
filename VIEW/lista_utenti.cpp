@@ -112,6 +112,7 @@ void listautenti::doppio_click_utenti(int r){
 }
 
 void listautenti::click_singolo_utenti(int r){
+    disabilita_funzioni_utenti();
     select_utente=table->item(r,0)->text().toInt();
     emit selezione_utenti(select_utente);
 }

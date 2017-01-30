@@ -44,6 +44,7 @@ public:
     void SetID(unsigned int);
     void Setnome(QString);
     void Setcognome(QString);
+    void Set_maxid(const int);
 
     //metodi propri di utente:
     virtual void Write_utente(QXmlStreamWriter&) const =0; //scrivo l'utente nel database

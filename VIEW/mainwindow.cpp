@@ -83,7 +83,6 @@ void mainWindow::modifica_campo_utenti(int ID){
     utente_selezionato=ID;
     abilita_bottoni_utenti();
     disabilita_bottoni();
-
 }
 
 

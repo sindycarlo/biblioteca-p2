@@ -40,6 +40,7 @@ private:
     QLabel* id;                  //id
     QLabel* cf;                  //codicefiscale
     QLabel* ps;                    //password
+    QLabel* tuser;           //tipo utente basic o pro
 
     QPushButton* submit;
     QLineEdit* nome;
@@ -47,6 +48,7 @@ private:
     QLineEdit* identificativo;
     QLineEdit* codicefiscale;
     QLineEdit* password;
+    QLineEdit* tipoutente;
 
     QPalette* paletteLine;
     QGridLayout* grid;
