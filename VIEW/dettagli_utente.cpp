@@ -142,6 +142,7 @@ void dettagli_utente::abilita_modifica(){
     codicefiscale->setEnabled(false);
     password->setEnabled(false);
     Numopere->setEnabled(false);
+    tipoutente->setEnabled(false);
 
 }
 

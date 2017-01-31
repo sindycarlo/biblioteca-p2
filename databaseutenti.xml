@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseutenti>
-    <max>3</max>
+    <max>7</max>
     <utente>
-        <Tipoutente>2</Tipoutente>
-        <Nome>h</Nome>
-        <Cognome>h</Cognome>
-        <CodiceFiscale>h</CodiceFiscale>
-        <Idutente>3</Idutente>
-        <Password>h</Password>
+        <Tipoutente>1</Tipoutente>
+        <Nome>alessio</Nome>
+        <Cognome>barbui</Cognome>
+        <CodiceFiscale>ABSGDTEUJ6728DGBZ</CodiceFiscale>
+        <Idutente>6</Idutente>
+        <Password>abarbui</Password>
         <NumeroOpere>0</NumeroOpere>
     </utente>
     <utente>
         <Tipoutente>1</Tipoutente>
-        <Nome>g</Nome>
-        <Cognome>g</Cognome>
-        <CodiceFiscale>g</CodiceFiscale>
-        <Idutente>2</Idutente>
-        <Password>g</Password>
-        <NumeroOpere>0</NumeroOpere>
+        <Nome>carlo</Nome>
+        <Cognome>sindico</Cognome>
+        <CodiceFiscale>SNDCRRGFH468HDG</CodiceFiscale>
+        <Idutente>4</Idutente>
+        <Password>csindico</Password>
+        <NumeroOpere>3</NumeroOpere>
     </utente>
     <utente>
         <Tipoutente>1</Tipoutente>
-        <Nome>eded</Nome>
-        <Cognome>h</Cognome>
-        <CodiceFiscale>h</CodiceFiscale>
-        <Idutente>1</Idutente>
-        <Password>h</Password>
-        <NumeroOpere>0</NumeroOpere>
+        <Nome>francesco</Nome>
+        <Cognome>sindico</Cognome>
+        <CodiceFiscale>FSCBDGHEKRU478FGHS</CodiceFiscale>
+        <Idutente>7</Idutente>
+        <Password>fsindico</Password>
+        <NumeroOpere>3</NumeroOpere>
     </utente>
 </databaseutenti>

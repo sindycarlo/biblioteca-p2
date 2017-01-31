@@ -2,7 +2,8 @@
 #include<QApplication>
 #include<QToolTip>
 mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*uodb,homewindow* hw) : Widget_Padre(db,udb,uodb),finestraprinc(hw) {
-    //da correggere
+
+
     tablibri=new listalibri(0,get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco delle opere
     tabriviste=new listariviste(0,get_model(),get_modelutenti(),get_modelutenteopere());
     tabutenti=new listautenti(get_model(),get_modelutenti(),get_modelutenteopere());
@@ -18,6 +19,7 @@ mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*u
     aggiungi_utente_basic=new QPushButton("AGGIUNGI UTENTE BASIC");
     aggiungi_utente_pro=new QPushButton("AGGIUNGI UTENTE PRO");
     disabilita_bottoni_tutti();
+
 
   //layout
     orizzontale=new QHBoxLayout();

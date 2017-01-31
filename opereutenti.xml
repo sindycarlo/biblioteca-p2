@@ -1,2 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<database/>
+<database>
+    <max>40</max>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>La storia di facebook</Titolo>
+        <Id>40</Id>
+        <Appartenenza>7</Appartenenza>
+        <Stato>0</Stato>
+        <Autore>Mark zuckerberg</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>39</Id>
+        <Appartenenza>7</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2009</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>38</Id>
+        <Appartenenza>7</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2003</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il barone rampante</Titolo>
+        <Id>13</Id>
+        <Appartenenza>4</Appartenenza>
+        <Stato>0</Stato>
+        <Autore>Italo calvino</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Airone</Titolo>
+        <Id>28</Id>
+        <Appartenenza>4</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2004</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>29</Id>
+        <Appartenenza>4</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2005</AnnoUscita>
+    </opera>
+</database>

@@ -1,28 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>3</max>
+    <max>40</max>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>wdwd</Titolo>
-        <Id>3</Id>
+        <Titolo>Airone</Titolo>
+        <Id>26</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <AnnoUscita>2004</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>auguri</Titolo>
-        <Id>1</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>2006</AnnoUscita>
+        <AnnoUscita>1984</AnnoUscita>
     </opera>
     <opera>
         <Tipo>1</Tipo>
-        <Titolo>jhsiuh</Titolo>
-        <Id>2</Id>
+        <Titolo>Il sentiero dei nidi di ragno</Titolo>
+        <Id>6</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <Autore>bhduehwef</Autore>
+        <Autore>Italo calvino</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Se questo è un uomo</Titolo>
+        <Id>4</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Primo levi</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>27</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>1976</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il libro della giungla</Titolo>
+        <Id>32</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Moogly</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>1984</Titolo>
+        <Id>34</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>George orwell</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>35</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>1999</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>36</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2009</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Airone</Titolo>
+        <Id>37</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2004</AnnoUscita>
     </opera>
 </database>

@@ -1,8 +1,7 @@
 #ifndef OPERA_H
 #define OPERA_H
-#include "info_libro.h"
-#include "info_rivista.h"
 #include <QDate>
+#include "info_opera.h"
 #include <QXmlStreamWriter>
 #include<QString>
 #include<iostream>

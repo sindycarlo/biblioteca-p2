@@ -17,6 +17,7 @@ void listaOp::set_style(){
     table->setColumnCount(4);
     table->setRowCount(0);
 
+
   //set dimensioni tabella
     table->setMinimumWidth(200);
     table->setColumnWidth(0,50);

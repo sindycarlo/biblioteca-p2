@@ -78,7 +78,7 @@ void utenteWindow::modifica_campo_rivista_prestito(int ID){
 
 void utenteWindow::ricevi_segnale_libri(){
     utente* u=get_modelutenti()->trova_utente(Getidutente());
-    if(!u->checklimite())
+    if(!u->checklimite() && model->trova_opera(rivista_selezionata)->disponibile())
     {
         QMessageBox warning;
             warning.setIcon(QMessageBox::Question);
@@ -110,7 +110,7 @@ unsigned int utenteWindow::Getidutente() const {return idutente;}
 void utenteWindow::ricevi_segnale_riviste(){
 
     utente* u=get_modelutenti()->trova_utente(Getidutente());
-
+    opera* op=get_model()->trova_opera(rivista_selezionata);
     if(!u->checklimite())
     {
         QMessageBox warning;
@@ -121,13 +121,23 @@ void utenteWindow::ricevi_segnale_riviste(){
             warning.setDefaultButton(QMessageBox::Cancel);
             warning.exec();
     }
-   else {
+   else if(op->disponibile()==false) {
+
+        QMessageBox warning;
+            warning.setIcon(QMessageBox::Question);
+            warning.setWindowTitle("Errore");
+            warning.setText("La rivista che hai selezionato ha più di 20 anni");
+            warning.setStandardButtons(QMessageBox::Cancel);
+            warning.setDefaultButton(QMessageBox::Cancel);
+            warning.exec();
+    }
+    else{
         QString identificativo;
         identificativo.setNum(rivista_selezionata);
         QMessageBox warning;
             warning.setIcon(QMessageBox::Question);
             warning.setWindowTitle("Ricevi Rivista");
-            warning.setText("Hai selezionato il libro con ID: <b>"+identificativo+"</b>");
+            warning.setText("Hai selezionato la rivista con ID: <b>"+identificativo+"</b>");
             warning.setInformativeText("Vuoi veramente ricevere in prestito questa opera?");
             warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
             warning.setDefaultButton(QMessageBox::Cancel);
