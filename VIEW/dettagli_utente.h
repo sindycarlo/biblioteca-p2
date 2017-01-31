@@ -31,6 +31,7 @@ signals:
 
 public slots:
     void slot_submit();
+    void esci();
 
 private:
 
@@ -43,6 +44,7 @@ private:
     QLabel* tuser;           //tipo utente basic o pro
 
     QPushButton* submit;
+    QPushButton* exit;
     QLineEdit* nome;
     QLineEdit* cognome;
     QLineEdit* identificativo;

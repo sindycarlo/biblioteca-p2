@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>1</max>
+    <max>3</max>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>focusdd</Titolo>
+        <Titolo>wdwd</Titolo>
+        <Id>3</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2004</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>auguri</Titolo>
         <Id>1</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <AnnoUscita>2009</AnnoUscita>
+        <AnnoUscita>2006</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>jhsiuh</Titolo>
+        <Id>2</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>bhduehwef</Autore>
     </opera>
 </database>

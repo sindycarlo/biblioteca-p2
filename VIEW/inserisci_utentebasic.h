@@ -27,10 +27,12 @@ signals:
 
 public slots:
     void slot_submit();
+    void chiudi();
 
 private:
 
     QPushButton* submit;
+    QPushButton* exit;
 
     QLabel* n;              //nome
     QLabel* co;              //cognome

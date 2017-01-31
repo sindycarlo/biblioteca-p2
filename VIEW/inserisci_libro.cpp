@@ -2,6 +2,7 @@
 
 inserisci_Libro::inserisci_Libro(QWidget *parent) : QWidget(parent){
     submit=new QPushButton("CONFERMA");
+    exit= new QPushButton("ESCI");
 
     t=new QLabel("TITOLO:");
     a=new QLabel("AUTORE");
@@ -15,6 +16,7 @@ inserisci_Libro::inserisci_Libro(QWidget *parent) : QWidget(parent){
     build_Layout();
     centra_finestra();
     connect(submit,SIGNAL(clicked()),this,SLOT(slot_submit()));
+    connect(exit,SIGNAL(clicked()),this,SLOT(chiudi()));
 }
 
 
@@ -25,6 +27,7 @@ void inserisci_Libro::build_Layout(){
 
     layout->addLayout(grid);
     layout->addWidget(submit);
+    layout->addWidget(exit);
 
     setLayout(layout);
 }
@@ -61,6 +64,11 @@ void inserisci_Libro::pulisci_Campi(){
     autore->clear();
 }
 
+void inserisci_Libro::chiudi() {
+
+    emit  chiudi_aggiungi_Libro();
+}
+
 void inserisci_Libro::centra_finestra(){
        int width = frameGeometry().width();
        int height = frameGeometry().height();
@@ -85,6 +93,7 @@ inserisci_Libro::~inserisci_Libro(){
      delete layout;
 
      delete submit;
+     delete exit;
 
      delete t;
      delete a;

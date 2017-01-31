@@ -2,6 +2,7 @@
 
 inserisci_utentebasic::inserisci_utentebasic(QWidget *parent) : QWidget(parent){
     submit=new QPushButton("CONFERMA");
+    exit=new QPushButton("ESCI");
 
     n=new QLabel("NOME:");
     co=new QLabel("COGNOME:");
@@ -22,6 +23,7 @@ inserisci_utentebasic::inserisci_utentebasic(QWidget *parent) : QWidget(parent){
     build_Layout();
     centra_finestra();
     connect(submit,SIGNAL(clicked()),this,SLOT(slot_submit()));
+    connect(exit,SIGNAL(clicked()),this,SLOT(chiudi()));
 }
 
 
@@ -34,6 +36,7 @@ void inserisci_utentebasic::build_Layout(){
     grid->addWidget(Numop,4,0); grid->addWidget(Numeropere,4,1);
     layout->addLayout(grid);
     layout->addWidget(submit);
+    layout->addWidget(exit);
 
     setLayout(layout);
 }
@@ -101,6 +104,10 @@ void inserisci_utentebasic::centra_finestra(){
        move(x,y);
 }
 
+void inserisci_utentebasic::chiudi() {
+    emit chiudi_aggiungi_utentebasic();
+}
+
 void inserisci_utentebasic::closeEvent(QCloseEvent*event){
     emit chiudi_aggiungi_utentebasic();
 }
@@ -110,6 +117,7 @@ inserisci_utentebasic::~inserisci_utentebasic(){
      delete layout;
 
      delete submit;
+    delete exit;
 
      delete n;
      delete co;

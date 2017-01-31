@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseutenti>
-    <max>1</max>
+    <max>3</max>
+    <utente>
+        <Tipoutente>2</Tipoutente>
+        <Nome>h</Nome>
+        <Cognome>h</Cognome>
+        <CodiceFiscale>h</CodiceFiscale>
+        <Idutente>3</Idutente>
+        <Password>h</Password>
+        <NumeroOpere>0</NumeroOpere>
+    </utente>
     <utente>
         <Tipoutente>1</Tipoutente>
-        <Nome>f</Nome>
-        <Cognome>f</Cognome>
-        <CodiceFiscale>f</CodiceFiscale>
+        <Nome>g</Nome>
+        <Cognome>g</Cognome>
+        <CodiceFiscale>g</CodiceFiscale>
+        <Idutente>2</Idutente>
+        <Password>g</Password>
+        <NumeroOpere>0</NumeroOpere>
+    </utente>
+    <utente>
+        <Tipoutente>1</Tipoutente>
+        <Nome>eded</Nome>
+        <Cognome>h</Cognome>
+        <CodiceFiscale>h</CodiceFiscale>
         <Idutente>1</Idutente>
-        <Password>f</Password>
+        <Password>h</Password>
         <NumeroOpere>0</NumeroOpere>
     </utente>
 </databaseutenti>

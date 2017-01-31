@@ -6,6 +6,7 @@ dettagli_utente::dettagli_utente(int ID, database* db,database_utente* udb,datab
     setWindowTitle("Dettagli utente");
     //set lable
        submit=new QPushButton("CONFERMA");
+       exit=new QPushButton("ESCI");
        n=new QLabel("NOME:");
        c=new QLabel("COGNOME:");
        id=new QLabel("ID:");
@@ -45,12 +46,14 @@ dettagli_utente::dettagli_utente(int ID, database* db,database_utente* udb,datab
         grid->addWidget(tipoutente,7,1);
         layout->addLayout(grid);
         layout->addWidget(submit);
+        layout->addWidget(exit);
         setLayout(layout);
 
         abilita_modifica();
         set_style();
         costruisci_contenuto();
         connect(submit,SIGNAL(clicked()),this,SLOT(slot_submit()));
+        connect(exit,SIGNAL(clicked()),this,SLOT(esci()));
 
 }
 
@@ -120,6 +123,10 @@ void dettagli_utente::slot_submit(){
 
 }
 
+void dettagli_utente::esci() {
+    emit chiudi_dettagli_utente();
+}
+
 
 
 void dettagli_utente::aggiorna_vista(){
@@ -153,6 +160,7 @@ dettagli_utente::~dettagli_utente(){
     delete layout;
     delete tuser;
     delete submit;
+    delete exit;
 
     delete n;
     delete c;

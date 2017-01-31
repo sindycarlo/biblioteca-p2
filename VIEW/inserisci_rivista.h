@@ -27,6 +27,7 @@ signals:
 
 public slots:
     void slot_submit();
+    void chiudi();
 private:
 
     QPushButton* submit;
@@ -36,6 +37,7 @@ private:
 
     QLineEdit* titolo;
     QLineEdit* anno;
+    QPushButton* exit;
 
     QVBoxLayout* layout;
     QGridLayout* grid;

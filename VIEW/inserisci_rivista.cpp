@@ -3,6 +3,7 @@
 inserisci_Rivista::inserisci_Rivista(QWidget *parent) : QWidget(parent){
 
     submit=new QPushButton("CONFERMA");
+    exit= new QPushButton("ESCI");
 
     t=new QLabel("TITOLO:");
     a=new QLabel("ANNO DI USCITA");
@@ -16,6 +17,7 @@ inserisci_Rivista::inserisci_Rivista(QWidget *parent) : QWidget(parent){
     build_Layout();
     centra_finestra();
     connect(submit,SIGNAL(clicked()),this,SLOT(slot_submit()));
+    connect(exit,SIGNAL(clicked()),this,SLOT(chiudi()));
 }
 
 
@@ -26,6 +28,7 @@ void inserisci_Rivista::build_Layout(){
 
     layout->addLayout(grid);
     layout->addWidget(submit);
+    layout->addWidget(exit);
 
     setLayout(layout);
 }
@@ -87,10 +90,16 @@ void inserisci_Rivista::centra_finestra(){
        move(x,y);
 }
 
+void inserisci_Rivista::chiudi() {
+    emit chiudi_aggiungi_rivista();
+}
+
 inserisci_Rivista::~inserisci_Rivista(){
 
     delete grid;
     delete layout;
+    delete submit;
+    delete exit;
 
     delete t;
     delete a;
