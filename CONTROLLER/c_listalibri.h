@@ -26,5 +26,5 @@ private:
     listalibri* view;
 
 };
-
 #endif // C_LISTALIBRI_H
+

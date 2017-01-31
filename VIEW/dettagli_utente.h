@@ -22,8 +22,8 @@ public:
     virtual void costruisci_contenuto();
     void disabilita_modifica();
     void abilita_modifica();
-    void closeEvent();
-    virtual ~dettagli_utente();
+    void closeEvent(QCloseEvent*);
+    ~dettagli_utente();
 
 signals:
     void modifica_utente(QString,QString,int);

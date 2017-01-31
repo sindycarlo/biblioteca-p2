@@ -9,10 +9,10 @@ C_listautenti::C_listautenti(database *db, database_utente* udb, database_utente
 
 void C_listautenti::visualizza_info_utenti(int id){
 
-
+        view->disabilita_doppio_click_utenti();
         dett_utente=new dettagli_utente(id,model,modelutenti,modelutenteopere);
         connect(dett_utente,SIGNAL(chiudi_dettagli_utente()),this,SLOT(chiudi_dettagli_utente()));
-            connect(dett_utente,SIGNAL(modifica_utente(QString,QString,int)),this,SLOT(modifica_utente(QString,QString,int)));
+        connect(dett_utente,SIGNAL(modifica_utente(QString,QString,int)),this,SLOT(modifica_utente(QString,QString,int)));
         dett_utente->show();
 
 

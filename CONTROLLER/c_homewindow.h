@@ -16,7 +16,6 @@ public:
 private slots:
     void accedi_admin();
     void accedi_utente(QString,QString);
-    void chiudi_homewindow();
 
 
 private:

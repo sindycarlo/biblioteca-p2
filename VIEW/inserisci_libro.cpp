@@ -76,7 +76,7 @@ void inserisci_Libro::centra_finestra(){
        move(x,y);
 }
 
-void inserisci_Libro::closeEvent(){
+void inserisci_Libro::closeEvent(QCloseEvent* event){
     emit chiudi_aggiungi_Libro();
 }
 

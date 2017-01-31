@@ -17,7 +17,7 @@ class inserisci_Libro : public QWidget
     Q_OBJECT
 public:
     explicit inserisci_Libro(QWidget *parent = 0);
-    void closeEvent();
+    void closeEvent(QCloseEvent*);
     ~inserisci_Libro();
 
 signals:

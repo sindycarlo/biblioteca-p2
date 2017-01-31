@@ -44,14 +44,14 @@ SOURCES += main.cpp \
     CONTROLLER/c_homewindow.cpp \
     CONTROLLER/c_utentewindow.cpp \
     VIEW/utentewindow.cpp \
-    CONTROLLER/c_listalibri.cpp \
-    CONTROLLER/c_listariviste.cpp \
     VIEW/listalibri.cpp \
     VIEW/listariviste.cpp \
     VIEW/dettagli_opera.cpp \
     VIEW/dettagli_libro.cpp \
     VIEW/dettagli_rivista.cpp \
-    VIEW/dettagli_utente.cpp
+    VIEW/dettagli_utente.cpp \
+    CONTROLLER/c_listalibri.cpp \
+    CONTROLLER/c_listariviste.cpp
 
 HEADERS  += \
     MODEL/opera.h \
@@ -84,14 +84,14 @@ HEADERS  += \
     CONTROLLER/c_homewindow.h \
     CONTROLLER/c_utentewindow.h \
     VIEW/utentewindow.h \
-    CONTROLLER/c_listalibri.h \
-    CONTROLLER/c_listariviste.h \
     VIEW/listalibri.h \
     VIEW/listariviste.h \
     VIEW/dettagli_opera.h \
     VIEW/dettagli_libro.h \
     VIEW/dettagli_rivista.h \
-    VIEW/dettagli_utente.h
+    VIEW/dettagli_utente.h \
+    CONTROLLER/c_listalibri.h \
+    CONTROLLER/c_listariviste.h
 
 FORMS    += biblioteca.ui
 

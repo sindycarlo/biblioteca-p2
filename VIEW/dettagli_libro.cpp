@@ -13,10 +13,12 @@ dettagli_Libro::dettagli_Libro(int Id, database* db,database_utente*udb,database
     get_grid()->addWidget(a,1,0);
     get_grid()->addWidget(autore,1,1);
 
+    setLayout(get_grid());
     abilita_modifica();
     set_style();
     costruisci_contenuto();
     connect(get_submit(),SIGNAL(clicked()),this,SLOT(slot_submit()));
+
 }
 
 void dettagli_Libro::costruisci_contenuto(){
@@ -49,6 +51,7 @@ void dettagli_Libro::slot_submit(){
             emit modifica(Gettitolo()->text(),autore->text(),get_ID());
             }
             }
+
 }
 
 void dettagli_Libro::set_style(){

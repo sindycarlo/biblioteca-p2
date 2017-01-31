@@ -5,6 +5,7 @@ dettagli_opera::dettagli_opera(int ID, database* db,database_utente* udb,databas
     registra();
     //set lable
        submit=new QPushButton("CONFERMA");
+       exit=new QPushButton("ESCI");
        t=new QLabel("TITOLO:");
        p=new QLabel("PRESTITO:");
        i=new QLabel("ID:");
@@ -31,8 +32,10 @@ dettagli_opera::dettagli_opera(int ID, database* db,database_utente* udb,databas
         grid->addWidget(consultabile,4,1);
         layout->addLayout(grid);
         layout->addWidget(submit);
+        layout->addWidget(exit);
         setLayout(layout);
 
+        connect(exit,SIGNAL(clicked()),this,SLOT(esci()));
 }
 
 void dettagli_opera::set_style(){
@@ -88,10 +91,12 @@ void dettagli_opera::aggiorna_vista(){
     consultabile->setText(info_Op.is_consultabile());
 }
 
+void dettagli_opera::esci() {
+    emit chiudi_dettagli_opera();
+}
 
 
-
-void dettagli_opera::closeEvent(){
+void dettagli_opera::closeEvent(QCloseEvent*event){
     emit chiudi_dettagli_opera();
 }
 
@@ -103,6 +108,7 @@ dettagli_opera::~dettagli_opera(){
     delete grid;
     delete layout;
     delete submit;
+    delete exit;
 
     delete t;                  //titolo
     delete p;                  //prestito

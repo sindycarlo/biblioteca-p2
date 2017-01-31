@@ -6,6 +6,7 @@ C_listalibri::C_listalibri(database* db,database_utente* udb, database_utente_op
 
 void C_listalibri::visualizza_info_libro(int id){
 
+    view->disabilita_doppio_click();
     dettagliolibro=new dettagli_Libro(id,model,modelutenti,modelutenteopere);
     connect(dettagliolibro,SIGNAL(chiudi_dettagli_opera()),this,SLOT(chiudi_dettagli_libro()));
     connect(dettagliolibro,SIGNAL(modifica(QString,QString,int)),this,SLOT(modificaL(QString,QString,int)));
@@ -29,3 +30,5 @@ void C_listalibri::modificaL(QString t, QString a, int id) {
     }
     view->aggiorna_vista();
 }
+
+

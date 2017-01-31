@@ -9,6 +9,7 @@
 #include <QLineEdit>
 #include <QGridLayout>
 #include <QDateTime>
+#include <QApplication>
 
 #include"../MODEL/database.h"
 #include "widget_padre.h"
@@ -18,14 +19,15 @@ class dettagli_opera : public Widget_Padre{
     Q_OBJECT
 
 public:
-    void closeEvent();
+    void closeEvent(QCloseEvent*);
     virtual ~dettagli_opera();
 
 signals:
     void modifica(QString,QString,int);
     void chiudi_dettagli_opera();
 
-
+public slots:
+    void esci();
 
 protected:
     explicit dettagli_opera(int, database*,database_utente*,database_utente_opere*);
@@ -45,6 +47,7 @@ private:
     QLabel* c;                  //disponibilità
 
     QPushButton* submit;
+    QPushButton* exit;
     QLineEdit* titolo;
     QLineEdit* prestito;
     QLineEdit* identificativo;

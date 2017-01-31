@@ -31,7 +31,7 @@ public:
     virtual void aggiorna_vista();
     virtual void costruisci_contenuto();
     virtual void set_style();
-    void closeEvent();
+    void closeEvent(QCloseEvent*);
     ~mainWindow();
 signals:
     void chiudi_app();

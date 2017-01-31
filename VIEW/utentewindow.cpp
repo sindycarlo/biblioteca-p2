@@ -241,7 +241,7 @@ void utenteWindow::chiudi() {
 }
 
 
-void utenteWindow::closeEvent(){finestraprinc->abilita_pulsanti_home();emit chiudi_app(); }
+void utenteWindow::closeEvent(QCloseEvent*event){finestraprinc->abilita_pulsanti_home();emit chiudi_app(); }
 
 
 utenteWindow::~utenteWindow(){

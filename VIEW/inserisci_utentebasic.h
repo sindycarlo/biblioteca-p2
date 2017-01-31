@@ -18,7 +18,7 @@ class inserisci_utentebasic : public QWidget
     Q_OBJECT
 public:
     explicit inserisci_utentebasic(QWidget *parent = 0);
-    void closeEvent();
+    void closeEvent(QCloseEvent*);
     ~inserisci_utentebasic();
 
 signals:

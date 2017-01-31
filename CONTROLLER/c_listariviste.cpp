@@ -8,6 +8,7 @@ C_listariviste::C_listariviste(database* db,database_utente*udb,database_utente_
 
 void C_listariviste::visualizza_info_rivista(int id){
 
+    view->disabilita_doppio_click();
     dettagliorivista=new dettagli_Rivista(id,model,modelutenti,modelutenteopere);
     connect(dettagliorivista,SIGNAL(chiudi_dettagli_opera()),this,SLOT(chiudi_dettaglio_rivista()));
     connect(dettagliorivista,SIGNAL(modifica(QString,QString,int)),this,SLOT(modificaR(QString,QString,int)));

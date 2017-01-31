@@ -188,7 +188,7 @@ void mainWindow::chiudi() {
     emit chiudi_app();
 }
 
-void mainWindow::closeEvent(){finestraprinc->abilita_pulsanti_home(); emit chiudi_app(); }
+void mainWindow::closeEvent(QCloseEvent*event){finestraprinc->abilita_pulsanti_home(); emit chiudi_app(); }
 
 
 mainWindow::~mainWindow(){

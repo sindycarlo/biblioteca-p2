@@ -32,7 +32,7 @@ public:
     virtual void costruisci_contenuto();
     unsigned int Getidutente() const;
     virtual void set_style();
-    void closeEvent();
+    void closeEvent(QCloseEvent*);
     ~utenteWindow();
 signals:
     void chiudi_app();

@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>8</max>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Se questo è un uomo</Titolo>
-        <Id>2</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Primo levi</Autore>
-    </opera>
+    <max>1</max>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>Airone</Titolo>
-        <Id>5</Id>
+        <Titolo>focusdd</Titolo>
+        <Id>1</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <AnnoUscita>2004</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Airone</Titolo>
-        <Id>6</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>1985</AnnoUscita>
+        <AnnoUscita>2009</AnnoUscita>
     </opera>
 </database>

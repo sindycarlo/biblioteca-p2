@@ -12,9 +12,10 @@ dettagli_Rivista::dettagli_Rivista(int Id, database* db,database_utente*udb,data
     get_grid()->addWidget(anno,1,1);
 
     abilita_modifica();
-    set_style();
     costruisci_contenuto();
+    set_style();
     connect(get_submit(),SIGNAL(clicked()),this,SLOT(slot_submit()));
+
 
 }
 
@@ -62,6 +63,7 @@ void dettagli_Rivista::slot_submit(){
                 emit modifica(Gettitolo()->text(),anno->text(),get_ID());
             }
           }
+
 }
 
 

@@ -25,12 +25,13 @@ void listariviste::aggiorna_vista(){
                     if(r)
                     {
                         Getable()->setRowCount(row+1);
+                        info_opera rivista=r->info_tot();
                         id=(r)->GetId();
                         i.setNum(id);
                         trovata=true;
                         QTableWidgetItem *ID = new QTableWidgetItem(i);
-                        QTableWidgetItem *valore = new QTableWidgetItem((r)->GetTitolo());
-                        QTableWidgetItem *annouscita = new QTableWidgetItem(r->GetAnnouscita());
+                        QTableWidgetItem *valore = new QTableWidgetItem(rivista.get_titolo());
+                        QTableWidgetItem *annouscita = new QTableWidgetItem(rivista.get_dettaglio());
                         QTableWidgetItem *tipo = new QTableWidgetItem((r)->Get_tipo());
 
                         Getable()->setItem(row,0,ID);
@@ -68,14 +69,14 @@ void listariviste::aggiorna_vista_prestito_riviste(){
                  if(r && (*it)->Getappartenenza()==Getidutente())
                 {
                     Getable()->setRowCount(row+1);
-                    info_opera op=(*it)->info_tot();
+                    info_opera rivista=r->info_tot();
                     id=(*it)->GetId();
                     i.setNum(id);
                     trovato=true;
                     QTableWidgetItem *ID = new QTableWidgetItem(i);
-                    QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
-                    QTableWidgetItem *annouscita = new QTableWidgetItem(op.get_dettaglio());
-                    QTableWidgetItem *tipo = new QTableWidgetItem((*it)->Get_tipo());
+                    QTableWidgetItem *valore = new QTableWidgetItem(rivista.get_titolo());
+                    QTableWidgetItem *annouscita = new QTableWidgetItem(rivista.get_dettaglio());
+                    QTableWidgetItem *tipo = new QTableWidgetItem(r->Get_tipo());
 
                     Getable()->setItem(row,0,ID);
                     Getable()->setItem(row,1,valore);

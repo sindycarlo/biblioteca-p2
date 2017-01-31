@@ -1,31 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseutenti>
-    <max>4</max>
+    <max>1</max>
     <utente>
         <Tipoutente>1</Tipoutente>
-        <Nome>carlo</Nome>
-        <Cognome>sindico</Cognome>
-        <CodiceFiscale>SNDCRLGH35GFDN56</CodiceFiscale>
+        <Nome>f</Nome>
+        <Cognome>f</Cognome>
+        <CodiceFiscale>f</CodiceFiscale>
         <Idutente>1</Idutente>
-        <Password>csindico</Password>
-        <NumeroOpere>2</NumeroOpere>
-    </utente>
-    <utente>
-        <Tipoutente>2</Tipoutente>
-        <Nome>francesco</Nome>
-        <Cognome>sindico</Cognome>
-        <CodiceFiscale>SNDFSGHRT3546LJSJ</CodiceFiscale>
-        <Idutente>2</Idutente>
-        <Password>fsindico</Password>
-        <NumeroOpere>0</NumeroOpere>
-    </utente>
-    <utente>
-        <Tipoutente>1</Tipoutente>
-        <Nome>saverio</Nome>
-        <Cognome>follador</Cognome>
-        <CodiceFiscale>SFVCGDFF3547JHSF</CodiceFiscale>
-        <Idutente>3</Idutente>
-        <Password>sfollador</Password>
+        <Password>f</Password>
         <NumeroOpere>0</NumeroOpere>
     </utente>
 </databaseutenti>

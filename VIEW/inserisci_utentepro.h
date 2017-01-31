@@ -16,7 +16,7 @@ class inserisci_utentepro : public QWidget
     Q_OBJECT
 public:
     explicit inserisci_utentepro(QWidget *parent = 0);
-    void closeEvent();
+    void closeEvent(QCloseEvent*);
     ~inserisci_utentepro();
 
 signals:

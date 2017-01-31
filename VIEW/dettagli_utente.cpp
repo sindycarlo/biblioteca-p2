@@ -140,7 +140,7 @@ void dettagli_utente::abilita_modifica(){
 
 
 
-void dettagli_utente::closeEvent(){
+void dettagli_utente::closeEvent(QCloseEvent*event){
     emit chiudi_dettagli_utente();
 }
 
