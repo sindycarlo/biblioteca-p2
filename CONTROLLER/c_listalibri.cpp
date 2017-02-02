@@ -1,6 +1,6 @@
 #include "c_listalibri.h"
 
-C_listalibri::C_listalibri(database* db,database_utente* udb, database_utente_opere* uodb, listalibri* v,QObject *parent) : model(db),modelutenti(udb),modelutenteopere(uodb), view(v), QObject(parent) {
+C_listalibri::C_listalibri(database* db,database_utente* udb, database_utente_opere* uodb, listalibri* v,QObject *parent) :  QObject(parent),model(db),modelutenti(udb),modelutenteopere(uodb), view(v) {
     connect(view,SIGNAL(richiesta_info(int)),this,SLOT(visualizza_info_libro(int)));
 }
 

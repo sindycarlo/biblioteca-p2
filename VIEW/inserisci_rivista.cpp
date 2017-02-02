@@ -108,6 +108,6 @@ inserisci_Rivista::~inserisci_Rivista(){
     delete anno;
 }
 
-void inserisci_Rivista::closeEvent(QCloseEvent* event){ emit chiudi_aggiungi_rivista(); }
+void inserisci_Rivista::closeEvent(QCloseEvent*){ emit chiudi_aggiungi_rivista(); }
 
 

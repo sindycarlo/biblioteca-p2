@@ -1,7 +1,7 @@
 #include "utentewindow.h"
 #include<QApplication>
 #include<QToolTip>
-utenteWindow::utenteWindow(unsigned int id,database* db,database_utente* udb,database_utente_opere*uodb,homewindow* hw) : idutente(id), Widget_Padre(db,udb,uodb), finestraprinc(hw) {
+utenteWindow::utenteWindow(unsigned int id,database* db,database_utente* udb,database_utente_opere*uodb,homewindow* hw) : Widget_Padre(db,udb,uodb),idutente(id),finestraprinc(hw) {
 
     tablibri=new listalibri(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco dei libri
     controllerLB=new C_listalibri(get_model(),get_modelutenti(),get_modelutenteopere(),tablibri,0);
@@ -55,24 +55,31 @@ void utenteWindow::modifica_campo_libro(int ID){
     libro_selezionato=ID;
     abilita_bottoni_libri();
     disabilita_bottoni_riviste();
+    disabilita_bottoni_riviste_prestito();
+    disabilita_bottoni_libri_prestito();
 
 }
 void utenteWindow::modifica_campo_rivista(int ID){
     rivista_selezionata=ID;
     abilita_bottoni_riviste();
     disabilita_bottoni_libri();
+    disabilita_bottoni_riviste_prestito();
+    disabilita_bottoni_libri_prestito();
+
 
 }
 void utenteWindow::modifica_campo_libro_prestito(int ID){
     libro_selezionato=ID;
     abilita_bottoni_libri_prestito();
-    disabilita_bottoni_riviste_prestito();
+    disabilita_bottoni_riviste();
+
 
 }
 void utenteWindow::modifica_campo_rivista_prestito(int ID){
     rivista_selezionata=ID;
     abilita_bottoni_riviste_prestito();
-    disabilita_bottoni_libri_prestito();
+    disabilita_bottoni_libri();
+
 
 }
 
@@ -251,7 +258,7 @@ void utenteWindow::chiudi() {
 }
 
 
-void utenteWindow::closeEvent(QCloseEvent*event){finestraprinc->abilita_pulsanti_home();emit chiudi_app(); }
+void utenteWindow::closeEvent(QCloseEvent*){finestraprinc->abilita_pulsanti_home();emit chiudi_app(); }
 
 
 utenteWindow::~utenteWindow(){

@@ -1,6 +1,6 @@
 #include "dettagli_libro.h"
 #include <QPalette>
-dettagli_Libro::dettagli_Libro(int Id, database* db,database_utente*udb,database_utente_opere*uodb) : dettagli_opera(Id,db,udb,uodb)
+dettagli_Libro::dettagli_Libro(int Id, database* db, database_utente*udb, database_utente_opere*uodb) : dettagli_opera(Id,db,udb,uodb)
 {
 
     setWindowTitle("Dettagli del libro");

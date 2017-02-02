@@ -1,9 +1,9 @@
 #include "c_add_utentepro.h"
 
-c_add_utentepro::c_add_utentepro(database_utente* udb,inserisci_utentepro* up ,mainWindow* mv, QObject *parent):model(udb),
+c_add_utentepro::c_add_utentepro(database_utente* udb,inserisci_utentepro* up ,mainWindow* mv, QObject *parent):QObject(parent),model(udb),
                                                                                            view(up),
-                                                                                           mainW(mv),
-                                                                                           QObject(parent)
+                                                                                           mainW(mv)
+
 {
     connect(view,SIGNAL(submitup(const info_utente&)),this,SLOT(add_utentepro(const info_utente&)));
     connect(view,SIGNAL(chiudi_aggiungi_utentepro()),this,SLOT(chiudi_add_utentepro()));

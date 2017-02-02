@@ -32,7 +32,6 @@ public:
 
     bool vuoto() const;                                 //ritorna true <=> contenitore è vuoto altrimenti ritorna false
     void remove_opera(const int);                       //elimina una opera
-    contenitore<opera> trova_opere_insieme(const QString&) const;
     opera* trova_opera(unsigned int) const;
     void add_Rivista(const info_opera&);                             //aggiunge una rivista
     void add_Libro(const info_opera&);                               //aggiunge una libro

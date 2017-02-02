@@ -1,6 +1,6 @@
 #include "c_listariviste.h"
 
-C_listariviste::C_listariviste(database* db,database_utente*udb,database_utente_opere* uodb, listariviste* v,QObject *parent) : model(db),modelutenti(udb),modelutenteopere(uodb), view(v), QObject(parent) {
+C_listariviste::C_listariviste(database* db,database_utente*udb,database_utente_opere* uodb, listariviste* v,QObject *parent) : QObject(parent),model(db),modelutenti(udb),modelutenteopere(uodb), view(v) {
     connect(view,SIGNAL(richiesta_info(int)),this,SLOT(visualizza_info_rivista(int)));
 
 }

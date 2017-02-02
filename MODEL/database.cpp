@@ -161,17 +161,6 @@ void database::add_Rivista(const info_opera & c1) {
     db.add_item(p);
 }
 
-contenitore<opera> database::trova_opere_insieme(const QString &t) const {
-    contenitore<opera> container;
-    for(contenitore<opera>::iteratore it=db.begin();it!=db.end();it++)
-    {
-        if(db[it]->ricerca_campi(t)){container.add_item(db[it]);}
-    }
-    return container;
-}
-
-
-
 
 info_opera database::get_infoOpera(int ID) const{
     opera* op=trova_opera(ID);

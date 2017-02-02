@@ -33,15 +33,6 @@ if(disponibile())
 {opera::Presta_opera();}
 }
 
-bool rivista::ricerca_campi(const QString & text) const {
-if(opera::ricerca_campi(text))return true;
-else{
-  unsigned int anniu=text.toInt();
-  if(anniu==annouscita) return true;
-  }
-return false;
-}
-
 info_opera rivista::info_tot() const {
 QString disp="disponibile", id, anno="1900", pres="si";
 if(!disponibile()) disp="non disponibile";

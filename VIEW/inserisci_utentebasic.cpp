@@ -108,7 +108,7 @@ void inserisci_utentebasic::chiudi() {
     emit chiudi_aggiungi_utentebasic();
 }
 
-void inserisci_utentebasic::closeEvent(QCloseEvent*event){
+void inserisci_utentebasic::closeEvent(QCloseEvent*){
     emit chiudi_aggiungi_utentebasic();
 }
 

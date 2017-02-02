@@ -1,6 +1,6 @@
 #include "CONTROLLER/c_homewindow.h"
 
-c_homewindow::c_homewindow(database * db, database_utente * udb, database_utente_opere* uodb, homewindow* v, QObject *parent) :model(db), modelutenti(udb), modelutenteopere(uodb),view(v),  QObject(parent) {
+c_homewindow::c_homewindow(database * db, database_utente * udb, database_utente_opere* uodb, homewindow* v, QObject *parent) :  QObject(parent) ,model(db), modelutenti(udb), modelutenteopere(uodb),view(v){
     connect(view,SIGNAL(show_accedi()),this,SLOT(accedi_admin()));
     connect(view,SIGNAL(show_accediutente(QString,QString)),this,SLOT(accedi_utente(QString,QString)));
     //chiudi

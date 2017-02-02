@@ -53,11 +53,11 @@ private slots:
     void modifica_campo_rivista_prestito(int);
     void chiudi();
 private:
-    homewindow* finestraprinc;
+     unsigned int idutente;
 
-    unsigned int idutente;
     database* model;
     database_utente_opere* modelutenteopere;
+    homewindow* finestraprinc;
     listalibri* tablibri;
     C_listalibri* controllerLB;
     listariviste* tabriviste;

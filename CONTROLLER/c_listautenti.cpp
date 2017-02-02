@@ -1,6 +1,6 @@
 #include "c_listautenti.h"
 
-C_listautenti::C_listautenti(database *db, database_utente* udb, database_utente_opere *uodb, listautenti* lu, QObject *parent) :model(db), modelutenti(udb),modelutenteopere(uodb), view(lu), QObject(parent) {
+C_listautenti::C_listautenti(database *db, database_utente* udb, database_utente_opere *uodb, listautenti* lu, QObject *parent) : QObject(parent),model(db), modelutenti(udb),modelutenteopere(uodb), view(lu){
     connect(view,SIGNAL(richiesta_info_utenti(int)),this,SLOT(visualizza_info_utenti(int)));
 
 

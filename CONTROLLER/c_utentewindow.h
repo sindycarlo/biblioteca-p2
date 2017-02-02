@@ -25,7 +25,7 @@ private:
     unsigned int idutente;
     database* model;
     database_utente* modelutenti;
-    database_utente_opere*modelutenteopere;
+    database_utente_opere* modelutenteopere;
     utenteWindow* view;
 };
 

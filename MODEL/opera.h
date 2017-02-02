@@ -29,11 +29,8 @@ public:
     void Setappartenenza(const int);
     unsigned int Getappartenenza() const;
 
-    virtual opera* getObject() = 0;
-
     virtual ~opera();
     void Riscatta();                    //opera non è più in prestito quindi viene messa nella biblioteca
-    virtual bool ricerca_campi(const QString&) const; //ricerco un nome di opera(stringa) nel titolo o nel id
     virtual void Write_opera(QXmlStreamWriter&) const =0; //scrivo l'opera del database
     virtual QString Get_tipo() const =0;   //ritorna il tipo di quell'opera
     virtual void Presta_opera();         //presta un opera ossia mette lo stato a false;

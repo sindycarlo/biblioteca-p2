@@ -39,7 +39,6 @@ public:
     unsigned int Getmaxid() const;
     unsigned int Getnumeroopere() const;
     unsigned int& setnumeroopere();
-    bool ricerca_campi(const QString&) const;
 
     void SetID(unsigned int);
     void Setnome(QString);

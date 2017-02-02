@@ -1,6 +1,6 @@
 #include "dettagli_utente.h"
 
-dettagli_utente::dettagli_utente(int ID, database* db,database_utente* udb,database_utente_opere* uodb) : idutente(ID) , Widget_Padre(db,udb,uodb)
+dettagli_utente::dettagli_utente(int ID, database* db,database_utente* udb,database_utente_opere* uodb) :Widget_Padre(db,udb,uodb),idutente(ID)
 {
     registra_utente();
     setWindowTitle("Dettagli utente");
@@ -148,7 +148,7 @@ void dettagli_utente::abilita_modifica(){
 
 
 
-void dettagli_utente::closeEvent(QCloseEvent*event){
+void dettagli_utente::closeEvent(QCloseEvent*){
     emit chiudi_dettagli_utente();
 }
 

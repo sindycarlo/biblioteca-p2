@@ -42,13 +42,6 @@ bool opera::presente() const {
     else return false;
 }
 
-bool opera::ricerca_campi(const QString& text) const {
-unsigned int ID=text.toInt();
-if(!(QString::compare(text,GetTitolo(),Qt::CaseInsensitive))) return true;
-if(ID==GetId()) return true;
-return false;
-}
-
 bool opera::disponibile() const {
     if(presente()) return true;
     else return true;

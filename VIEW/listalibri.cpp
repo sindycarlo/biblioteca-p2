@@ -1,6 +1,6 @@
 #include"listalibri.h"
 
-listalibri::listalibri(unsigned int id,database* db,database_utente* udb,database_utente_opere* uodb): idutente(id), listaOp(db,udb,uodb){
+listalibri::listalibri(unsigned int id,database* db,database_utente* udb,database_utente_opere* uodb):  listaOp(db,udb,uodb),idutente(id){
     costruisci_contenuto();
 }
 

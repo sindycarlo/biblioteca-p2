@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QLineEdit>
+#include <QLabel>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QMessageBox>
@@ -39,19 +40,27 @@ private slots:
 private:
 
 
+
     QPushButton* accedicomeadmin;
     QPushButton* accedicomeutente;
     QPushButton* exit;
 
+    QLabel* au;
+    QLabel* ap;
+
     QLineEdit* adminuser;
     QLineEdit* adminpassword;
+
+    QLabel*nu;
+    QLabel*np;
 
     QLineEdit* nameuser;
     QLineEdit* password;
 
 
-    QHBoxLayout* orizzontale;
-    QVBoxLayout* Prlayout, *bottoni;
+    QGridLayout* gridadmin;
+    QGridLayout* gridutente;
+    QVBoxLayout* layout;
 
 
     void creaLayout();

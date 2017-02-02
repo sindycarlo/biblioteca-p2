@@ -1,6 +1,6 @@
 #include "widget_padre.h"
 
-Widget_Padre::Widget_Padre(database* db,database_utente* udb,database_utente_opere*uodb,QWidget *parent) :model(db),modelutenti(udb),modelutenteopere(uodb), QWidget(parent){}
+Widget_Padre::Widget_Padre(database* db,database_utente* udb,database_utente_opere*uodb,QWidget *parent) : QWidget(parent),model(db),modelutenti(udb),modelutenteopere(uodb){}
 
 
 Widget_Padre::~Widget_Padre(){}

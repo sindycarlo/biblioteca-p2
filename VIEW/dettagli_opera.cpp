@@ -1,6 +1,6 @@
 #include "dettagli_opera.h"
 
-dettagli_opera::dettagli_opera(int ID, database* db,database_utente* udb,database_utente_opere* uodb) : id(ID) , Widget_Padre(db,udb,uodb)
+dettagli_opera::dettagli_opera(int ID, database* db,database_utente* udb,database_utente_opere* uodb) :  Widget_Padre(db,udb,uodb),id(ID)
 {
     registra();
     //set lable
@@ -96,7 +96,7 @@ void dettagli_opera::esci() {
 }
 
 
-void dettagli_opera::closeEvent(QCloseEvent*event){
+void dettagli_opera::closeEvent(QCloseEvent*){
     emit chiudi_dettagli_opera();
 }
 

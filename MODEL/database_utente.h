@@ -33,7 +33,6 @@ public:
     bool vuoto() const;                                 //ritorna true <=> contenitore è vuoto altrimenti ritorna false
     void remove_utente(const int);                       //elimina un utente
     utente* trova_utente(unsigned int) const;
-    contenitore<utente> trova_utenti_insieme(const QString&) const;
     void add_utentepro(const info_utente&);                             //aggiunge un utente_pro
     void add_utentebasic(const info_utente&);                               //aggiunge un utente basic
     database* GetDatabase() const;

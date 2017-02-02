@@ -1,9 +1,9 @@
 #include "c_add_rivista.h"
 #include<QApplication>
-c_add_rivista::c_add_rivista(database* db,inserisci_Rivista* v ,mainWindow* mv, QObject *parent):model(db),
+c_add_rivista::c_add_rivista(database* db,inserisci_Rivista* v ,mainWindow* mv, QObject *parent):QObject(parent),model(db),
                                                                                                  view(v),
-                                                                                                 mainW(mv),
-                                                                                                 QObject(parent)
+                                                                                                 mainW(mv)
+
 {
     connect(view,SIGNAL(submitR(const info_opera&)),this,SLOT(add(const info_opera&)));
     connect(view,SIGNAL(chiudi_aggiungi_rivista()),this,SLOT(chiudi_add_rivista()));

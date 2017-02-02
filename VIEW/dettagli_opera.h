@@ -1,4 +1,4 @@
-#ifndef DETTAGLI_OPERA_H
+ #ifndef DETTAGLI_OPERA_H
 #define DETTAGLI_OPERA_H
 
 

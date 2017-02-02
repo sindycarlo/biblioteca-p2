@@ -47,14 +47,4 @@ database_utente_opere* utente::GetdbOpereUtente() const {return opereUtente;}
 
 
 
-bool utente::ricerca_campi(const QString& text) const {
-unsigned int ID=text.toInt();
-if(!(QString::compare(text,GetNome(),Qt::CaseInsensitive))) return true;
-if(!(QString::compare(text,GetCognome(),Qt::CaseInsensitive))) return true;
-if(ID==GetID()) return true;
-return false;
-}
-
-
-
 

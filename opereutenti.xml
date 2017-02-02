@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>40</max>
+    <max>56</max>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Airone</Titolo>
+        <Id>44</Id>
+        <Appartenenza>4</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2004</AnnoUscita>
+    </opera>
     <opera>
         <Tipo>1</Tipo>
         <Titolo>La storia di facebook</Titolo>
@@ -42,11 +50,19 @@
         <AnnoUscita>2004</AnnoUscita>
     </opera>
     <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>29</Id>
+        <Tipo>1</Tipo>
+        <Titolo>Il sentiero dei nidi di ragno</Titolo>
+        <Id>46</Id>
         <Appartenenza>4</Appartenenza>
         <Stato>0</Stato>
-        <AnnoUscita>2005</AnnoUscita>
+        <Autore>Italo calvino</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>48</Id>
+        <Appartenenza>4</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2009</AnnoUscita>
     </opera>
 </database>

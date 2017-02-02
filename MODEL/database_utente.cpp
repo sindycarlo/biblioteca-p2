@@ -148,17 +148,6 @@ else std::cout<<"Errore utente non presente nel database";
 bool database_utente::vuoto() const {return dbutenti.empty();}
 
 
-contenitore<utente> database_utente::trova_utenti_insieme(const QString &u) const {
-
-    contenitore<utente> container;
-    for(contenitore<utente>::iteratore it=dbutenti.begin();it!=dbutenti.end();it++)
-    {
-        if(dbutenti[it]->ricerca_campi(u)) container.add_item(dbutenti[it]);
-    }
-    return container;
-}
-
-
 //aggiunge un utente basic al mio contenitore quindi al database:
 void database_utente::add_utentebasic(const info_utente& c) {
     unsigned int dettaglio=c.get_dettaglio().toInt();

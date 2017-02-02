@@ -3,27 +3,35 @@
 #include<QToolTip>
 homewindow::homewindow(database* db,database_utente* udb,database_utente_opere* uodb) : Widget_Padre(db,udb,uodb) {
 
+    //bottoni
+      exit=new QPushButton("ESCI");
+      accedicomeadmin=new QPushButton("ACCEDI COME AMMINISTRATORE");
+      accedicomeutente=new QPushButton("ACCEDI COME UTENTE");
 
-  //bottoni
-    exit=new QPushButton("ESCI");
-    accedicomeadmin=new QPushButton("ACCEDI COME AMMINISTRATORE");
-    accedicomeutente=new QPushButton("ACCEDI COME UTENTE");
+    //Label
+      au=new QLabel("username admin:");
+      ap=new QLabel("password admin:");
 
-  //layout
-    orizzontale=new QHBoxLayout();
-    Prlayout=new QVBoxLayout();
-    bottoni=new QVBoxLayout();
+      nu=new QLabel("username utente:");
+      np=new QLabel("password utente:");
+
+    //layout
+      gridadmin=new QGridLayout;
+      gridutente=new QGridLayout;
+      layout=new QVBoxLayout;
 
 
-    //campi dati richiesti ad amministratore
-      adminuser=new QLineEdit();
-      adminpassword=new QLineEdit();
-      adminpassword->setEchoMode(QLineEdit::Password);
 
-  //campi dati richiesti ad utente
-    nameuser=new QLineEdit();
-    password=new QLineEdit();
-    password->setEchoMode(QLineEdit::Password);
+      //campi dati richiesti ad amministratore
+        adminuser=new QLineEdit();
+        adminpassword=new QLineEdit();
+        adminpassword->setEchoMode(QLineEdit::Password);
+
+    //campi dati richiesti ad utente
+      nameuser=new QLineEdit();
+      password=new QLineEdit();
+      password->setEchoMode(QLineEdit::Password);
+
 
     costruisci_contenuto();
     creaLayout();
@@ -104,17 +112,23 @@ void homewindow::slot_accediutente() {
 
 
 void homewindow::creaLayout(){
+    gridadmin->addWidget(au,0,0);
+    gridadmin->addWidget(adminuser,0,1);
+    gridadmin->addWidget(ap,2,0);
+    gridadmin->addWidget(adminpassword,2,1);
+    layout->addLayout(gridadmin);
+    layout->addWidget(accedicomeadmin);
 
-    bottoni->addWidget(accedicomeadmin);
-    bottoni->addWidget(adminuser);
-    bottoni->addWidget(adminpassword);
-    bottoni->addWidget(accedicomeutente);
-    bottoni->addWidget(nameuser);
-    bottoni->addWidget(password);
-    orizzontale->addLayout(bottoni);
-    Prlayout->addLayout(orizzontale);
-    Prlayout->addWidget(exit);
-    setLayout(Prlayout);
+
+    gridutente->addWidget(nu,0,0);
+    gridutente->addWidget(nameuser,0,1);
+    gridutente->addWidget(np,2,0);
+    gridutente->addWidget(password,2,1);
+    layout->addLayout(gridutente);
+    layout->addWidget(accedicomeutente);
+
+    layout->addWidget(exit);
+    setLayout(layout);
 
 }
 
@@ -132,12 +146,10 @@ void homewindow::disabilita_pulsanti_home() {
 
 
 
-void homewindow::closeEvent(QCloseEvent* event){ emit chiudi_app(); }
+void homewindow::closeEvent(QCloseEvent*){ emit chiudi_app(); }
 
 homewindow::~homewindow(){
-    delete bottoni;
-    delete orizzontale;
-    delete Prlayout;
+
     delete accedicomeadmin;
     delete exit;
     delete accedicomeutente;

@@ -13,12 +13,6 @@ QString libro::Getautore() const {return autore;}
 
 void libro::SetAutore(QString a) {autore=a;}
 
-bool libro::ricerca_campi(const QString & x) const {
-   if(opera::ricerca_campi(x)) return true;
-   else if((QString::compare(x,autore,Qt::CaseInsensitive))) return true;
-   else return false;
-}
-
  QString libro::Get_tipo() const {
     return "libro";
 }
