@@ -7,9 +7,9 @@ mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*u
     tablibri=new listalibri(0,get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco delle opere
     tabriviste=new listariviste(0,get_model(),get_modelutenti(),get_modelutenteopere());
     tabutenti=new listautenti(get_model(),get_modelutenti(),get_modelutenteopere());
-    controllerLP=new C_listalibri(get_model(),get_modelutenti(),get_modelutenteopere(),tablibri);
-    controllerRP=new C_listariviste(get_model(),get_modelutenti(),get_modelutenteopere(),tabriviste);
-    controllerUTENTI=new C_listautenti(get_model(),get_modelutenti(),get_modelutenteopere(),tabutenti);
+    controllerLP=new C_listalibri(get_model(),get_modelutenti(),get_modelutenteopere(),tablibri,this);
+    controllerRP=new C_listariviste(get_model(),get_modelutenti(),get_modelutenteopere(),tabriviste,this);
+    controllerUTENTI=new C_listautenti(get_model(),get_modelutenti(),get_modelutenteopere(),tabutenti,this);
   //bottoni
     exit=new QPushButton("ESCI");
     aggiungi_rivista=new QPushButton("AGGIUNGI RIVISTA");
@@ -51,6 +51,41 @@ void mainWindow::set_style(){
 
 void mainWindow::costruisci_contenuto(){
      aggiorna_vista();
+}
+
+void mainWindow::disabilita_view() {
+
+
+    tablibri->disabilita_doppio_click();
+    tabriviste->disabilita_doppio_click();
+    tablibri->disabilita_click_singolo();
+    tabriviste->disabilita_click_singolo();
+    tabutenti->disabilita_doppio_click_utenti();
+    tabutenti->disabilita_click_singolo_utenti();
+    rimuovi_opera->setEnabled(false);
+    rimuovi_utenti->setEnabled(false);
+    aggiungi_libro->setEnabled(false);
+    aggiungi_rivista->setEnabled(false);
+    aggiungi_utente_basic->setEnabled(false);
+    aggiungi_utente_pro->setEnabled(false);
+    exit->setEnabled(false);
+}
+void mainWindow::abilita_view() {
+
+
+    tablibri->abilita_doppio_click();
+    tabriviste->abilita_doppio_click();
+    tabriviste->abilita_click_singolo();
+    tablibri->abilita_click_singolo();
+    tabutenti->abilita_doppio_click_utenti();
+    tabutenti->abilita_click_singolo_utenti();
+    rimuovi_opera->setEnabled(true);
+    rimuovi_utenti->setEnabled(true);
+    aggiungi_libro->setEnabled(true);
+    aggiungi_rivista->setEnabled(true);
+    aggiungi_utente_basic->setEnabled(true);
+    aggiungi_utente_pro->setEnabled(true);
+    exit->setEnabled(true);
 }
 
 void mainWindow::creaLayout(){

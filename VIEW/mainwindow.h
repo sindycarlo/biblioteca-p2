@@ -30,6 +30,8 @@ public:
     explicit mainWindow(database*,database_utente*,database_utente_opere*,homewindow*);
     virtual void aggiorna_vista();
     virtual void costruisci_contenuto();
+    void disabilita_view();
+    void abilita_view();
     virtual void set_style();
     void closeEvent(QCloseEvent*);
     ~mainWindow();

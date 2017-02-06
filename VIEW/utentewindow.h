@@ -80,7 +80,7 @@ private:
     QPushButton* exit;
 
     QHBoxLayout* orizzontale;
-    QVBoxLayout* Prlayout, *bottoni,*verticale;
+    QVBoxLayout* Prlayout, *bottoni;
 
     void creaLayout();
     void abilita_bottoni_libri();

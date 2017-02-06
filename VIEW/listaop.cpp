@@ -59,6 +59,16 @@ void listaOp::click_singolo(int r){
     emit selezione(select_opera);
 }
 
+void listaOp::disabilita_click_singolo() {
+    disconnect(table,SIGNAL(cellClicked(int,int)),this,SLOT(click_singolo(int)));
+    emit disabilita_funzioni();
+}
+
+void listaOp::abilita_click_singolo() {
+    connect(table,SIGNAL(cellClicked(int,int)),this,SLOT(click_singolo(int)));
+    emit abilita_funzioni();
+}
+
 
 int listaOp::Getopera() const{
     return select_opera;

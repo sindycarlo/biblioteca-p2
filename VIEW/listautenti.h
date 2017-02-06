@@ -22,6 +22,8 @@ public:
     void build_Nuova(const contenitore<utente>&);         //costruisce la tabella partendo da un contenitore passato ad essa
     void abilita_doppio_click_utenti();
     void disabilita_doppio_click_utenti();
+    void abilita_click_singolo_utenti();
+    void disabilita_click_singolo_utenti();
     ~listautenti();
 signals:
    void richiesta_info_utenti(const int);

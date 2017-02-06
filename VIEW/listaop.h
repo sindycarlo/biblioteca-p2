@@ -24,6 +24,8 @@ public:
     QVBoxLayout* Getlayout_table()const;
     void abilita_doppio_click();
     void disabilita_doppio_click();
+    void abilita_click_singolo();
+    void disabilita_click_singolo();
     virtual ~listaOp();
 signals:
    void richiesta_info(int);

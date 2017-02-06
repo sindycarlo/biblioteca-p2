@@ -112,7 +112,6 @@ void listautenti::doppio_click_utenti(int r){
 }
 
 void listautenti::click_singolo_utenti(int r){
-    disabilita_funzioni_utenti();
     select_utente=table->item(r,0)->text().toInt();
     emit selezione_utenti(select_utente);
 }
@@ -129,6 +128,16 @@ void listautenti::abilita_doppio_click_utenti(){
 
 void listautenti::disabilita_doppio_click_utenti(){
     disconnect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click_utenti(int)));
+    emit disabilita_funzioni_utenti();
+}
+
+void listautenti::abilita_click_singolo_utenti(){
+    connect(table,SIGNAL(cellClicked(int,int)),this,SLOT(click_singolo_utenti(int)));
+    emit abilita_funzioni_utenti();
+}
+
+void listautenti::disabilita_click_singolo_utenti(){
+    disconnect(table,SIGNAL(cellClicked(int,int)),this,SLOT(click_singolo_utenti(int)));
     emit disabilita_funzioni_utenti();
 }
 

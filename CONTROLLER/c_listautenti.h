@@ -7,13 +7,13 @@
 #include "../VIEW/listautenti.h"
 #include "../VIEW/dettagli_utente.h"
 
-
+class mainWindow;
 
 class C_listautenti : public QObject
 {
     Q_OBJECT
 public:
-    explicit C_listautenti(database*,database_utente*,database_utente_opere*, listautenti*, QObject *parent = 0);
+    explicit C_listautenti(database*,database_utente*,database_utente_opere*, listautenti*,mainWindow*, QObject *parent = 0);
 
 public slots:
     void visualizza_info_utenti(int);
@@ -27,6 +27,7 @@ private:
     database_utente_opere* modelutenteopere;
     listautenti* view;
     dettagli_utente* dett_utente;
+    mainWindow* mainview;
 
 };
 

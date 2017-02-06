@@ -6,12 +6,13 @@
 #include "../VIEW/dettagli_rivista.h"
 #include "../VIEW/listariviste.h"
 
+class mainWindow;
 
 class C_listariviste : public QObject
 {
     Q_OBJECT
 public:
-    explicit C_listariviste(database*,database_utente*,database_utente_opere*, listariviste*, QObject *parent = 0);
+    explicit C_listariviste(database*,database_utente*,database_utente_opere*, listariviste*,mainWindow*, QObject *parent = 0);
 
 public slots:
     void visualizza_info_rivista(int);
@@ -24,6 +25,7 @@ private:
     database_utente_opere* modelutenteopere;
     dettagli_Rivista* dettagliorivista;
     listariviste* view;
+    mainWindow* mainview;
 
 };
 

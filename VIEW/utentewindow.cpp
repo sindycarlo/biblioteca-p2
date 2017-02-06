@@ -8,9 +8,9 @@ utenteWindow::utenteWindow(unsigned int id,database* db,database_utente* udb,dat
     tabriviste=new listariviste(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco deli libri
     controllerRB=new C_listariviste(get_model(),get_modelutenti(),get_modelutenteopere(),tabriviste,0);
     tablibriprestito=new listalibri(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco dei libri
-    controllerLBprestito=new C_listalibri(get_model(),get_modelutenti(),get_modelutenteopere(),tablibriprestito);
+    controllerLBprestito=new C_listalibri(get_model(),get_modelutenti(),get_modelutenteopere(),tablibriprestito,0);
     tabrivisteprestito=new listariviste(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco deli libri
-    controllerRBprestito=new C_listariviste(get_model(),get_modelutenti(),get_modelutenteopere(),tabrivisteprestito);
+    controllerRBprestito=new C_listariviste(get_model(),get_modelutenti(),get_modelutenteopere(),tabrivisteprestito,0);
     exit=new QPushButton("ESCI");
     ricevi_libro=new QPushButton("RICEVI LIBRO");
     ricevi_rivista=new QPushButton("RICEVI RIVISTA");

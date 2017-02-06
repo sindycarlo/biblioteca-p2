@@ -56,12 +56,12 @@ void homewindow::aggiorna_vista() {
     adminpassword->clear();
 }
 void homewindow::slot_accedi() {
-    if(adminuser->text().isEmpty() || adminpassword->text().isEmpty())
+    if(adminuser->text().isEmpty() || adminpassword->text().isEmpty() || adminuser->text()!="admin" || adminpassword->text()!="admin")
     {
             QMessageBox warning;
             warning.setIcon(QMessageBox::Critical);
             warning.setWindowTitle("Impossibile inviare richiesta");
-            warning.setText("E' necessario compilare tutti i campi.");
+            warning.setText("E' necessario compilare tutti i campi correttamente.");
             warning.setStandardButtons(QMessageBox::Ok);
             warning.setDefaultButton(QMessageBox::Ok);
             warning.exec();
@@ -77,7 +77,7 @@ void homewindow::slot_accediutente() {
             QMessageBox warning;
             warning.setIcon(QMessageBox::Critical);
             warning.setWindowTitle("Impossibile inviare richiesta");
-            warning.setText("E' necessario compilare tutti i campi.");
+            warning.setText("E' necessario compilare tutti i campi correttamente.");
             warning.setStandardButtons(QMessageBox::Ok);
             warning.setDefaultButton(QMessageBox::Ok);
             warning.exec();
