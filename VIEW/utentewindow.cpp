@@ -85,7 +85,7 @@ void utenteWindow::modifica_campo_rivista_prestito(int ID){
 
 void utenteWindow::ricevi_segnale_libri(){
     utente* u=get_modelutenti()->trova_utente(Getidutente());
-    if(!u->checklimite() && model->trova_opera(rivista_selezionata)->disponibile())
+    if(!u->checklimite())
     {
         QMessageBox warning;
             warning.setIcon(QMessageBox::Question);

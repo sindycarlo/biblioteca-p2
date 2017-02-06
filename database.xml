@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>56</max>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>56</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>1999</AnnoUscita>
-    </opera>
+    <max>59</max>
     <opera>
         <Tipo>1</Tipo>
         <Titolo>Se questo è un uomo</Titolo>
@@ -16,14 +8,6 @@
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
         <Autore>Primo levi</Autore>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il libro della giungla</Titolo>
-        <Id>54</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Moogly</Autore>
     </opera>
     <opera>
         <Tipo>1</Tipo>
@@ -48,5 +32,13 @@
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
         <AnnoUscita>1976</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il barone rampante</Titolo>
+        <Id>58</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Italo calvino</Autore>
     </opera>
 </database>

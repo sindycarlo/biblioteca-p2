@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseutenti>
-    <max>7</max>
+    <max>8</max>
     <utente>
         <Tipoutente>1</Tipoutente>
         <Nome>alessio</Nome>
@@ -27,5 +27,14 @@
         <Idutente>7</Idutente>
         <Password>fsindico</Password>
         <NumeroOpere>3</NumeroOpere>
+    </utente>
+    <utente>
+        <Tipoutente>2</Tipoutente>
+        <Nome>gianni</Nome>
+        <Cognome>barbin</Cognome>
+        <CodiceFiscale>GBDGEH468JDHFG39KK</CodiceFiscale>
+        <Idutente>8</Idutente>
+        <Password>gbarbin</Password>
+        <NumeroOpere>1</NumeroOpere>
     </utente>
 </databaseutenti>

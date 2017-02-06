@@ -97,8 +97,6 @@ void listariviste::aggiorna_vista_prestito_riviste(){
             }
 }
 
-
-
 rivista* listariviste::visualizzaopera(opera *op) const {
     return dynamic_cast<rivista*>(op);
 }

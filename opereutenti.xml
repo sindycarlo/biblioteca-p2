@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>56</max>
+    <max>59</max>
     <opera>
         <Tipo>2</Tipo>
         <Titolo>Airone</Titolo>
@@ -34,14 +34,6 @@
         <AnnoUscita>2003</AnnoUscita>
     </opera>
     <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il barone rampante</Titolo>
-        <Id>13</Id>
-        <Appartenenza>4</Appartenenza>
-        <Stato>0</Stato>
-        <Autore>Italo calvino</Autore>
-    </opera>
-    <opera>
         <Tipo>2</Tipo>
         <Titolo>Airone</Titolo>
         <Id>28</Id>
@@ -64,5 +56,21 @@
         <Appartenenza>4</Appartenenza>
         <Stato>0</Stato>
         <AnnoUscita>2009</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>57</Id>
+        <Appartenenza>8</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>1999</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il libro della giungla</Titolo>
+        <Id>59</Id>
+        <Appartenenza>4</Appartenenza>
+        <Stato>0</Stato>
+        <Autore>Moogly</Autore>
     </opera>
 </database>
