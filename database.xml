@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>71</max>
+    <max>75</max>
     <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>71</Id>
+        <Tipo>1</Tipo>
+        <Titolo>Il barone rampante</Titolo>
+        <Id>75</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <AnnoUscita>2003</AnnoUscita>
+        <Autore>Italo calvino</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Se questo è un uomo</Titolo>
+        <Id>74</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Primo levi</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>La storia di facebook</Titolo>
+        <Id>66</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Mark zuckerberg</Autore>
     </opera>
     <opera>
         <Tipo>2</Tipo>
@@ -18,27 +34,11 @@
         <AnnoUscita>1984</AnnoUscita>
     </opera>
     <opera>
-        <Tipo>1</Tipo>
-        <Titolo>1984</Titolo>
-        <Id>63</Id>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>71</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <Autore>George orwell</Autore>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il barone rampante</Titolo>
-        <Id>64</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Italo calvino</Autore>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>La storia di facebook</Titolo>
-        <Id>66</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <Autore>Mark zuckerberg</Autore>
+        <AnnoUscita>2003</AnnoUscita>
     </opera>
 </database>
