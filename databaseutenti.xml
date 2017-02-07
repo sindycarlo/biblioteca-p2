@@ -2,22 +2,13 @@
 <databaseutenti>
     <max>8</max>
     <utente>
-        <Tipoutente>2</Tipoutente>
-        <Nome>gianni</Nome>
-        <Cognome>barbin</Cognome>
-        <CodiceFiscale>GBDGEH468JDHFG39KK</CodiceFiscale>
-        <Idutente>8</Idutente>
-        <Password>gbarbin</Password>
-        <NumeroOpere>1</NumeroOpere>
-    </utente>
-    <utente>
         <Tipoutente>1</Tipoutente>
-        <Nome>francesco</Nome>
-        <Cognome>sindico</Cognome>
-        <CodiceFiscale>FSCBDGHEKRU478FGHS</CodiceFiscale>
-        <Idutente>7</Idutente>
-        <Password>fsindico</Password>
-        <NumeroOpere>3</NumeroOpere>
+        <Nome>alessio</Nome>
+        <Cognome>barbui</Cognome>
+        <CodiceFiscale>ABSGDTEUJ6728DGBZ</CodiceFiscale>
+        <Idutente>6</Idutente>
+        <Password>abarbui</Password>
+        <NumeroOpere>0</NumeroOpere>
     </utente>
     <utente>
         <Tipoutente>1</Tipoutente>
@@ -30,11 +21,20 @@
     </utente>
     <utente>
         <Tipoutente>1</Tipoutente>
-        <Nome>alessio</Nome>
-        <Cognome>barbui</Cognome>
-        <CodiceFiscale>ABSGDTEUJ6728DGBZ</CodiceFiscale>
-        <Idutente>6</Idutente>
-        <Password>abarbui</Password>
-        <NumeroOpere>0</NumeroOpere>
+        <Nome>francesco</Nome>
+        <Cognome>sindico</Cognome>
+        <CodiceFiscale>FSCBDGHEKRU478FGHS</CodiceFiscale>
+        <Idutente>7</Idutente>
+        <Password>fsindico</Password>
+        <NumeroOpere>3</NumeroOpere>
+    </utente>
+    <utente>
+        <Tipoutente>2</Tipoutente>
+        <Nome>gianni</Nome>
+        <Cognome>barbin</Cognome>
+        <CodiceFiscale>GBDGEH468JDHFG39KK</CodiceFiscale>
+        <Idutente>8</Idutente>
+        <Password>gbarbin</Password>
+        <NumeroOpere>1</NumeroOpere>
     </utente>
 </databaseutenti>

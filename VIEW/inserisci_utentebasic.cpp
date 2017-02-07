@@ -1,6 +1,8 @@
 #include "inserisci_utentebasic.h"
 
 inserisci_utentebasic::inserisci_utentebasic(QWidget *parent) : QWidget(parent){
+
+
     submit=new QPushButton("CONFERMA");
     exit=new QPushButton("ESCI");
 

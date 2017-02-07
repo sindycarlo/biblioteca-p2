@@ -5,6 +5,7 @@ c_add_rivista::c_add_rivista(database* db,inserisci_Rivista* v ,mainWindow* mv, 
                                                                                                  mainW(mv)
 
 {
+    mainW->disabilita_view();
     connect(view,SIGNAL(submitR(const info_opera&)),this,SLOT(add(const info_opera&)));
     connect(view,SIGNAL(chiudi_aggiungi_rivista()),this,SLOT(chiudi_add_rivista()));
 }
@@ -15,6 +16,6 @@ void c_add_rivista::add(const info_opera& op){
     mainW->aggiorna_vista();
 }
 
-void c_add_rivista::chiudi_add_rivista(){ delete view; }
+void c_add_rivista::chiudi_add_rivista(){mainW->abilita_view(); delete view; }
 
 

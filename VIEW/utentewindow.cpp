@@ -3,6 +3,8 @@
 #include<QToolTip>
 utenteWindow::utenteWindow(unsigned int id,database* db,database_utente* udb,database_utente_opere*uodb,homewindow* hw) : Widget_Padre(db,udb,uodb),idutente(id),finestraprinc(hw) {
 
+    setWindowFlags ( Qt::CustomizeWindowHint | Qt::WindowTitleHint);
+
     tablibri=new listalibri(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco dei libri
     controllerLB=new C_listalibri(get_model(),get_modelutenti(),get_modelutenteopere(),tablibri,0);
     tabriviste=new listariviste(Getidutente(),get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco deli libri

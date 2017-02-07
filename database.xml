@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>69</max>
+    <max>71</max>
     <opera>
-        <Tipo>1</Tipo>
-        <Titolo>La storia di facebook</Titolo>
-        <Id>66</Id>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>71</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <Autore>Mark zuckerberg</Autore>
+        <AnnoUscita>2003</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Airone</Titolo>
+        <Id>26</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>1984</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>1984</Titolo>
+        <Id>63</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>George orwell</Autore>
     </opera>
     <opera>
         <Tipo>1</Tipo>
@@ -19,26 +35,10 @@
     </opera>
     <opera>
         <Tipo>1</Tipo>
-        <Titolo>1984</Titolo>
-        <Id>63</Id>
+        <Titolo>La storia di facebook</Titolo>
+        <Id>66</Id>
         <Appartenenza>-1</Appartenenza>
         <Stato>1</Stato>
-        <Autore>George orwell</Autore>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>27</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>1976</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Airone</Titolo>
-        <Id>26</Id>
-        <Appartenenza>-1</Appartenenza>
-        <Stato>1</Stato>
-        <AnnoUscita>1984</AnnoUscita>
+        <Autore>Mark zuckerberg</Autore>
     </opera>
 </database>

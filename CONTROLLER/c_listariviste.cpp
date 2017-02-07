@@ -21,6 +21,7 @@ void C_listariviste::visualizza_info_rivista(int id){
 
 
 void C_listariviste::chiudi_dettaglio_rivista(){
+
     mainview->abilita_view();
     view->abilita_doppio_click();
     delete dettagliorivista;

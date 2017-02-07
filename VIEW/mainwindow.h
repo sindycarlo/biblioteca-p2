@@ -6,6 +6,7 @@
 #include <QLineEdit>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QCloseEvent>
 #include <QLabel>
 #include <QMessageBox>
 #include<QDesktopWidget>

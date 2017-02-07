@@ -3,6 +3,7 @@
 #include<QToolTip>
 mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*uodb,homewindow* hw) : Widget_Padre(db,udb,uodb),finestraprinc(hw) {
 
+    setWindowFlags ( Qt::CustomizeWindowHint | Qt::WindowTitleHint);
 
     tablibri=new listalibri(0,get_model(),get_modelutenti(),get_modelutenteopere());   //tabella con l'elenco delle opere
     tabriviste=new listariviste(0,get_model(),get_modelutenti(),get_modelutenteopere());
@@ -54,8 +55,6 @@ void mainWindow::costruisci_contenuto(){
 }
 
 void mainWindow::disabilita_view() {
-
-
     tablibri->disabilita_doppio_click();
     tabriviste->disabilita_doppio_click();
     tablibri->disabilita_click_singolo();
@@ -71,8 +70,6 @@ void mainWindow::disabilita_view() {
     exit->setEnabled(false);
 }
 void mainWindow::abilita_view() {
-
-
     tablibri->abilita_doppio_click();
     tabriviste->abilita_doppio_click();
     tabriviste->abilita_click_singolo();
@@ -89,7 +86,6 @@ void mainWindow::abilita_view() {
 }
 
 void mainWindow::creaLayout(){
-
     bottoni->addWidget(aggiungi_libro);
     bottoni->addWidget(aggiungi_rivista);
     bottoni->addWidget(rimuovi_opera);
