@@ -19,6 +19,7 @@ class listariviste : public listaOp
 public:
     explicit listariviste(unsigned int,database*,database_utente*,database_utente_opere*);
     void aggiorna_vista();
+    void ricerca(const QString);
     void aggiorna_vista_prestito_riviste();
     void costruisci_contenuto();
     unsigned int Getidutente() const;

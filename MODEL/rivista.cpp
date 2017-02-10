@@ -75,4 +75,3 @@ void rivista::Write_opera(QXmlStreamWriter &XmlWriter) const {
 
 QString rivista::Get_tipo() const {return "rivista";}
 
-

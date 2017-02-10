@@ -36,8 +36,6 @@ public:
     virtual void Presta_opera();         //presta un opera ossia mette lo stato a false;
     virtual info_opera info_tot() const =0; // metodo che mi restituisce un oggetto di tipo info_opera che mi da tutte le informazioni sull'opera
     virtual bool disponibile() const;     //verifica se l'opera è disponibile al prestito secondo certe condizioni che vengono scelte dai sottotipi.
-
-
 };
 
 

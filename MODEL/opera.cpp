@@ -46,4 +46,3 @@ bool opera::disponibile() const {
     if(presente()) return true;
     else return true;
 }
-

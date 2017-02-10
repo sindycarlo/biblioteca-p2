@@ -19,6 +19,7 @@ class listalibri : public listaOp
 public:
     explicit listalibri(unsigned int,database*,database_utente*,database_utente_opere*);
     void aggiorna_vista();
+    void ricerca(const QString);
     void aggiorna_vista_prestito_libri();
     void costruisci_contenuto();
     unsigned int Getidutente() const;

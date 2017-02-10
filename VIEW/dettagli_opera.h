@@ -57,8 +57,6 @@ private:
     QGridLayout* grid;
     QVBoxLayout*layout;
 
-    void registra() const;
-    void elimina_registrazione() const;
 
 public:
     QLineEdit* Gettitolo() const;

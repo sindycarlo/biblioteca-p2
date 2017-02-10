@@ -52,4 +52,3 @@ return  info_opera(GetTitolo(),disp,id,Getautore(),pres);
     XmlWriter.writeEndElement();
 }
 
-

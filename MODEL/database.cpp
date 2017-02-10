@@ -173,6 +173,7 @@ info_opera database::get_infoOpera(int ID) const{
 }
 
 
+
 void database::aggiorna_view() const{
     std::vector<Widget_Padre*>::const_iterator it=registro.begin();
     std::vector<Widget_Padre*>::const_iterator it_e=registro.end();

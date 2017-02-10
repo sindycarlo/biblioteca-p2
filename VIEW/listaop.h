@@ -23,6 +23,7 @@ public:
     QTableWidget* Getable() const;
     QVBoxLayout* Getlayout_table()const;
     void abilita_doppio_click();
+
     void disabilita_doppio_click();
     void abilita_click_singolo();
     void disabilita_click_singolo();

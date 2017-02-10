@@ -173,33 +173,6 @@ info_utente database_utente::get_infoUtente(int ID) const{
 }
 
 
-void database_utente::aggiorna_view() const{
-    std::vector<Widget_Padre*>::const_iterator it=registro.begin();
-    std::vector<Widget_Padre*>::const_iterator it_e=registro.end();
-    for(; it<it_e; ++it) (*it)->aggiorna_vista();
-}
-
-
-void database_utente::add_registro_utente(Widget_Padre* wp){
-    registro.push_back(wp);
-}
-
-
-void database_utente::remove_registro_utente(Widget_Padre* wp){
-    std::vector<Widget_Padre*>::iterator it=registro.begin();
-    std::vector<Widget_Padre*>::iterator it_e=registro.end();
-    bool trovato=false;
-    for(; it<it_e && !trovato; ++it)
-    {
-        if((*it)==wp){
-            trovato=true;
-            registro.erase(it);
-        }
-    }
-}
-
-
-
 
 database* database_utente::GetDatabase() const {return biblioteca;}
 

@@ -2,7 +2,6 @@
 
 dettagli_utente::dettagli_utente(int ID, database* db,database_utente* udb,database_utente_opere* uodb) :Widget_Padre(db,udb,uodb),idutente(ID)
 {
-    registra_utente();
     setWindowTitle("Dettagli utente");
     //set lable
        submit=new QPushButton("CONFERMA");
@@ -154,7 +153,7 @@ void dettagli_utente::closeEvent(QCloseEvent*){
 
 
 dettagli_utente::~dettagli_utente(){
-    elimina_registrazione_utente();
+
 
     delete paletteLine;
     delete grid;
@@ -178,7 +177,3 @@ dettagli_utente::~dettagli_utente(){
     delete Numopere;
     delete tipoutente;
 }
-
-void dettagli_utente::registra_utente() const{ get_modelutenti()->add_registro_utente(const_cast<dettagli_utente*> (this)); }
-
-void dettagli_utente::elimina_registrazione_utente() const { get_modelutenti()->remove_registro_utente(const_cast<dettagli_utente*> (this)); }

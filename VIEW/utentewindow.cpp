@@ -28,6 +28,13 @@ utenteWindow::utenteWindow(unsigned int id,database* db,database_utente* udb,dat
     Prlayout=new QVBoxLayout();
     bottoni=new QVBoxLayout();
 
+    r=new QLabel("Ricerca di un'opera: ");
+    ricerca=new QLineEdit();
+
+
+
+    gridu=new QGridLayout;
+
     costruisci_contenuto();
     creaLayout();
     set_style();
@@ -41,11 +48,13 @@ utenteWindow::utenteWindow(unsigned int id,database* db,database_utente* udb,dat
     connect(ricevi_rivista,SIGNAL(clicked()),this,SLOT(ricevi_segnale_riviste()));
     connect(restituisci_libro,SIGNAL(clicked()),this,SLOT(restituisci_segnale_libri()));
     connect(restituisci_rivista,SIGNAL(clicked()),this,SLOT(restituisci_segnale_riviste()));
+    connect(ricerca,SIGNAL(textEdited(QString)),this,SLOT(ricerca_opera(QString)));
     connect(exit,SIGNAL(clicked()),this,SLOT(chiudi()));
 }
 
 void utenteWindow::set_style(){
     Widget_Padre::set_style();
+    ricerca->setPlaceholderText("Ricerca per Titolo di un'opera");
 }
 
 void utenteWindow::costruisci_contenuto(){
@@ -84,6 +93,15 @@ void utenteWindow::modifica_campo_rivista_prestito(int ID){
 
 
 }
+
+void utenteWindow::ricerca_opera(QString text) {
+    disabilita_bottoni_libri();
+    disabilita_bottoni_riviste();
+    disabilita_bottoni_libri_prestito();
+    disabilita_bottoni_riviste_prestito();
+    tablibri->ricerca(text); tabriviste->ricerca(text);
+}
+
 
 void utenteWindow::ricevi_segnale_libri(){
     utente* u=get_modelutenti()->trova_utente(Getidutente());
@@ -208,6 +226,9 @@ void utenteWindow::creaLayout(){
     orizzontale->addWidget(tablibriprestito);
     orizzontale->addWidget(tabrivisteprestito);
 
+    gridu->addWidget(r,0,0);
+    gridu->addWidget(ricerca,1,0);
+    Prlayout->addLayout(gridu);
     Prlayout->addLayout(orizzontale);
     Prlayout->addWidget(exit);
     setLayout(Prlayout);
@@ -215,7 +236,19 @@ void utenteWindow::creaLayout(){
 }
 
 
-void utenteWindow::aggiorna_vista(){tabriviste->aggiorna_vista();tablibri->aggiorna_vista();tabrivisteprestito->aggiorna_vista_prestito_riviste();tablibriprestito->aggiorna_vista_prestito_libri();}
+void utenteWindow::aggiorna_vista(){
+
+    disabilita_bottoni_libri();
+    disabilita_bottoni_riviste();
+    disabilita_bottoni_libri_prestito();
+    disabilita_bottoni_riviste_prestito();
+    tabriviste->aggiorna_vista();
+    tablibri->aggiorna_vista();
+    tabrivisteprestito->aggiorna_vista_prestito_riviste();
+    tablibriprestito->aggiorna_vista_prestito_libri();
+
+
+}
 void utenteWindow::abilita_bottoni_libri(){
     ricevi_libro->setEnabled(true);
     restituisci_libro->setEnabled(false);
@@ -266,6 +299,7 @@ void utenteWindow::closeEvent(QCloseEvent*){finestraprinc->abilita_pulsanti_home
 utenteWindow::~utenteWindow(){
     delete bottoni;
     delete orizzontale;
+    delete gridu;
     delete Prlayout;
     delete tablibri;
     delete tabriviste;
@@ -276,6 +310,8 @@ utenteWindow::~utenteWindow(){
     delete controllerLBprestito;
     delete controllerRBprestito;
     delete ricevi_libro;
+    delete r;
+    delete ricerca;
     delete ricevi_rivista;
     delete restituisci_libro;
     delete restituisci_rivista;

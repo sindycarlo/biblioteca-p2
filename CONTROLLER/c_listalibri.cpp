@@ -7,7 +7,6 @@ C_listalibri::C_listalibri(database* db,database_utente* udb, database_utente_op
 
 void C_listalibri::visualizza_info_libro(int id){
 
-    view->setFocus();
     view->disabilita_doppio_click();
     mainview->disabilita_view();
     dettagliolibro=new dettagli_Libro(id,model,modelutenti,modelutenteopere);

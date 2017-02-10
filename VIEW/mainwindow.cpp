@@ -26,6 +26,13 @@ mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*u
     orizzontale=new QHBoxLayout();
     Prlayout=new QVBoxLayout();
     bottoni=new QVBoxLayout();
+    gridr=new QGridLayout;
+
+    r=new QLabel("Ricerca di un'opera: ");
+    ru=new QLabel("Ricerca di un utente: ");
+
+    ricerca=new QLineEdit();
+    ricercautente=new QLineEdit();
 
     costruisci_contenuto();   
     creaLayout();
@@ -40,6 +47,8 @@ mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*u
     connect(aggiungi_libro,SIGNAL(clicked()),this,SLOT(slot_inserisci_libro()));
     connect(aggiungi_utente_basic,SIGNAL(clicked()),this,SLOT(slot_inserisci_utentebasic()));
     connect(aggiungi_utente_pro,SIGNAL(clicked()),this,SLOT(slot_inserisci_utentepro()));
+    connect(ricerca,SIGNAL(textEdited(QString)),this,SLOT(ricerca_opera(QString)));
+    connect(ricercautente,SIGNAL(textEdited(QString)),this,SLOT(ricerca_utente(QString)));
     connect(exit,SIGNAL(clicked()),this,SLOT(chiudi()));
 }
 
@@ -47,12 +56,15 @@ void mainWindow::set_style(){
     Widget_Padre::set_style();
     tablibri->setToolTip("Doppio click per visualizzare i dettagli dell'opera");
     tabutenti->setToolTip("Doppio click per visualizzare i dettagli dell'utente");
-
+    ricerca->setPlaceholderText("Ricerca per Titolo di un'opera");
+    ricercautente->setPlaceholderText("Ricerca per Nome di un utente");
 }
 
 void mainWindow::costruisci_contenuto(){
      aggiorna_vista();
 }
+
+
 
 void mainWindow::disabilita_view() {
     tablibri->disabilita_doppio_click();
@@ -98,12 +110,18 @@ void mainWindow::creaLayout(){
     orizzontale->addWidget(tabutenti);
     orizzontale->addLayout(bottoni);
 
+    gridr->addWidget(r,0,0);
+    gridr->addWidget(ricerca,1,0);
+    gridr->addWidget(ru,2,0);
+    gridr->addWidget(ricercautente,3,0);
 
+    Prlayout->addLayout(gridr);
     Prlayout->addLayout(orizzontale);
     Prlayout->addWidget(exit);
     setLayout(Prlayout);
 
 }
+
 
 void mainWindow::modifica_campo(int ID){
     opera_selezionata=ID;
@@ -116,6 +134,16 @@ void mainWindow::modifica_campo_utenti(int ID){
     utente_selezionato=ID;
     abilita_bottoni_utenti();
     disabilita_bottoni();
+}
+
+void mainWindow::ricerca_opera(QString text) {
+    disabilita_bottoni_tutti();
+    tablibri->ricerca(text); tabriviste->ricerca(text);
+}
+
+void mainWindow::ricerca_utente(QString text) {
+    disabilita_bottoni_tutti();
+    tabutenti->ricerca(text);
 }
 
 
@@ -132,6 +160,7 @@ void mainWindow::rimuovi_segnale(){
         int ret = warning.exec();
         if(ret==QMessageBox::Yes) {
             emit rimuovi(opera_selezionata);
+            disabilita_bottoni_tutti();
         }
 }
 void mainWindow::rimuovi_segnale_utenti(){
@@ -167,6 +196,7 @@ void mainWindow::rimuovi_segnale_utenti(){
         int ret = warning.exec();
         if(ret==QMessageBox::Yes) {
             emit rimuovi_utente(utente_selezionato);
+            disabilita_bottoni_tutti();
         }
     }
 }
@@ -191,7 +221,13 @@ void mainWindow::disabilita(){
 }
 
 
-void mainWindow::aggiorna_vista(){tablibri->aggiorna_vista();tabriviste->aggiorna_vista();tabutenti->aggiorna_vista();}
+void mainWindow::aggiorna_vista(){
+    disabilita_bottoni_tutti();
+    tablibri->aggiorna_vista();
+    tabriviste->aggiorna_vista();
+    tabutenti->aggiorna_vista();
+
+}
 void mainWindow::abilita_bottoni(){
     rimuovi_opera->setEnabled(true);
 }
@@ -227,6 +263,7 @@ void mainWindow::closeEvent(QCloseEvent*){finestraprinc->abilita_pulsanti_home()
 mainWindow::~mainWindow(){
     delete bottoni;
     delete orizzontale;
+    delete gridr;
     delete Prlayout;
     delete rimuovi_opera;
     delete rimuovi_utenti;
@@ -240,6 +277,10 @@ mainWindow::~mainWindow(){
     delete aggiungi_rivista;
     delete aggiungi_utente_basic;
     delete aggiungi_utente_pro;
+    delete r;
+    delete ricerca;
+    delete ru;
+    delete ricercautente;
     delete exit;
 }
 

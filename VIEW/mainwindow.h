@@ -54,11 +54,19 @@ private slots:
     void slot_inserisci_utentepro();
     void modifica_campo(int);
     void modifica_campo_utenti(int);
+    void ricerca_opera(QString);
+    void ricerca_utente(QString);
     void disabilita();
     void chiudi();
 private:
 
     homewindow* finestraprinc;
+
+    QLabel* r;
+    QLabel* ru;
+    QLineEdit* ricerca;
+    QLineEdit* ricercautente;
+    QGridLayout* gridr;
 
     database* model;
     database_utente* modelutenti;
@@ -91,7 +99,6 @@ private:
     void abilita_bottoni_utenti();
     void disabilita_bottoni();
     void disabilita_bottoni_utenti();
-
     void disabilita_bottoni_tutti();
 };
 

@@ -19,7 +19,7 @@ public:
     explicit listautenti(database*,database_utente*,database_utente_opere*);
     void aggiorna_vista();
     void costruisci_contenuto();
-    void build_Nuova(const contenitore<utente>&);         //costruisce la tabella partendo da un contenitore passato ad essa
+    void ricerca(const QString);
     void abilita_doppio_click_utenti();
     void disabilita_doppio_click_utenti();
     void abilita_click_singolo_utenti();

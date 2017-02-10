@@ -96,6 +96,53 @@ void listariviste::aggiorna_vista_prestito_riviste(){
                 emit tabella_vuota();
             }
 }
+void listariviste::ricerca( const QString text){
+
+    int row=0;
+
+        if(!((get_model())->vuoto()))
+        {
+             int id;
+             QString i;
+             contenitore<opera>::iteratore it;
+             bool trovata=false;
+             for(it=(get_model())->db_begin(); it!=(get_model())->db_end(); it++)
+             {
+
+                    rivista* r=visualizzaopera((*it));
+                    if(r && text==r->GetTitolo())
+                    {
+                        Getable()->setRowCount(row+1);
+                        info_opera rivista=r->info_tot();
+                        id=(r)->GetId();
+                        i.setNum(id);
+                        trovata=true;
+                        QTableWidgetItem *ID = new QTableWidgetItem(i);
+                        QTableWidgetItem *valore = new QTableWidgetItem(rivista.get_titolo());
+                        QTableWidgetItem *annouscita = new QTableWidgetItem(rivista.get_dettaglio());
+                        QTableWidgetItem *tipo = new QTableWidgetItem((r)->Get_tipo());
+
+                        Getable()->setItem(row,0,ID);
+                        Getable()->setItem(row,1,valore);
+                        Getable()->setItem(row,2,annouscita);
+                        Getable()->setItem(row,3,tipo);
+                        row++;
+                    }
+
+             }
+             if(trovata==false)
+             {
+                 Getable()->setRowCount(row);
+                 aggiorna_vista();
+             }
+
+        }
+        else{
+                Getable()->setRowCount(row);
+                emit tabella_vuota();
+            }
+
+}
 
 rivista* listariviste::visualizzaopera(opera *op) const {
     return dynamic_cast<rivista*>(op);

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>75</max>
+    <max>131</max>
     <opera>
         <Tipo>1</Tipo>
         <Titolo>1984</Titolo>
@@ -51,14 +51,6 @@
     </opera>
     <opera>
         <Tipo>2</Tipo>
-        <Titolo>Airone</Titolo>
-        <Id>28</Id>
-        <Appartenenza>4</Appartenenza>
-        <Stato>0</Stato>
-        <AnnoUscita>2004</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
         <Titolo>Focus</Titolo>
         <Id>38</Id>
         <Appartenenza>7</Appartenenza>
@@ -72,5 +64,45 @@
         <Appartenenza>4</Appartenenza>
         <Stato>0</Stato>
         <AnnoUscita>2004</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>National geographic</Titolo>
+        <Id>95</Id>
+        <Appartenenza>8</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2009</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>122</Id>
+        <Appartenenza>6</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2003</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Ciccio gamer</Titolo>
+        <Id>123</Id>
+        <Appartenenza>6</Appartenenza>
+        <Stato>0</Stato>
+        <Autore>Io me e me stesso</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus junior</Titolo>
+        <Id>124</Id>
+        <Appartenenza>6</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2016</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>131</Id>
+        <Appartenenza>4</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2005</AnnoUscita>
     </opera>
 </database>

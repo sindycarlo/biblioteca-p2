@@ -59,8 +59,6 @@ private:
     QLabel* Numop;                  //Numero opere in prestito
     QLineEdit* Numopere;
 
-    void registra_utente() const;
-    void elimina_registrazione_utente() const;
 
 
 

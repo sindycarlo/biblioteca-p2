@@ -17,6 +17,7 @@ void c_utentewindow::ricevilibroDB(unsigned int id) {
     utente* user=modelutenti->trova_utente(Getidutente());
     user->ricevi_libro(id);
     view->aggiorna_vista();
+
 }
 
 void c_utentewindow::ricevirivistaDB(unsigned int id) {

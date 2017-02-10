@@ -17,6 +17,7 @@ public:
     virtual void Write_opera(QXmlStreamWriter& XmlWriter) const;
     virtual QString Get_tipo() const;
     virtual info_opera info_tot() const;
+
 };
 
 

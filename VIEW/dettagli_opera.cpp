@@ -2,7 +2,7 @@
 
 dettagli_opera::dettagli_opera(int ID, database* db,database_utente* udb,database_utente_opere* uodb) :  Widget_Padre(db,udb,uodb),id(ID)
 {
-    registra();
+
     //set lable
        submit=new QPushButton("CONFERMA");
        exit=new QPushButton("ESCI");
@@ -102,7 +102,7 @@ void dettagli_opera::closeEvent(QCloseEvent*){
 
 
 dettagli_opera::~dettagli_opera(){
-    elimina_registrazione();
+
 
     delete paletteLine;
     delete grid;
@@ -121,6 +121,3 @@ dettagli_opera::~dettagli_opera(){
     delete consultabile;
 }
 
-void dettagli_opera::registra() const{ get_model()->add_registro(const_cast<dettagli_opera*> (this)); }
-
-void dettagli_opera::elimina_registrazione() const { get_model()->remove_registro(const_cast<dettagli_opera*> (this)); }

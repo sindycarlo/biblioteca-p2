@@ -75,36 +75,6 @@ void listautenti::set_style(){
     table->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
 
-void listautenti::build_Nuova(const contenitore<utente>& lista){
-    int row=0;
-    if(!(lista.empty()))
-    {
-         int id;
-         QString i;
-         contenitore<utente>::iteratore it;
-
-         for(it=lista.begin(); it!=lista.end(); it++)
-         {
-            table->setRowCount(row+1);
-            id=(*it)->GetID();
-            i.setNum(id);
-
-            QTableWidgetItem *ID = new QTableWidgetItem(i);
-            QTableWidgetItem *nome = new QTableWidgetItem((*it)->GetNome());
-            QTableWidgetItem *cognome = new QTableWidgetItem((*it)->GetCognome());
-
-            table->setItem(row,0,ID);
-            table->setItem(row,1,nome);
-            table->setItem(row,2,cognome);
-            row++;
-         }
-    }
-    else{
-            table->setRowCount(row);
-            emit tabella_vuota_utenti();
-        }
-}
-
 
 void listautenti::doppio_click_utenti(int r){
     select_utente=table->item(r,0)->text().toInt();
@@ -139,5 +109,43 @@ void listautenti::abilita_click_singolo_utenti(){
 void listautenti::disabilita_click_singolo_utenti(){
     disconnect(table,SIGNAL(cellClicked(int,int)),this,SLOT(click_singolo_utenti(int)));
     emit disabilita_funzioni_utenti();
+}
+
+
+void listautenti::ricerca(const QString text){
+
+    int row=0;
+
+        if(!((get_modelutenti())->vuoto()))
+        {
+             int id;
+             QString i;
+             bool trovato=false;
+             contenitore<utente>::iteratore it;
+             for(it=(get_modelutenti())->dbutenti_begin(); it!=(get_modelutenti())->dbutenti_end(); it++)
+             {
+
+                id=(*it)->GetID();
+                utente*u=get_modelutenti()->trova_utente(id);
+                if(u && u->GetNome()==text)
+                {table->setRowCount(row+1);
+                i.setNum(id);
+                trovato=true;
+                QTableWidgetItem *ID = new QTableWidgetItem(i);
+                QTableWidgetItem *nome = new QTableWidgetItem((*it)->GetNome());
+                QTableWidgetItem *cognome = new QTableWidgetItem((*it)->GetCognome());
+
+                table->setItem(row,0,ID);
+                table->setItem(row,1,nome);
+                table->setItem(row,2,cognome);
+                row++;
+                }
+             }
+             if(trovato==false) aggiorna_vista();
+        }
+        else{
+                table->setRowCount(row);
+                aggiorna_vista();
+            }
 }
 

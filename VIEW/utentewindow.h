@@ -51,6 +51,7 @@ private slots:
     void modifica_campo_rivista(int);
     void modifica_campo_libro_prestito(int);
     void modifica_campo_rivista_prestito(int);
+    void ricerca_opera(QString);
     void chiudi();
 private:
      unsigned int idutente;
@@ -72,6 +73,9 @@ private:
     int libro_selezionato;
     int rivista_selezionata;
 
+    QLabel* r;
+    QLineEdit* ricerca;
+    QGridLayout* gridu;
 
     QPushButton* ricevi_libro;
     QPushButton* ricevi_rivista;

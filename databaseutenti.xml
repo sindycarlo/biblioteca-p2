@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseutenti>
-    <max>8</max>
+    <max>9</max>
     <utente>
         <Tipoutente>2</Tipoutente>
         <Nome>gianni</Nome>
@@ -8,7 +8,7 @@
         <CodiceFiscale>GBDGEH468JDHFG39KK</CodiceFiscale>
         <Idutente>8</Idutente>
         <Password>gbarbin</Password>
-        <NumeroOpere>1</NumeroOpere>
+        <NumeroOpere>2</NumeroOpere>
     </utente>
     <utente>
         <Tipoutente>1</Tipoutente>
@@ -35,6 +35,6 @@
         <CodiceFiscale>ABSGDTEUJ6728DGBZ</CodiceFiscale>
         <Idutente>6</Idutente>
         <Password>abarbui</Password>
-        <NumeroOpere>0</NumeroOpere>
+        <NumeroOpere>3</NumeroOpere>
     </utente>
 </databaseutenti>
