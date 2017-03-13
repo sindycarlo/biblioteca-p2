@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>131</max>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>1984</Titolo>
-        <Id>73</Id>
-        <Appartenenza>7</Appartenenza>
-        <Stato>0</Stato>
-        <Autore>George orwell</Autore>
-    </opera>
+    <max>177</max>
     <opera>
         <Tipo>2</Tipo>
         <Titolo>Focus</Titolo>
-        <Id>68</Id>
-        <Appartenenza>7</Appartenenza>
-        <Stato>0</Stato>
-        <AnnoUscita>2009</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il libro della giungla</Titolo>
-        <Id>59</Id>
-        <Appartenenza>4</Appartenenza>
-        <Stato>0</Stato>
-        <Autore>Moogly</Autore>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>57</Id>
-        <Appartenenza>8</Appartenenza>
-        <Stato>0</Stato>
-        <AnnoUscita>1999</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>48</Id>
+        <Id>173</Id>
         <Appartenenza>4</Appartenenza>
         <Stato>0</Stato>
         <AnnoUscita>2009</AnnoUscita>
-    </opera>
-    <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Il sentiero dei nidi di ragno</Titolo>
-        <Id>46</Id>
-        <Appartenenza>4</Appartenenza>
-        <Stato>0</Stato>
-        <Autore>Italo calvino</Autore>
-    </opera>
-    <opera>
-        <Tipo>2</Tipo>
-        <Titolo>Focus</Titolo>
-        <Id>38</Id>
-        <Appartenenza>7</Appartenenza>
-        <Stato>0</Stato>
-        <AnnoUscita>2003</AnnoUscita>
     </opera>
     <opera>
         <Tipo>2</Tipo>
         <Titolo>Airone</Titolo>
-        <Id>44</Id>
+        <Id>172</Id>
         <Appartenenza>4</Appartenenza>
         <Stato>0</Stato>
         <AnnoUscita>2004</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>166</Id>
+        <Appartenenza>4</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2006</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>National Geographic</Titolo>
+        <Id>156</Id>
+        <Appartenenza>4</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2008</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>155</Id>
+        <Appartenenza>4</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2005</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus junior</Titolo>
+        <Id>124</Id>
+        <Appartenenza>6</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2016</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Ciccio gamer</Titolo>
+        <Id>123</Id>
+        <Appartenenza>6</Appartenenza>
+        <Stato>0</Stato>
+        <Autore>Io me e me stesso</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>122</Id>
+        <Appartenenza>6</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2003</AnnoUscita>
     </opera>
     <opera>
         <Tipo>2</Tipo>
@@ -76,33 +76,33 @@
     <opera>
         <Tipo>2</Tipo>
         <Titolo>Focus</Titolo>
-        <Id>122</Id>
-        <Appartenenza>6</Appartenenza>
+        <Id>38</Id>
+        <Appartenenza>7</Appartenenza>
         <Stato>0</Stato>
         <AnnoUscita>2003</AnnoUscita>
     </opera>
     <opera>
-        <Tipo>1</Tipo>
-        <Titolo>Ciccio gamer</Titolo>
-        <Id>123</Id>
-        <Appartenenza>6</Appartenenza>
-        <Stato>0</Stato>
-        <Autore>Io me e me stesso</Autore>
-    </opera>
-    <opera>
         <Tipo>2</Tipo>
-        <Titolo>Focus junior</Titolo>
-        <Id>124</Id>
-        <Appartenenza>6</Appartenenza>
+        <Titolo>Focus</Titolo>
+        <Id>57</Id>
+        <Appartenenza>8</Appartenenza>
         <Stato>0</Stato>
-        <AnnoUscita>2016</AnnoUscita>
+        <AnnoUscita>1999</AnnoUscita>
     </opera>
     <opera>
         <Tipo>2</Tipo>
         <Titolo>Focus</Titolo>
-        <Id>131</Id>
-        <Appartenenza>4</Appartenenza>
+        <Id>68</Id>
+        <Appartenenza>7</Appartenenza>
         <Stato>0</Stato>
-        <AnnoUscita>2005</AnnoUscita>
+        <AnnoUscita>2009</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>1984</Titolo>
+        <Id>73</Id>
+        <Appartenenza>7</Appartenenza>
+        <Stato>0</Stato>
+        <Autore>George orwell</Autore>
     </opera>
 </database>

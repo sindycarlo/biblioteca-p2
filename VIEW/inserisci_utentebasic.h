@@ -38,13 +38,11 @@ private:
     QLabel* co;              //cognome
     QLabel* cf;      //codicefiscale
     QLabel* psw;           //password
-    QLabel* Numop;           //numero opere in prestito
 
     QLineEdit* nome;
     QLineEdit* cognome;
     QLineEdit* codicefiscale;
     QLineEdit* password;
-    QLineEdit* Numeropere;
 
 
     QVBoxLayout* layout;

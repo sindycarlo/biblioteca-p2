@@ -2,7 +2,7 @@
 
 
 //faccio l'include del file xml:
-QString database_utente::filename="../biblioteca-p2/databaseutenti.xml";
+QString database_utente::filename="databaseutenti.xml";
 
 
 

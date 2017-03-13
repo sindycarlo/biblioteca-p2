@@ -13,13 +13,14 @@
 #include "widget_padre.h"
 
 #include "../MODEL/database_utente.h"
+#include "../MODEL/amministratore.h"
 
 
 class homewindow : public Widget_Padre
 {
     Q_OBJECT
 public:
-    explicit homewindow(database*,database_utente*,database_utente_opere*);
+    explicit homewindow(database*,database_utente*,database_utente_opere*,amministratore*);
     virtual void aggiorna_vista();
     virtual void costruisci_contenuto();
     virtual void set_style();
@@ -44,6 +45,7 @@ private:
     QPushButton* accedicomeadmin;
     QPushButton* accedicomeutente;
     QPushButton* exit;
+    amministratore* admin;
 
     QLabel* au;
     QLabel* ap;

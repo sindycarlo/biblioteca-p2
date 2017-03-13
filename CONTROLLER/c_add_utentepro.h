@@ -11,14 +11,14 @@ class c_add_utentepro : public QObject
 {
     Q_OBJECT
 public:
-    explicit c_add_utentepro(database_utente* , inserisci_utentepro* ,mainWindow* , QObject *parent = 0);
+    explicit c_add_utentepro(amministratore* , inserisci_utentepro* ,mainWindow* , QObject *parent = 0);
 
 public slots:
     void add_utentepro(const info_utente&);
     void chiudi_add_utentepro();
 
 private:
-    database_utente* model;
+    amministratore* admin;
     inserisci_utentepro* view;
     mainWindow* mainW;
 };

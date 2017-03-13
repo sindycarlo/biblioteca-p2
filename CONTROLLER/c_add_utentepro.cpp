@@ -1,6 +1,6 @@
 #include "c_add_utentepro.h"
 
-c_add_utentepro::c_add_utentepro(database_utente* udb,inserisci_utentepro* up ,mainWindow* mv, QObject *parent):QObject(parent),model(udb),
+c_add_utentepro::c_add_utentepro(amministratore* a,inserisci_utentepro* up ,mainWindow* mv, QObject *parent):QObject(parent),admin(a),
                                                                                            view(up),
                                                                                            mainW(mv)
 
@@ -12,7 +12,7 @@ c_add_utentepro::c_add_utentepro(database_utente* udb,inserisci_utentepro* up ,m
 
 
 void c_add_utentepro::add_utentepro(const info_utente& up){
-    model->add_utentepro(up);
+    admin->add_utente_pro(up);
     mainW->aggiorna_vista();
 }
 

@@ -1,6 +1,6 @@
 #include "c_add_utentebasic.h"
 
-c_add_utentebasic::c_add_utentebasic(database_utente* udb,inserisci_utentebasic* ub ,mainWindow* mv, QObject *parent):QObject(parent),model(udb),
+c_add_utentebasic::c_add_utentebasic(amministratore* a,inserisci_utentebasic* ub ,mainWindow* mv, QObject *parent):QObject(parent),admin(a),
                                                                                            view(ub),
                                                                                            mainW(mv)
 
@@ -12,7 +12,7 @@ c_add_utentebasic::c_add_utentebasic(database_utente* udb,inserisci_utentebasic*
 
 
 void c_add_utentebasic::add_utentebasic(const info_utente& ub){
-    model->add_utentebasic(ub);
+    admin->add_utente_basic(ub);
     mainW->aggiorna_vista();
 }
 

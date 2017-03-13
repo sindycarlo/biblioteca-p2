@@ -28,7 +28,7 @@ class mainWindow : public Widget_Padre
 {
     Q_OBJECT
 public:
-    explicit mainWindow(database*,database_utente*,database_utente_opere*,homewindow*);
+    explicit mainWindow(database*,database_utente*,database_utente_opere*,homewindow*,amministratore*);
     virtual void aggiorna_vista();
     virtual void costruisci_contenuto();
     void disabilita_view();
@@ -92,6 +92,8 @@ private:
 
     QHBoxLayout* orizzontale;
     QVBoxLayout* Prlayout, *bottoni;
+
+    amministratore* admin;
 
 
     void creaLayout();

@@ -2,7 +2,7 @@
 #include "MODEL/rivista.h"
 
 //faccio l'include del file xml:
-QString database_utente_opere::filename="../biblioteca-p2/opereutenti.xml";
+QString database_utente_opere::filename="opereutenti.xml";
 
 
 

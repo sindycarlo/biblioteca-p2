@@ -11,14 +11,14 @@ class c_add_utentebasic : public QObject
 {
     Q_OBJECT
 public:
-    explicit c_add_utentebasic(database_utente* , inserisci_utentebasic* ,mainWindow* , QObject *parent = 0);
+    explicit c_add_utentebasic(amministratore* , inserisci_utentebasic* ,mainWindow* , QObject *parent = 0);
 
 public slots:
     void add_utentebasic(const info_utente&);
     void chiudi_add_utentebasic();
 
 private:
-    database_utente* model;
+    amministratore* admin;
     inserisci_utentebasic* view;
     mainWindow* mainW;
 };

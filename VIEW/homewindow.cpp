@@ -1,8 +1,9 @@
 #include "homewindow.h"
 #include<QApplication>
 #include<QToolTip>
-homewindow::homewindow(database* db,database_utente* udb,database_utente_opere* uodb) : Widget_Padre(db,udb,uodb) {
+homewindow::homewindow(database* db,database_utente* udb,database_utente_opere* uodb,amministratore* a) : Widget_Padre(db,udb,uodb), admin(a) {
 
+    setWindowFlags ( Qt::CustomizeWindowHint | Qt::WindowTitleHint);
     //bottoni
       exit=new QPushButton("ESCI");
       accedicomeadmin=new QPushButton("ACCEDI COME AMMINISTRATORE");
@@ -56,7 +57,8 @@ void homewindow::aggiorna_vista() {
     adminpassword->clear();
 }
 void homewindow::slot_accedi() {
-    if(adminuser->text().isEmpty() || adminpassword->text().isEmpty() || adminuser->text()!="admin" || adminpassword->text()!="admin")
+
+    if(adminuser->text().isEmpty() || adminpassword->text().isEmpty() || admin->Getusername()!=adminuser->text() || admin->Getpassword()!=adminpassword->text() )
     {
             QMessageBox warning;
             warning.setIcon(QMessageBox::Critical);
@@ -66,7 +68,7 @@ void homewindow::slot_accedi() {
             warning.setDefaultButton(QMessageBox::Ok);
             warning.exec();
         }
-        else if(adminuser->text()=="admin" && adminpassword->text()=="admin")
+        else if(adminuser->text()==admin->Getusername() && adminpassword->text()==admin->Getpassword())
                 {aggiorna_vista();emit show_accedi();}
 
 }
@@ -152,6 +154,10 @@ homewindow::~homewindow(){
 
     delete accedicomeadmin;
     delete exit;
+    delete nu;
+    delete np;
+    delete gridadmin;
+    delete gridutente;
     delete accedicomeutente;
     delete adminuser;
     delete adminpassword;

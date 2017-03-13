@@ -11,14 +11,14 @@ class c_add_libro : public QObject
 {
     Q_OBJECT
 public:
-    explicit c_add_libro(database* , inserisci_Libro* ,mainWindow* , QObject *parent = 0);
+    explicit c_add_libro(amministratore* , inserisci_Libro* ,mainWindow* , QObject *parent = 0);
 
 public slots:
     void add(const info_opera&);
     void chiudi_add_libro();
 
 private:
-    database* model;
+    amministratore* admin;
     inserisci_Libro* view;
     mainWindow* mainW;
 };

@@ -9,12 +9,13 @@
 #include "../CONTROLLER/c_add_libro.h"
 #include "../CONTROLLER/c_add_utentebasic.h"
 #include "../CONTROLLER/c_add_utentepro.h"
+#include "../MODEL/amministratore.h"
 
 class C_mainWindow : public QObject
 {
     Q_OBJECT
 public:
-    explicit C_mainWindow(database* ,database_utente*,database_utente_opere*, mainWindow* , QObject *parent=0);
+    explicit C_mainWindow(mainWindow* ,amministratore*, QObject *parent=0);
 
 private slots:
     void rimuovi_operaDB(int);
@@ -26,10 +27,10 @@ private slots:
     void chiudi_mainwindow();
 
 private:
-    database* model;
-    database_utente* modelutenti;
-    database_utente_opere* modelutenteopere;
+
+
     mainWindow* view;
+    amministratore* admin;
 
     inserisci_Rivista* insR;
     c_add_rivista * c_R;

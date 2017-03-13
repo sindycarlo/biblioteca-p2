@@ -11,14 +11,14 @@ class c_add_rivista : public QObject
 {
     Q_OBJECT
 public:
-    explicit c_add_rivista(database*, inserisci_Rivista*,mainWindow*,QObject* parent =0);
+    explicit c_add_rivista(amministratore*, inserisci_Rivista*,mainWindow*,QObject* parent =0);
 
 private slots:
     void add(const info_opera&);
     void chiudi_add_rivista();
 
 private:
-    database* model;
+    amministratore* admin;
     inserisci_Rivista* view;
     mainWindow* mainW;
 };

@@ -6,7 +6,6 @@
 #include<QXmlStreamReader>
 #include<QString>
 #include<vector>
-#include <QXmlQuery>
 
 #include "info_utente.h"
 #include "database.h"

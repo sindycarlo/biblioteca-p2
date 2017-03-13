@@ -1,7 +1,7 @@
 #include "MODEL/database.h"
 
 //faccio l'include del file xml:
-QString database::filename="../biblioteca-p2/database.xml";
+QString database::filename="database.xml";
 
 
 
@@ -173,28 +173,3 @@ info_opera database::get_infoOpera(int ID) const{
 }
 
 
-
-void database::aggiorna_view() const{
-    std::vector<Widget_Padre*>::const_iterator it=registro.begin();
-    std::vector<Widget_Padre*>::const_iterator it_e=registro.end();
-    for(; it<it_e; ++it) (*it)->aggiorna_vista();
-}
-
-
-void database::add_registro(Widget_Padre* wp){
-    registro.push_back(wp);
-}
-
-
-void database::remove_registro(Widget_Padre* wp){
-    std::vector<Widget_Padre*>::iterator it=registro.begin();
-    std::vector<Widget_Padre*>::iterator it_e=registro.end();
-    bool trovato=false;
-    for(; it<it_e && !trovato; ++it)
-    {
-        if((*it)==wp){
-            trovato=true;
-            registro.erase(it);
-        }
-    }
-}

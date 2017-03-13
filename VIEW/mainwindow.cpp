@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include<QApplication>
 #include<QToolTip>
-mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*uodb,homewindow* hw) : Widget_Padre(db,udb,uodb),finestraprinc(hw) {
+mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*uodb,homewindow* hw, amministratore* a) : Widget_Padre(db,udb,uodb),finestraprinc(hw),admin(a) {
 
     setWindowFlags ( Qt::CustomizeWindowHint | Qt::WindowTitleHint);
 
@@ -54,8 +54,8 @@ mainWindow::mainWindow(database* db,database_utente* udb,database_utente_opere*u
 
 void mainWindow::set_style(){
     Widget_Padre::set_style();
-    tablibri->setToolTip("Doppio click per visualizzare i dettagli dell'opera");
-    tabutenti->setToolTip("Doppio click per visualizzare i dettagli dell'utente");
+    tablibri->setToolTip("Doppio click per modificare un'opera");
+    tabutenti->setToolTip("Doppio click per modificare un utente");
     ricerca->setPlaceholderText("Ricerca per Titolo di un'opera");
     ricercautente->setPlaceholderText("Ricerca per Nome di un utente");
 }
@@ -88,8 +88,8 @@ void mainWindow::abilita_view() {
     tablibri->abilita_click_singolo();
     tabutenti->abilita_doppio_click_utenti();
     tabutenti->abilita_click_singolo_utenti();
-    rimuovi_opera->setEnabled(true);
-    rimuovi_utenti->setEnabled(true);
+    rimuovi_opera->setEnabled(false);
+    rimuovi_utenti->setEnabled(false);
     aggiungi_libro->setEnabled(true);
     aggiungi_rivista->setEnabled(true);
     aggiungi_utente_basic->setEnabled(true);

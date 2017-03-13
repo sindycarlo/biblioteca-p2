@@ -10,14 +10,12 @@ inserisci_utentebasic::inserisci_utentebasic(QWidget *parent) : QWidget(parent){
     co=new QLabel("COGNOME:");
     cf=new QLabel("CODICEFISCALE:");
     psw=new QLabel("PASSWORD:");
-    Numop=new QLabel("NUMERO OPERE:");
 
 
     nome=new QLineEdit();
     cognome=new QLineEdit();
     codicefiscale=new QLineEdit();
     password=new QLineEdit();
-    Numeropere=new QLineEdit();
 
     grid=new QGridLayout();
     layout=new QVBoxLayout();
@@ -35,7 +33,6 @@ void inserisci_utentebasic::build_Layout(){
     grid->addWidget(co,1,0); grid->addWidget(cognome,1,1);
     grid->addWidget(cf,2,0); grid->addWidget(codicefiscale,2,1);
     grid->addWidget(psw,3,0); grid->addWidget(password,3,1);
-    grid->addWidget(Numop,4,0); grid->addWidget(Numeropere,4,1);
     layout->addLayout(grid);
     layout->addWidget(submit);
     layout->addWidget(exit);
@@ -49,7 +46,7 @@ void inserisci_utentebasic::slot_submit(){
     if(nome->text().isEmpty() || nome->text().isNull() ||  cognome->text().isEmpty() || cognome->text().isNull()
               ||codicefiscale->text().isEmpty() || codicefiscale->text().isNull()
             ||password->text().isEmpty() || password->text().isNull()
-            ||Numeropere->text().isEmpty() || Numeropere->text().isNull())
+            )
     {
             QMessageBox warning;
             warning.setIcon(QMessageBox::Critical);
@@ -59,16 +56,8 @@ void inserisci_utentebasic::slot_submit(){
             warning.setDefaultButton(QMessageBox::Ok);
             warning.exec();
         }
-        else if(Numeropere->text().toInt()!=0 || !(re.exactMatch(Numeropere->text())))
-            {
-        QMessageBox warning;
-        warning.setIcon(QMessageBox::Critical);
-        warning.setWindowTitle("Impossibile inserire un nuovo utente basic");
-        warning.setText("Numero opere deve essere settato a 0");
-        warning.setStandardButtons(QMessageBox::Ok);
-        warning.setDefaultButton(QMessageBox::Ok);
-        warning.exec();
-            }else{
+
+            else{
                     QMessageBox warning;
                     warning.setIcon(QMessageBox::Question);
                     warning.setWindowTitle("Inserisci nuovo utente basic");
@@ -77,7 +66,7 @@ void inserisci_utentebasic::slot_submit(){
                     warning.setDefaultButton(QMessageBox::Cancel);
                     int ret = warning.exec();
                     if(ret==QMessageBox::Yes) {
-                        info_utente u(0,nome->text(),cognome->text(),"",password->text(),codicefiscale->text(),Numeropere->text());
+                        info_utente u(0,nome->text(),cognome->text(),"",password->text(),codicefiscale->text(),0);
                         emit submitub(u);
                         pulisci_Campi();
                             }
@@ -88,7 +77,6 @@ void inserisci_utentebasic::pulisci_Campi(){
     cognome->clear();
     codicefiscale->clear();
     password->clear();
-    Numeropere->clear();
 }
 
 void inserisci_utentebasic::centra_finestra(){
@@ -125,11 +113,11 @@ inserisci_utentebasic::~inserisci_utentebasic(){
      delete co;
      delete cf;
      delete psw;
-     delete Numop;
+
 
      delete nome;
      delete cognome;
      delete codicefiscale;
      delete password;
-     delete Numeropere;
+
  }

@@ -1,7 +1,7 @@
 #include "c_add_libro.h"
 
-c_add_libro::c_add_libro(database* db,inserisci_Libro* v ,mainWindow* mv, QObject *parent):
-                                                                                           QObject(parent),model(db),
+c_add_libro::c_add_libro(amministratore* a,inserisci_Libro* v ,mainWindow* mv, QObject *parent):
+                                                                                           QObject(parent),admin(a),
                                                                                            view(v),mainW(mv)
 {
     mainW->disabilita_view();
@@ -11,8 +11,8 @@ c_add_libro::c_add_libro(database* db,inserisci_Libro* v ,mainWindow* mv, QObjec
 
 
 void c_add_libro::add(const info_opera& op){
-    model->add_Libro(op);
+    admin->add_libro(op);
     mainW->aggiorna_vista();
 }
 
-void c_add_libro::chiudi_add_libro(){mainW->abilita_view(); delete view; }
+void c_add_libro::chiudi_add_libro(){mainW->abilita_view(); delete view;}

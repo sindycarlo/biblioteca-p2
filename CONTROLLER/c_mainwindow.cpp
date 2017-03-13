@@ -1,6 +1,6 @@
 #include "c_mainwindow.h"
 
-C_mainWindow::C_mainWindow(database* db,database_utente* udb,database_utente_opere* uodb,mainWindow* v, QObject *parent) :  QObject(parent),model(db),modelutenti(udb),modelutenteopere(uodb),view(v) {
+C_mainWindow::C_mainWindow(mainWindow* v,amministratore* a, QObject *parent) :  QObject(parent),view(v),admin(a) {
     connect(view,SIGNAL(rimuovi(int)),this,SLOT(rimuovi_operaDB(int)));
     connect(view,SIGNAL(rimuovi_utente(int)),this,SLOT(rimuovi_utenteDB(int)));
     connect(view,SIGNAL(show_inserisci_rivista()),this,SLOT(inserisci_rivistaDB()));
@@ -12,35 +12,35 @@ C_mainWindow::C_mainWindow(database* db,database_utente* udb,database_utente_ope
 }
 
 void C_mainWindow::rimuovi_operaDB(int ID){
-    model->remove_opera(ID);
+    admin->rimuovi_opera(ID);
     view->aggiorna_vista();
 }
 void C_mainWindow::rimuovi_utenteDB(int ID){
-    modelutenti->remove_utente(ID);
+    admin->rimuovi_utente(ID);
     view->aggiorna_vista();
 }
 
 void C_mainWindow::inserisci_rivistaDB(){
     insR=new inserisci_Rivista();
-    c_R=new c_add_rivista(model,insR,view);
+    c_R=new c_add_rivista(admin,insR,view);
     insR->show();
 
 
 }
 void C_mainWindow::inserisci_libroDB(){
     insL=new inserisci_Libro();
-    c_L=new c_add_libro(model,insL,view);
+    c_L=new c_add_libro(admin,insL,view);
     insL->show();
 }
 
 void C_mainWindow::inserisci_utentebasicDB(){
     insUB=new inserisci_utentebasic();
-    c_UB=new c_add_utentebasic(modelutenti,insUB,view);
+    c_UB=new c_add_utentebasic(admin,insUB,view);
     insUB->show();
 }
 void C_mainWindow::inserisci_utenteproDB(){
     insUP=new inserisci_utentepro();
-    c_UP=new c_add_utentepro(modelutenti,insUP,view);
+    c_UP=new c_add_utentepro(admin,insUP,view);
     insUP->show();
 }
 

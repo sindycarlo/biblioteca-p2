@@ -1,6 +1,6 @@
 #include "c_add_rivista.h"
 #include<QApplication>
-c_add_rivista::c_add_rivista(database* db,inserisci_Rivista* v ,mainWindow* mv, QObject *parent):QObject(parent),model(db),
+c_add_rivista::c_add_rivista(amministratore* a,inserisci_Rivista* v ,mainWindow* mv, QObject *parent):QObject(parent),admin(a),
                                                                                                  view(v),
                                                                                                  mainW(mv)
 
@@ -12,10 +12,10 @@ c_add_rivista::c_add_rivista(database* db,inserisci_Rivista* v ,mainWindow* mv, 
 
 
 void c_add_rivista::add(const info_opera& op){
-    model->add_Rivista(op);
+    admin->add_rivista(op);
     mainW->aggiorna_vista();
 }
 
-void c_add_rivista::chiudi_add_rivista(){mainW->abilita_view(); delete view; }
+void c_add_rivista::chiudi_add_rivista(){mainW->abilita_view(); delete view;}
 
 
