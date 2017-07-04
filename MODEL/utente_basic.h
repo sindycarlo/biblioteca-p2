@@ -7,8 +7,6 @@
 
 
 class utente_basic : public utente {
-private:
-
 public:
     utente_basic(database*,unsigned int,QString,QString,QString,QString);              //costruttore a 0,5 parametri (id del nuovo utente sarà id=maxid+1)
 

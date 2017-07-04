@@ -33,7 +33,7 @@ void inserisci_Libro::build_Layout(){
 
 
 void inserisci_Libro::slot_submit(){
-    if(titolo->text().isEmpty() || titolo->text().isNull() ||  autore->text().isEmpty() || autore->text().isNull())
+    if(titolo->text().isEmpty() || autore->text().isEmpty())
     {
             QMessageBox warning;
             warning.setIcon(QMessageBox::Critical);
@@ -48,8 +48,8 @@ void inserisci_Libro::slot_submit(){
             warning.setIcon(QMessageBox::Question);
             warning.setWindowTitle("Inserisci nuovo libro");
             warning.setText("Sei sicuro di voler inserire il libro <b>"+titolo->text()+"</b>");
-            warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
-            warning.setDefaultButton(QMessageBox::Cancel);
+            warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+            warning.setDefaultButton(QMessageBox::Yes);
             int ret = warning.exec();
             if(ret==QMessageBox::Yes) {
                 info_opera op(titolo->text(),"disponibile","",autore->text(),"presente");

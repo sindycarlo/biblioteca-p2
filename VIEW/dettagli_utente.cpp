@@ -97,7 +97,7 @@ void dettagli_utente::disabilita_modifica(){
 
 }
 void dettagli_utente::slot_submit(){
-    if(nome->text().isEmpty() || nome->text().isNull() ||  cognome->text().isEmpty() || cognome->text().isNull())
+    if(nome->text().isEmpty() || cognome->text().isEmpty())
     {
             QMessageBox warning;
             warning.setIcon(QMessageBox::Critical);
@@ -112,8 +112,8 @@ void dettagli_utente::slot_submit(){
             warning.setIcon(QMessageBox::Question);
             warning.setWindowTitle("Modifica a utente");
             warning.setText("Sei sicuro di voler modificare l'utente <b>"+nome->text()+"</b>");
-            warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
-            warning.setDefaultButton(QMessageBox::Cancel);
+            warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+            warning.setDefaultButton(QMessageBox::Yes);
             int ret = warning.exec();
             if(ret==QMessageBox::Yes) {
             emit modifica_utente(nome->text(),cognome->text(),identificativo->text().toInt());

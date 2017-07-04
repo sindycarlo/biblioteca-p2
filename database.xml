@@ -1,2 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<database/>
+<database>
+    <max>50</max>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Io sono Leggenda</Titolo>
+        <Id>29</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Will Smith</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il Barone Rampante</Titolo>
+        <Id>28</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Italo Calvino</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>La Storia Semplice</Titolo>
+        <Id>27</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>Leonardo Sciascia</Autore>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il Signore degli Anelli 2</Titolo>
+        <Id>26</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>J. R. R. Tolkien</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>9</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>1982</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>8</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>2009</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>7</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>1978</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Biblioteca</Titolo>
+        <Id>38</Id>
+        <Appartenenza>5</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2008</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il Signore degli Anelli 1</Titolo>
+        <Id>42</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <Autore>J. R. R. Tolkien</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Panorama</Titolo>
+        <Id>45</Id>
+        <Appartenenza>5</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>1999</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>1</Tipo>
+        <Titolo>Il Cavaliere Inesistente</Titolo>
+        <Id>48</Id>
+        <Appartenenza>8</Appartenenza>
+        <Stato>0</Stato>
+        <Autore>Italo Calvino</Autore>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Panorama</Titolo>
+        <Id>49</Id>
+        <Appartenenza>8</Appartenenza>
+        <Stato>0</Stato>
+        <AnnoUscita>2017</AnnoUscita>
+    </opera>
+    <opera>
+        <Tipo>2</Tipo>
+        <Titolo>Focus</Titolo>
+        <Id>50</Id>
+        <Appartenenza>-1</Appartenenza>
+        <Stato>1</Stato>
+        <AnnoUscita>1994</AnnoUscita>
+    </opera>
+</database>

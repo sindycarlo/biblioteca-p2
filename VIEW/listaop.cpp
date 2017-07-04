@@ -86,7 +86,3 @@ QVBoxLayout* listaOp::Getlayout_table() const {
 }
 
 
-
-
-
-

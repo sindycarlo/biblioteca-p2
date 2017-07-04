@@ -18,15 +18,13 @@ class listalibri : public listaOp
     Q_OBJECT
 public:
     explicit listalibri(unsigned int,database*,database_utente*,amministratore*);
-    void aggiorna_vista();
-    void ricerca(const QString);
-    void aggiorna_vista_prestito_libri();
-    void costruisci_contenuto();
-    unsigned int Getidutente() const;
-    amministratore* getadmin() const;
+    virtual void aggiorna_vista();
+    virtual void ricerca(const QString);
+    void aggiornalibri();
+    virtual void costruisci_contenuto();
     virtual libro* visualizzaopera(opera*) const;
 private:
-    unsigned int idutente;
+    unsigned int identificativo;
     amministratore* admin;
 };
 #endif // LISTALIBRI_H

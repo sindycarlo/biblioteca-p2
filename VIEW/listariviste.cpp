@@ -1,13 +1,14 @@
 #include"listariviste.h"
 
-listariviste::listariviste(unsigned int id,database* db,database_utente* udb,amministratore* a):listaOp(db,udb),idutente(id), admin(a){
+listariviste::listariviste(unsigned int id,database* db,database_utente* udb,amministratore* a):listaOp(db,udb),identificativo(id), admin(a){
     costruisci_contenuto();
 }
 
 void listariviste::costruisci_contenuto(){ aggiorna_vista(); }
 
-void listariviste::aggiorna_vista(){
+void listariviste::aggiorna_vista(){ aggiornariviste(); }
 
+void listariviste::aggiornariviste(){
     int row=0;
 
         if(!((get_model())->vuoto()))
@@ -20,7 +21,7 @@ void listariviste::aggiorna_vista(){
              {
 
                     rivista* r=visualizzaopera((*it));
-                    if(r && r->Getappartenenza()==-1)
+                    if(r && r->Getappartenenza()==identificativo)
                     {
                         Getable()->setRowCount(row+1);
                         info_opera rivista=r->info_tot();
@@ -52,48 +53,7 @@ void listariviste::aggiorna_vista(){
                 emit tabella_vuota();
             }
 }
-void listariviste::aggiorna_vista_prestito_riviste(){
 
-    int row=0;
-        if(!((get_model())->vuoto()))
-        {
-             int id;
-             QString i;
-             bool trovato=false;
-             contenitore<opera>::iteratore it;
-             for(it=(get_model())->db_begin(); it!=(get_model())->db_end(); it++)
-             {
-                 rivista* r=visualizzaopera((*it));
-                 if(r && (*it)->Getappartenenza()==idutente)
-                {
-                    Getable()->setRowCount(row+1);
-                    info_opera rivista=r->info_tot();
-                    id=(*it)->GetId();
-                    i.setNum(id);
-                    trovato=true;
-                    QTableWidgetItem *ID = new QTableWidgetItem(i);
-                    QTableWidgetItem *valore = new QTableWidgetItem(rivista.get_titolo());
-                    QTableWidgetItem *annouscita = new QTableWidgetItem(rivista.get_dettaglio());
-                    QTableWidgetItem *tipo = new QTableWidgetItem(r->Get_tipo());
-
-                    Getable()->setItem(row,0,ID);
-                    Getable()->setItem(row,1,valore);
-                    Getable()->setItem(row,2,annouscita);
-                    Getable()->setItem(row,3,tipo);
-                    row++;
-                 }
-             }
-             if(trovato==false)
-             {
-                 Getable()->setRowCount(row);
-                 emit tabella_vuota();
-             }
-        }
-        else{
-                Getable()->setRowCount(row);
-                emit tabella_vuota();
-            }
-}
 void listariviste::ricerca( const QString text){
 
     int row=0;
@@ -104,7 +64,7 @@ void listariviste::ricerca( const QString text){
              QString i;
              bool trovata=true;
              bool ok=false;
-             utente*u=get_modelutenti()->trova_utente(idutente);
+             utente*u=get_modelutenti()->trova_utente(identificativo);
              contenitore<opera>::iteratore it;
              for(it=(get_model())->db_begin(); it!=(get_model())->db_end(); it++)
              {

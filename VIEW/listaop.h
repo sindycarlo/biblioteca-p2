@@ -23,7 +23,7 @@ public:
     QTableWidget* Getable() const;
     QVBoxLayout* Getlayout_table()const;
     void abilita_doppio_click();
-
+    virtual void ricerca(const QString) =0;
     void disabilita_doppio_click();
     void abilita_click_singolo();
     void disabilita_click_singolo();

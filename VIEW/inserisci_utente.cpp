@@ -15,6 +15,7 @@ inserisci_utente::inserisci_utente(QWidget *parent) : QWidget(parent){
     cognome=new QLineEdit();
     codicefiscale=new QLineEdit();
     password=new QLineEdit();
+    password->setEchoMode(QLineEdit::Password);
 
     tipu= new QComboBox();
     tipu->addItem("Utente Basic");
@@ -46,10 +47,7 @@ void inserisci_utente::build_Layout(){
 
 void inserisci_utente::slot_submit(){
     QRegExp re("\\d*");
-    if(nome->text().isEmpty() || nome->text().isNull() ||  cognome->text().isEmpty() || cognome->text().isNull()
-              ||codicefiscale->text().isEmpty() || codicefiscale->text().isNull()
-            ||password->text().isEmpty() || password->text().isNull()
-            )
+    if(nome->text().isEmpty() ||  cognome->text().isEmpty() || codicefiscale->text().isEmpty() || password->text().isEmpty())
     {
             QMessageBox warning;
             warning.setIcon(QMessageBox::Critical);
@@ -64,8 +62,8 @@ void inserisci_utente::slot_submit(){
         warning.setIcon(QMessageBox::Question);
         warning.setWindowTitle("Inserisci nuovo utente ");
         warning.setText("Sei sicuro di voler inserire l'utente  <b>"+nome->text()+"</b>");
-        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
-        warning.setDefaultButton(QMessageBox::Cancel);
+        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        warning.setDefaultButton(QMessageBox::Yes);
         int ret = warning.exec();
         if(ret==QMessageBox::Yes) {
             info_utente u(0,nome->text(),cognome->text(),"",password->text(),codicefiscale->text(),0,tipu->currentText());

@@ -36,34 +36,31 @@ void utente::Setnome(QString n) {Nome=n;}
 
 void utente::Setcognome(QString cn) {Cognome=cn;}
 
+unsigned int utente::Getnumeroopere() const{return numeroopere;}
 unsigned int& utente::setnumeroopere() {return numeroopere;}
-unsigned int utente::Getnumeroopere() const {return numeroopere;}
-
-database* utente::GetopereBiblioteca() const {return opereBiblioteca;}
-
 
 
 void utente::restituisci_libro(unsigned int id) {
-    opera*op=GetopereBiblioteca()->trova_opera(GetID(),id);
+    opera*op=opereBiblioteca->trova_opera(GetID(),id);
     if(op!=0)
     {
-        setnumeroopere()--;
+        numeroopere--;
         info_opera o=op->info_tot();
-        GetopereBiblioteca()->remove_opera(GetID(),id);
-        GetopereBiblioteca()->aggiungi_libro(o,-1);
+        opereBiblioteca->remove_opera(GetID(),id);
+        opereBiblioteca->aggiungi_libro(o,-1);
 
     }
     else std::cout<<"Errore libro non in prestito";
 }
 
 void utente::restituisci_rivista(unsigned int id) {
-    opera*op=GetopereBiblioteca()->trova_opera(GetID(),id);
+    opera*op=opereBiblioteca->trova_opera(GetID(),id);
     if(op!=0)
     {
-        setnumeroopere()--;
+        numeroopere--;
         info_opera o=op->info_tot();
-         GetopereBiblioteca()->remove_opera(GetID(),id);
-        GetopereBiblioteca()->aggiungi_rivista(o,-1);
+         opereBiblioteca->remove_opera(GetID(),id);
+        opereBiblioteca->aggiungi_rivista(o,-1);
 
     }
     else std::cout<<"Errore rivista non in prestito";
@@ -75,26 +72,26 @@ info_utente utente::infoutente() const {
     QString id;
     id.setNum(GetID());
     QString tp;
-    tp.setNum(Getnumeroopere());
-    return info_utente(GetopereBiblioteca(),GetNome(),GetCognome(),id,GetPassword(),GetCodicefiscale(),tp,Get_tipo_utente());
+    tp.setNum(numeroopere);
+    return info_utente(opereBiblioteca,GetNome(),GetCognome(),id,GetPassword(),GetCodicefiscale(),tp,Get_tipo_utente());
 }
 
 
 
 void utente::ricevi_libro(unsigned int id) {
 
-        info_opera op=GetopereBiblioteca()->get_infoOpera(-1,id);
-        GetopereBiblioteca()->remove_opera(-1,id);
-        GetopereBiblioteca()->aggiungi_libro(op,GetID());
-        setnumeroopere()++;
+        info_opera op=opereBiblioteca->get_infoOpera(-1,id);
+        opereBiblioteca->remove_opera(-1,id);
+        opereBiblioteca->aggiungi_libro(op,GetID());
+        numeroopere++;
 }
 
 void utente::ricevi_rivista(unsigned int id) {
 
-        info_opera op=GetopereBiblioteca()->get_infoOpera(-1,id);
-        GetopereBiblioteca()->aggiungi_rivista(op,GetID());
-        setnumeroopere()++;
-        GetopereBiblioteca()->remove_opera(-1,id);
+        info_opera op=opereBiblioteca->get_infoOpera(-1,id);
+        opereBiblioteca->aggiungi_rivista(op,GetID());
+        numeroopere++;
+        opereBiblioteca->remove_opera(-1,id);
 
 }
 

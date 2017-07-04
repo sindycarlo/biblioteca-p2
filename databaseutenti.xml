@@ -1,2 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<databaseutenti/>
+<databaseutenti>
+    <max>8</max>
+    <utente>
+        <Tipoutente>1</Tipoutente>
+        <Nome>Carlo</Nome>
+        <Cognome>Sindico</Cognome>
+        <CodiceFiscale>SNDCRL943748GFRT</CodiceFiscale>
+        <Idutente>5</Idutente>
+        <Password>carlo</Password>
+        <NumeroOpere>2</NumeroOpere>
+    </utente>
+    <utente>
+        <Tipoutente>1</Tipoutente>
+        <Nome>Francesco</Nome>
+        <Cognome>Sindico</Cognome>
+        <CodiceFiscale>FNDSRL88123GHFL</CodiceFiscale>
+        <Idutente>8</Idutente>
+        <Password>francesco</Password>
+        <NumeroOpere>2</NumeroOpere>
+    </utente>
+</databaseutenti>

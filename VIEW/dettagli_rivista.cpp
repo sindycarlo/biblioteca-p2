@@ -33,7 +33,7 @@ void dettagli_Rivista::set_style(){
 void dettagli_Rivista::slot_submit(){
     QRegExp re("\\d*");
     QDate time=QDate::currentDate();
-    if(Gettitolo()->text().isEmpty() || Gettitolo()->text().isNull() ||  anno->text().isEmpty() || anno->text().isNull())
+    if(Gettitolo()->text().isEmpty() ||  anno->text().isEmpty())
     {
             QMessageBox warning;
             warning.setIcon(QMessageBox::Critical);
@@ -56,8 +56,8 @@ void dettagli_Rivista::slot_submit(){
                 warning.setIcon(QMessageBox::Question);
                 warning.setWindowTitle("Modifica a rivista");
                 warning.setText("Sei sicuro di voler modificare la rivista <b>"+Gettitolo()->text()+"</b>");
-                warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
-                warning.setDefaultButton(QMessageBox::Cancel);
+                warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+                warning.setDefaultButton(QMessageBox::Yes);
                 int ret = warning.exec();
                 if(ret==QMessageBox::Yes) {
                 emit modifica(Gettitolo()->text(),anno->text(),get_ID());

@@ -18,13 +18,13 @@ class listariviste : public listaOp
     Q_OBJECT
 public:
     explicit listariviste(unsigned int,database*,database_utente*,amministratore*);
-    void aggiorna_vista();
-    void ricerca(const QString);
-    void aggiorna_vista_prestito_riviste();
-    void costruisci_contenuto();
+    virtual void aggiorna_vista();
+    virtual void ricerca(const QString);
+    void aggiornariviste();
+    virtual void costruisci_contenuto();
     virtual rivista* visualizzaopera(opera*) const;
 private:
-    unsigned int idutente;
+    unsigned int identificativo;
     amministratore* admin;
 };
 #endif // LISTARIVISTE_H

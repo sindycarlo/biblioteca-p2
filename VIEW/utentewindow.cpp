@@ -5,9 +5,9 @@ utenteWindow::utenteWindow(unsigned int id,database* db,database_utente* udb,hom
 
     setWindowFlags ( Qt::CustomizeWindowHint | Qt::WindowTitleHint);
 
-    tablibri=new listalibri(Getidutente(),get_model(),get_modelutenti(),0);   //tabella con l'elenco dei libri
+    tablibri=new listalibri(-1,get_model(),get_modelutenti(),0);   //tabella con l'elenco dei libri
     controllerLB=new C_listalibri(get_model(),get_modelutenti(),tablibri,0,0);
-    tabriviste=new listariviste(Getidutente(),get_model(),get_modelutenti(),0);   //tabella con l'elenco deli libri
+    tabriviste=new listariviste(-1,get_model(),get_modelutenti(),0);   //tabella con l'elenco deli libri
     controllerRB=new C_listariviste(get_model(),get_modelutenti(),tabriviste,0,0);
     tablibriprestito=new listalibri(Getidutente(),get_model(),get_modelutenti(),0);   //tabella con l'elenco dei libri
     controllerLBprestito=new C_listalibri(get_model(),get_modelutenti(),tablibriprestito,0,0);
@@ -111,7 +111,7 @@ void utenteWindow::ricevi_segnale_libri(){
         warning.setWindowTitle("Ricevi Libro");
         warning.setText("Hai selezionato il libro con ID: <b>"+identificativo+"</b>");
         warning.setInformativeText("Vuoi veramente ricevere in prestito questa opera?");
-        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         warning.setDefaultButton(QMessageBox::Cancel);
         int ret = warning.exec();
         if(ret==QMessageBox::Yes) {
@@ -141,7 +141,7 @@ void utenteWindow::ricevi_segnale_riviste(){
             warning.setWindowTitle("Ricevi Rivista");
             warning.setText("Hai selezionato la rivista con ID: <b>"+identificativo+"</b>");
             warning.setInformativeText("Vuoi veramente ricevere in prestito questa opera?");
-            warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+            warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
             warning.setDefaultButton(QMessageBox::Cancel);
             int ret = warning.exec();
             if(ret==QMessageBox::Yes) {
@@ -157,7 +157,7 @@ void utenteWindow::restituisci_segnale_libri(){
         warning.setWindowTitle("Restituisci Libro");
         warning.setText("Hai selezionato il libro con ID: <b>"+identificativo+"</b>");
         warning.setInformativeText("Vuoi veramente restituire questa opera?");
-        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         warning.setDefaultButton(QMessageBox::Cancel);
         int ret = warning.exec();
         if(ret==QMessageBox::Yes) {
@@ -172,7 +172,7 @@ void utenteWindow::restituisci_segnale_riviste(){
         warning.setWindowTitle("Restituisci Rivista");
         warning.setText("Hai selezionato il libro con ID: <b>"+identificativo+"</b>");
         warning.setInformativeText("Vuoi veramente restituire questa opera?");
-        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         warning.setDefaultButton(QMessageBox::Cancel);
         int ret = warning.exec();
         if(ret==QMessageBox::Yes) {
@@ -219,8 +219,8 @@ void utenteWindow::aggiorna_vista(){
     disabilita_bottoni_riviste_prestito();
     tabriviste->aggiorna_vista();
     tablibri->aggiorna_vista();
-    tabrivisteprestito->aggiorna_vista_prestito_riviste();
-    tablibriprestito->aggiorna_vista_prestito_libri();
+    tabrivisteprestito->aggiorna_vista();
+    tablibriprestito->aggiorna_vista();
 
 
 }

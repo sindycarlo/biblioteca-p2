@@ -150,7 +150,7 @@ void mainWindow::rimuovi_segnale(){
         warning.setWindowTitle("Rimuovi Opera");
         warning.setText("Hai selezionato l'opera con ID: <b>"+identificativo+"</b>");
         warning.setInformativeText("Vuoi veramente eliminare questa opera?");
-        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         warning.setDefaultButton(QMessageBox::Cancel);
         int ret = warning.exec();
         if(ret==QMessageBox::Yes) {
@@ -186,7 +186,7 @@ void mainWindow::rimuovi_segnale_utenti(){
         warning.setWindowTitle("Rimuovi Utente");
         warning.setText("Hai selezionato l'utente con ID: <b>"+identificativo+"</b>");
         warning.setInformativeText("Vuoi veramente eliminare questo utente?");
-        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+        warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         warning.setDefaultButton(QMessageBox::Cancel);
         int ret = warning.exec();
         if(ret==QMessageBox::Yes) {

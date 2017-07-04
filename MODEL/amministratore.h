@@ -13,9 +13,6 @@ private:
  public:
     amministratore(const QString u, const QString p, database* op, database_utente* uop);
     ~amministratore();
-    //metodi get:
-    database* getdbopere() const;
-    database_utente* getdbutenti() const;
 
     //metodi propri di amministratore:
     const QString Getusername() const;

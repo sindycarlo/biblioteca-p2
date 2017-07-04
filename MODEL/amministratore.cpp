@@ -82,12 +82,12 @@ void amministratore::modifica_rivista(QString t, QString an, int id) {
 }
 
 bool amministratore::ricercautente(QString text, utente* u) const {
-    if(u->GetNome()==text || u->GetID()==text.toInt()) return true;
+    if(u->GetNome().contains(text) || u->GetID()==text.toInt()) return true;
     else return false;
 }
 
 bool amministratore::ricerca(QString text, opera* a) const {
-    if(a->GetTitolo()==text || a->GetId()==text.toInt())return true;
+    if(a->GetTitolo().contains(text) || a->GetId()==text.toInt())return true;
     else return false;
 
 }

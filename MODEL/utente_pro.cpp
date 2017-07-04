@@ -41,8 +41,8 @@ QString utente_pro::Get_tipo_utente() const {
 
 //metodo polimorfo di ricerca in base al tipo di utente:
 bool utente_pro::ricerca(const QString text, opera* op) const {
-    ///eseguo una ricerca per titolo dell' opera:
-    if((op->GetTitolo()==text || op->GetId()==text.toInt()) && op->Getappartenenza()==-1){
+    ///eseguo una ricerca per titolo  o id dell' opera:
+    if((op->GetTitolo().contains(text) || op->GetId()==text.toInt()) && op->Getappartenenza()==-1){
         return true;
     }else
     return false;

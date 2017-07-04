@@ -53,7 +53,6 @@ void dettagli_opera::set_style(){
 
 void dettagli_opera::costruisci_contenuto(){
     info_opera info_Op=(get_model())->get_infoOpera(-1,id);
-
     titolo->setText(info_Op.get_titolo());
     prestito->setText(info_Op.get_stato());
     identificativo->setText(info_Op.get_ID());

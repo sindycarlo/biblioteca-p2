@@ -36,7 +36,7 @@ void inserisci_Rivista::build_Layout(){
 void inserisci_Rivista::slot_submit(){
     QRegExp re("\\d*");
     QDate t=QDate::currentDate();
-    if(titolo->text().isEmpty() || titolo->text().isNull() ||  anno->text().isEmpty() || anno->text().isNull())
+    if(titolo->text().isEmpty() || anno->text().isEmpty())
     {
             QMessageBox warning;
             warning.setIcon(QMessageBox::Critical);
@@ -59,7 +59,7 @@ void inserisci_Rivista::slot_submit(){
             warning.setIcon(QMessageBox::Question);
             warning.setWindowTitle("Inserisci nuova rivista");
             warning.setText("Sei sicuro di voler inserire la rivista <b>"+titolo->text()+"</b>");
-            warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+            warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
             warning.setDefaultButton(QMessageBox::Cancel);
             int ret = warning.exec();
             if(ret==QMessageBox::Yes) {
