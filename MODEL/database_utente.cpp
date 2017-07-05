@@ -11,17 +11,12 @@ contenitore<utente>::iteratore database_utente::dbutenti_begin() {return dbutent
 contenitore<utente>::iteratore database_utente::dbutenti_end() {return dbutenti.end();}
 
 
-
-//creare un database significa caricare il file databaseutenti.xml:
-database_utente::database_utente(database* biblio) : biblioteca(biblio){database_utente::Load();}
-
-
 //"distruggere" un database significa fare la chiusura del file databaseutenti.xml:
 database_utente::~database_utente() {database_utente::Close();}
 
 
 //quando carico il database scrivo tutti gli utenti nel mio contenitore:
-void database_utente::Load() {
+void database_utente::Load(database* db) {
     QString nome="Sconosciuto",cognome="Sconosciuto",codicefiscale="Sconosciuto",password="Sconosciuto";
 
     unsigned int Tipoutente=0, idutente=-1, numopere=0,max=0;
@@ -78,8 +73,8 @@ void database_utente::Load() {
              if(xmlReader.isEndElement() && xmlReader.name()=="utente")
              {
 
-               if(Tipoutente==1) tmp=new utente_basic(GetDatabase(),numopere,nome,cognome,codicefiscale,password);
-               else tmp=new utente_pro(GetDatabase(),numopere,nome,cognome,codicefiscale,password);
+               if(Tipoutente==1) tmp=new utente_basic(db,numopere,nome,cognome,codicefiscale,password);
+               else tmp=new utente_pro(db,numopere,nome,cognome,codicefiscale,password);
                 tmp->SetID(idutente);
                 tmp->Set_maxid(max);
                 dbutenti.add_item(tmp);
@@ -149,16 +144,16 @@ bool database_utente::vuoto() const {return dbutenti.empty();}
 
 
 //aggiunge un utente basic al mio contenitore quindi al database:
-void database_utente::add_utentebasic(const info_utente& c) {
+void database_utente::add_utentebasic(const info_utente& c,database* db) {
     unsigned int dettaglio=c.get_dettaglio().toInt();
-    utente_basic*p=new utente_basic(GetDatabase(),dettaglio,c.get_nome(),c.get_cognome(),c.get_codicefiscale(),c.get_password());
+    utente_basic*p=new utente_basic(db,dettaglio,c.get_nome(),c.get_cognome(),c.get_codicefiscale(),c.get_password());
     dbutenti.add_item(p);
 }
 
 //aggiunge un utente pro al mio contenitore quindi al database:
-void database_utente::add_utentepro(const info_utente & c1) {
+void database_utente::add_utentepro(const info_utente & c1, database* db) {
     unsigned int dettaglio=c1.get_dettaglio().toInt();
-    utente_pro*p=new utente_pro(GetDatabase(),dettaglio,c1.get_nome(),c1.get_cognome(),c1.get_codicefiscale(),c1.get_password());
+    utente_pro*p=new utente_pro(db,dettaglio,c1.get_nome(),c1.get_cognome(),c1.get_codicefiscale(),c1.get_password());
     dbutenti.add_item(p);
 }
 
@@ -173,6 +168,4 @@ info_utente database_utente::get_infoUtente(int ID) const{
 }
 
 
-
-database* database_utente::GetDatabase() const {return biblioteca;}
 
