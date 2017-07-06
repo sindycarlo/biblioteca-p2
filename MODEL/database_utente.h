@@ -35,8 +35,6 @@ public:
     void add_utentebasic(const info_utente&,database*);                               //aggiunge un utente basic
     info_utente get_infoUtente(int) const;
     contenitore<utente>::iteratore db_iter;
-
-
     contenitore<utente>::iteratore dbutenti_begin();
     contenitore<utente>::iteratore dbutenti_end();
 

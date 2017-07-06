@@ -37,10 +37,7 @@ public:
     void aggiungi_libro(const info_opera&,unsigned int);                 //aggiunge un opera al database ossia al contenitore
     void aggiungi_rivista(const info_opera&,unsigned int);
     info_opera get_infoOpera(int,int) const;
-
-
     contenitore<opera>::iteratore db_iter;
-
     contenitore<opera>::iteratore db_begin();
     contenitore<opera>::iteratore db_end();
 
