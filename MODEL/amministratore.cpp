@@ -13,8 +13,8 @@ void amministratore::add_rivista(const info_opera & op) {
 
 void amministratore::add_utente(const info_utente & u) {
        if(u.get_tipoutente()=="Utente Basic")
-           dbutenti->add_utentebasic(u);
-       else if(u.get_tipoutente()=="Utente Pro")dbutenti->add_utentepro(u);
+           dbutenti->add_utentebasic(u,dbopere);
+       else if(u.get_tipoutente()=="Utente Pro")dbutenti->add_utentepro(u,dbopere);
 }
 
 void amministratore::rimuovi_opera(int id) {
@@ -34,9 +34,7 @@ int amministratore::autenticaUtente(int u, QString p, bool& trovato) const{
     //cerco utente nel database degli utenti con quel nome e quella password:
     trovato=false;
     utente* ut=dbutenti->trova_utente(u);
-    if(ut && ut->Getpassword()==p){trovato=true; return ut->GetID();}
-
-
+    if(ut && ut->GetPassword()==p) {trovato=true; return ut->GetID();}
 }
 
 

@@ -10,7 +10,7 @@ homewindow::homewindow(database* db,database_utente* udb,amministratore* a) : Wi
       accedicomeutente=new QPushButton("ACCEDI COME UTENTE");
 
     //Label
-      us=new QLabel("username:");
+      us=new QLabel("username/id:");
       passw=new QLabel("password:");
 
 

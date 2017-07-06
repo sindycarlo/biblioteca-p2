@@ -10,8 +10,8 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     database db;
-    database_utente dbutenti(&db);
-
+    database_utente dbutenti;
+    dbutenti.Load(&db);
     amministratore ab("admin","admin",&db,&dbutenti);
     homewindow finestra(&db,&dbutenti,&ab);
     c_homewindow home(&db,&dbutenti,&finestra,&ab);

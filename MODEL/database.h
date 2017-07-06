@@ -22,10 +22,12 @@ private:
     //campi dati
     static QString filename;
     contenitore<opera> db;                                     //creo il contenitore leggendo il file xml
-    void Load();
-    void Close();                                       //salva tutti i cambiamenti eseguiti dall'utente nel file XML
+
 
 public:
+    void Load();
+    void Close();                                    //salva tutti i cambiamenti eseguiti dall'utente nel file XML
+
      database();
     ~database();
 
